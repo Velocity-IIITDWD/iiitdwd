@@ -13,7 +13,7 @@ export async function dispatchWorkflow({
 }) {
   const repoURL = process.env.DEPLOY_REPO_URL;
   const productionWorkflow = process.env.DEPLOY_WORKFLOW;
-  const betaWorkflow = process.env.DEPLOY_BETA_WORKFLOW;
+  const betaWorkflow = process.env.DEPLOY_STAGING_WORKFLOW;
   const ref = process.env.DEPLOY_REF;
 
   try {

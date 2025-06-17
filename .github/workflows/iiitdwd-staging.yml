@@ -15,7 +15,6 @@ jobs:
     with:
       deploy_path: beta
     secrets:
-      SSH_KEY: ${{ secrets.SSH_KEY }}
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
       SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}

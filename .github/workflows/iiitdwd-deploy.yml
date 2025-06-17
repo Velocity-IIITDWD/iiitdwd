@@ -8,8 +8,6 @@ on:
         type: string
         description: "The path to deploy to (e.g., public_html or beta)"
     secrets:
-      SSH_KEY:
-        required: true
       SSH_HOST:
         required: true
       SSH_USERNAME:
@@ -72,13 +70,6 @@ jobs:
         run: |
           cd apps/iiitdwd/out
           tar -czf ../../../deploy.tar.gz .
-
-      - name: 🔐 Set up SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: 🔐 Install sshpass
         run: sudo apt-get install -y sshpass

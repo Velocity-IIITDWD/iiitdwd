@@ -26,14 +26,13 @@ This document lists all the required environment variables for running the proje
 | `GITHUB_PAT`                    | GitHub personal access token          | Development, Production |
 | `DEPLOY_REPO_URL`               | Repository URL for deployment         | Development, Production |
 | `DEPLOY_WORKFLOW`               | GitHub workflow file name             | Development, Production |
-| `DEPLOY_BETA_WORKFLOW`          | GitHub workflow file name for staging | Development, Production |
+| `DEPLOY_STAGING_WORKFLOW`       | GitHub workflow file name for staging | Development, Production |
 | `DEPLOY_REF`                    | Git reference for deployment          | Development, Production |
 
 ## GitHub Workflow Secrets
 
 | Secret                 | Description                    | Required For     |
 | ---------------------- | ------------------------------ | ---------------- |
-| `SSH_KEY`              | SSH private key for deployment | Production CI/CD |
 | `SSH_HOST`             | SSH host address               | Production CI/CD |
 | `SSH_USERNAME`         | SSH username                   | Production CI/CD |
 | `SSH_PASSWORD`         | SSH password                   | Production CI/CD |
