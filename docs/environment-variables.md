@@ -47,7 +47,7 @@ This document lists all the required environment variables for running the proje
 | `VERCEL_TOKEN`         | Vercel deployment token        | Content CI/CD    |
 | `VERCEL_ORG_ID`        | Vercel organization ID         | Content CI/CD    |
 | `VERCEL_PROJECT_ID`    | Vercel project ID              | Content CI/CD    |
-| `GITHUB_TOKEN`         | GitHub token for Vercel deploy | Content CI/CD    |
+| `GH_TOKEN`             | GitHub token for Vercel deploy | Content CI/CD    |
 
 ## Development Setup
 
