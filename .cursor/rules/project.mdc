@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Setup and Development Guidelines
+
+## Package Management
+- This project strictly uses [pnpm](mdc:https:/pnpm.io) as the package manager
+- This is a monorepo using @turborepo
+
+## UI Framework and Styling
+- The project uses [Tailwind CSS](mdc:https:/tailwindcss.com) for styling
+- [shadcn/ui](mdc:https:/ui.shadcn.com) components are used for the UI library, use the shadcn cli / registry.
+- Custom components should follow shadcn/ui's component structure
+
+## Best Practices
+1. Always use TypeScript for type safety
+2. Follow the component structure of shadcn/ui
+3. Keep components modular and reusable
+4. Use pnpm for all package management tasks
+5. Follow the project's established coding standards
+
+## Apps
+
+- iiitdwd : The main landing page for iiitdwd.ac.in
+- content : The CMS portal for `iiitdwd`
+
+## Base File Structure
+```
+├── apps/                    # Application packages
+│   ├── iiitdwd/             # Main Institute Website
+│   └── content/             # Sanity CMS for iiitdwd
+├── packages/               # Shared packages
+│   ├── config/           # Shared configuration
+│   │   ├── eslint/       # ESLint configuration
+│   │   ├── typescript/   # TypeScript configuration
+├── turbo.json            # Turborepo configuration
+├── pnpm-workspace.yaml   # PNPM workspace configuration
+├── package.json          # Root package.json
+└── pnpm-lock.yaml        # PNPM lock file
+```

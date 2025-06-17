@@ -1,0 +1,65 @@
+# Environment Variables Documentation
+
+This document lists all the required environment variables for running the project and GitHub CI workflows.
+
+## Project Environment Variables
+
+### IIITDWD App
+
+| Variable            | Description         | Required For            |
+| ------------------- | ------------------- | ----------------------- |
+| `SANITY_PROJECT_ID` | Sanity project ID   | Development, Production |
+| `SANITY_DATASET`    | Sanity dataset name | Development, Production |
+
+### Content App
+
+| Variable                        | Description                           | Required For            |
+| ------------------------------- | ------------------------------------- | ----------------------- |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sanity project ID                     | Development, Production |
+| `NEXT_PUBLIC_SANITY_DATASET`    | Sanity dataset name                   | Development, Production |
+| `FTP_HOST`                      | FTP host for deployment               | Development, Production |
+| `FTP_USER`                      | FTP username for deployment           | Development, Production |
+| `FTP_PASS`                      | FTP password for deployment           | Development, Production |
+| `IMAGES_FTP_HOST`               | FTP host for image uploads            | Development, Production |
+| `IMAGES_FTP_USER`               | FTP username for image uploads        | Development, Production |
+| `IMAGES_FTP_PASS`               | FTP password for image uploads        | Development, Production |
+| `GITHUB_PAT`                    | GitHub personal access token          | Development, Production |
+| `DEPLOY_REPO_URL`               | Repository URL for deployment         | Development, Production |
+| `DEPLOY_WORKFLOW`               | GitHub workflow file name             | Development, Production |
+| `DEPLOY_BETA_WORKFLOW`          | GitHub workflow file name for staging | Development, Production |
+| `DEPLOY_REF`                    | Git reference for deployment          | Development, Production |
+
+## GitHub Workflow Secrets
+
+| Secret                 | Description                    | Required For     |
+| ---------------------- | ------------------------------ | ---------------- |
+| `SSH_KEY`              | SSH private key for deployment | Production CI/CD |
+| `SSH_HOST`             | SSH host address               | Production CI/CD |
+| `SSH_USERNAME`         | SSH username                   | Production CI/CD |
+| `SSH_PASSWORD`         | SSH password                   | Production CI/CD |
+| `SANITY_DATASET`       | Sanity dataset name            | Production CI/CD |
+| `SANITY_PROJECT_ID`    | Sanity project ID              | Production CI/CD |
+| `FTP_SERVER`           | Production FTP server          | Production CI/CD |
+| `FTP_USERNAME`         | Production FTP username        | Production CI/CD |
+| `FTP_PASSWORD`         | Production FTP password        | Production CI/CD |
+| `STAGING_FTP_SERVER`   | Staging FTP server             | Staging CI/CD    |
+| `STAGING_FTP_USERNAME` | Staging FTP username           | Staging CI/CD    |
+| `STAGING_FTP_PASSWORD` | Staging FTP password           | Staging CI/CD    |
+| `VERCEL_TOKEN`         | Vercel deployment token        | Content CI/CD    |
+| `VERCEL_ORG_ID`        | Vercel organization ID         | Content CI/CD    |
+| `VERCEL_PROJECT_ID`    | Vercel project ID              | Content CI/CD    |
+| `GITHUB_TOKEN`         | GitHub token for Vercel deploy | Content CI/CD    |
+
+## Development Setup
+
+```bash
+cp apps/iiitdwd/.env.example apps/iiitdwd/.env.local
+cp apps/content/.env.example apps/content/.env.local
+```
+
+## Security Notes
+
+1. Never commit `.env.local` files containing sensitive information
+2. Always use `.env.example` for documenting required variables
+3. Keep your SSH and FTP credentials secure and rotate them periodically
+4. Use different Sanity project IDs for development and production environments
