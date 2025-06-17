@@ -5,6 +5,10 @@
 
 ---
 
+### Fixes
+
+- Get rid of postbuild script in the iiitdwd for the sitemap. Use updated next-sitemap package and it's standalone config. (maybe or not)
+
 ### CI
 
 - Resolve all linting and formatting issues!
