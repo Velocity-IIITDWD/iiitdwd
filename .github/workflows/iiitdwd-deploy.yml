@@ -64,7 +64,7 @@ jobs:
         env:
           SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
-        run: pnpm run build --filter=iiitdwd
+        run: pnpm run build --filter=iiitdwd.ac.in
 
       - name: 📦 Prepare deployment
         run: |
