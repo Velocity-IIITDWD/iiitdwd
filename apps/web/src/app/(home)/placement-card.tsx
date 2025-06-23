@@ -1,5 +1,5 @@
-'use client';
-import { IconArrowUpRight } from '@tabler/icons-react';
+"use client";
+import { IconArrowUpRight } from "@tabler/icons-react";
 import {
   BarElement,
   CategoryScale,
@@ -7,10 +7,10 @@ import {
   Legend,
   LinearScale,
   Title,
-  Tooltip
-} from 'chart.js';
-import Link from 'next/link';
-import { Bar } from 'react-chartjs-2';
+  Tooltip,
+} from "chart.js";
+import Link from "next/link";
+import { Bar } from "react-chartjs-2";
 
 // Register Chart.js components
 ChartJS.register(
@@ -72,50 +72,50 @@ export default function PlacementCard() {
             maintainAspectRatio: false,
             plugins: {
               legend: {
-                position: 'top',
-                align: 'end',
+                position: "top",
+                align: "end",
                 labels: {
                   boxWidth: 12,
-                  usePointStyle: true
-                }
+                  usePointStyle: true,
+                },
               },
               title: {
-                display: false
-              }
+                display: false,
+              },
             },
             scales: {
               y: {
                 beginAtZero: true,
                 grid: {
-                  display: true
-                }
+                  display: true,
+                },
               },
               x: {
                 grid: {
-                  display: false
-                }
-              }
-            }
+                  display: false,
+                },
+              },
+            },
           }}
           data={{
-            labels: ['Average CTC', 'Median CTC', 'Highest CTC'],
+            labels: ["Average CTC", "Median CTC", "Highest CTC"],
             datasets: [
               {
-                label: '2023',
+                label: "2023",
                 data: [10.31, 7.85, 35],
-                backgroundColor: 'rgba(136, 132, 216, 0.8)'
+                backgroundColor: "rgba(136, 132, 216, 0.8)",
               },
               {
-                label: '2024',
+                label: "2024",
                 data: [9.57, 8, 46],
-                backgroundColor: 'rgba(130, 202, 157, 0.8)'
+                backgroundColor: "rgba(130, 202, 157, 0.8)",
               },
               {
-                label: '2025',
+                label: "2025",
                 data: [11.9, 9.34, 71.94],
-                backgroundColor: 'rgba(255, 198, 88, 0.8)'
-              }
-            ]
+                backgroundColor: "rgba(255, 198, 88, 0.8)",
+              },
+            ],
           }}
         />
       </div>

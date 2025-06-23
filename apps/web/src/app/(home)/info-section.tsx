@@ -1,12 +1,12 @@
-import director from '@/assets/director.jpg';
-import { IconArrowUpRight } from '@tabler/icons-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import AppointmentDialog from './appointment-dialog';
-import EventsSection from './events';
-import NotificationSection from './notification';
-import PlacementCard from './placement-card';
-import ModernSocialMediaGrid from './social-media';
+import director from "@/assets/director.jpg";
+import { IconArrowUpRight } from "@tabler/icons-react";
+import Image from "next/image";
+import Link from "next/link";
+import AppointmentDialog from "./appointment-dialog";
+import EventsSection from "./events";
+import NotificationSection from "./notification";
+import PlacementCard from "./placement-card";
+import ModernSocialMediaGrid from "./social-media";
 
 export default function InfoSection() {
   return (
@@ -46,7 +46,7 @@ export default function InfoSection() {
                 width={220}
                 height={220}
                 className="object-cover object-center rounded transition-transform duration-500 group-hover:scale-105"
-                style={{ maxHeight: 200, width: 'auto', maxWidth: '100%' }}
+                style={{ maxHeight: 200, width: "auto", maxWidth: "100%" }}
                 priority
               />
             </div>
@@ -147,7 +147,7 @@ export default function InfoSection() {
           <PlacementCard />
 
           <Link
-            href={'/admission'}
+            href={"/admission"}
             className="[grid-area:6/2] md:[grid-area:6/2/span_1/span_2] lg:[grid-area:4/2] flex flex-col p-6 justify-end relative hover:bg-secondary/30 group transition-all duration-300"
           >
             <IconArrowUpRight
@@ -156,12 +156,12 @@ export default function InfoSection() {
             />
 
             <Image
-              src={'https://iiitdwd.ac.in/images/admission_2025.jpeg'}
+              src={"https://iiitdwd.ac.in/images/admission_2025.jpeg"}
               alt="Director of IIIT Dharwad"
               width={220}
               height={300}
               className="object-contain mb-4 object-center rounded transition-transform duration-500 group-hover:scale-101"
-              style={{ width: 'auto', maxWidth: '100%' }}
+              style={{ width: "auto", maxWidth: "100%" }}
               priority
             />
             <div className="text-title-1 font-semibold">Admissions 2025</div>

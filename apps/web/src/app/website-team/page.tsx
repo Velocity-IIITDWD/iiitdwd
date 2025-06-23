@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ChevronDown,
   ChevronUp,
   Github,
   Linkedin,
   Mail,
-  Twitter
-} from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+  Twitter,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
-import { Badge } from '@/components/ui/badge';
-import { data as teamMembers } from '@/data/website-team';
+import { Badge } from "@/components/ui/badge";
+import { data as teamMembers } from "@/data/website-team";
 
 const MotionLink = motion(Link);
 
@@ -26,18 +26,18 @@ export default function TeamPage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const toggleSkills = (id: string) => {
-    setExpandedSkills((prev) => ({
+    setExpandedSkills(prev => ({
       ...prev,
-      [id]: !prev[id]
+      [id]: !prev[id],
     }));
   };
 
   // Particle animation setup
   useEffect(() => {
-    const canvas = document.getElementById('particles') as HTMLCanvasElement;
+    const canvas = document.getElementById("particles") as HTMLCanvasElement;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     canvas.width = window.innerWidth;
@@ -62,7 +62,7 @@ export default function TeamPage() {
           speedX: Math.random() * 1 - 0.5,
           speedY: Math.random() * 1 - 0.5,
           color: `hsl(${Math.random() * 60 + 200}, 70%, 60%)`,
-          opacity: Math.random() * 0.5 + 0.1
+          opacity: Math.random() * 0.5 + 0.1,
         });
       }
     };
@@ -99,10 +99,10 @@ export default function TeamPage() {
       canvas.height = window.innerHeight;
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -142,7 +142,7 @@ export default function TeamPage() {
               transition={{
                 duration: 0.6,
                 delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1]
+                ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{ scale: 1.02 }}
               onHoverStart={() => setHoveredMember(member.id)}
@@ -160,7 +160,7 @@ export default function TeamPage() {
                     transition={{ duration: 0.4 }}
                   >
                     <Image
-                      src={member.image || '/placeholder.svg'}
+                      src={member.image || "/placeholder.svg"}
                       alt={`Photo of ${member.name}`}
                       fill
                       className="object-cover"
@@ -251,8 +251,8 @@ export default function TeamPage() {
                       whileTap={{ scale: 0.9 }}
                       aria-label={
                         expandedSkills[member.id]
-                          ? 'Collapse skills'
-                          : 'Expand skills'
+                          ? "Collapse skills"
+                          : "Expand skills"
                       }
                     >
                       {expandedSkills[member.id] ? (
@@ -266,7 +266,7 @@ export default function TeamPage() {
                   <div className="relative mt-2">
                     {/* Always visible skills */}
                     <div className="flex flex-wrap gap-1">
-                      {member.skills.slice(0, 3).map((skill) => (
+                      {member.skills.slice(0, 3).map(skill => (
                         <Badge
                           key={skill}
                           variant="secondary"
@@ -292,13 +292,13 @@ export default function TeamPage() {
                       {expandedSkills[member.id] && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
+                          animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.3 }}
                           className="mt-2 overflow-hidden"
                         >
                           <div className="flex flex-wrap gap-1">
-                            {member.skills.slice(3).map((skill) => (
+                            {member.skills.slice(3).map(skill => (
                               <Badge
                                 key={skill}
                                 variant="secondary"

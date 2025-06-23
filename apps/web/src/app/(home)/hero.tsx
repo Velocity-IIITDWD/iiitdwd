@@ -1,7 +1,7 @@
-'use client';
-import { QuickLink } from '@/components/quick-link';
-import { Marquee } from '@/components/ui/marquee';
-import Image from 'next/image';
+"use client";
+import { QuickLink } from "@/components/quick-link";
+import { Marquee } from "@/components/ui/marquee";
+import Image from "next/image";
 
 export default function LandingSection({ data }: { data: string[] }) {
   const half = Math.ceil(data.length / 2);
@@ -24,7 +24,7 @@ export default function LandingSection({ data }: { data: string[] }) {
                 loading="lazy"
                 quality={75}
                 priority={false}
-                sizes={'100%'}
+                sizes={"100%"}
               />
             ))}
           </Marquee>
@@ -40,7 +40,7 @@ export default function LandingSection({ data }: { data: string[] }) {
                 loading="lazy"
                 quality={75}
                 priority={false}
-                sizes={'100%'}
+                sizes={"100%"}
               />
             ))}
           </Marquee>

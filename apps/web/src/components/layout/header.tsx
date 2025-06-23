@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import Logo from '@/assets/layout/Logo.webp';
-import { Mail, Menu, X } from 'lucide-react';
+import Logo from "@/assets/layout/Logo.webp";
+import { Mail, Menu, X } from "lucide-react";
 import {
   AnimatePresence,
   motion,
   useMotionValueEvent,
-  useScroll
-} from 'motion/react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRef, useState } from 'react';
-import { Button } from '../ui/button';
-import DesktopHeader from './desktop-header';
-import MobileHeader from './mobile-header';
+  useScroll,
+} from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRef, useState } from "react";
+import { Button } from "../ui/button";
+import DesktopHeader from "./desktop-header";
+import MobileHeader from "./mobile-header";
 
 function AnimatedNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +22,7 @@ function AnimatedNavbar() {
   const { scrollY } = useScroll();
 
   // Use useMotionValueEvent to detect when scroll passes threshold
-  useMotionValueEvent(scrollY, 'change', (latest) => {
+  useMotionValueEvent(scrollY, "change", latest => {
     // Only trigger state change when crossing the threshold
     if (latest > 0 && !isScrolled) {
       setIsScrolled(true);
@@ -32,7 +32,7 @@ function AnimatedNavbar() {
   });
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => {
+    setIsMenuOpen(prev => {
       const newState = !prev;
       // if (newState) {
       //   document.documentElement.style.overflow = 'hidden';
@@ -46,16 +46,16 @@ function AnimatedNavbar() {
   // Updated logo variants with responsive heights
   const logoVariants = {
     initial: {
-      height: 'clamp(4rem, 6vw, 6rem)' // Responsive height: 4rem on small screens, up to 6rem on larger screens
+      height: "clamp(4rem, 6vw, 6rem)", // Responsive height: 4rem on small screens, up to 6rem on larger screens
     },
     scrolled: {
-      height: 'clamp(3rem, 4.5vw, 4.5rem)' // Responsive height: 3rem on small screens, up to 4.5rem on larger screens
-    }
+      height: "clamp(3rem, 4.5vw, 4.5rem)", // Responsive height: 3rem on small screens, up to 4.5rem on larger screens
+    },
   };
 
   const textVariants = {
-    initial: { opacity: 1, x: '0%', scale: 1 },
-    scrolled: { opacity: 0, x: '-100%', scale: 0.5 }
+    initial: { opacity: 1, x: "0%", scale: 1 },
+    scrolled: { opacity: 0, x: "-100%", scale: 0.5 },
   };
 
   return (
@@ -74,12 +74,12 @@ function AnimatedNavbar() {
           </a>
         </div>
         <div className="flex gap-3 flex-wrap">
-          <Link href={'https://aims.iiitdwd.ac.in/aims/'}>AIMS</Link>
-          <Link href={'https://iiitdwd.ac.in/pdfs/RTI.pdf'}>RTI</Link>
-          <Link href={'/academics/nirf'}>NIRF</Link>
+          <Link href={"https://aims.iiitdwd.ac.in/aims/"}>AIMS</Link>
+          <Link href={"https://iiitdwd.ac.in/pdfs/RTI.pdf"}>RTI</Link>
+          <Link href={"/academics/nirf"}>NIRF</Link>
           <Link
             href={
-              'https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=873279'
+              "https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=873279"
             }
           >
             Students Fee Portal
@@ -88,11 +88,11 @@ function AnimatedNavbar() {
       </div>
       <motion.header
         ref={headerRef}
-        initial={{ height: 'clamp(5rem, 7vw, 7rem)' }} // Also make header height responsive
+        initial={{ height: "clamp(5rem, 7vw, 7rem)" }} // Also make header height responsive
         animate={{
           height: isScrolled
-            ? 'clamp(4rem, 5vw, 5rem)'
-            : 'clamp(5rem, 7vw, 7rem)'
+            ? "clamp(4rem, 5vw, 5rem)"
+            : "clamp(5rem, 7vw, 7rem)",
         }}
         className="sticky top-0 flex items-center left-0 w-full right-0 z-50 !bg-white shadow-md overflow-hidden"
       >
@@ -100,11 +100,11 @@ function AnimatedNavbar() {
           <motion.div
             variants={logoVariants}
             initial="initial"
-            animate={isScrolled ? 'scrolled' : 'initial'}
+            animate={isScrolled ? "scrolled" : "initial"}
             transition={{
-              type: 'spring',
+              type: "spring",
               visualDuration: 0.8,
-              bounce: 0.1
+              bounce: 0.1,
             }}
           >
             <Link href="/" className="z-1 relative">
@@ -122,11 +122,11 @@ function AnimatedNavbar() {
           <motion.div
             className="flex flex-col max-xl:hidden w-fit text-primary text-left"
             variants={textVariants}
-            animate={isScrolled ? 'scrolled' : 'initial'}
+            animate={isScrolled ? "scrolled" : "initial"}
             transition={{
-              type: 'spring',
+              type: "spring",
               visualDuration: 0.8,
-              bounce: 0.1
+              bounce: 0.1,
             }}
           >
             <span className="text-body font-normal mb-[2px]">
@@ -147,17 +147,17 @@ function AnimatedNavbar() {
         <div
           className="w-full flex h-full"
           style={{
-            justifyContent: isScrolled ? 'center' : 'flex-end',
-            alignItems: isScrolled ? 'flex-end' : 'center'
+            justifyContent: isScrolled ? "center" : "flex-end",
+            alignItems: isScrolled ? "flex-end" : "center",
           }}
         >
           <motion.div
             className="px-4 py-2 z-[5]"
             layout
             transition={{
-              type: 'spring',
+              type: "spring",
               visualDuration: 0.8,
-              bounce: 0.1
+              bounce: 0.1,
             }}
           >
             <DesktopHeader />
@@ -169,7 +169,7 @@ function AnimatedNavbar() {
             variant="ghost"
             size="icon"
             onClick={toggleMenu}
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             <AnimatePresence mode="wait" initial={false}>
               {isMenuOpen ? (
@@ -203,21 +203,21 @@ function AnimatedNavbar() {
         {isMenuOpen && (
           <motion.div
             className={`fixed inset-0 bg-background z-40 ${
-              isScrolled ? '' : ''
+              isScrolled ? "" : ""
             } lg:pt-20 pb-6 px-4 overflow-y-auto`}
-            initial={{ y: '-100%' }}
+            initial={{ y: "-100%" }}
             animate={{ y: 0 }}
-            exit={{ y: '-100%' }}
+            exit={{ y: "-100%" }}
             transition={{
-              type: 'spring',
+              type: "spring",
               stiffness: 300,
               damping: 30,
-              visualDuration: 0.8
+              visualDuration: 0.8,
             }}
             style={{
               top: isScrolled
-                ? 'clamp(4rem, 5vw, 5rem)'
-                : 'clamp(7rem, 7vw, 8rem)'
+                ? "clamp(4rem, 5vw, 5rem)"
+                : "clamp(7rem, 7vw, 8rem)",
             }}
           >
             <MobileHeader toggleMenu={toggleMenu} />

@@ -1,8 +1,8 @@
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 export const BentoGrid = ({
   className,
-  children
+  children,
 }: {
   className?: string;
   children?: React.ReactNode;
@@ -10,7 +10,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        'mx-auto grid max-w-7xl h-full grid-cols-1 gap-4 grid-rows-[1fr_1fr]',
+        "mx-auto grid max-w-7xl h-full grid-cols-1 gap-4 grid-rows-[1fr_1fr]",
         className
       )}
     >
@@ -24,7 +24,7 @@ export const BentoGridItem = ({
   title,
   content1,
   content2,
-  icon
+  icon,
 }: {
   className?: string;
   title?: string | React.ReactNode;
@@ -35,7 +35,7 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        'group relative w-full sm:h-[350px] flex flex-col gap-5 lg:flex-row focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 focus:rounded-xl',
+        "group relative w-full sm:h-[350px] flex flex-col gap-5 lg:flex-row focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 focus:rounded-xl",
         className
       )}
     >

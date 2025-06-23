@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 export default function JourneyComponent({
   id,
-  children
+  children,
 }: {
   id: string;
   children: React.ReactNode;

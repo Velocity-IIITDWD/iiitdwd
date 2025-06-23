@@ -1,42 +1,42 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { get } from '@/sanity/lib/client';
-import { queryNirfReports } from '@/sanity/lib/queries';
-import { QueryNirfReportsResult } from '@/sanity/types';
-import { Award, BarChart4, BookOpen, FileText, TrendingUp } from 'lucide-react';
-import Link from 'next/link';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { get } from "@/sanity/lib/client";
+import { queryNirfReports } from "@/sanity/lib/queries";
+import { QueryNirfReportsResult } from "@/sanity/types";
+import { Award, BarChart4, BookOpen, FileText, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 const parameters = [
   {
-    name: 'Teaching, Learning & Resources',
+    name: "Teaching, Learning & Resources",
     icon: <BookOpen className="h-6 w-6" />,
     description:
-      'Evaluates faculty qualifications, student-teacher ratio, financial resources, and infrastructure'
+      "Evaluates faculty qualifications, student-teacher ratio, financial resources, and infrastructure",
   },
   {
-    name: 'Research and Professional Practice',
+    name: "Research and Professional Practice",
     icon: <BarChart4 className="h-6 w-6" />,
     description:
-      'Measures research output, quality publications, IPRs and patents'
+      "Measures research output, quality publications, IPRs and patents",
   },
   {
-    name: 'Graduation Outcomes',
+    name: "Graduation Outcomes",
     icon: <Award className="h-6 w-6" />,
     description:
-      'Considers graduation rates, median salary, and higher studies placements'
+      "Considers graduation rates, median salary, and higher studies placements",
   },
   {
-    name: 'Outreach and Inclusivity',
+    name: "Outreach and Inclusivity",
     icon: <TrendingUp className="h-6 w-6" />,
-    description: 'Assesses diversity, inclusion policies and regional outreach'
+    description: "Assesses diversity, inclusion policies and regional outreach",
   },
   {
-    name: 'Perception',
+    name: "Perception",
     icon: <Award className="h-6 w-6" />,
     description:
-      'Measures perception among academic peers, employers, and the public'
-  }
+      "Measures perception among academic peers, employers, and the public",
+  },
 ];
 
 export default async function Page() {
@@ -106,7 +106,7 @@ export default async function Page() {
 
             <Tabs defaultValue="2023" className="w-full">
               <TabsList className="w-full flex flex-wrap mb-8 border">
-                {nirfReports.map((report) => (
+                {nirfReports.map(report => (
                   <TabsTrigger
                     key={report.year}
                     value={report.year!.toString()}
@@ -116,7 +116,7 @@ export default async function Page() {
                 ))}
               </TabsList>
 
-              {nirfReports?.map((report) => (
+              {nirfReports?.map(report => (
                 <TabsContent
                   key={report.year}
                   value={report?.year!?.toString()}

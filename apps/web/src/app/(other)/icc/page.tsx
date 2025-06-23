@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
-import { FileText, Mail } from 'lucide-react';
+import { FileText, Mail } from "lucide-react";
 
 const openLink = (url: string) => {
-  window.open(url, '_blank');
+  window.open(url, "_blank");
 };
 
 const page = () => {
@@ -18,7 +18,7 @@ const page = () => {
         <Button
           onClick={() => {
             openLink(
-              '/docs/sexual-harrassment-of-women-act-and-rules-2013.pdf'
+              "/docs/sexual-harrassment-of-women-act-and-rules-2013.pdf"
             );
           }}
           className=" h-auto text-white text-[11px]  md:text-md lg:text-2xl w-fit my-5 bg-main hover:drop-shadow-xl    hover:scale-[1.05] transition"
@@ -29,7 +29,7 @@ const page = () => {
         <div className="2btns flex gap-2  lg:gap-16">
           <Button
             onClick={() => {
-              openLink('/docs/Committe-details-for-website.pdf');
+              openLink("/docs/Committe-details-for-website.pdf");
             }}
             className=" h-auto text-white text-[11px]  md:text-md lg:text-2xl w-max my-5 bg-main hover:drop-shadow-xl    hover:scale-[1.05] transition"
           >
@@ -37,11 +37,11 @@ const page = () => {
           </Button>
           <Button
             onClick={() => {
-              openLink('mailto:icc@iiitdwd.ac.in');
+              openLink("mailto:icc@iiitdwd.ac.in");
             }}
             className=" h-auto text-white text-[11px]  md:text-md lg:text-2xl w-max my-5 bg-main hover:drop-shadow-xl    hover:scale-[1.05] transition"
           >
-            {' '}
+            {" "}
             Contact ICC <Mail className="my-2 mx-3" />
           </Button>
         </div>

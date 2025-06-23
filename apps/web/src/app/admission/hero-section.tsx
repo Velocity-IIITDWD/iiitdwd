@@ -1,5 +1,5 @@
-import SectionHeading from '@/components/layout/section-heading';
-import Link from 'next/link';
+import SectionHeading from "@/components/layout/section-heading";
+import Link from "next/link";
 
 interface jumpLinksProps {
   title: string;

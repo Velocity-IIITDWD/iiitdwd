@@ -1,29 +1,29 @@
-import LinkedInCarousel from '@/components/linkedin/linkedin-carousel';
-import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
-import { IconTableColumn, IconTrendingUp } from '@tabler/icons-react';
-import { Handshake, Lightbulb, Telescope } from 'lucide-react';
-import Link from 'next/link';
-import EventsSection from './events';
-import NotificationSection from './notification';
-import SocialMediaGrid from './social-media';
+import LinkedInCarousel from "@/components/linkedin/linkedin-carousel";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { IconTableColumn, IconTrendingUp } from "@tabler/icons-react";
+import { Handshake, Lightbulb, Telescope } from "lucide-react";
+import Link from "next/link";
+import EventsSection from "./events";
+import NotificationSection from "./notification";
+import SocialMediaGrid from "./social-media";
 
 export default function BriefContent() {
   const items = [
     {
-      title: 'Social Media',
+      title: "Social Media",
       content1: <SocialMediaGrid />,
-      className: 'col-span-6 md:col-span-12 xl:col-span-4',
+      className: "col-span-6 md:col-span-12 xl:col-span-4",
       icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-      titleClassName: 'text-white'
+      titleClassName: "text-white",
     },
     {
-      title: 'Notifications',
+      title: "Notifications",
       content1: <NotificationSection />,
-      className: 'col-span-6 md:col-span-12 xl:col-span-8 text-left',
-      icon: <Telescope className="h-4 w-4 text-neutral-500" />
+      className: "col-span-6 md:col-span-12 xl:col-span-8 text-left",
+      icon: <Telescope className="h-4 w-4 text-neutral-500" />,
     },
     {
-      title: 'Collaborations & MoUs',
+      title: "Collaborations & MoUs",
       content1: (
         <div>
           IIIT Dharwad has established <strong>key MoUs</strong> with leading
@@ -32,27 +32,27 @@ export default function BriefContent() {
         </div>
       ),
       content2: (
-        <Link href={'/mou'} className="bg-main text-white px-4 py-2 rounded">
+        <Link href={"/mou"} className="bg-main text-white px-4 py-2 rounded">
           View all MoUs
         </Link>
       ),
-      className: 'col-span-6 xl:col-span-3',
-      icon: <Handshake className="h-4 w-4 text-neutral-500" />
+      className: "col-span-6 xl:col-span-3",
+      icon: <Handshake className="h-4 w-4 text-neutral-500" />,
     },
     {
-      title: 'Events',
+      title: "Events",
       content1: <EventsSection />,
 
-      className: 'col-span-6 xl:col-span-4',
-      icon: <Lightbulb className="h-4 w-4 text-neutral-500" />
+      className: "col-span-6 xl:col-span-4",
+      icon: <Lightbulb className="h-4 w-4 text-neutral-500" />,
     },
     {
-      title: 'Placements LinkedIn',
+      title: "Placements LinkedIn",
       content1: <LinkedInCarousel />,
-      className: 'col-span-6 md:col-span-12 xl:col-span-[5]',
+      className: "col-span-6 md:col-span-12 xl:col-span-[5]",
       icon: <IconTrendingUp className="h-4 w-4 text-neutral-500" />,
-      titleClassName: 'text-white'
-    }
+      titleClassName: "text-white",
+    },
   ];
 
   return (
@@ -63,7 +63,7 @@ export default function BriefContent() {
             key={i}
             title={item.title}
             content1={item.content1}
-            content2={item?.content2 || ''}
+            content2={item?.content2 || ""}
             className={item.className}
             icon={item.icon}
           />

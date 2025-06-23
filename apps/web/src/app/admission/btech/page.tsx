@@ -1,15 +1,15 @@
-'use client';
-import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+"use client";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import {
   bTechAdmissionLinks,
   eligibilityCriteria,
   programsOffered,
-  quickLinks
-} from './admissionLinkData';
-import CutoffRanks from './CutoffRanks-component';
-import InstituteContent from './InstituteContent-component';
-import SeatMatrix from './seatMatrix-component';
+  quickLinks,
+} from "./admissionLinkData";
+import CutoffRanks from "./CutoffRanks-component";
+import InstituteContent from "./InstituteContent-component";
+import SeatMatrix from "./seatMatrix-component";
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState(0);
@@ -44,12 +44,12 @@ export default function Page() {
 
   const scrollToSection = (index: number) => {
     setActiveTab(index);
-    sectionRefs.current[index]?.scrollIntoView({ behavior: 'smooth' });
+    sectionRefs.current[index]?.scrollIntoView({ behavior: "smooth" });
   };
 
   const tabs = [
     {
-      title: 'B.Tech Admission 2025',
+      title: "B.Tech Admission 2025",
       icon: (
         <svg
           className="w-5 h-5"
@@ -65,10 +65,10 @@ export default function Page() {
           />
         </svg>
       ),
-      links: bTechAdmissionLinks
+      links: bTechAdmissionLinks,
     },
     {
-      title: 'Eligibility Criteria',
+      title: "Eligibility Criteria",
       icon: (
         <svg
           className="w-5 h-5"
@@ -84,10 +84,10 @@ export default function Page() {
           />
         </svg>
       ),
-      links: eligibilityCriteria
+      links: eligibilityCriteria,
     },
     {
-      title: 'Quick Links',
+      title: "Quick Links",
       icon: (
         <svg
           className="w-5 h-5"
@@ -103,11 +103,11 @@ export default function Page() {
           />
         </svg>
       ),
-      links: quickLinks
+      links: quickLinks,
     },
 
     {
-      title: 'Programs Offered',
+      title: "Programs Offered",
       icon: (
         <svg
           className="w-5 h-5"
@@ -123,8 +123,8 @@ export default function Page() {
           />
         </svg>
       ),
-      links: programsOffered
-    }
+      links: programsOffered,
+    },
   ];
 
   return (
@@ -142,7 +142,7 @@ export default function Page() {
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(300px,300px)] w-[87.5vw] max-w-[1680px] mx-auto gap-6">
           <div className="max-md:order-2 flex flex-col max-md:flex-col-reverse gap-6">
             <div
-              ref={(el) => {
+              ref={el => {
                 if (sectionRefs.current) {
                   sectionRefs.current[0] = el;
                 }
@@ -155,7 +155,7 @@ export default function Page() {
             {tabs.map((tab, index) => (
               <div
                 key={index}
-                ref={(el) => {
+                ref={el => {
                   if (sectionRefs.current) {
                     sectionRefs.current[index + 1] = el;
                   }
@@ -242,13 +242,13 @@ export default function Page() {
                   key={index}
                   className={`flex items-center text-main text-title-3 gap-3 px-4 py-2 border-l-2 cursor-pointer transition-all ${
                     activeTab === index &&
-                    'bg-secondary/50 text-primary font-medium border-l-main'
+                    "bg-secondary/50 text-primary font-medium border-l-main"
                   }`}
                   onClick={() => scrollToSection(index)}
                 >
                   <div
                     className={`${
-                      activeTab === index ? 'text-primary' : 'text-main'
+                      activeTab === index ? "text-primary" : "text-main"
                     }`}
                   >
                     {tab.icon}
@@ -284,11 +284,11 @@ export default function Page() {
                   <span className="font-medium">NIT+ System Support:</span>
                 </p>
                 <p className="text-gray-700">
-                  Email:{' '}
+                  Email:{" "}
                   <span className="text-primary">csab.dasa@nitrkl.ac.in</span>
                 </p>
                 <p className="text-gray-700">
-                  <span className="font-medium">Multilingual Helpdesk:</span>{' '}
+                  <span className="font-medium">Multilingual Helpdesk:</span>{" "}
                   <span className="text-primary">+91 9124121003</span>
                 </p>
                 <p className="text-gray-600 text-sm">

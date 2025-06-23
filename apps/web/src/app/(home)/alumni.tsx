@@ -1,10 +1,10 @@
-'use client';
-import { Button } from '@/components/ui/button';
-import { Review } from '@/types/alumni';
-import { RefreshCw } from 'lucide-react';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { AlumniCard } from './alumni-card';
+"use client";
+import { Button } from "@/components/ui/button";
+import { Review } from "@/types/alumni";
+import { RefreshCw } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { AlumniCard } from "./alumni-card";
 
 const shuffleArray = <T,>(array: T[]): T[] => {
   const shuffled = [...array];
@@ -31,7 +31,7 @@ interface AlumniSectionProps {
 }
 
 export default function AlumniSection({
-  reviews: initialReviews
+  reviews: initialReviews,
 }: AlumniSectionProps) {
   const [windowWidth, setWindowWidth] = useState(0);
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -41,7 +41,7 @@ export default function AlumniSection({
     setIsShuffling(true);
     setTimeout(() => {
       setReviews(
-        shuffleArray(reviews.filter((review) => review.graduationYear <= 2024))
+        shuffleArray(reviews.filter(review => review.graduationYear <= 2024))
       );
       setIsShuffling(false);
     }, 600);
@@ -50,15 +50,15 @@ export default function AlumniSection({
   useEffect(() => {
     // Do the initial shuffle only once during mount
     const filteredAndShuffled = shuffleArray(
-      initialReviews.filter((review) => review.graduationYear <= 2024)
+      initialReviews.filter(review => review.graduationYear <= 2024)
     );
     setReviews(filteredAndShuffled);
     setWindowWidth(window.innerWidth);
 
     const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [initialReviews]);
 
   const getColumnCount = () => {
@@ -87,7 +87,7 @@ export default function AlumniSection({
             disabled={isShuffling}
           >
             <RefreshCw
-              className={`h-4 w-4 ${isShuffling ? 'animate-spin' : ''}`}
+              className={`h-4 w-4 ${isShuffling ? "animate-spin" : ""}`}
             />
             Shuffle Alumni
           </Button>

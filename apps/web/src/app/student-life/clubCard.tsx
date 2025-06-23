@@ -1,13 +1,13 @@
-'use client';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+"use client";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function ClubCard({
   title,
   description,
   imgSrc,
   btnText,
-  link
+  link,
 }: {
   title: string;
   description: string;

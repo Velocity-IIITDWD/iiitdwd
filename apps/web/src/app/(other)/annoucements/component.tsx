@@ -1,42 +1,42 @@
-'use client';
+"use client";
 
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Pagination,
   PaginationContent,
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationPrevious
-} from '@/components/ui/pagination';
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
-import { Announcement } from '@/sanity/types';
-import { useState } from 'react';
+  SelectValue,
+} from "@/components/ui/select";
+import { Announcement } from "@/sanity/types";
+import { useState } from "react";
 
 // Monthly data helper
 const months = [
-  { value: '01', label: 'January' },
-  { value: '02', label: 'February' },
-  { value: '03', label: 'March' },
-  { value: '04', label: 'April' },
-  { value: '05', label: 'May' },
-  { value: '06', label: 'June' },
-  { value: '07', label: 'July' },
-  { value: '08', label: 'August' },
-  { value: '09', label: 'September' },
-  { value: '10', label: 'October' },
-  { value: '11', label: 'November' },
-  { value: '12', label: 'December' }
+  { value: "01", label: "January" },
+  { value: "02", label: "February" },
+  { value: "03", label: "March" },
+  { value: "04", label: "April" },
+  { value: "05", label: "May" },
+  { value: "06", label: "June" },
+  { value: "07", label: "July" },
+  { value: "08", label: "August" },
+  { value: "09", label: "September" },
+  { value: "10", label: "October" },
+  { value: "11", label: "November" },
+  { value: "12", label: "December" },
 ];
 
 export default function AnnouncementsComponents({
-  announcements
+  announcements,
 }: {
   announcements: Announcement[];
 }) {
@@ -49,7 +49,7 @@ export default function AnnouncementsComponents({
   );
 
   // State for filters
-  const [selectedMonth, setSelectedMonth] = useState('all');
+  const [selectedMonth, setSelectedMonth] = useState("all");
   const [selectedYear, setSelectedYear] = useState(currentYear.toString());
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -69,17 +69,17 @@ export default function AnnouncementsComponents({
   });
 
   // Separate rolling announcements
-  const rollingAnnouncements = sortedAnnouncements.filter((announcement) =>
-    announcement.text?.toLowerCase().startsWith('rolling')
+  const rollingAnnouncements = sortedAnnouncements.filter(announcement =>
+    announcement.text?.toLowerCase().startsWith("rolling")
   );
   const regularAnnouncements = sortedAnnouncements.filter(
-    (announcement) => !announcement.text?.toLowerCase().startsWith('rolling')
+    announcement => !announcement.text?.toLowerCase().startsWith("rolling")
   );
 
   // Filter announcements based on selected month and year
   const filteredRollingAnnouncements = rollingAnnouncements.filter(
-    (announcement) => {
-      if (selectedMonth !== 'all' && announcement.month !== selectedMonth) {
+    announcement => {
+      if (selectedMonth !== "all" && announcement.month !== selectedMonth) {
         return false;
       }
       if (selectedYear && announcement.year !== selectedYear) {
@@ -90,8 +90,8 @@ export default function AnnouncementsComponents({
   );
 
   const filteredRegularAnnouncements = regularAnnouncements.filter(
-    (announcement) => {
-      if (selectedMonth !== 'all' && announcement.month !== selectedMonth) {
+    announcement => {
+      if (selectedMonth !== "all" && announcement.month !== selectedMonth) {
         return false;
       }
       if (selectedYear && announcement.year !== selectedYear) {
@@ -125,7 +125,7 @@ export default function AnnouncementsComponents({
   const goToPage = (page: number) => {
     setCurrentPage(page);
     // Scroll to top of announcements list
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -144,7 +144,7 @@ export default function AnnouncementsComponents({
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Months</SelectItem>
-              {months.map((month) => (
+              {months.map(month => (
                 <SelectItem key={month.value} value={month.value}>
                   {month.label}
                 </SelectItem>
@@ -162,7 +162,7 @@ export default function AnnouncementsComponents({
               <SelectValue placeholder="Select year" />
             </SelectTrigger>
             <SelectContent>
-              {years.map((year) => (
+              {years.map(year => (
                 <SelectItem key={year} value={year}>
                   {year}
                 </SelectItem>
@@ -175,13 +175,13 @@ export default function AnnouncementsComponents({
       {/* Results count */}
       <p className="text-gray-600 text-title-3 mb-4">
         {filteredRollingAnnouncements.length +
-          filteredRegularAnnouncements.length}{' '}
+          filteredRegularAnnouncements.length}{" "}
         announcement
         {filteredRollingAnnouncements.length +
           filteredRegularAnnouncements.length !==
         1
-          ? 's'
-          : ''}{' '}
+          ? "s"
+          : ""}{" "}
         found
       </p>
 
@@ -192,7 +192,7 @@ export default function AnnouncementsComponents({
             Rolling Announcements
           </h2>
           <div className="space-y-4">
-            {filteredRollingAnnouncements.map((announcement) => (
+            {filteredRollingAnnouncements.map(announcement => (
               <Card
                 key={announcement._id}
                 className="hover:shadow-md transition-shadow py-4 bg-blue-50"
@@ -236,7 +236,7 @@ export default function AnnouncementsComponents({
           Other Announcements
         </h2>
         {paginatedRegularAnnouncements.length > 0 ? (
-          paginatedRegularAnnouncements.map((announcement) => (
+          paginatedRegularAnnouncements.map(announcement => (
             <Card
               key={announcement._id}
               className="hover:shadow-md transition-shadow py-4"
@@ -288,13 +288,13 @@ export default function AnnouncementsComponents({
                 onClick={() => currentPage > 1 && goToPage(currentPage - 1)}
                 className={
                   currentPage <= 1
-                    ? 'pointer-events-none opacity-50'
-                    : 'cursor-pointer'
+                    ? "pointer-events-none opacity-50"
+                    : "cursor-pointer"
                 }
               />
             </PaginationItem>
 
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
               <PaginationItem key={page}>
                 <PaginationLink
                   onClick={() => goToPage(page)}
@@ -313,8 +313,8 @@ export default function AnnouncementsComponents({
                 }
                 className={
                   currentPage >= totalPages
-                    ? 'pointer-events-none opacity-50'
-                    : 'cursor-pointer'
+                    ? "pointer-events-none opacity-50"
+                    : "cursor-pointer"
                 }
               />
             </PaginationItem>

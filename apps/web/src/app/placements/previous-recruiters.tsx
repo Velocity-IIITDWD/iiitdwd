@@ -1,20 +1,20 @@
 // @ts-nocheck
-'use client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { pastRecruiters } from '@/data/pastRecruiters';
-import { Award, Building, ChevronDown, ChevronUp, Users } from 'lucide-react';
-import { motion } from 'motion/react';
-import { useState } from 'react';
+"use client";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { pastRecruiters } from "@/data/pastRecruiters";
+import { Award, Building, ChevronDown, ChevronUp, Users } from "lucide-react";
+import { motion } from "motion/react";
+import { useState } from "react";
 
 export default function PreviousRecruiters() {
   const [expandedView, setExpandedView] = useState(false);
-  const [activeLetter, setActiveLetter] = useState('All');
+  const [activeLetter, setActiveLetter] = useState("All");
 
   // Organize recruiters alphabetically
   const organizeByLetter = () => {
     const organized = {};
-    pastRecruiters.forEach((recruiter) => {
+    pastRecruiters.forEach(recruiter => {
       const firstLetter = recruiter.name.charAt(0).toUpperCase();
       if (!organized[firstLetter]) {
         organized[firstLetter] = [];
@@ -25,11 +25,11 @@ export default function PreviousRecruiters() {
   };
 
   const organizedRecruiters = organizeByLetter();
-  const availableLetters = ['All', ...Object.keys(organizedRecruiters).sort()];
+  const availableLetters = ["All", ...Object.keys(organizedRecruiters).sort()];
 
   // Get recruiters to display based on selected filter
   const getDisplayedRecruiters = () => {
-    if (activeLetter === 'All') {
+    if (activeLetter === "All") {
       return expandedView ? pastRecruiters : pastRecruiters.slice(0, 12);
     } else {
       return expandedView
@@ -51,7 +51,7 @@ export default function PreviousRecruiters() {
       <motion.h2
         initial={{ y: -20 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.4, type: 'spring' }}
+        transition={{ duration: 0.4, type: "spring" }}
         className="text-3xl font-bold text-center text-primary mb-6"
       >
         PAST RECRUITERS
@@ -76,14 +76,14 @@ export default function PreviousRecruiters() {
 
               {/* Alphabetical Filter */}
               <div className="flex flex-wrap justify-center gap-1 mb-4">
-                {availableLetters.map((letter) => (
+                {availableLetters.map(letter => (
                   <button
                     key={letter}
                     onClick={() => setActiveLetter(letter)}
                     className={`px-2 py-1 text-callout rounded-md cursor-pointer ${
                       activeLetter === letter
-                        ? 'bg-main text-white'
-                        : 'bg-secondary/50 text-gray-500 hover:bg-secondary'
+                        ? "bg-main text-white"
+                        : "bg-secondary/50 text-gray-500 hover:bg-secondary"
                     }`}
                   >
                     {letter}
@@ -97,8 +97,8 @@ export default function PreviousRecruiters() {
                   hidden: { opacity: 0 },
                   show: {
                     opacity: 1,
-                    transition: { staggerChildren: 0.02 }
-                  }
+                    transition: { staggerChildren: 0.02 },
+                  },
                 }}
                 initial="hidden"
                 animate="show"
@@ -108,7 +108,7 @@ export default function PreviousRecruiters() {
                     key={index}
                     variants={{
                       hidden: { opacity: 0, y: 10 },
-                      show: { opacity: 1, y: 0 }
+                      show: { opacity: 1, y: 0 },
                     }}
                     className="flex items-center justify-center p-2 border-tertiary/20 bg-gradient-to-b from-secondary/20 to-secondary/60 border rounded-md hover:border-secondary/30 hover:shadow-sm transition-all text-center"
                   >

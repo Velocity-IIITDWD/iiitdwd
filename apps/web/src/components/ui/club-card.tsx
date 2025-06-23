@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import {
   Drawer,
   DrawerClose,
@@ -9,11 +9,11 @@ import {
   DrawerDescription,
   DrawerFooter,
   DrawerHeader,
-  DrawerTitle
-} from '@/components/ui/drawer';
-import { Instagram, Linkedin, Twitter } from 'lucide-react';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+  DrawerTitle,
+} from "@/components/ui/drawer";
+import { Instagram, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface ClubCardProps {
   name: string;
@@ -45,21 +45,21 @@ export function ClubCard({
   president,
   vision,
   mission,
-  socials
+  socials,
 }: ClubCardProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [drawerDirection, setDrawerDirection] = useState<'bottom' | 'right'>(
-    'bottom'
+  const [drawerDirection, setDrawerDirection] = useState<"bottom" | "right">(
+    "bottom"
   );
 
   useEffect(() => {
     const updateSize = () => {
-      setDrawerDirection(window.innerWidth >= 1024 ? 'right' : 'bottom'); // Adjust breakpoint as needed
+      setDrawerDirection(window.innerWidth >= 1024 ? "right" : "bottom"); // Adjust breakpoint as needed
     };
 
     updateSize(); // Set initial direction
-    window.addEventListener('resize', updateSize);
-    return () => window.removeEventListener('resize', updateSize);
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
 
   return (
@@ -130,9 +130,9 @@ export function ClubCard({
       >
         <DrawerContent
           className={`mx-auto transition-all ${
-            drawerDirection === 'right'
-              ? 'h-screen w-[400px] md:w-500px]'
-              : 'max-h-[85vh] max-w-xl'
+            drawerDirection === "right"
+              ? "h-screen w-[400px] md:w-500px]"
+              : "max-h-[85vh] max-w-xl"
           }`}
         >
           <div className="p-6 overflow-y-auto">

@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { GoogleAnalytics } from '@next/third-parties/google';
-import { useReportWebVitals } from 'next/web-vitals';
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { useReportWebVitals } from "next/web-vitals";
 
 export default function Analytics() {
-  useReportWebVitals((metric) => {
-    window.gtag('event', metric.name, {
+  useReportWebVitals(metric => {
+    window.gtag("event", metric.name, {
       value: Math.round(
-        metric.name === 'CLS' ? metric.value * 1000 : metric.value
+        metric.name === "CLS" ? metric.value * 1000 : metric.value
       ),
-      event_category: 'Web Vitals',
+      event_category: "Web Vitals",
       event_label: metric.id,
-      non_interaction: true
+      non_interaction: true,
     });
   });
 

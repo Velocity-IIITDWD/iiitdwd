@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   BarElement,
   CategoryScale,
@@ -6,10 +6,10 @@ import {
   Legend,
   LinearScale,
   Title,
-  Tooltip
-} from 'chart.js';
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
+  Tooltip,
+} from "chart.js";
+import React from "react";
+import { Bar } from "react-chartjs-2";
 
 // Register the necessary components
 ChartJS.register(
@@ -35,16 +35,16 @@ interface BarGraphProps {
 const BarGraph: React.FC<BarGraphProps> = ({ labels, datasets }) => {
   const data = {
     labels: labels,
-    datasets: datasets
+    datasets: datasets,
   };
 
   const options = {
-    indexAxis: 'y' as const, // Ensure the type is 'y' or 'x' explicitly
+    indexAxis: "y" as const, // Ensure the type is 'y' or 'x' explicitly
     scales: {
       x: {
-        beginAtZero: true
-      }
-    }
+        beginAtZero: true,
+      },
+    },
   };
 
   return (

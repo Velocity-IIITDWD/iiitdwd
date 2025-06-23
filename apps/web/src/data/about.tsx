@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 interface AboutSection {
   title: string;
@@ -8,8 +8,8 @@ interface AboutSection {
 
 const aboutPageSections: AboutSection[] = [
   {
-    title: 'Key Achievements and Recognitions',
-    heading: 'Achievements',
+    title: "Key Achievements and Recognitions",
+    heading: "Achievements",
     content: (
       <ul className="list-[square] pl-4">
         <li className="mb-4">
@@ -22,11 +22,11 @@ const aboutPageSections: AboutSection[] = [
           Active collaborations with industry leaders and academic institutions
         </li>
       </ul>
-    )
+    ),
   },
   {
-    title: 'Explore IIIT Dharwad',
-    heading: 'Explore',
+    title: "Explore IIIT Dharwad",
+    heading: "Explore",
     content: (
       <>
         <p>IIIT Dharwad is led by a team of experienced professionals:</p>
@@ -39,11 +39,11 @@ const aboutPageSections: AboutSection[] = [
           inclusion.
         </p>
       </>
-    )
+    ),
   },
   {
-    title: 'Academic Programs',
-    heading: 'Programs',
+    title: "Academic Programs",
+    heading: "Programs",
     content: (
       <ul className="list-[square] pl-4">
         <li className="mb-3">
@@ -51,7 +51,7 @@ const aboutPageSections: AboutSection[] = [
           computing, software development, and systems design.
         </li>
         <li className="mb-3">
-          <strong>B.Tech in Electronics & Communication Engineering:</strong>{' '}
+          <strong>B.Tech in Electronics & Communication Engineering:</strong>{" "}
           Emphasis on electronic systems, communication technologies, and signal
           processing.
         </li>
@@ -60,11 +60,11 @@ const aboutPageSections: AboutSection[] = [
           analytics, machine learning, and AI applications.
         </li>
       </ul>
-    )
+    ),
   },
   {
-    title: 'Research and Development',
-    heading: 'Research',
+    title: "Research and Development",
+    heading: "Research",
     content: (
       <>
         <p>
@@ -83,11 +83,11 @@ const aboutPageSections: AboutSection[] = [
           </li>
         </ul>
       </>
-    )
+    ),
   },
   {
-    title: 'Campus Life',
-    heading: 'Life @ IIITDWD',
+    title: "Campus Life",
+    heading: "Life @ IIITDWD",
     content: (
       <>
         <p>
@@ -102,11 +102,11 @@ const aboutPageSections: AboutSection[] = [
           </li>
         </ul>
       </>
-    )
+    ),
   },
   {
-    title: 'Industry Collaborations and Initiatives',
-    heading: 'Collaborations',
+    title: "Industry Collaborations and Initiatives",
+    heading: "Collaborations",
     content: (
       <>
         <p>
@@ -123,11 +123,11 @@ const aboutPageSections: AboutSection[] = [
           </li>
         </ul>
       </>
-    )
+    ),
   },
   {
-    title: 'Call to Action',
-    heading: 'Get Involved',
+    title: "Call to Action",
+    heading: "Get Involved",
     content: (
       <>
         <p>Ready to be a part of IIIT Dharwad?</p>
@@ -146,24 +146,24 @@ const aboutPageSections: AboutSection[] = [
           </li>
         </ul>
       </>
-    )
-  }
+    ),
+  },
 ];
 
 export default aboutPageSections;
 
 export const carouselData = [
   {
-    title: 'Vision',
+    title: "Vision",
     content: (
       <p className="text-callout md:text-body">
         To be a globally renowned academy of information technology for societal
         development.
       </p>
-    )
+    ),
   },
   {
-    title: 'Our Mission',
+    title: "Our Mission",
     content: (
       <div className="flex flex-col gap-3 text-callout md:text-body">
         <p>
@@ -180,10 +180,10 @@ export const carouselData = [
           research and development.
         </p>
       </div>
-    )
+    ),
   },
   {
-    title: 'Core Values',
+    title: "Core Values",
     content: (
       <ul className="text-callout md:text-body flex flex-col gap-2 items-center ">
         <li className="border rounded-full px-4 w-full py-1">Integrity</li>
@@ -193,6 +193,6 @@ export const carouselData = [
           Commitment and Passion for Technology
         </li>
       </ul>
-    )
-  }
+    ),
+  },
 ];

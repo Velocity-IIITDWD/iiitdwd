@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import data from '@/data/navigation';
-import { trackEvent } from '@/lib/ga';
-import { type NavigationItem } from '@/types/navigation';
+import data from "@/data/navigation";
+import { trackEvent } from "@/lib/ga";
+import { type NavigationItem } from "@/types/navigation";
 import {
   KBarAnimator,
   KBarPortal,
@@ -10,8 +10,8 @@ import {
   KBarProvider,
   KBarResults,
   KBarSearch,
-  useMatches
-} from 'kbar';
+  useMatches,
+} from "kbar";
 
 const generateActions = () => {
   interface Action {
@@ -25,37 +25,37 @@ const generateActions = () => {
   const actions: Action[] = [];
 
   const processMenuItem = (item: NavigationItem, parentSection?: string) => {
-    if (item.href != '#') {
+    if (item.href != "#") {
       actions.push({
         id: item.href,
         name: item.title,
-        section: parentSection || 'Main Menu',
+        section: parentSection || "Main Menu",
         perform: () => {
           trackEvent({
-            action: 'kbar_navigation',
-            category: 'navigation',
-            label: `${parentSection ? `${parentSection} -> ` : ''}${item.title}`
+            action: "kbar_navigation",
+            category: "navigation",
+            label: `${parentSection ? `${parentSection} -> ` : ""}${item.title}`,
           });
-          if (item.href.startsWith('/')) window.location.pathname = item.href;
-          else window.open(item.href, '_blank');
-        }
+          if (item.href.startsWith("/")) window.location.pathname = item.href;
+          else window.open(item.href, "_blank");
+        },
       });
     }
 
     if (item.items) {
-      item.items.forEach((subItem) => {
+      item.items.forEach(subItem => {
         processMenuItem(subItem, item.title);
       });
     }
   };
 
-  data.forEach((item) => processMenuItem(item));
+  data.forEach(item => processMenuItem(item));
 
   return actions;
 };
 
 export default function CustomKBarProvider({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
@@ -66,7 +66,7 @@ export default function CustomKBarProvider({
           <KBarAnimator className="max-w-[600px] w-full rounded-lg overflow-hidden shadow-lg bg-white">
             <KBarSearch
               className="w-full py-3 px-4 text-title-3 font-normal outline-none border-none bg-white"
-              style={{ padding: '18px 16px' }}
+              style={{ padding: "18px 16px" }}
               defaultPlaceholder="Search for anything..."
             />
             <RenderResults />
@@ -85,9 +85,9 @@ function RenderResults() {
     <KBarResults
       items={results}
       onRender={({ item, active }) =>
-        typeof item === 'string' ? (
+        typeof item === "string" ? (
           <div
-            style={{ padding: '8px 16px' }}
+            style={{ padding: "8px 16px" }}
             className="text-body uppercase opacity-50"
           >
             {item}
@@ -102,7 +102,7 @@ function RenderResults() {
 
 function ResultItem({
   action,
-  active
+  active,
 }: {
   action: {
     id: string;
@@ -115,16 +115,16 @@ function ResultItem({
 }) {
   return (
     <div
-      style={{ padding: '12px 16px' }}
+      style={{ padding: "12px 16px" }}
       className={`flex items-center justify-between cursor-pointer ${
         active
-          ? 'bg-secondary/40 border-l-2 text-main border-l-gray-800'
-          : 'border-l-2 text-gray-700 border-l-transparent'
+          ? "bg-secondary/40 border-l-2 text-main border-l-gray-800"
+          : "border-l-2 text-gray-700 border-l-transparent"
       }`}
     >
       <div
         className="flex items-center text-title-3 font-medium"
-        style={{ gap: '8px' }}
+        style={{ gap: "8px" }}
       >
         <div className="flex flex-col">
           <div>{action.name}</div>

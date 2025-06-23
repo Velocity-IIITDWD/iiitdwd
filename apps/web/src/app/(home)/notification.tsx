@@ -1,15 +1,15 @@
 // @ts-nocheck
-import { get } from '@/sanity/lib/client';
-import { GetAnnouncements } from '@/sanity/lib/queries';
-import { Announcement } from '@/sanity/types';
-import AnnouncementComponent from './announcement-component';
+import { get } from "@/sanity/lib/client";
+import { GetAnnouncements } from "@/sanity/lib/queries";
+import { Announcement } from "@/sanity/types";
+import AnnouncementComponent from "./announcement-component";
 
 export interface AnnouncementItem {
   id: string;
   title: string;
   date: string | null;
   isPinned?: boolean;
-  type?: 'news' | 'announcement';
+  type?: "news" | "announcement";
   link: string;
 }
 
@@ -37,7 +37,7 @@ const parseDate = (dateString: string | null | undefined): Date | null => {
         return date;
       }
     } catch (e) {
-      console.warn('Failed to parse DD-MM-YYYY date:', dateString);
+      console.warn("Failed to parse DD-MM-YYYY date:", dateString);
     }
   }
 
@@ -47,13 +47,13 @@ const parseDate = (dateString: string | null | undefined): Date | null => {
 export default async function NotificationSection() {
   const response = await get<Announcement[]>(GetAnnouncements);
 
-  const transformedAnnouncements = response.map((item) => ({
+  const transformedAnnouncements = response.map(item => ({
     id: item._id,
-    title: item.text || '',
+    title: item.text || "",
     date: item.date || null,
     isPinned: item.new || false,
-    type: 'announcement' as const,
-    link: item.link || '#'
+    type: "announcement" as const,
+    link: item.link || "#",
   }));
 
   // More robust sorting that handles various date formats and nulls
@@ -76,8 +76,8 @@ export default async function NotificationSection() {
   });
 
   // Group pinned items to the top regardless of date
-  const pinnedItems = sortedAnnouncements.filter((item) => item.isPinned);
-  const regularItems = sortedAnnouncements.filter((item) => !item.isPinned);
+  const pinnedItems = sortedAnnouncements.filter(item => item.isPinned);
+  const regularItems = sortedAnnouncements.filter(item => !item.isPinned);
 
   // Combine the arrays with pinned items first
   const finalSortedAnnouncements = [...pinnedItems, ...regularItems];

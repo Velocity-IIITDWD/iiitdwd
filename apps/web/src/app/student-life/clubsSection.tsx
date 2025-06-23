@@ -1,5 +1,5 @@
-'use client';
-import ClubCard from './clubCard';
+"use client";
+import ClubCard from "./clubCard";
 
 export default function ClubsSection() {
   return (

@@ -1,8 +1,8 @@
-import { Metadata } from 'next';
-import Page from './faq';
+import { Metadata } from "next";
+import Page from "./faq";
 
 export const metadata: Metadata = {
-  title: 'FAQ'
+  title: "FAQ",
 };
 
 export default function faq() {
@@ -50,7 +50,7 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
               Currently, IIIT Dharwad offers three programs viz., Computer
               Science and Engineering (CSE), Data Science and Artificial
               Intelligence (DSAI), and Electronics and Communication Engineering
-              (ECE). The details of the programs can be found{' '}
+              (ECE). The details of the programs can be found{" "}
               <a className="text-blue-800 hover:underline" href="/academics">
                 at this page.
               </a>
@@ -70,7 +70,7 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
               working on setting high standards in both teaching/learning, and
               R&D. Faculty profiles can be found
               <a className="text-blue-800 hover:underline" href="/faculty">
-                {' '}
+                {" "}
                 here.
               </a>
             </div>
@@ -93,7 +93,7 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
               spacious classrooms, auditoriums, sports facilities, and
               residential accommodation for
               <a className="text-blue-800 hover:underline" href="/facilities">
-                {' '}
+                {" "}
                 students.
               </a>
             </div>
@@ -110,7 +110,7 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
               the eligible students are well placed. Placement information can
               be found
               <a className="text-blue-800 hover:underline" href="/placements">
-                {' '}
+                {" "}
                 here.
               </a>
             </div>
@@ -146,7 +146,7 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
                 className="text-blue-800 hover:underline"
                 href="/docs/Fee_Structure_2025-26.pdf"
               >
-                {' '}
+                {" "}
                 here.
               </a>
             </div>
@@ -179,7 +179,7 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
               mode. Institute does not accept any cash payments.
             </div>
           }
-        />{' '}
+        />{" "}
         <Page
           ques="Does the Institute support entrepreneurship?
 "
@@ -193,7 +193,7 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
               and collaborators for research and development activities.
             </div>
           }
-        />{' '}
+        />{" "}
         <Page
           ques="
             Can students have their vehicles inside the campus?"
@@ -226,7 +226,7 @@ What is the medium of instruction?
               in English.
             </div>
           }
-        />{' '}
+        />{" "}
         <Page
           ques="
            What about ragging?
@@ -246,7 +246,7 @@ What about security arrangements for the girls’ hostel?
               buildings.
             </div>
           }
-        />{' '}
+        />{" "}
         <Page
           ques="
    What if we have any additional questions regarding the Institute?
@@ -254,7 +254,7 @@ What about security arrangements for the girls’ hostel?
           ans={
             <div>
               Both prospective students and their parents can ask questions
-              directly to our faculty at{' '}
+              directly to our faculty at{" "}
               <a
                 className="text-blue-800 hover:underline"
                 href="mailto:contact@iiitdwd.ac.in"

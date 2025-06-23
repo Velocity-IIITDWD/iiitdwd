@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import {
   Tabs as TabData,
   TabsContent,
   TabsList,
-  TabsTrigger
-} from '@/components/ui/tabs';
+  TabsTrigger,
+} from "@/components/ui/tabs";
 
 import {
   Table,
@@ -13,14 +13,14 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table';
-import { cn, toDateString, toDateTimeString } from '@/lib/utils';
-import { Download } from 'lucide-react';
-import Link from 'next/link';
+  TableRow,
+} from "@/components/ui/table";
+import { cn, toDateString, toDateTimeString } from "@/lib/utils";
+import { Download } from "lucide-react";
+import Link from "next/link";
 
-import { useState } from 'react';
-import SortSearch from './SortSearch';
+import { useState } from "react";
+import SortSearch from "./SortSearch";
 
 type TendersProps = {
   active: Tender[];
@@ -78,10 +78,10 @@ function TabsContentContent({ tabsData: tabsData }: TabsContentContentProps) {
                         {tender.corrections?.map((correction, index) => (
                           <span
                             className={cn(
-                              'inline-block',
-                              correction.title.toLowerCase().includes('cancel')
-                                ? 'text-red-500'
-                                : 'text-green-500'
+                              "inline-block",
+                              correction.title.toLowerCase().includes("cancel")
+                                ? "text-red-500"
+                                : "text-green-500"
                             )}
                             key={index}
                           >
@@ -123,9 +123,9 @@ function TabsContentContent({ tabsData: tabsData }: TabsContentContentProps) {
                   </TableCell>
                   <TableCell
                     className={cn(
-                      name === 'archive' && 'text-gray-400',
-                      tender.cancelled && 'line-through',
-                      'text-body font-normal'
+                      name === "archive" && "text-gray-400",
+                      tender.cancelled && "line-through",
+                      "text-body font-normal"
                     )}
                   >
                     {toDateTimeString(tender.submissionDeadline as number)}
@@ -146,26 +146,26 @@ function TabsContentContent({ tabsData: tabsData }: TabsContentContentProps) {
 }
 
 export default function Tenders({ active, archive }: TendersProps) {
-  const [selectedTab, setSelectedTab] = useState('active');
+  const [selectedTab, setSelectedTab] = useState("active");
   const [activeData, setActiveData] = useState(active);
   const [archiveData, setArchiveData] = useState(archive);
 
   const tabsData = [
     {
-      name: 'active',
-      data: activeData
+      name: "active",
+      data: activeData,
     },
     {
-      name: 'archive',
-      data: archiveData
-    }
+      name: "archive",
+      data: archiveData,
+    },
   ];
 
   return (
     <section className="flex flex-col w-[87.5vw] max-w-[1680px] mx-auto">
       <div className="flex w-full my-4">
         <TabData
-          onValueChange={(value) => setSelectedTab(value)}
+          onValueChange={value => setSelectedTab(value)}
           defaultValue={selectedTab}
           className="w-full"
         >

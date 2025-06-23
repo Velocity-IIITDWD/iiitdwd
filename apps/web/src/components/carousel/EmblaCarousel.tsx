@@ -1,23 +1,23 @@
-'use client';
-import image1 from '@/assets/home/image1.webp';
-import image2 from '@/assets/home/image2.webp';
-import image3 from '@/assets/home/image3.webp';
+"use client";
+import image1 from "@/assets/home/image1.webp";
+import image2 from "@/assets/home/image2.webp";
+import image3 from "@/assets/home/image3.webp";
 import {
   IconPlayerPauseFilled,
-  IconPlayerPlayFilled
-} from '@tabler/icons-react';
-import { EmblaOptionsType } from 'embla-carousel';
-import Autoplay from 'embla-carousel-autoplay';
-import useEmblaCarousel from 'embla-carousel-react';
-import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+  IconPlayerPlayFilled,
+} from "@tabler/icons-react";
+import { EmblaOptionsType } from "embla-carousel";
+import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
+import Image from "next/image";
+import React, { useEffect, useRef, useState } from "react";
 import {
   NextButton,
   PrevButton,
-  usePrevNextButtons
-} from './EmblaCarouselArrowButtons';
-import { useAutoplay } from './EmblaCarouselAutoplay';
-import { DotButton, useDotButton } from './EmblaCarouselDotButton';
+  usePrevNextButtons,
+} from "./EmblaCarouselArrowButtons";
+import { useAutoplay } from "./EmblaCarouselAutoplay";
+import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 
 type PropType = {
   options?: EmblaOptionsType;
@@ -37,7 +37,7 @@ const EmblaCarousel: React.FC<PropType> = (props: PropType) => {
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    autoplayPlugin.current
+    autoplayPlugin.current,
   ]);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -47,7 +47,7 @@ const EmblaCarousel: React.FC<PropType> = (props: PropType) => {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
-    onNextButtonClick
+    onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
 
   const { autoplayIsPlaying, toggleAutoplay, onAutoplayButtonClick } =

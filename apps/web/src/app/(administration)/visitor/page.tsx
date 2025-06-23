@@ -1,7 +1,7 @@
-import { Badge } from '@/components/ui/badge';
-import { Card } from '@/components/ui/card';
-import { MapPin } from 'lucide-react';
-import Image from 'next/image';
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function PresidentialVisitor() {
   return (

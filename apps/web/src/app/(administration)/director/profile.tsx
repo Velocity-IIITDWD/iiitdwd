@@ -1,6 +1,6 @@
-import { IconBrandYoutube } from '@tabler/icons-react';
-import { Mail } from 'lucide-react';
-import Image, { StaticImageData } from 'next/image';
+import { IconBrandYoutube } from "@tabler/icons-react";
+import { Mail } from "lucide-react";
+import Image, { StaticImageData } from "next/image";
 
 interface ProfilePageProps {
   image?: StaticImageData | string;
@@ -27,7 +27,7 @@ export default function Profile({
   about = [],
   signatureText,
   message,
-  signaturePosition
+  signaturePosition,
 }: ProfilePageProps) {
   return (
     <div className="py-10 w-[87.5vw] max-w-[1680px] mx-auto">

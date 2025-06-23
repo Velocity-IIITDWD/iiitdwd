@@ -4,9 +4,9 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table';
-import { cutoffData } from './cutoffData';
+  TableRow,
+} from "@/components/ui/table";
+import { cutoffData } from "./cutoffData";
 
 export default function CutoffRanks() {
   return (

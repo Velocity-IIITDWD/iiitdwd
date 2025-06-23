@@ -1,7 +1,7 @@
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
 export default function AcademicsLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
@@ -9,5 +9,5 @@ export default function AcademicsLayout({
 }
 
 export const metadata: Metadata = {
-  title: 'ICC'
+  title: "ICC",
 };

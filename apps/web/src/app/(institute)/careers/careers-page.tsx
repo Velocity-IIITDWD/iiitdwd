@@ -1,27 +1,27 @@
-'use client';
+"use client";
 
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table';
-import { ExternalLink, FileText, Search, X } from 'lucide-react';
-import Link from 'next/link';
-import { useCallback, useEffect, useRef, useState } from 'react';
+  TableRow,
+} from "@/components/ui/table";
+import { ExternalLink, FileText, Search, X } from "lucide-react";
+import Link from "next/link";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export type Jobs = {
   title: string;
-  category: 'faculty' | 'staff' | 'others';
+  category: "faculty" | "staff" | "others";
   details: string;
   lastDate: string;
   generalInstructions: string;
@@ -38,19 +38,19 @@ const currDate = new Date();
 const checkValid = (s: string) => {
   let jobDateString = s.trim();
 
-  if (jobDateString.length <= 12) jobDateString += ' 11:59 PM';
+  if (jobDateString.length <= 12) jobDateString += " 11:59 PM";
 
-  const sanitizedString = jobDateString.replace(/'/g, '');
+  const sanitizedString = jobDateString.replace(/'/g, "");
   const [datePart, timePart] = sanitizedString.split(/\s*[\n\s]+\s*/);
 
-  const dateSeparator = datePart.includes('/') ? '/' : '.';
+  const dateSeparator = datePart.includes("/") ? "/" : ".";
   const [day, month, year] = datePart.split(dateSeparator).map(Number);
 
-  const [time, modifier] = timePart.split(' ');
-  const [hour, minute] = time?.split(':').map(Number);
+  const [time, modifier] = timePart.split(" ");
+  const [hour, minute] = time?.split(":").map(Number);
 
-  const adjustedHour = modifier === 'PM' && hour !== 12 ? hour + 12 : hour;
-  const finalHour = modifier === 'AM' && hour === 12 ? 0 : adjustedHour;
+  const adjustedHour = modifier === "PM" && hour !== 12 ? hour + 12 : hour;
+  const finalHour = modifier === "AM" && hour === 12 ? 0 : adjustedHour;
 
   const jobDate = new Date(year, month - 1, day, finalHour, minute);
 
@@ -61,12 +61,12 @@ export default function CareersPage({ Fulldata }: { Fulldata: Jobs[] }) {
   const [updatedJobsData, setUpdatedJobsData] = useState<Jobs[]>(Fulldata);
 
   useEffect(() => {
-    const data = Fulldata.map((job) => {
+    const data = Fulldata.map(job => {
       //   const isDateValid = checkValid(job.lastDate);
       return {
         ...job,
         // application: isDateValid ? job.application : '#',
-        actualDate: job.lastDate
+        actualDate: job.lastDate,
       };
     }).sort(
       (a, b) =>
@@ -76,18 +76,18 @@ export default function CareersPage({ Fulldata }: { Fulldata: Jobs[] }) {
     setUpdatedJobsData(data);
   }, [Fulldata]);
 
-  const [category, setCategory] = useState('all');
-  const [searchText, setSearchText] = useState('');
+  const [category, setCategory] = useState("all");
+  const [searchText, setSearchText] = useState("");
   const [filteredJobs, setFilteredJobs] = useState(updatedJobsData);
   useEffect(() => {
     setFilteredJobs(
       updatedJobsData
-        .filter((job) => category === 'all' || job.category === category)
-        .filter((job) => {
+        .filter(job => category === "all" || job.category === category)
+        .filter(job => {
           if (!searchText) return true;
 
-          const title = job.title?.toLowerCase() || '';
-          const details = job.details?.toLowerCase() || '';
+          const title = job.title?.toLowerCase() || "";
+          const details = job.details?.toLowerCase() || "";
 
           return title.includes(searchText) || details.includes(searchText);
         })
@@ -121,7 +121,7 @@ export default function CareersPage({ Fulldata }: { Fulldata: Jobs[] }) {
             <input
               // onKeyDown={(e) => e.key === 'Enter' && updateSearch()}
               ref={searchInputRef}
-              onChange={(event) =>
+              onChange={event =>
                 setSearchText(event.target.value.toLowerCase())
               }
               className="rounded-l-md p-1 px-2 focus:outline-none w-full md:w-auto"
@@ -134,7 +134,7 @@ export default function CareersPage({ Fulldata }: { Fulldata: Jobs[] }) {
                   size={16}
                   className="cursor-pointer"
                   onClick={() => {
-                    setSearchText((searchInputRef.current!.value = ''));
+                    setSearchText((searchInputRef.current!.value = ""));
                   }}
                 />
               ) : (
@@ -193,22 +193,22 @@ export default function CareersPage({ Fulldata }: { Fulldata: Jobs[] }) {
                   {job?.lastDate ? (
                     <div className="space-y-1">
                       <div className="font-medium">
-                        {new Date(job.lastDate).toLocaleDateString('en-US', {
-                          month: 'short',
-                          day: 'numeric',
-                          year: 'numeric'
+                        {new Date(job.lastDate).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
                         })}
                       </div>
                       <div className="text-xs text-gray-600">
-                        {new Date(job.lastDate).toLocaleTimeString('en-US', {
-                          hour: '2-digit',
-                          minute: '2-digit',
-                          hour12: true
+                        {new Date(job.lastDate).toLocaleTimeString("en-US", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
                         })}
                       </div>
                     </div>
                   ) : (
-                    'N/A'
+                    "N/A"
                   )}
                 </TableCell>
 
@@ -229,14 +229,14 @@ export default function CareersPage({ Fulldata }: { Fulldata: Jobs[] }) {
                   {job?.application && (
                     <Link
                       className={`inline-block px-3 py-2 rounded-sm text-sm font-medium transition-colors ${
-                        job.application !== '#'
-                          ? 'bg-main text-white hover:bg-main/90'
-                          : 'bg-gray-300 text-gray-600 cursor-not-allowed'
+                        job.application !== "#"
+                          ? "bg-main text-white hover:bg-main/90"
+                          : "bg-gray-300 text-gray-600 cursor-not-allowed"
                       }`}
                       target="_blank"
                       href={job.application}
                     >
-                      {job.application !== '#' ? 'Apply' : 'Closed'}
+                      {job.application !== "#" ? "Apply" : "Closed"}
                     </Link>
                   )}
                 </TableCell>
@@ -244,7 +244,7 @@ export default function CareersPage({ Fulldata }: { Fulldata: Jobs[] }) {
                 <TableCell className="w-32">
                   {job?.extraInfo && job.extraInfo.length > 0 && (
                     <div className="flex flex-col gap-1">
-                      {job.extraInfo.map((item) => (
+                      {job.extraInfo.map(item => (
                         <Link
                           key={item._key}
                           target="_blank"

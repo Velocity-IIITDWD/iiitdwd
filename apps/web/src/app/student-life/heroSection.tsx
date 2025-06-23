@@ -1,6 +1,6 @@
-'use client';
-import SectionHeading from '@/components/layout/section-heading';
-import Image from 'next/image';
+"use client";
+import SectionHeading from "@/components/layout/section-heading";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (

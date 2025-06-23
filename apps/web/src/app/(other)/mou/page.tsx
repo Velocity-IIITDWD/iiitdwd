@@ -1,22 +1,22 @@
-'use client';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+"use client";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
-} from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Table,
   TableBody,
@@ -24,36 +24,36 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table';
-import { MoU, mouData } from '@/data/mou';
-import { ArrowUpDown, Filter, Search } from 'lucide-react';
-import { useState } from 'react';
+  TableRow,
+} from "@/components/ui/table";
+import { MoU, mouData } from "@/data/mou";
+import { ArrowUpDown, Filter, Search } from "lucide-react";
+import { useState } from "react";
 
 export default function MoUPage() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [yearFilter, setYearFilter] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [yearFilter, setYearFilter] = useState<string>("");
   const [sortConfig, setSortConfig] = useState<{
     key: keyof MoU | null;
-    direction: 'ascending' | 'descending';
+    direction: "ascending" | "descending";
   }>({
     key: null,
-    direction: 'ascending'
+    direction: "ascending",
   });
 
   // Filter and sort data
-  const filteredData = mouData.filter((mou) => {
+  const filteredData = mouData.filter(mou => {
     const matchesSearch =
       mou.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       mou.overview.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      mou.partners.some((partner) =>
+      mou.partners.some(partner =>
         partner.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
     // Fix: properly handle "all" option
     const matchesYear =
-      yearFilter === '' ||
-      yearFilter === 'all' ||
+      yearFilter === "" ||
+      yearFilter === "all" ||
       mou.year === parseInt(yearFilter);
 
     return matchesSearch && matchesYear;
@@ -62,12 +62,12 @@ export default function MoUPage() {
   const sortedData = [...filteredData].sort((a, b) => {
     if (!sortConfig.key) return 0;
 
-    if (sortConfig.key === 'id') {
-      return sortConfig.direction === 'ascending' ? a.id - b.id : b.id - a.id;
+    if (sortConfig.key === "id") {
+      return sortConfig.direction === "ascending" ? a.id - b.id : b.id - a.id;
     }
 
-    if (sortConfig.key === 'year') {
-      return sortConfig.direction === 'ascending'
+    if (sortConfig.key === "year") {
+      return sortConfig.direction === "ascending"
         ? a.year - b.year
         : b.year - a.year;
     }
@@ -75,21 +75,19 @@ export default function MoUPage() {
     const aValue = a[sortConfig.key] as string;
     const bValue = b[sortConfig.key] as string;
 
-    if (sortConfig.direction === 'ascending') {
+    if (sortConfig.direction === "ascending") {
       return aValue.localeCompare(bValue);
     } else {
       return bValue.localeCompare(aValue);
     }
   });
 
-  const uniqueYears = Array.from(
-    new Set(mouData.map((mou) => mou.year))
-  ).sort();
+  const uniqueYears = Array.from(new Set(mouData.map(mou => mou.year))).sort();
 
   const requestSort = (key: keyof MoU) => {
-    let direction: 'ascending' | 'descending' = 'ascending';
-    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
+    let direction: "ascending" | "descending" = "ascending";
+    if (sortConfig.key === key && sortConfig.direction === "ascending") {
+      direction = "descending";
     }
     setSortConfig({ key, direction });
   };
@@ -98,7 +96,7 @@ export default function MoUPage() {
     if (sortConfig.key !== key) {
       return <ArrowUpDown className="ml-2 h-4 w-4" />;
     }
-    return sortConfig.direction === 'ascending' ? (
+    return sortConfig.direction === "ascending" ? (
       <ArrowUpDown className="ml-2 h-4 w-4 text-blue-500" />
     ) : (
       <ArrowUpDown className="ml-2 h-4 w-4 text-blue-500 transform rotate-180" />
@@ -123,7 +121,7 @@ export default function MoUPage() {
               <Input
                 placeholder="Search by name, partner or overview..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={e => setSearchTerm(e.target.value)}
                 className="pl-10 border-main"
               />
             </div>
@@ -135,7 +133,7 @@ export default function MoUPage() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Years</SelectItem>
-                  {uniqueYears.map((year) => (
+                  {uniqueYears.map(year => (
                     <SelectItem key={year} value={String(year)}>
                       {year}
                     </SelectItem>
@@ -148,8 +146,8 @@ export default function MoUPage() {
           <Table>
             <TableCaption className="!text-callout text-main">
               Displaying {sortedData.length} of {mouData.length} MoUs
-              {(searchTerm || (yearFilter && yearFilter !== 'all')) &&
-                ' (filtered)'}
+              {(searchTerm || (yearFilter && yearFilter !== "all")) &&
+                " (filtered)"}
             </TableCaption>
             <TableHeader>
               <TableRow>
@@ -157,27 +155,27 @@ export default function MoUPage() {
                   <Button
                     variant="ghost"
                     className="p-0 font-bold text-title-3 text-white hover:text-white hover:bg-white/10 w-full justify-start text-left"
-                    onClick={() => requestSort('id')}
+                    onClick={() => requestSort("id")}
                   >
-                    Sl. No {getSortIcon('id')}
+                    Sl. No {getSortIcon("id")}
                   </Button>
                 </TableHead>
                 <TableHead className="font-bold">
                   <Button
                     variant="ghost"
                     className="p-0 font-bold text-title-3 text-white hover:text-white hover:bg-white/10 w-full justify-start text-left"
-                    onClick={() => requestSort('name')}
+                    onClick={() => requestSort("name")}
                   >
-                    Name of the MoU {getSortIcon('name')}
+                    Name of the MoU {getSortIcon("name")}
                   </Button>
                 </TableHead>
                 <TableHead className="font-bold w-24">
                   <Button
                     variant="ghost"
                     className="p-0 font-bold text-title-3 text-white hover:text-white hover:bg-white/10 w-full justify-start text-left"
-                    onClick={() => requestSort('year')}
+                    onClick={() => requestSort("year")}
                   >
-                    Year {getSortIcon('year')}
+                    Year {getSortIcon("year")}
                   </Button>
                 </TableHead>
                 <TableHead className="font-bold">Brief Overview</TableHead>
@@ -186,13 +184,13 @@ export default function MoUPage() {
             </TableHeader>
             <TableBody>
               {sortedData.length > 0 ? (
-                sortedData.map((mou) => (
+                sortedData.map(mou => (
                   <TableRow key={mou.id} className="hover:bg-slate-50">
                     <TableCell className="font-medium">{mou.id}</TableCell>
                     <TableCell className="font-medium">{mou.name}</TableCell>
                     <TableCell>{mou.year}</TableCell>
                     <TableCell className="max-w-md">
-                      {mou.overview !== 'Not provided' ? (
+                      {mou.overview !== "Not provided" ? (
                         <p className="line-clamp-3 text-sm text-gray-700">
                           {mou.overview}
                         </p>

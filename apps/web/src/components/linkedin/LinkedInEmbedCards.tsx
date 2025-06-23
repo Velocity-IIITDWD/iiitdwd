@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 type LinkedInEmbedCardsProps = {
   postLink: string;
 };
 
 const LinkedInEmbedCards: React.FC<LinkedInEmbedCardsProps> = ({
-  postLink
+  postLink,
 }) => {
   const embedUrl = `https://www.linkedin.com/embed/feed/update/${postLink}`;
   const externalUrl = `https://www.linkedin.com/feed/update/${postLink}`;

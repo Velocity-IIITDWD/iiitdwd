@@ -1,13 +1,13 @@
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle
-} from '@/components/ui/card';
-import { Mail, Phone } from 'lucide-react';
-import Link from 'next/link';
+  CardTitle,
+} from "@/components/ui/card";
+import { Mail, Phone } from "lucide-react";
+import Link from "next/link";
 
 const HigherStudiesContact = () => {
   return (
@@ -36,11 +36,11 @@ const HigherStudiesContact = () => {
         <p className="mb-8 text-title-3">
           For any inquiries or if you would like to participate in recruitment
           activities at IIIT Dharwad, please contact the Career Guidance Cell
-          (CGC) via email at{' '}
+          (CGC) via email at{" "}
           <Link href="mailto:cgc@iiitdwd.ac.in" className="text-main underline">
             cgc@iiitdwd.ac.in
-          </Link>{' '}
-          marking cc to{' '}
+          </Link>{" "}
+          marking cc to{" "}
           <Link
             href="mailto:cgcoffice@iiitdwd.ac.in"
             className="text-main underline"

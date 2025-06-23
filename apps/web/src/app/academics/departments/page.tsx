@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import bTechASDProgramData from '@/data/academics/asd-data';
-import bTechCSEProgramData from '@/data/academics/cse-data';
-import bTechDSAIProgramData from '@/data/academics/dsai-data';
-import bTechECEProgramData from '@/data/academics/ece-data';
+import bTechASDProgramData from "@/data/academics/asd-data";
+import bTechCSEProgramData from "@/data/academics/cse-data";
+import bTechDSAIProgramData from "@/data/academics/dsai-data";
+import bTechECEProgramData from "@/data/academics/ece-data";
 
-import Link from 'next/link';
-import { useState } from 'react';
-import MainContent from './main-content';
+import Link from "next/link";
+import { useState } from "react";
+import MainContent from "./main-content";
 export default function Page() {
-  const [selectedDepartment, setSelectedDepartment] = useState<string>('cse');
+  const [selectedDepartment, setSelectedDepartment] = useState<string>("cse");
 
   const departments = {
     cse: bTechCSEProgramData,
     ece: bTechECEProgramData,
     dsai: bTechDSAIProgramData,
-    asd: bTechASDProgramData
+    asd: bTechASDProgramData,
   };
 
   const currentDept =
@@ -35,10 +35,10 @@ export default function Page() {
             <ul className="text-body">
               <li>
                 <button
-                  onClick={() => setSelectedDepartment('cse')}
+                  onClick={() => setSelectedDepartment("cse")}
                   className={`w-full border-l-2 text-left px-3 py-2 rounded-r cursor-pointer ${
-                    selectedDepartment === 'cse' &&
-                    'bg-secondary/80 border-l-main font-medium'
+                    selectedDepartment === "cse" &&
+                    "bg-secondary/80 border-l-main font-medium"
                   }`}
                 >
                   Computer Science and Engineering
@@ -46,10 +46,10 @@ export default function Page() {
               </li>
               <li>
                 <button
-                  onClick={() => setSelectedDepartment('ece')}
+                  onClick={() => setSelectedDepartment("ece")}
                   className={`w-full border-l-2 text-left px-3 py-2 rounded-r cursor-pointer ${
-                    selectedDepartment === 'ece' &&
-                    'bg-secondary/80 border-l-main font-medium'
+                    selectedDepartment === "ece" &&
+                    "bg-secondary/80 border-l-main font-medium"
                   }`}
                 >
                   Electronics and Communication Engineering
@@ -57,10 +57,10 @@ export default function Page() {
               </li>
               <li>
                 <button
-                  onClick={() => setSelectedDepartment('dsai')}
+                  onClick={() => setSelectedDepartment("dsai")}
                   className={`w-full border-l-2 text-left px-3 py-2 rounded-r cursor-pointer ${
-                    selectedDepartment === 'dsai' &&
-                    'bg-secondary/80 border-l-main font-medium'
+                    selectedDepartment === "dsai" &&
+                    "bg-secondary/80 border-l-main font-medium"
                   }`}
                 >
                   Data Science and Artificial Intelligence
@@ -68,10 +68,10 @@ export default function Page() {
               </li>
               <li>
                 <button
-                  onClick={() => setSelectedDepartment('asd')}
+                  onClick={() => setSelectedDepartment("asd")}
                   className={`w-full border-l-2 text-left px-3 py-2 rounded-r cursor-pointer ${
-                    selectedDepartment === 'asd' &&
-                    'bg-secondary/80 border-l-main font-medium'
+                    selectedDepartment === "asd" &&
+                    "bg-secondary/80 border-l-main font-medium"
                   }`}
                 >
                   Department of Arts, Science, and Design

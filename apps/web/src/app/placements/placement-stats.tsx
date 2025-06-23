@@ -1,4 +1,4 @@
-import { IconCurrencyRupee } from '@tabler/icons-react';
+import { IconCurrencyRupee } from "@tabler/icons-react";
 import {
   BarElement,
   CategoryScale,
@@ -6,11 +6,11 @@ import {
   Legend,
   LinearScale,
   Title,
-  Tooltip
-} from 'chart.js';
-import { Briefcase, Building, Users } from 'lucide-react';
-import { useState } from 'react';
-import { Bar } from 'react-chartjs-2';
+  Tooltip,
+} from "chart.js";
+import { Briefcase, Building, Users } from "lucide-react";
+import { useState } from "react";
+import { Bar } from "react-chartjs-2";
 
 // Register Chart.js components
 ChartJS.register(
@@ -23,8 +23,8 @@ ChartJS.register(
 );
 
 // Define types
-type Year = '2023' | '2024' | '2025';
-type TabType = Year | 'compare';
+type Year = "2023" | "2024" | "2025";
+type TabType = Year | "compare";
 
 interface YearData {
   companies: number;
@@ -36,39 +36,39 @@ interface YearData {
 }
 
 interface PlacementDataType {
-  '2023': YearData;
-  '2024': YearData;
-  '2025': YearData;
+  "2023": YearData;
+  "2024": YearData;
+  "2025": YearData;
 }
 
 export default function PlacementStatistics() {
-  const [activeTab, setActiveTab] = useState<TabType>('2025');
+  const [activeTab, setActiveTab] = useState<TabType>("2025");
 
   const placementData: PlacementDataType = {
-    '2023': {
+    "2023": {
       companies: 96,
       offers: 126,
       highestCTC: 35,
       averageCTC: 10.31,
       medianCTC: 7.85,
-      placementPercentage: 86
+      placementPercentage: 86,
     },
-    '2024': {
+    "2024": {
       companies: 87,
       offers: 128,
       highestCTC: 46,
       averageCTC: 9.57,
       medianCTC: 8,
-      placementPercentage: 62
+      placementPercentage: 62,
     },
-    '2025': {
+    "2025": {
       companies: 86,
       offers: 203, // Estimated based on trend
       highestCTC: 71.94,
       averageCTC: 11.9,
       medianCTC: 9.34,
-      placementPercentage: 77.23
-    }
+      placementPercentage: 77.23,
+    },
   };
 
   // Chart options
@@ -77,113 +77,113 @@ export default function PlacementStatistics() {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top' as const
+        position: "top" as const,
       },
       title: {
         display: true,
         text:
-          activeTab !== 'compare'
+          activeTab !== "compare"
             ? `${activeTab} Statistics`
-            : 'Year Comparison'
-      }
-    }
+            : "Year Comparison",
+      },
+    },
   };
 
   const createYearChartData = (year: Year) => {
     return {
-      labels: ['Companies', 'Offers', 'Highest CTC (LPA)'],
+      labels: ["Companies", "Offers", "Highest CTC (LPA)"],
       datasets: [
         {
           label: year,
           data: [
             placementData[year].companies,
             placementData[year].offers,
-            placementData[year].highestCTC
+            placementData[year].highestCTC,
           ],
           backgroundColor: [
-            'rgba(59, 130, 246, 0.8)', // blue
-            'rgba(16, 185, 129, 0.8)', // green
-            'rgba(245, 158, 11, 0.8)' // amber
-          ]
-        }
-      ]
+            "rgba(59, 130, 246, 0.8)", // blue
+            "rgba(16, 185, 129, 0.8)", // green
+            "rgba(245, 158, 11, 0.8)", // amber
+          ],
+        },
+      ],
     };
   };
 
   // Comparison chart data
   const comparisonChartData = {
-    labels: ['Companies', 'Offers', 'Highest CTC (LPA)', 'Placement %'],
+    labels: ["Companies", "Offers", "Highest CTC (LPA)", "Placement %"],
     datasets: [
       {
-        label: '2023',
+        label: "2023",
         data: [
-          placementData['2023'].companies,
-          placementData['2023'].offers,
-          placementData['2023'].highestCTC,
-          placementData['2023'].placementPercentage
+          placementData["2023"].companies,
+          placementData["2023"].offers,
+          placementData["2023"].highestCTC,
+          placementData["2023"].placementPercentage,
         ],
-        backgroundColor: 'rgba(136, 132, 216, 0.8)'
+        backgroundColor: "rgba(136, 132, 216, 0.8)",
       },
       {
-        label: '2024',
+        label: "2024",
         data: [
-          placementData['2024'].companies,
-          placementData['2024'].offers,
-          placementData['2024'].highestCTC,
-          placementData['2024'].placementPercentage
+          placementData["2024"].companies,
+          placementData["2024"].offers,
+          placementData["2024"].highestCTC,
+          placementData["2024"].placementPercentage,
         ],
-        backgroundColor: 'rgba(130, 202, 157, 0.8)'
+        backgroundColor: "rgba(130, 202, 157, 0.8)",
       },
       {
-        label: '2025',
+        label: "2025",
         data: [
-          placementData['2025'].companies,
-          placementData['2025'].offers,
-          placementData['2025'].highestCTC,
-          placementData['2025'].placementPercentage
+          placementData["2025"].companies,
+          placementData["2025"].offers,
+          placementData["2025"].highestCTC,
+          placementData["2025"].placementPercentage,
         ],
-        backgroundColor: 'rgba(255, 198, 88, 0.8)'
-      }
-    ]
+        backgroundColor: "rgba(255, 198, 88, 0.8)",
+      },
+    ],
   };
 
   // CTC comparison chart data
   const ctcChartData = {
-    labels: ['Average CTC', 'Median CTC', 'Highest CTC'],
+    labels: ["Average CTC", "Median CTC", "Highest CTC"],
     datasets: [
       {
-        label: '2023',
+        label: "2023",
         data: [
-          placementData['2023'].averageCTC,
-          placementData['2023'].medianCTC,
-          placementData['2023'].highestCTC
+          placementData["2023"].averageCTC,
+          placementData["2023"].medianCTC,
+          placementData["2023"].highestCTC,
         ],
-        backgroundColor: 'rgba(136, 132, 216, 0.8)'
+        backgroundColor: "rgba(136, 132, 216, 0.8)",
       },
       {
-        label: '2024',
+        label: "2024",
         data: [
-          placementData['2024'].averageCTC,
-          placementData['2024'].medianCTC,
-          placementData['2024'].highestCTC
+          placementData["2024"].averageCTC,
+          placementData["2024"].medianCTC,
+          placementData["2024"].highestCTC,
         ],
-        backgroundColor: 'rgba(130, 202, 157, 0.8)'
+        backgroundColor: "rgba(130, 202, 157, 0.8)",
       },
       {
-        label: '2025',
+        label: "2025",
         data: [
-          placementData['2025'].averageCTC,
-          placementData['2025'].medianCTC,
-          placementData['2025'].highestCTC
+          placementData["2025"].averageCTC,
+          placementData["2025"].medianCTC,
+          placementData["2025"].highestCTC,
         ],
-        backgroundColor: 'rgba(255, 198, 88, 0.8)'
-      }
-    ]
+        backgroundColor: "rgba(255, 198, 88, 0.8)",
+      },
+    ],
   };
 
   // Get the right chart data based on active tab
   const getYearChartData = () => {
-    if (activeTab === 'compare') {
+    if (activeTab === "compare") {
       return comparisonChartData;
     }
     return createYearChartData(activeTab as Year);
@@ -196,13 +196,13 @@ export default function PlacementStatistics() {
     >
       {/* Tabs */}
       <div className="flex border-b mb-6 overflow-x-auto">
-        {(Object.keys(placementData) as Year[]).map((year) => (
+        {(Object.keys(placementData) as Year[]).map(year => (
           <button
             key={year}
             className={`px-6 py-3 font-medium text-body focus:outline-none ${
               activeTab === year
-                ? 'border-b-2 border-blue-600 text-blue-600'
-                : 'text-gray-500 hover:text-gray-700'
+                ? "border-b-2 border-blue-600 text-blue-600"
+                : "text-gray-500 hover:text-gray-700"
             }`}
             onClick={() => setActiveTab(year)}
           >
@@ -211,18 +211,18 @@ export default function PlacementStatistics() {
         ))}
         <button
           className={`px-6 py-3 font-medium text-body focus:outline-none ${
-            activeTab === 'compare'
-              ? 'border-b-2 border-blue-600 text-blue-600'
-              : 'text-gray-500 hover:text-gray-700'
+            activeTab === "compare"
+              ? "border-b-2 border-blue-600 text-blue-600"
+              : "text-gray-500 hover:text-gray-700"
           }`}
-          onClick={() => setActiveTab('compare')}
+          onClick={() => setActiveTab("compare")}
         >
           Year Comparison
         </button>
       </div>
 
       {/* Tab Content */}
-      {activeTab !== 'compare' ? (
+      {activeTab !== "compare" ? (
         <div className="space-y-8">
           {/* Key Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -271,7 +271,7 @@ export default function PlacementStatistics() {
                 <p className="text-title-1 font-bold">
                   {placementData[activeTab as Year].placementPercentage}%
                 </p>
-                {activeTab === '2025' && (
+                {activeTab === "2025" && (
                   <p className="text-callout text-gray-500">ongoing</p>
                 )}
               </div>
@@ -332,9 +332,9 @@ export default function PlacementStatistics() {
                     ...chartOptions.plugins,
                     title: {
                       display: true,
-                      text: 'Placement Metrics Comparison'
-                    }
-                  }
+                      text: "Placement Metrics Comparison",
+                    },
+                  },
                 }}
                 data={comparisonChartData}
               />
@@ -351,9 +351,9 @@ export default function PlacementStatistics() {
                     ...chartOptions.plugins,
                     title: {
                       display: true,
-                      text: 'Compensation Package Comparison (LPA)'
-                    }
-                  }
+                      text: "Compensation Package Comparison (LPA)",
+                    },
+                  },
                 }}
                 data={ctcChartData}
               />
@@ -362,7 +362,7 @@ export default function PlacementStatistics() {
         </div>
       )}
 
-      {activeTab === '2025' && (
+      {activeTab === "2025" && (
         <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-4 text-body text-amber-800">
           Note: Statistics for 2025 are ongoing, and final figures may change.
         </div>

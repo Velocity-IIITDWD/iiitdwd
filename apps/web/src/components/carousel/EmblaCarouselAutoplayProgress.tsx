@@ -1,5 +1,5 @@
-import { EmblaCarouselType } from 'embla-carousel';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { EmblaCarouselType } from "embla-carousel";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type UseAutoplayProgressType = {
   showAutoplayProgress: boolean;
@@ -10,7 +10,7 @@ export const useAutoplayProgress = <ProgressElement extends HTMLElement>(
   progressNode: React.RefObject<ProgressElement>
 ): UseAutoplayProgressType => {
   const [showAutoplayProgress, setShowAutoplayProgress] = useState(false);
-  const animationName = useRef('');
+  const animationName = useRef("");
   const timeoutId = useRef(0);
   const rafId = useRef(0);
 
@@ -25,8 +25,8 @@ export const useAutoplayProgress = <ProgressElement extends HTMLElement>(
       animationName.current = style.animationName;
     }
 
-    node.style.animationName = 'none';
-    node.style.transform = 'translate3d(0,0,0)';
+    node.style.animationName = "none";
+    node.style.transform = "translate3d(0,0,0)";
 
     rafId.current = window.requestAnimationFrame(() => {
       timeoutId.current = window.setTimeout(() => {
@@ -43,8 +43,8 @@ export const useAutoplayProgress = <ProgressElement extends HTMLElement>(
     if (!autoplay) return;
 
     emblaApi
-      .on('autoplay:timerset', () => startProgress(autoplay.timeUntilNext()))
-      .on('autoplay:timerstopped', () => setShowAutoplayProgress(false));
+      .on("autoplay:timerset", () => startProgress(autoplay.timeUntilNext()))
+      .on("autoplay:timerstopped", () => setShowAutoplayProgress(false));
   }, [emblaApi]);
 
   useEffect(() => {
@@ -55,6 +55,6 @@ export const useAutoplayProgress = <ProgressElement extends HTMLElement>(
   }, []);
 
   return {
-    showAutoplayProgress
+    showAutoplayProgress,
   };
 };

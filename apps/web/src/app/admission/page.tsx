@@ -1,9 +1,9 @@
-import Background from '@/assets/campus_0.webp';
-import { ChevronRight } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import HeroSection from './hero-section';
-import JourneySection from './journey-section';
+import Background from "@/assets/campus_0.webp";
+import { ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import HeroSection from "./hero-section";
+import JourneySection from "./journey-section";
 
 export default function Page() {
   return (
@@ -13,9 +13,9 @@ export default function Page() {
           className="h-full w-full object-cover absolute top-0 left-0"
           height={0}
           width={0}
-          sizes={'100%'}
+          sizes={"100%"}
           src={Background}
-          alt={'Main Background'}
+          alt={"Main Background"}
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black/[.55] z-[1]" />
 

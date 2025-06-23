@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import director from '@/assets/director.jpg';
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
+import director from "@/assets/director.jpg";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 
 const DirectorsMessage = () => {
   const messageRef = useRef(null);
@@ -13,7 +13,7 @@ const DirectorsMessage = () => {
       ref={messageRef}
       initial={{ opacity: 0 }}
       animate={isMessageVisible ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className="mt-16 my-16 py-12 px-8 rounded-3xl border border-tertiary/20 bg-gradient-to-b from-white/70 to-white shadow-md"
       id="directors-message"
     >
@@ -23,8 +23,8 @@ const DirectorsMessage = () => {
         transition={{
           delay: 0.2,
           duration: 0.6,
-          type: 'spring',
-          stiffness: 100
+          type: "spring",
+          stiffness: 100,
         }}
         className="text-main-title font-bold text-primary mb-8 text-center"
       >

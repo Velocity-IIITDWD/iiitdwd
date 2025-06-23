@@ -1,6 +1,6 @@
-'use client';
-import { HelpCircle } from 'lucide-react';
-import { FC } from 'react';
+"use client";
+import { HelpCircle } from "lucide-react";
+import { FC } from "react";
 
 const QueriesBox: FC = () => {
   return (
@@ -13,7 +13,7 @@ const QueriesBox: FC = () => {
       <div className="text-gray-500 text-title-3 font-normal">
         <p>
           Dear prospective students, you can directly ask any questions to our
-          faculty at{' '}
+          faculty at{" "}
           <a
             href="mailto:contact@iiitdwd.ac.in"
             className="font-bold text-main hover:underline"

@@ -1,15 +1,15 @@
-'use client';
-import AlumniBackground from '@/assets/layout/Alumni_Background.webp';
-import SectionHeading from '@/components/layout/section-heading';
+"use client";
+import AlumniBackground from "@/assets/layout/Alumni_Background.webp";
+import SectionHeading from "@/components/layout/section-heading";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
-} from '@/components/ui/accordion';
-import aboutPageSections from '@/data/about';
-import { motion } from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import aboutPageSections from "@/data/about";
+import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 
 export default function DetailSection() {
   const [activeSection, setActiveSection] = useState<number>(0);
@@ -61,11 +61,11 @@ export default function DetailSection() {
             {aboutPageSections.map((section, index) => (
               <div key={index}>
                 <h3
-                  ref={(el) => {
+                  ref={el => {
                     sectionRefs.current[index] = el;
                   }}
                   className={`${
-                    index === activeSection && 'after:w-full !text-primary'
+                    index === activeSection && "after:w-full !text-primary"
                   } flex flex-col items-center after:bg-tertiary after:h-[2px] w-fit after:w-0 after:transition-all hover:after:w-full text-gray-500 hover:text-primary text-large-title transition-all cursor-pointer`}
                   onClick={() => setActiveSection(index)} // Trigger active section change
                 >
@@ -82,7 +82,7 @@ export default function DetailSection() {
             <motion.div
               className="absolute w-6 h-6 left-0 -translate-x-1/2 rotate-45 bg-background border-r-2 border-t-2 border-primary transition-all duration-300 ease-in-out"
               animate={{
-                top: arrowPosition - 12 // Center the arrow (half of its height)
+                top: arrowPosition - 12, // Center the arrow (half of its height)
               }}
               initial={{ top: 0 }}
               transition={{ duration: 0.3 }}

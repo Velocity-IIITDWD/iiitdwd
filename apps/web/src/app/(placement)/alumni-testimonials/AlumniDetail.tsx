@@ -1,8 +1,8 @@
 // src/components/AlumniDetail.tsx
-'use client';
+"use client";
 
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Review } from '@/types/alumni';
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Review } from "@/types/alumni";
 import {
   BookOpen,
   GraduationCap,
@@ -10,9 +10,9 @@ import {
   Mail,
   MessageSquare,
   Quote,
-  Trophy
-} from 'lucide-react';
-import Image from 'next/image';
+  Trophy,
+} from "lucide-react";
+import Image from "next/image";
 
 export default function AlumniDetail({ review }: { review: Review }) {
   return (
@@ -21,7 +21,7 @@ export default function AlumniDetail({ review }: { review: Review }) {
         <CardHeader>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <Image
-              src={review.photoUrl || 'https://avatar.vercel.sh/default'}
+              src={review.photoUrl || "https://avatar.vercel.sh/default"}
               className="w-20 h-20 rounded-full object-cover border-2 border-gray-100"
               height={80}
               width={80}

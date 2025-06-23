@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import { LinkIcon, Mail, MapPin } from 'lucide-react';
-import Image from 'next/image';
+import { cn } from "@/lib/utils";
+import { LinkIcon, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
 
 interface FacultyProfileProps {
   name: string | undefined;
@@ -13,14 +13,14 @@ interface FacultyProfileProps {
   office?: string;
   website?: string;
   imageUrl?: string;
-  variant?: 'default' | 'compact' | 'minimal';
+  variant?: "default" | "compact" | "minimal";
   className?: string;
   keyPositions?: string[] | string;
 }
 
 export default function FacultyProfile({
-  name = '',
-  title = '',
+  name = "",
+  title = "",
   role,
   education,
   department,
@@ -28,22 +28,22 @@ export default function FacultyProfile({
   email,
   office,
   website,
-  imageUrl = '/placeholder-person.svg',
-  variant = 'default',
+  imageUrl = "/placeholder-person.svg",
+  variant = "default",
   className,
-  keyPositions = ''
+  keyPositions = "",
 }: FacultyProfileProps) {
   const positions = Array.isArray(keyPositions) ? keyPositions : [keyPositions];
 
-  imageUrl = imageUrl.startsWith('/images')
+  imageUrl = imageUrl.startsWith("/images")
     ? `https://iiitdwd.ac.in${imageUrl}`
-    : imageUrl || '/placeholder-person.svg';
+    : imageUrl || "/placeholder-person.svg";
 
-  if (variant === 'minimal') {
+  if (variant === "minimal") {
     return (
       <div
         className={cn(
-          'flex items-center gap-3 relative p-3 border rounded-lg bg-white shadow-sm hover:shadow transition-all duration-300 group',
+          "flex items-center gap-3 relative p-3 border rounded-lg bg-white shadow-sm hover:shadow transition-all duration-300 group",
           className
         )}
       >
@@ -52,7 +52,7 @@ export default function FacultyProfile({
         <div className="flex-shrink-0 w-10 h-10 rounded-full border-2 border-primary/30 group-hover:border-primary/50 shadow-sm transition-all duration-300 overflow-hidden">
           <div className="w-full h-full relative">
             <Image
-              src={imageUrl || '/placeholder-person.svg'}
+              src={imageUrl || "/placeholder-person.svg"}
               alt={name}
               fill
               className="object-cover"
@@ -72,7 +72,7 @@ export default function FacultyProfile({
                 <span
                   key={index}
                   className={cn(
-                    'text-callout px-2 py-0.5 rounded-full border transition-all duration-300 group-hover:shadow-sm'
+                    "text-callout px-2 py-0.5 rounded-full border transition-all duration-300 group-hover:shadow-sm"
                   )}
                 >
                   {position}
@@ -90,11 +90,11 @@ export default function FacultyProfile({
     );
   }
 
-  if (variant === 'compact') {
+  if (variant === "compact") {
     return (
       <div
         className={cn(
-          'p-4 border rounded-lg bg-white shadow-sm hover:shadow transition-all duration-300 group',
+          "p-4 border rounded-lg bg-white shadow-sm hover:shadow transition-all duration-300 group",
           className
         )}
       >
@@ -103,7 +103,7 @@ export default function FacultyProfile({
             <div className="w-full h-full relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
               <Image
-                src={imageUrl || '/placeholder-person.svg'}
+                src={imageUrl || "/placeholder-person.svg"}
                 alt={name}
                 fill
                 className="object-cover"
@@ -129,7 +129,7 @@ export default function FacultyProfile({
                   <span
                     key={index}
                     className={cn(
-                      'text-callout px-2.5 py-0.5 rounded-full border transition-all duration-300 group-hover:shadow-sm'
+                      "text-callout px-2.5 py-0.5 rounded-full border transition-all duration-300 group-hover:shadow-sm"
                     )}
                   >
                     {position}
@@ -140,7 +140,7 @@ export default function FacultyProfile({
           </div>
         </div>
         <div className="mt-4 flex flex-col gap-2 border-t pt-3">
-          {email && email !== '-' && (
+          {email && email !== "-" && (
             <div className="flex items-center gap-3 text-body">
               <Mail className="h-4 w-4 text-gray-500" />
               <a
@@ -151,7 +151,7 @@ export default function FacultyProfile({
               </a>
             </div>
           )}
-          {office && office !== '?' && (
+          {office && office !== "?" && (
             <div className="flex items-center gap-3 text-body">
               <MapPin className="h-4 w-4 text-gray-500" />
               <span className="text-gray-500">{office}</span>
@@ -166,7 +166,7 @@ export default function FacultyProfile({
   return (
     <div
       className={cn(
-        'p-5 border rounded-lg bg-gradient-to-b from-white/70 to-white shadow-sm hover:shadow transition-all duration-300 relative overflow-hidden group',
+        "p-5 border rounded-lg bg-gradient-to-b from-white/70 to-white shadow-sm hover:shadow transition-all duration-300 relative overflow-hidden group",
         className
       )}
     >
@@ -179,7 +179,7 @@ export default function FacultyProfile({
               <div className="w-full h-full relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                 <Image
-                  src={imageUrl || '/placeholder-person.svg'}
+                  src={imageUrl || "/placeholder-person.svg"}
                   alt={name}
                   fill
                   className="object-cover"
@@ -202,7 +202,7 @@ export default function FacultyProfile({
                         <span
                           key={index}
                           className={cn(
-                            'text-subheadline font-normal px-2.5 text-pretty py-0.5 rounded border transition-all duration-300 group-hover:shadow-sm'
+                            "text-subheadline font-normal px-2.5 text-pretty py-0.5 rounded border transition-all duration-300 group-hover:shadow-sm"
                           )}
                         >
                           {position}
@@ -252,7 +252,7 @@ export default function FacultyProfile({
         </div>
 
         <div className="border-t border-main/25 text-callout pt-1">
-          {email && email !== '-' && (
+          {email && email !== "-" && (
             <div className="flex items-center gap-3 py-2">
               <Mail size={16} className="text-gray-500" />
               <a
@@ -263,7 +263,7 @@ export default function FacultyProfile({
               </a>
             </div>
           )}
-          {office && office !== '?' && (
+          {office && office !== "?" && (
             <div className="flex items-center gap-3 py-2">
               <MapPin size={16} className="text-gray-500" />
               <span className="text-gray-500">{office}</span>
@@ -274,19 +274,19 @@ export default function FacultyProfile({
               <LinkIcon size={16} className="text-gray-500" />
               <a
                 href={
-                  website.startsWith('/docs')
+                  website.startsWith("/docs")
                     ? `https://iiitdwd.ac.in${website}`
-                    : website.startsWith('http')
-                    ? website
-                    : `https://${website}`
+                    : website.startsWith("http")
+                      ? website
+                      : `https://${website}`
                 }
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors duration-300 text-gray-500 hover:text-primary"
               >
-                {website.endsWith('.pdf')
-                  ? 'View Profile'
-                  : website.replace(/^https?:\/\//, '')}
+                {website.endsWith(".pdf")
+                  ? "View Profile"
+                  : website.replace(/^https?:\/\//, "")}
               </a>
             </div>
           )}

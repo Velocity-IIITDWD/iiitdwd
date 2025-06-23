@@ -1,6 +1,6 @@
-'use client';
-import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+"use client";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function DualFeatureSection() {
   return (
@@ -28,7 +28,7 @@ export default function DualFeatureSection() {
 function FeatureCard({
   title,
   description,
-  imgSrc
+  imgSrc,
 }: {
   title: string;
   description: string;

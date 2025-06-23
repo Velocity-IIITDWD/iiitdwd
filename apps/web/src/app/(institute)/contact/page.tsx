@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -10,20 +10,20 @@ export default function Page() {
 
         <div className="">
           For directions, transportation options, and campus access details,
-          visit our{' '}
+          visit our{" "}
           <Link
             className="text-main underline"
-            href={'/institute/campus/how-to-reach/'}
+            href={"/institute/campus/how-to-reach/"}
           >
             How to Reach Us
-          </Link>{' '}
-          page. To check office timings and availability, refer to our{' '}
+          </Link>{" "}
+          page. To check office timings and availability, refer to our{" "}
           <Link
             className="text-main underline"
-            href={'/institute/campus/working-hours/'}
+            href={"/institute/campus/working-hours/"}
           >
             Working Hours
-          </Link>{' '}
+          </Link>{" "}
           section. For specific office locations, consult the campus map or
           departmental websites.
         </div>

@@ -6,24 +6,24 @@ import {
   MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
-  MenubarTrigger
-} from '@/components/ui/menubar';
-import navigationData from '@/data/navigation';
-import { trackEvent } from '@/lib/ga';
-import { NavigationItem } from '@/types/navigation';
-import { useKBar } from 'kbar';
-import { Command, Search } from 'lucide-react';
-import { motion } from 'motion/react';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+  MenubarTrigger,
+} from "@/components/ui/menubar";
+import navigationData from "@/data/navigation";
+import { trackEvent } from "@/lib/ga";
+import { NavigationItem } from "@/types/navigation";
+import { useKBar } from "kbar";
+import { Command, Search } from "lucide-react";
+import { motion } from "motion/react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function DesktopHeader() {
   const { query } = useKBar();
-  const [openMenu, setOpenMenu] = useState<string>('');
+  const [openMenu, setOpenMenu] = useState<string>("");
   const [isMacOS, setIsMacOS] = useState(false);
 
   useEffect(() => {
-    setIsMacOS(window.navigator.platform.toLowerCase().includes('mac'));
+    setIsMacOS(window.navigator.platform.toLowerCase().includes("mac"));
   }, []);
 
   const renderMenuItems = (items: NavigationItem[]) => {
@@ -35,12 +35,12 @@ export default function DesktopHeader() {
             <MenubarSubContent asChild>
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
+                animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{
                   duration: 0.3,
-                  ease: 'easeInOut',
-                  staggerChildren: 0.1
+                  ease: "easeInOut",
+                  staggerChildren: 0.1,
                 }}
               >
                 {item.items.map((subItem, subIndex) => {
@@ -51,12 +51,12 @@ export default function DesktopHeader() {
                         <MenubarSubContent asChild>
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
+                            animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{
                               duration: 0.3,
-                              ease: 'easeInOut',
-                              staggerChildren: 0.1
+                              ease: "easeInOut",
+                              staggerChildren: 0.1,
                             }}
                           >
                             {subItem.items.map(
@@ -94,9 +94,9 @@ export default function DesktopHeader() {
             asChild
             onClick={() =>
               trackEvent({
-                action: 'click',
-                category: 'navigation',
-                label: `menu_item_${item.title}`
+                action: "click",
+                category: "navigation",
+                label: `menu_item_${item.title}`,
               })
             }
           >
@@ -122,9 +122,9 @@ export default function DesktopHeader() {
             onClick={() =>
               item.href &&
               trackEvent({
-                action: 'click',
-                category: 'navigation',
-                label: `main_menu_${item.title}`
+                action: "click",
+                category: "navigation",
+                label: `main_menu_${item.title}`,
               })
             }
           >
@@ -142,12 +142,12 @@ export default function DesktopHeader() {
             >
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
+                animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{
                   duration: 0.3,
-                  ease: 'easeInOut',
-                  staggerChildren: 0.1
+                  ease: "easeInOut",
+                  staggerChildren: 0.1,
                 }}
               >
                 {renderMenuItems(item.items)}
@@ -162,9 +162,9 @@ export default function DesktopHeader() {
         onClick={() => {
           query.toggle();
           trackEvent({
-            action: 'click',
-            category: 'search',
-            label: 'command_palette'
+            action: "click",
+            category: "search",
+            label: "command_palette",
           });
         }}
       >

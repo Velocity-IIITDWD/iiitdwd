@@ -1,5 +1,5 @@
-import { DynamicProfileSections } from '@/components/committee';
-import registrar from '@/data/registrar';
+import { DynamicProfileSections } from "@/components/committee";
+import registrar from "@/data/registrar";
 
 export default async function Page() {
   return (

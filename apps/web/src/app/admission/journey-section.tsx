@@ -1,22 +1,22 @@
-'use client';
-import { Button } from '@/components/ui/button';
+"use client";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
+  SelectValue,
+} from "@/components/ui/select";
 
-import { ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { ChevronRight } from "lucide-react";
+import { useState } from "react";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import JourneyComponent from './journey-component';
+import Image from "next/image";
+import Link from "next/link";
+import JourneyComponent from "./journey-component";
 
 const JourneySection = () => {
-  const [selectedProgram, setSelectedProgram] = useState('btech');
+  const [selectedProgram, setSelectedProgram] = useState("btech");
   return (
     <div className="w-[87.5vw] max-w-[1680px] mx-auto py-16 md:py-24">
       <div className="mx-auto relative">
@@ -49,7 +49,7 @@ const JourneySection = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4 items-start">
                   <Select
-                    onValueChange={(value) => setSelectedProgram(value)}
+                    onValueChange={value => setSelectedProgram(value)}
                     defaultValue="btech"
                   >
                     <SelectTrigger className="w-full sm:w-64 border-2 rounded !h-12">
@@ -115,7 +115,7 @@ const JourneySection = () => {
                   IIIT Dharwad special.
                 </p>
 
-                <Link href={'/how-to-reach'} className="w-fit flex">
+                <Link href={"/how-to-reach"} className="w-fit flex">
                   <Button
                     variant="outline"
                     className="bg-main flex items-center hover:bg-main/90 text-white hover:text-white transition-colors rounded h-12 border-0 px-6"
@@ -142,7 +142,7 @@ const JourneySection = () => {
                 </p>
 
                 <Link
-                  href={'https://iiitdwd.ac.in/docs/Fee_Structure_2025-26.pdf'}
+                  href={"https://iiitdwd.ac.in/docs/Fee_Structure_2025-26.pdf"}
                   className="w-fit flex"
                 >
                   <Button
@@ -153,14 +153,14 @@ const JourneySection = () => {
                   </Button>
                 </Link>
                 <Link
-                  href={'/docs/OM_39-22025-CSIS_dated_2025-04-22.pdf'}
+                  href={"/docs/OM_39-22025-CSIS_dated_2025-04-22.pdf"}
                   className="w-fit flex mt-4"
                 >
                   <Button
                     variant="outline"
                     className="bg-main flex items-center hover:bg-main/90 text-white hover:text-white transition-colors rounded h-12 border-0 px-6"
                   >
-                    Financial Aid and Student Loans{' '}
+                    Financial Aid and Student Loans{" "}
                     <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>

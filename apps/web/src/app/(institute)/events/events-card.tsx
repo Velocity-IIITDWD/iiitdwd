@@ -1,7 +1,7 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { CalendarIcon, MapPinIcon } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Card, CardContent } from "@/components/ui/card";
+import { CalendarIcon, MapPinIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface EventCardProps {
   event: {
@@ -33,13 +33,13 @@ const EventCard = ({ event }: EventCardProps) => {
   const formatDate = (dateString: string) => {
     // Handle DD-MM-YYYY format
     if (dateString.match(/^\d{2}-\d{2}-\d{4}$/)) {
-      const [day, month, year] = dateString.split('-');
+      const [day, month, year] = dateString.split("-");
       const date = new Date(`${year}-${month}-${day}`);
 
-      return date.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric'
+      return date.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
       });
     }
   };
@@ -63,7 +63,7 @@ const EventCard = ({ event }: EventCardProps) => {
       </div>
 
       <CardContent className="px-4 py-6 justify-between flex flex-col h-full">
-        <Link href={'#'} className="block">
+        <Link href={"#"} className="block">
           <h2 className="text-title-2 font-bold mb-2 text-main">
             {event.text}
           </h2>
@@ -80,10 +80,10 @@ const EventCard = ({ event }: EventCardProps) => {
             <span>
               {event.venue.street &&
                 `${event.venue.street}${
-                  event.venue.place || event.venue.city ? ', ' : ''
+                  event.venue.place || event.venue.city ? ", " : ""
                 }`}
               {event.venue.place &&
-                `${event.venue.place}${event.venue.city ? ', ' : ''}`}
+                `${event.venue.place}${event.venue.city ? ", " : ""}`}
               {event.venue.city && event.venue.city}
             </span>
           </div>

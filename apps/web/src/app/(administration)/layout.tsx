@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { ChevronRight } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import Campus0 from '@/assets/campus_0.webp';
+import Campus0 from "@/assets/campus_0.webp";
 
-import navigationData from '@/data/navigation';
-import { NavigationItem } from '@/types/navigation';
+import navigationData from "@/data/navigation";
+import { NavigationItem } from "@/types/navigation";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -18,8 +18,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     path: string
   ): [string, boolean, { title: string; href: string }[]] => {
     for (const item of items) {
-      const normalizedPath = path.endsWith('/') ? path.slice(0, -1) : path;
-      const normalizedHref = item.href.endsWith('/')
+      const normalizedPath = path.endsWith("/") ? path.slice(0, -1) : path;
+      const normalizedHref = item.href.endsWith("/")
         ? item.href.slice(0, -1)
         : item.href;
 
@@ -27,22 +27,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         return [
           item.title,
           item?.meta?.disableLayout || false,
-          [{ title: item.title, href: item.href }]
+          [{ title: item.title, href: item.href }],
         ];
       if (item.items) {
         const [title, disableLayout, breadcrumbs] = matchPathToTitle(
           item.items,
           path
         );
-        if (title !== '')
+        if (title !== "")
           return [
             title,
             disableLayout,
-            [{ title: item.title, href: item.href }, ...breadcrumbs]
+            [{ title: item.title, href: item.href }, ...breadcrumbs],
           ];
       }
     }
-    return ['', true, []];
+    return ["", true, []];
   };
 
   const [currentTitle, disableHero, breadcrumbs] = matchPathToTitle(

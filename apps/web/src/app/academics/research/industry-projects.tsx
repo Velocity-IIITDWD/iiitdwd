@@ -1,22 +1,22 @@
-'use client';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+"use client";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
-} from '@/components/ui/card';
+  CardTitle,
+} from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 import {
   Pagination,
   PaginationContent,
@@ -24,35 +24,35 @@ import {
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationPrevious
-} from '@/components/ui/pagination';
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table';
-import { IndustryProject, industryProjects } from '@/data/industry-projects';
-import { ChevronDown, FilterX, MoreHorizontal, Search } from 'lucide-react';
-import React, { useState } from 'react';
+  TableRow,
+} from "@/components/ui/table";
+import { IndustryProject, industryProjects } from "@/data/industry-projects";
+import { ChevronDown, FilterX, MoreHorizontal, Search } from "lucide-react";
+import React, { useState } from "react";
 
 export default function IndustryProjects() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortColumn, setSortColumn] = useState<keyof IndustryProject>('id');
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+  const [sortColumn, setSortColumn] = useState<keyof IndustryProject>("id");
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [yearFilter, setYearFilter] = useState<string | null>(null);
   const itemsPerPage = 5;
 
   // Get unique years for filtering
   const uniqueYears = [
-    ...new Set(industryProjects.map((p) => p.year).filter((y) => y))
+    ...new Set(industryProjects.map(p => p.year).filter(y => y)),
   ];
 
   // Filter projects based on search query and year filter
-  const filteredProjects = industryProjects.filter((project) => {
+  const filteredProjects = industryProjects.filter(project => {
     const matchesSearch =
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.facultyInCharge
@@ -67,14 +67,14 @@ export default function IndustryProjects() {
 
   // Sort projects
   const sortedProjects = [...filteredProjects].sort((a, b) => {
-    if (sortColumn === 'id') {
-      return sortDirection === 'asc' ? a.id - b.id : b.id - a.id;
+    if (sortColumn === "id") {
+      return sortDirection === "asc" ? a.id - b.id : b.id - a.id;
     }
 
     const aValue = a[sortColumn].toString().toLowerCase();
     const bValue = b[sortColumn].toString().toLowerCase();
 
-    if (sortDirection === 'asc') {
+    if (sortDirection === "asc") {
       return aValue.localeCompare(bValue);
     } else {
       return bValue.localeCompare(aValue);
@@ -96,10 +96,10 @@ export default function IndustryProjects() {
   // Handle sort
   const handleSort = (column: keyof IndustryProject) => {
     if (sortColumn === column) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
       setSortColumn(column);
-      setSortDirection('asc');
+      setSortDirection("asc");
     }
   };
 
@@ -110,11 +110,11 @@ export default function IndustryProjects() {
 
   // Clear all filters
   const clearFilters = () => {
-    setSearchQuery('');
+    setSearchQuery("");
     setYearFilter(null);
     setCurrentPage(1);
-    setSortColumn('id');
-    setSortDirection('asc');
+    setSortColumn("id");
+    setSortDirection("asc");
   };
 
   // Generate pagination items
@@ -215,7 +215,7 @@ export default function IndustryProjects() {
               placeholder="Search projects..."
               className="pl-8 bg-white text-primary"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={e => setSearchQuery(e.target.value)}
             />
           </div>
 
@@ -231,27 +231,27 @@ export default function IndustryProjects() {
                 <DropdownMenuContent align="end">
                   <DropdownMenuLabel>Sort by</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={() => handleSort('id')}>
-                    ID{' '}
-                    {sortColumn === 'id' &&
-                      (sortDirection === 'asc' ? '↑' : '↓')}
+                  <DropdownMenuItem onClick={() => handleSort("id")}>
+                    ID{" "}
+                    {sortColumn === "id" &&
+                      (sortDirection === "asc" ? "↑" : "↓")}
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => handleSort('title')}>
-                    Title{' '}
-                    {sortColumn === 'title' &&
-                      (sortDirection === 'asc' ? '↑' : '↓')}
+                  <DropdownMenuItem onClick={() => handleSort("title")}>
+                    Title{" "}
+                    {sortColumn === "title" &&
+                      (sortDirection === "asc" ? "↑" : "↓")}
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => handleSort('year')}>
-                    Year{' '}
-                    {sortColumn === 'year' &&
-                      (sortDirection === 'asc' ? '↑' : '↓')}
+                  <DropdownMenuItem onClick={() => handleSort("year")}>
+                    Year{" "}
+                    {sortColumn === "year" &&
+                      (sortDirection === "asc" ? "↑" : "↓")}
                   </DropdownMenuItem>
                   <DropdownMenuItem
-                    onClick={() => handleSort('facultyInCharge')}
+                    onClick={() => handleSort("facultyInCharge")}
                   >
-                    Faculty{' '}
-                    {sortColumn === 'facultyInCharge' &&
-                      (sortDirection === 'asc' ? '↑' : '↓')}
+                    Faculty{" "}
+                    {sortColumn === "facultyInCharge" &&
+                      (sortDirection === "asc" ? "↑" : "↓")}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -267,7 +267,7 @@ export default function IndustryProjects() {
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Filter by Year</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                {uniqueYears.sort().map((year) => (
+                {uniqueYears.sort().map(year => (
                   <DropdownMenuItem
                     key={year}
                     onClick={() => handleYearFilter(year)}
@@ -316,40 +316,40 @@ export default function IndustryProjects() {
             <TableRow className="bg-main hover:bg-main/90">
               <TableHead
                 className="w-16 text-white font-medium"
-                onClick={() => handleSort('id')}
+                onClick={() => handleSort("id")}
               >
-                ID{' '}
-                {sortColumn === 'id' && (sortDirection === 'asc' ? '↑' : '↓')}
+                ID{" "}
+                {sortColumn === "id" && (sortDirection === "asc" ? "↑" : "↓")}
               </TableHead>
               <TableHead
                 className="text-white font-medium"
-                onClick={() => handleSort('title')}
+                onClick={() => handleSort("title")}
               >
-                Project Title{' '}
-                {sortColumn === 'title' &&
-                  (sortDirection === 'asc' ? '↑' : '↓')}
+                Project Title{" "}
+                {sortColumn === "title" &&
+                  (sortDirection === "asc" ? "↑" : "↓")}
               </TableHead>
               <TableHead
                 className="w-32 text-white font-medium"
-                onClick={() => handleSort('year')}
+                onClick={() => handleSort("year")}
               >
-                Year{' '}
-                {sortColumn === 'year' && (sortDirection === 'asc' ? '↑' : '↓')}
+                Year{" "}
+                {sortColumn === "year" && (sortDirection === "asc" ? "↑" : "↓")}
               </TableHead>
               <TableHead
                 className="w-64 text-white font-medium"
-                onClick={() => handleSort('facultyInCharge')}
+                onClick={() => handleSort("facultyInCharge")}
               >
-                Faculty In-charge{' '}
-                {sortColumn === 'facultyInCharge' &&
-                  (sortDirection === 'asc' ? '↑' : '↓')}
+                Faculty In-charge{" "}
+                {sortColumn === "facultyInCharge" &&
+                  (sortDirection === "asc" ? "↑" : "↓")}
               </TableHead>
               <TableHead className="w-10"></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {paginatedProjects.length > 0 ? (
-              paginatedProjects.map((project) => (
+              paginatedProjects.map(project => (
                 <TableRow key={project.id}>
                   <TableCell>{project.id}</TableCell>
                   <TableCell className="font-medium">{project.title}</TableCell>
@@ -377,10 +377,10 @@ export default function IndustryProjects() {
             ) : (
               <TableRow>
                 <TableCell colSpan={5} className="h-24 text-center">
-                  No projects found.{' '}
+                  No projects found.{" "}
                   {searchQuery || yearFilter
-                    ? 'Try clearing your filters.'
-                    : ''}
+                    ? "Try clearing your filters."
+                    : ""}
                 </TableCell>
               </TableRow>
             )}
@@ -396,7 +396,7 @@ export default function IndustryProjects() {
                     onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                     aria-disabled={currentPage === 1}
                     className={
-                      currentPage === 1 ? 'pointer-events-none opacity-50' : ''
+                      currentPage === 1 ? "pointer-events-none opacity-50" : ""
                     }
                   />
                 </PaginationItem>
@@ -411,8 +411,8 @@ export default function IndustryProjects() {
                     aria-disabled={currentPage === totalPages}
                     className={
                       currentPage === totalPages
-                        ? 'pointer-events-none opacity-50'
-                        : ''
+                        ? "pointer-events-none opacity-50"
+                        : ""
                     }
                   />
                 </PaginationItem>

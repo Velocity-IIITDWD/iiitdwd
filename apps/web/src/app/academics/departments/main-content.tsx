@@ -1,26 +1,26 @@
-'use client';
-import { Badge } from '@/components/ui/badge';
+"use client";
+import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table';
-import { BTechCSEProgram } from '@/data/academics/cse-data';
-import { useState } from 'react';
-import ContentTypes from './content-types';
+  TableRow,
+} from "@/components/ui/table";
+import { BTechCSEProgram } from "@/data/academics/cse-data";
+import { useState } from "react";
+import ContentTypes from "./content-types";
 
 export default function MainContent({
-  currentDept
+  currentDept,
 }: {
   currentDept: BTechCSEProgram;
 }) {
@@ -92,7 +92,7 @@ export default function MainContent({
                           variant="outline"
                           className="bg-gray-50 text-primary w-full h-full"
                         >
-                          {' '}
+                          {" "}
                           {category.credits}
                         </Badge>
                       </TableCell>
@@ -101,7 +101,7 @@ export default function MainContent({
                           variant="outline"
                           className="bg-gray-100 text-primary w-full h-full"
                         >
-                          {' '}
+                          {" "}
                           {category.percentageOfTotal}%
                         </Badge>
                       </TableCell>
@@ -141,9 +141,7 @@ export default function MainContent({
                 </label>
                 <Select
                   value={selectedSemester.toString()}
-                  onValueChange={(value) =>
-                    setSelectedSemester(parseInt(value))
-                  }
+                  onValueChange={value => setSelectedSemester(parseInt(value))}
                 >
                   <SelectTrigger className="w-full md:w-64">
                     <SelectValue placeholder="Select a semester" />
@@ -197,7 +195,7 @@ export default function MainContent({
                           {
                             currentDept.SemesterData[selectedSemester]
                               .totalCredits
-                          }{' '}
+                          }{" "}
                           credits
                         </Badge>
                       </TableCell>

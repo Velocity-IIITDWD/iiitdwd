@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Award,
   Building,
@@ -9,10 +9,10 @@ import {
   FileText,
   Presentation,
   UserCheck,
-  Users
-} from 'lucide-react';
-import { motion, useInView } from 'motion/react';
-import { JSX, useRef } from 'react';
+  Users,
+} from "lucide-react";
+import { motion, useInView } from "motion/react";
+import { JSX, useRef } from "react";
 
 interface StepType {
   id: number;
@@ -29,14 +29,14 @@ const TimelineStep = ({ step, index }: { step: StepType; index: number }) => {
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } },
   };
 
   // The text content for the step
   const TextContent = (
     <motion.div
       initial="hidden"
-      animate={isVisible ? 'visible' : 'hidden'}
+      animate={isVisible ? "visible" : "hidden"}
       variants={fadeInUp}
       className="text-title-3"
     >
@@ -57,7 +57,7 @@ const TimelineStep = ({ step, index }: { step: StepType; index: number }) => {
     <Card className="p-0 overflow-hidden">
       <motion.div
         initial="hidden"
-        animate={isVisible ? 'visible' : 'hidden'}
+        animate={isVisible ? "visible" : "hidden"}
         variants={fadeInUp}
         className="bg-white p-4 inline-flex items-center"
       >
@@ -79,8 +79,8 @@ const TimelineStep = ({ step, index }: { step: StepType; index: number }) => {
       <div
         className={`w-full text-center max-md:order-2 max-md:bg-background ${
           index % 2 === 0
-            ? 'order-0 pr-0 md:pr-8 md:text-right'
-            : 'order-2 pl-0 md:pl-8 md:text-left'
+            ? "order-0 pr-0 md:pr-8 md:text-right"
+            : "order-2 pl-0 md:pl-8 md:text-left"
         }`}
       >
         {TextContent}
@@ -90,7 +90,7 @@ const TimelineStep = ({ step, index }: { step: StepType; index: number }) => {
         animate={
           isVisible ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
         }
-        transition={{ type: 'spring', stiffness: 200, delay: 0.1 }}
+        transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
         className="z-10 bg-main rounded-full p-2 h-12 justify-self-center w-12 flex items-center justify-center shadow-lg max-md:order-0 order-1"
       >
         <span className="text-white font-bold">{step.id}</span>
@@ -98,8 +98,8 @@ const TimelineStep = ({ step, index }: { step: StepType; index: number }) => {
       <div
         className={`w-full text-center max-md:order-0 ${
           index % 2 !== 0
-            ? 'order-0 pr-0 md:pr-8 md:text-right'
-            : 'order-2 pl-0 md:pl-8 md:text-left'
+            ? "order-0 pr-0 md:pr-8 md:text-right"
+            : "order-2 pl-0 md:pl-8 md:text-left"
         }`}
       >
         {IconCard}
@@ -114,60 +114,60 @@ const PlacementProcedure = () => {
   const steps = [
     {
       id: 1,
-      title: 'Placement Initialization',
+      title: "Placement Initialization",
       description:
-        'The placement process begins with initialization by the placement cell.',
+        "The placement process begins with initialization by the placement cell.",
       icon: <CheckCircle className="text-main" size={24} />,
-      iconLabel: 'Start of Placement Season'
+      iconLabel: "Start of Placement Season",
     },
     {
       id: 2,
-      title: 'Company Workflow',
+      title: "Company Workflow",
       description:
-        'The company submits Job description, job details, and campus visit dates.',
+        "The company submits Job description, job details, and campus visit dates.",
       icon: <UserCheck className="text-main" size={24} />,
-      iconLabel: 'Company Workflow'
+      iconLabel: "Company Workflow",
     },
     {
       id: 3,
-      title: 'Company Details Submission',
-      description: 'Pre placement talk is conducted.',
+      title: "Company Details Submission",
+      description: "Pre placement talk is conducted.",
       icon: <Building className="text-main" size={24} />,
-      iconLabel: 'Company Details Submission'
+      iconLabel: "Company Details Submission",
     },
     {
       id: 4,
-      title: 'Assessments',
+      title: "Assessments",
       description:
-        'Online/Offline test, GDs, interviews are conducted as per the mutually agreed dates by the institute and the company.',
+        "Online/Offline test, GDs, interviews are conducted as per the mutually agreed dates by the institute and the company.",
       icon: <Calendar className="text-main" size={24} />,
-      iconLabel: 'Assessments'
+      iconLabel: "Assessments",
     },
     {
       id: 5,
-      title: 'Selection Announcement',
-      description: 'Companies provide a list of selected students to the CGC.',
+      title: "Selection Announcement",
+      description: "Companies provide a list of selected students to the CGC.",
       icon: <Users className="text-main" size={24} />,
-      iconLabel: 'Selection Announcement'
+      iconLabel: "Selection Announcement",
     },
     {
       id: 6,
-      title: 'Campus Visit',
-      description: 'Selected Students List.',
+      title: "Campus Visit",
+      description: "Selected Students List.",
       icon: <Users className="text-main" size={24} />,
-      iconLabel: 'Campus Visit'
+      iconLabel: "Campus Visit",
     },
     {
       id: 7,
-      title: 'Result Declaration',
-      description: 'Results are declared in two ways:',
+      title: "Result Declaration",
+      description: "Results are declared in two ways:",
       icon: <FileText className="text-main" size={24} />,
-      iconLabel: 'Results Distribution',
+      iconLabel: "Results Distribution",
       listItems: [
-        'Same day result: Offer letters directly to students',
-        'Delayed result: Offer letters through CGC'
-      ]
-    }
+        "Same day result: Offer letters directly to students",
+        "Delayed result: Offer letters through CGC",
+      ],
+    },
   ];
 
   return (
@@ -181,7 +181,7 @@ const PlacementProcedure = () => {
       <motion.h1
         initial={{ y: -30 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
+        transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
         className="text-main-title font-bold text-center text-primary mb-16 relative"
       >
         <span className="relative inline-block">PLACEMENT PROCEDURE</span>
@@ -206,7 +206,7 @@ const PlacementProcedure = () => {
           <motion.div
             initial={{ rotate: -90, scale: 0 }}
             animate={{ rotate: 0, scale: 1 }}
-            transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
+            transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
             className="bg-main rounded-full p-2 h-12 w-12 flex items-center justify-center shadow-lg mb-4"
           >
             <Award className="text-white" size={20} />

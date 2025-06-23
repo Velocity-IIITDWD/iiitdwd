@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
 import {
   Collapsible,
   CollapsibleContent,
-  CollapsibleTrigger
-} from '@/components/ui/collapsible';
-import navigationData from '@/data/navigation';
-import { trackEvent } from '@/lib/ga';
-import { NavigationItem } from '@/types/navigation';
-import { useKBar } from 'kbar';
-import { ChevronDown, ChevronRight, Search } from 'lucide-react';
-import { motion } from 'motion/react';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import navigationData from "@/data/navigation";
+import { trackEvent } from "@/lib/ga";
+import { NavigationItem } from "@/types/navigation";
+import { useKBar } from "kbar";
+import { ChevronDown, ChevronRight, Search } from "lucide-react";
+import { motion } from "motion/react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function MobileHeader({
-  toggleMenu
+  toggleMenu,
 }: {
   toggleMenu: () => void;
 }) {
@@ -24,11 +24,11 @@ export default function MobileHeader({
   };
 
   const { query } = useKBar();
-  const [openMenu, setOpenMenu] = useState<string>('');
+  const [openMenu, setOpenMenu] = useState<string>("");
   const [isMacOS, setIsMacOS] = useState(false);
 
   useEffect(() => {
-    setIsMacOS(window.navigator.platform.toLowerCase().includes('mac'));
+    setIsMacOS(window.navigator.platform.toLowerCase().includes("mac"));
   }, []);
 
   return (
@@ -42,7 +42,7 @@ export default function MobileHeader({
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  delay: (index * 0.4) / navigationData.length
+                  delay: (index * 0.4) / navigationData.length,
                 }}
                 className="border-b border-gray-100"
               >
@@ -51,9 +51,9 @@ export default function MobileHeader({
                     className="flex items-center justify-between w-full py-3 px-2 text-left font-medium text-primary hover:bg-secondary/50 rounded-md"
                     onClick={() =>
                       trackEvent({
-                        action: 'click',
-                        category: 'mobile_navigation',
-                        label: `expand_menu_${item.title}`
+                        action: "click",
+                        category: "mobile_navigation",
+                        label: `expand_menu_${item.title}`,
                       })
                     }
                   >
@@ -73,9 +73,9 @@ export default function MobileHeader({
                                 className="flex items-center hover:bg-secondary/50 justify-between w-full py-2 pl-6 pr-3 text-left text-primary border-l-2 hover:border-primary"
                                 onClick={() =>
                                   trackEvent({
-                                    action: 'click',
-                                    category: 'mobile_navigation',
-                                    label: `expand_submenu_${subItem.title}`
+                                    action: "click",
+                                    category: "mobile_navigation",
+                                    label: `expand_submenu_${subItem.title}`,
                                   })
                                 }
                               >
@@ -93,9 +93,9 @@ export default function MobileHeader({
                                         onClick={() => {
                                           toggleMenu();
                                           trackEvent({
-                                            action: 'click',
-                                            category: 'mobile_navigation',
-                                            label: `link_${thirdItem.title}`
+                                            action: "click",
+                                            category: "mobile_navigation",
+                                            label: `link_${thirdItem.title}`,
                                           });
                                         }}
                                       >
@@ -116,9 +116,9 @@ export default function MobileHeader({
                               onClick={() => {
                                 toggleMenu();
                                 trackEvent({
-                                  action: 'click',
-                                  category: 'mobile_navigation',
-                                  label: `link_${subItem.title}`
+                                  action: "click",
+                                  category: "mobile_navigation",
+                                  label: `link_${subItem.title}`,
                                 });
                               }}
                             >
@@ -147,9 +147,9 @@ export default function MobileHeader({
                   onClick={() => {
                     toggleMenu();
                     trackEvent({
-                      action: 'click',
-                      category: 'mobile_navigation',
-                      label: `link_${item.title}`
+                      action: "click",
+                      category: "mobile_navigation",
+                      label: `link_${item.title}`,
                     });
                   }}
                 >
@@ -174,36 +174,36 @@ export default function MobileHeader({
       <div className="mt-6 pt-4 border-t border-main/30">
         <div className="flex flex-col space-y-3 text-body">
           <Link
-            href={'https://aims.iiitdwd.ac.in/aims/'}
+            href={"https://aims.iiitdwd.ac.in/aims/"}
             onClick={() =>
               trackEvent({
-                action: 'click',
-                category: 'mobile_navigation',
-                label: 'link_aims'
+                action: "click",
+                category: "mobile_navigation",
+                label: "link_aims",
               })
             }
           >
             AIMS
           </Link>
           <Link
-            href={'https://iiitdwd.ac.in/pdfs/RTI.pdf'}
+            href={"https://iiitdwd.ac.in/pdfs/RTI.pdf"}
             onClick={() =>
               trackEvent({
-                action: 'click',
-                category: 'mobile_navigation',
-                label: 'link_rti'
+                action: "click",
+                category: "mobile_navigation",
+                label: "link_rti",
               })
             }
           >
             RTI
           </Link>
           <Link
-            href={'/academics/nirf'}
+            href={"/academics/nirf"}
             onClick={() =>
               trackEvent({
-                action: 'click',
-                category: 'mobile_navigation',
-                label: 'link_nirf'
+                action: "click",
+                category: "mobile_navigation",
+                label: "link_nirf",
               })
             }
           >
@@ -211,13 +211,13 @@ export default function MobileHeader({
           </Link>
           <Link
             href={
-              'https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=873279'
+              "https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=873279"
             }
             onClick={() =>
               trackEvent({
-                action: 'click',
-                category: 'mobile_navigation',
-                label: 'link_fee_portal'
+                action: "click",
+                category: "mobile_navigation",
+                label: "link_fee_portal",
               })
             }
           >

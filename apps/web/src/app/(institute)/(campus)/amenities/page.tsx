@@ -4,10 +4,10 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
-} from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { IconFirstAidKit } from '@tabler/icons-react';
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { IconFirstAidKit } from "@tabler/icons-react";
 import {
   BookOpen,
   Coffee,
@@ -17,8 +17,8 @@ import {
   Laptop,
   Library,
   Utensils,
-  Wifi
-} from 'lucide-react';
+  Wifi,
+} from "lucide-react";
 
 export default function Page() {
   return (
@@ -545,7 +545,7 @@ export default function Page() {
                       5:30 PM (Monday to Saturday)
                     </p>
                     <p className="text-gray-700 ">
-                      <span className="font-medium">Emergency Contact:</span>{' '}
+                      <span className="font-medium">Emergency Contact:</span>{" "}
                       +91-836-2250879
                     </p>
                   </div>

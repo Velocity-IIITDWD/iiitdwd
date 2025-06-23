@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { MailIcon } from 'lucide-react';
-import Image from 'next/image';
-import { useRef } from 'react';
+import { motion, useInView } from "framer-motion";
+import { MailIcon } from "lucide-react";
+import Image from "next/image";
+import { useRef } from "react";
 
 interface AdminFacultyProfileProps {
   name: string;
@@ -22,7 +22,7 @@ export function AdminFacultyProfile({
   email,
   imageUrl,
   highlightPosition = true,
-  index = 0
+  index = 0,
 }: AdminFacultyProfileProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -38,7 +38,7 @@ export function AdminFacultyProfile({
       transition={{
         duration: 0.6,
         delay: index * 0.1,
-        ease: [0.22, 1, 0.36, 1]
+        ease: [0.22, 1, 0.36, 1],
       }}
     >
       <div className="relative overflow-hidden hover:scale-[1.02] group rounded-xl bg-card border border-border/50 backdrop-blur-sm shadow-lg transition-all duration-300 group-hover:shadow-xl h-full">
@@ -54,9 +54,9 @@ export function AdminFacultyProfile({
           >
             <Image
               src={
-                imageUrl?.startsWith('/images')
+                imageUrl?.startsWith("/images")
                   ? `https://iiitdwd.ac.in${imageUrl}`
-                  : imageUrl || '/placeholder-person.svg'
+                  : imageUrl || "/placeholder-person.svg"
               }
               alt={`Photo of ${name}`}
               fill
@@ -94,7 +94,7 @@ export function AdminFacultyProfile({
 export function AdminFacultyProfileGrid({
   list,
   gridCols = 1,
-  highlightPosition = true
+  highlightPosition = true,
 }: {
   list: AdminFacultyProfileProps[];
   gridCols?: number;
@@ -104,7 +104,7 @@ export function AdminFacultyProfileGrid({
     <div className="w-[87.5vw] max-w-[1680px] mx-auto py-10">
       <div
         className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ${
-          gridCols > 1 ? 'lg:grid-cols-2 gap-6' : ''
+          gridCols > 1 ? "lg:grid-cols-2 gap-6" : ""
         }`}
       >
         {list.map((faculty, index) => (

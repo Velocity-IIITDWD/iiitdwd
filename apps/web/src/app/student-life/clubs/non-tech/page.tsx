@@ -1,129 +1,129 @@
-'use client';
-import { ClubCard } from '@/components/ui/club-card';
+"use client";
+import { ClubCard } from "@/components/ui/club-card";
 
 const organizations = [
   {
-    name: 'Cricket Club',
+    name: "Cricket Club",
     description:
-      'Promoting the spirit of cricket through practice, matches, and tournaments.',
+      "Promoting the spirit of cricket through practice, matches, and tournaments.",
     memberCount: 60,
-    meetingSchedule: 'Daily, 6:00 AM - 8:00 AM',
-    location: 'Cricket Ground',
-    href: '/organizations/cricket-club',
-    president: 'Rajesh Patel',
+    meetingSchedule: "Daily, 6:00 AM - 8:00 AM",
+    location: "Cricket Ground",
+    href: "/organizations/cricket-club",
+    president: "Rajesh Patel",
     vision:
-      'To foster a strong cricketing tradition and achieve excellence in collegiate tournaments.',
+      "To foster a strong cricketing tradition and achieve excellence in collegiate tournaments.",
     mission:
-      'To provide regular training, organize competitive matches, and promote sportsmanship and teamwork among members.',
+      "To provide regular training, organize competitive matches, and promote sportsmanship and teamwork among members.",
     socials: {
-      instagram: 'cricket_club_insta',
-      twitter: 'cricket_club_tweets'
-    }
+      instagram: "cricket_club_insta",
+      twitter: "cricket_club_tweets",
+    },
   },
   {
-    name: 'Badminton Club',
+    name: "Badminton Club",
     description:
-      'A fun and competitive environment for badminton enthusiasts of all skill levels.',
+      "A fun and competitive environment for badminton enthusiasts of all skill levels.",
     memberCount: 45,
-    meetingSchedule: 'Every Mon, Wed, Fri, 7:00 PM - 9:00 PM',
-    location: 'Indoor Badminton Courts',
-    href: '/organizations/badminton-club',
-    president: 'Priya Sharma',
+    meetingSchedule: "Every Mon, Wed, Fri, 7:00 PM - 9:00 PM",
+    location: "Indoor Badminton Courts",
+    href: "/organizations/badminton-club",
+    president: "Priya Sharma",
     vision:
-      'To be the premier badminton club, fostering skill development and competitive spirit.',
+      "To be the premier badminton club, fostering skill development and competitive spirit.",
     mission:
-      'To organize regular practice sessions, coaching clinics, and tournaments for members to improve their skills and enjoy the sport.',
+      "To organize regular practice sessions, coaching clinics, and tournaments for members to improve their skills and enjoy the sport.",
     socials: {
-      instagram: 'badminton_club_ig'
-    }
+      instagram: "badminton_club_ig",
+    },
   },
   {
-    name: 'Volleyball Club',
+    name: "Volleyball Club",
     description:
-      'Spiking, setting, and serving our way to victory and teamwork.',
+      "Spiking, setting, and serving our way to victory and teamwork.",
     memberCount: 50,
-    meetingSchedule: 'Every Tue, Thu, Sat, 6:00 PM - 8:00 PM',
-    location: 'Volleyball Court',
-    href: '/organizations/volleyball-club',
-    president: 'Vikram Singh',
+    meetingSchedule: "Every Tue, Thu, Sat, 6:00 PM - 8:00 PM",
+    location: "Volleyball Court",
+    href: "/organizations/volleyball-club",
+    president: "Vikram Singh",
     vision:
-      'To create a competitive and enjoyable volleyball community on campus.',
+      "To create a competitive and enjoyable volleyball community on campus.",
     mission:
-      'To provide a platform for players of all levels to train, compete, and develop their skills in a supportive environment.',
+      "To provide a platform for players of all levels to train, compete, and develop their skills in a supportive environment.",
     socials: {
-      instagram: 'volleyball_club'
-    }
+      instagram: "volleyball_club",
+    },
   },
   {
-    name: 'Basketball Club',
+    name: "Basketball Club",
     description:
-      'Dribbling, shooting, and scoring as a team on and off the court.',
+      "Dribbling, shooting, and scoring as a team on and off the court.",
     memberCount: 55,
-    meetingSchedule: 'Every Tue, Thu, Sat, 8:00 PM - 10:00 PM',
-    location: 'Basketball Court',
-    href: '/organizations/basketball-club',
-    president: 'Anjali Reddy',
+    meetingSchedule: "Every Tue, Thu, Sat, 8:00 PM - 10:00 PM",
+    location: "Basketball Court",
+    href: "/organizations/basketball-club",
+    president: "Anjali Reddy",
     vision:
-      'To cultivate a passion for basketball and achieve success in intercollegiate competitions.',
+      "To cultivate a passion for basketball and achieve success in intercollegiate competitions.",
     mission:
-      'To provide opportunities for skill development, organize competitive games, and promote teamwork and sportsmanship.',
+      "To provide opportunities for skill development, organize competitive games, and promote teamwork and sportsmanship.",
     socials: {
-      instagram: 'basketball_club_ig',
-      twitter: 'basketball_club_tweets'
-    }
+      instagram: "basketball_club_ig",
+      twitter: "basketball_club_tweets",
+    },
   },
   {
-    name: 'Athletics Club',
+    name: "Athletics Club",
     description:
-      'Running, jumping, and throwing our way to peak physical fitness and personal bests.',
+      "Running, jumping, and throwing our way to peak physical fitness and personal bests.",
     memberCount: 40,
-    meetingSchedule: 'Daily, 5:30 AM - 7:30 AM',
-    location: 'Athletics Track',
-    href: '/organizations/athletics-club',
-    president: 'Arjun Verma',
+    meetingSchedule: "Daily, 5:30 AM - 7:30 AM",
+    location: "Athletics Track",
+    href: "/organizations/athletics-club",
+    president: "Arjun Verma",
     vision:
-      'To promote physical fitness, encourage competitive athletics, and represent our institution with pride.',
+      "To promote physical fitness, encourage competitive athletics, and represent our institution with pride.",
     mission:
-      'To offer structured training programs, participate in athletic events, and support members in achieving their personal athletic goals.',
+      "To offer structured training programs, participate in athletic events, and support members in achieving their personal athletic goals.",
     socials: {
-      instagram: 'athletics_club_insta',
-      linkedin: 'athletics-club'
-    }
+      instagram: "athletics_club_insta",
+      linkedin: "athletics-club",
+    },
   },
   {
-    name: 'Counselling Cell',
+    name: "Counselling Cell",
     description:
-      'Providing confidential and supportive counselling services to students.',
+      "Providing confidential and supportive counselling services to students.",
     memberCount: 15,
-    meetingSchedule: 'Mon-Fri, 9:00 AM - 5:00 PM (Appointment Based)',
-    location: 'Counselling Center',
-    href: '/organizations/counselling-cell',
-    president: 'Dr. Neha Gupta (Lead Counsellor)',
-    vision: 'To promote the mental health and well-being of all students.',
+    meetingSchedule: "Mon-Fri, 9:00 AM - 5:00 PM (Appointment Based)",
+    location: "Counselling Center",
+    href: "/organizations/counselling-cell",
+    president: "Dr. Neha Gupta (Lead Counsellor)",
+    vision: "To promote the mental health and well-being of all students.",
     mission:
-      'To provide accessible, confidential, and professional counselling services that empower students to overcome challenges and thrive.',
+      "To provide accessible, confidential, and professional counselling services that empower students to overcome challenges and thrive.",
     socials: {
-      linkedin: 'university-wellness'
-    }
+      linkedin: "university-wellness",
+    },
   },
   {
-    name: 'Magazine Committee',
+    name: "Magazine Committee",
     description:
-      'Publishing the college magazine, showcasing student writing, art, and photography.',
+      "Publishing the college magazine, showcasing student writing, art, and photography.",
     memberCount: 25,
-    meetingSchedule: 'Weekly Tuesdays, 4:00 PM - 6:00 PM',
-    location: 'Student Publications Office',
-    href: '/organizations/magazine-committee',
-    president: 'Sneha Kapoor (Editor-in-Chief)',
+    meetingSchedule: "Weekly Tuesdays, 4:00 PM - 6:00 PM",
+    location: "Student Publications Office",
+    href: "/organizations/magazine-committee",
+    president: "Sneha Kapoor (Editor-in-Chief)",
     vision:
-      'To be the leading voice of the student body, showcasing their talent and perspectives.',
+      "To be the leading voice of the student body, showcasing their talent and perspectives.",
     mission:
-      'To produce a high-quality college magazine that reflects the diverse interests and experiences of the student community.',
+      "To produce a high-quality college magazine that reflects the diverse interests and experiences of the student community.",
     socials: {
-      instagram: 'magazine_committee_ig',
-      twitter: 'magazine_committee'
-    }
-  }
+      instagram: "magazine_committee_ig",
+      twitter: "magazine_committee",
+    },
+  },
 ];
 
 export default function ClubsPage() {
@@ -144,7 +144,7 @@ export default function ClubsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {organizations.map((org) => (
+            {organizations.map(org => (
               <ClubCard key={org.name} {...org} />
             ))}
           </div>

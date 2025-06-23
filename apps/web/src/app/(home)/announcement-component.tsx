@@ -1,34 +1,34 @@
-'use client';
-import { Card, CardContent } from '@/components/ui/card';
+"use client";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious
-} from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
-import Link from 'next/link';
-import { AnnouncementItem } from './notification';
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
+import { AnnouncementItem } from "./notification";
 
 export default function AnnouncementComponent({
-  announcements
+  announcements,
 }: {
   announcements: AnnouncementItem[];
 }) {
   const pinnedAnnouncementItems = announcements
-    .filter((item) => item.isPinned)
+    .filter(item => item.isPinned)
     .slice(0, 2);
 
   const regularAnnouncementItems = [
-    ...announcements.filter((item) => item.isPinned).slice(2),
-    ...announcements.filter((item) => !item.isPinned)
+    ...announcements.filter(item => item.isPinned).slice(2),
+    ...announcements.filter(item => !item.isPinned),
   ];
 
   // Improved date formatter that handles various formats and edge cases
   // Fixed formatDate function for announcement-component.tsx
   const formatDate = (dateString: string | null | undefined) => {
-    if (!dateString) return '';
+    if (!dateString) return "";
 
     // First: Try parsing known DD-MM-YYYY format *before* using new Date()
     const ddmmyyyyRegex = /^(\d{1,2})-(\d{1,2})-(\d{4})$/;
@@ -43,10 +43,10 @@ export default function AnnouncementComponent({
       );
 
       if (!isNaN(parsedDate.getTime())) {
-        return new Intl.DateTimeFormat('en-US', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
+        return new Intl.DateTimeFormat("en-US", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
         }).format(parsedDate);
       }
     }
@@ -55,10 +55,10 @@ export default function AnnouncementComponent({
     try {
       const date = new Date(dateString);
       if (!isNaN(date.getTime())) {
-        return new Intl.DateTimeFormat('en-US', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
+        return new Intl.DateTimeFormat("en-US", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
         }).format(date);
       }
     } catch (e) {
@@ -66,31 +66,31 @@ export default function AnnouncementComponent({
     }
 
     // Handle partial dates (month-year or just year)
-    const parts = dateString.split('-').filter((part) => part !== '');
+    const parts = dateString.split("-").filter(part => part !== "");
 
     if (parts.length === 1) {
       return parts[0];
     } else if (parts.length === 2) {
       const monthNames = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
       ];
 
       const monthIndex = parseInt(parts[0], 10);
       if (!isNaN(monthIndex) && monthIndex >= 1 && monthIndex <= 12) {
         return `${monthNames[monthIndex - 1]} ${parts[1]}`;
       } else {
-        return parts.join(' ');
+        return parts.join(" ");
       }
     }
 
@@ -123,8 +123,8 @@ export default function AnnouncementComponent({
         className="w-full mt-4"
         plugins={[
           Autoplay({
-            delay: 3000
-          })
+            delay: 3000,
+          }),
         ]}
       >
         <CarouselContent>

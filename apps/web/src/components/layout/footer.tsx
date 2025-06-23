@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import Background from '@/assets/layout/Alumni_Background.webp';
-import FooterLogo from '@/assets/layout/FooterLogo.webp';
+import Background from "@/assets/layout/Alumni_Background.webp";
+import FooterLogo from "@/assets/layout/FooterLogo.webp";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
-} from '@/components/ui/accordion';
-import { footerLinks } from '@/data/footer-links';
-import { trackEvent } from '@/lib/ga';
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { footerLinks } from "@/data/footer-links";
+import { trackEvent } from "@/lib/ga";
 import {
   ArrowRightIcon,
   Instagram,
@@ -18,19 +18,19 @@ import {
   MapPin,
   Phone,
   Twitter,
-  Youtube
-} from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+  Youtube,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const FooterLink = ({ href, text }: { href: string; text: string }) => (
   <Link
     href={href}
     onClick={() =>
       trackEvent({
-        action: 'click',
-        category: 'Footer Navigation',
-        label: text
+        action: "click",
+        category: "Footer Navigation",
+        label: text,
       })
     }
     className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2"
@@ -43,7 +43,7 @@ const FooterLink = ({ href, text }: { href: string; text: string }) => (
 const SocialLink = ({
   href,
   label,
-  icon: Icon
+  icon: Icon,
 }: {
   href: string;
   label: string;
@@ -54,9 +54,9 @@ const SocialLink = ({
     className="hover:text-white transition-colors duration-200"
     onClick={() =>
       trackEvent({
-        action: 'click',
-        category: 'Social Media',
-        label
+        action: "click",
+        category: "Social Media",
+        label,
       })
     }
   >
@@ -143,12 +143,12 @@ export default function Footer() {
           {/* Explore Button - Takes 4 of 12 columns on large screens */}
           <div className="lg:col-span-4 flex items-end">
             <Link
-              href={'/student-life/clubs/tech/'}
+              href={"/student-life/clubs/tech/"}
               onClick={() =>
                 trackEvent({
-                  action: 'click',
-                  category: 'Navigation',
-                  label: 'Explore Button'
+                  action: "click",
+                  category: "Navigation",
+                  label: "Explore Button",
                 })
               }
               className="bg-black border text-title-2 font-medium group w-full px-6 py-4 rounded flex justify-between items-center border-white text-white hover:bg-black/90 transition-colors duration-200"

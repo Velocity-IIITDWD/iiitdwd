@@ -1,4 +1,4 @@
-import Profile from '../director/profile';
+import Profile from "../director/profile";
 
 export default async function Page() {
   return (
@@ -17,7 +17,7 @@ In 1996, he co-founded AdventNet, which evolved into Zoho Corporation in 2009. U
 Dr. Vembu's approach to business blends technological excellence with deep social responsibility. His work has earned him numerous accolades, including the Padma Shri in 2021 and CNN-News18 Indian of the Year in 2022. In 2025, he transitioned from the role of CEO to Chief Scientist, dedicating his focus to research, product innovation, and the long-term vision of Zoho.`,
 
         `Respected for his humility, foresight, and belief in inclusive growth, Dr. Sridhar Vembu continues to inspire a generation of entrepreneurs to think beyond conventional boundaries and create impact-driven enterprises.
-`
+`,
       ]}
       message={[
         `It gives me immense pride to address the vibrant and growing community of young minds at IIIT Dharwad, an Institute of National Importance built on the foundation of excellence, innovation, and inclusivity.`,
@@ -36,7 +36,7 @@ Dr. Vembu's approach to business blends technological excellence with deep socia
 
         `Let us build that future together.`,
 
-        `Warm regards,`
+        `Warm regards,`,
       ]}
       signatureText="Dr. Sridhar Vembu"
       signaturePosition="Chairperson, IIIT Dharwad"

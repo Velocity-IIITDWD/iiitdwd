@@ -1,10 +1,10 @@
-import CommonCarousel from '@/components/carousel/common-carousel';
-import { get } from '@/sanity/lib/client';
-import { queryCarousel } from '@/sanity/lib/queries';
-import { QueryCarouselResult } from '@/sanity/types';
-import { ArrowRightIcon } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+import CommonCarousel from "@/components/carousel/common-carousel";
+import { get } from "@/sanity/lib/client";
+import { queryCarousel } from "@/sanity/lib/queries";
+import { QueryCarouselResult } from "@/sanity/types";
+import { ArrowRightIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default async function EventsSection() {
   let carouselData = await get<QueryCarouselResult>(queryCarousel);

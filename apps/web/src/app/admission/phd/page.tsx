@@ -1,29 +1,29 @@
-'use client';
+"use client";
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
-} from '@/components/ui/accordion';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
-} from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { AlertCircle, Download, MailIcon } from 'lucide-react';
-import Link from 'next/link';
-import { useState } from 'react';
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { AlertCircle, Download, MailIcon } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function PhDProgramPage() {
-  const [selectedTab, setSelectedTab] = useState('overview');
+  const [selectedTab, setSelectedTab] = useState("overview");
 
   return (
     <div className="min-h-screen py-12 mx-auto max-w-[1680px] w-[87.5vw]">
@@ -107,7 +107,7 @@ export default function PhDProgramPage() {
             <CardFooter>
               <Button
                 className="bg-main hover:bg-main/90"
-                onClick={() => setSelectedTab('apply')}
+                onClick={() => setSelectedTab("apply")}
               >
                 Apply Now
               </Button>
@@ -323,7 +323,7 @@ export default function PhDProgramPage() {
                 <div className="flex justify-center">
                   <Link
                     href={
-                      'https://docs.google.com/forms/d/e/1FAIpQLSd2cuUZE2Fse5e8fr6M-Bs70-41Kz80qEMU_nRNNbBbiCfoZA/viewform'
+                      "https://docs.google.com/forms/d/e/1FAIpQLSd2cuUZE2Fse5e8fr6M-Bs70-41Kz80qEMU_nRNNbBbiCfoZA/viewform"
                     }
                     className="bg-main hover:bg-main/90 flex items-center text-white font-medium text-title-3 px-4 py-2 rounded-lg shadow-md transition duration-300 ease-in-out gap-4"
                   >

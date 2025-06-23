@@ -1,15 +1,15 @@
-'use client';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+"use client";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 import {
   Pagination,
   PaginationContent,
@@ -17,30 +17,30 @@ import {
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationPrevious
-} from '@/components/ui/pagination';
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table';
-import { Project, projects } from '@/data/research';
-import { ChevronDown, MoreHorizontal, Search } from 'lucide-react';
-import { useState } from 'react';
+  TableRow,
+} from "@/components/ui/table";
+import { Project, projects } from "@/data/research";
+import { ChevronDown, MoreHorizontal, Search } from "lucide-react";
+import { useState } from "react";
 
 export default function SponsoredProjects() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortColumn, setSortColumn] = useState<keyof Project>('id');
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+  const [sortColumn, setSortColumn] = useState<keyof Project>("id");
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const itemsPerPage = 5;
 
   // Filter projects based on search query
   const filteredProjects = projects.filter(
-    (project) =>
+    project =>
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.facultyInCharge
         .toLowerCase()
@@ -50,14 +50,14 @@ export default function SponsoredProjects() {
 
   // Sort projects
   const sortedProjects = [...filteredProjects].sort((a, b) => {
-    if (sortColumn === 'id') {
-      return sortDirection === 'asc' ? a.id - b.id : b.id - a.id;
+    if (sortColumn === "id") {
+      return sortDirection === "asc" ? a.id - b.id : b.id - a.id;
     }
 
     const aValue = a[sortColumn].toString().toLowerCase();
     const bValue = b[sortColumn].toString().toLowerCase();
 
-    if (sortDirection === 'asc') {
+    if (sortDirection === "asc") {
       return aValue.localeCompare(bValue);
     } else {
       return bValue.localeCompare(aValue);
@@ -74,10 +74,10 @@ export default function SponsoredProjects() {
   // Handle sort
   const handleSort = (column: keyof Project) => {
     if (sortColumn === column) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
       setSortColumn(column);
-      setSortDirection('asc');
+      setSortDirection("asc");
     }
   };
 
@@ -176,7 +176,7 @@ export default function SponsoredProjects() {
               placeholder="Search projects..."
               className="pl-8 bg-white text-primary"
               value={searchQuery}
-              onChange={(e) => {
+              onChange={e => {
                 setSearchQuery(e.target.value);
                 setCurrentPage(1);
               }}
@@ -193,24 +193,24 @@ export default function SponsoredProjects() {
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Sort by</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => handleSort('id')}>
-                  ID{' '}
-                  {sortColumn === 'id' && (sortDirection === 'asc' ? '↑' : '↓')}
+                <DropdownMenuItem onClick={() => handleSort("id")}>
+                  ID{" "}
+                  {sortColumn === "id" && (sortDirection === "asc" ? "↑" : "↓")}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleSort('title')}>
-                  Title{' '}
-                  {sortColumn === 'title' &&
-                    (sortDirection === 'asc' ? '↑' : '↓')}
+                <DropdownMenuItem onClick={() => handleSort("title")}>
+                  Title{" "}
+                  {sortColumn === "title" &&
+                    (sortDirection === "asc" ? "↑" : "↓")}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleSort('year')}>
-                  Year{' '}
-                  {sortColumn === 'year' &&
-                    (sortDirection === 'asc' ? '↑' : '↓')}
+                <DropdownMenuItem onClick={() => handleSort("year")}>
+                  Year{" "}
+                  {sortColumn === "year" &&
+                    (sortDirection === "asc" ? "↑" : "↓")}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleSort('facultyInCharge')}>
-                  Faculty{' '}
-                  {sortColumn === 'facultyInCharge' &&
-                    (sortDirection === 'asc' ? '↑' : '↓')}
+                <DropdownMenuItem onClick={() => handleSort("facultyInCharge")}>
+                  Faculty{" "}
+                  {sortColumn === "facultyInCharge" &&
+                    (sortDirection === "asc" ? "↑" : "↓")}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -224,41 +224,41 @@ export default function SponsoredProjects() {
               <TableRow className="bg-main hover:bg-main/90">
                 <TableHead
                   className="w-16 text-white font-medium"
-                  onClick={() => handleSort('id')}
+                  onClick={() => handleSort("id")}
                 >
-                  ID{' '}
-                  {sortColumn === 'id' && (sortDirection === 'asc' ? '↑' : '↓')}
+                  ID{" "}
+                  {sortColumn === "id" && (sortDirection === "asc" ? "↑" : "↓")}
                 </TableHead>
                 <TableHead
                   className="text-white font-medium"
-                  onClick={() => handleSort('title')}
+                  onClick={() => handleSort("title")}
                 >
-                  Project Title{' '}
-                  {sortColumn === 'title' &&
-                    (sortDirection === 'asc' ? '↑' : '↓')}
+                  Project Title{" "}
+                  {sortColumn === "title" &&
+                    (sortDirection === "asc" ? "↑" : "↓")}
                 </TableHead>
                 <TableHead
                   className="w-32 text-white font-medium"
-                  onClick={() => handleSort('year')}
+                  onClick={() => handleSort("year")}
                 >
-                  Year{' '}
-                  {sortColumn === 'year' &&
-                    (sortDirection === 'asc' ? '↑' : '↓')}
+                  Year{" "}
+                  {sortColumn === "year" &&
+                    (sortDirection === "asc" ? "↑" : "↓")}
                 </TableHead>
                 <TableHead
                   className="w-64 text-white font-medium"
-                  onClick={() => handleSort('facultyInCharge')}
+                  onClick={() => handleSort("facultyInCharge")}
                 >
-                  Faculty In-charge{' '}
-                  {sortColumn === 'facultyInCharge' &&
-                    (sortDirection === 'asc' ? '↑' : '↓')}
+                  Faculty In-charge{" "}
+                  {sortColumn === "facultyInCharge" &&
+                    (sortDirection === "asc" ? "↑" : "↓")}
                 </TableHead>
                 <TableHead className="w-10"></TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {paginatedProjects.length > 0 ? (
-                paginatedProjects.map((project) => (
+                paginatedProjects.map(project => (
                   <TableRow key={project.id}>
                     <TableCell>{project.id}</TableCell>
                     <TableCell className="font-medium">
@@ -303,7 +303,7 @@ export default function SponsoredProjects() {
                   onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                   aria-disabled={currentPage === 1}
                   className={
-                    currentPage === 1 ? 'pointer-events-none opacity-50' : ''
+                    currentPage === 1 ? "pointer-events-none opacity-50" : ""
                   }
                 />
               </PaginationItem>
@@ -318,8 +318,8 @@ export default function SponsoredProjects() {
                   aria-disabled={currentPage === totalPages}
                   className={
                     currentPage === totalPages
-                      ? 'pointer-events-none opacity-50'
-                      : ''
+                      ? "pointer-events-none opacity-50"
+                      : ""
                   }
                 />
               </PaginationItem>

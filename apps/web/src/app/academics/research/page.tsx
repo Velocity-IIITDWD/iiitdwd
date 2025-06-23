@@ -1,9 +1,9 @@
-import { DynamicProfileSections } from '@/components/committee';
-import { get } from '@/sanity/lib/client';
-import { GetResearch } from '@/sanity/lib/queries';
-import { GetResearchResult } from '@/sanity/types';
-import IndustryProjects from './industry-projects';
-import SponsoredProjects from './sponsored-projects';
+import { DynamicProfileSections } from "@/components/committee";
+import { get } from "@/sanity/lib/client";
+import { GetResearch } from "@/sanity/lib/queries";
+import { GetResearchResult } from "@/sanity/types";
+import IndustryProjects from "./industry-projects";
+import SponsoredProjects from "./sponsored-projects";
 
 export default async function Page() {
   const response = await get<GetResearchResult>(GetResearch);

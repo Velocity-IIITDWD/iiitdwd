@@ -2,8 +2,8 @@ import {
   ArrowDownWideNarrow,
   ArrowUpNarrowWide,
   Search,
-  X
-} from 'lucide-react';
+  X,
+} from "lucide-react";
 
 import {
   Select,
@@ -11,9 +11,9 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
-import { useRef, useState } from 'react';
+  SelectValue,
+} from "@/components/ui/select";
+import { useRef, useState } from "react";
 
 type SortSearchProps = {
   selectedTab: string;
@@ -26,10 +26,10 @@ type SortSearchProps = {
 };
 
 const sortAttr = {
-  'A-Z': 'title',
-  'Publish Date': 'publishDate',
-  'Recently Updated': 'updatedAt',
-  'Submission Deadline': 'submissionDeadline'
+  "A-Z": "title",
+  "Publish Date": "publishDate",
+  "Recently Updated": "updatedAt",
+  "Submission Deadline": "submissionDeadline",
 };
 
 export default function SortSearch({
@@ -39,15 +39,15 @@ export default function SortSearch({
   archive,
   archiveData,
   setActiveData,
-  setArchiveData
+  setArchiveData,
 }: SortSearchProps) {
   const [sortAsc, setSortAsc] = useState(false);
-  const [sortBy, setSortBy] = useState('Recently Updated');
-  const [searchFor, setSearchFor] = useState('');
+  const [sortBy, setSortBy] = useState("Recently Updated");
+  const [searchFor, setSearchFor] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const sortAndSetData = (sortBy: string, sortAsc: boolean, data: Tender[]) => {
-    const setData = selectedTab === 'active' ? setActiveData : setArchiveData;
+    const setData = selectedTab === "active" ? setActiveData : setArchiveData;
     const attr = sortAttr[sortBy as keyof typeof sortAttr] as keyof Tender;
     const multiplier = sortAsc ? 1 : -1;
     setData(
@@ -58,7 +58,7 @@ export default function SortSearch({
   const onSortChange = (newSortBy: string, newSortAsc: boolean) => {
     setSortBy(newSortBy);
     setSortAsc(newSortAsc);
-    const data = selectedTab === 'active' ? activeData : archiveData;
+    const data = selectedTab === "active" ? activeData : archiveData;
     sortAndSetData(newSortBy, newSortAsc, data);
   };
 
@@ -67,23 +67,23 @@ export default function SortSearch({
     if (lowerValue === searchFor) return;
 
     setSearchFor(lowerValue);
-    let data = selectedTab === 'active' ? active : archive;
+    let data = selectedTab === "active" ? active : archive;
 
     if (lowerValue) {
-      data = data.filter((tender) => {
+      data = data.filter(tender => {
         const inTitle = tender?.title?.toLowerCase().includes(lowerValue);
-        const inDocuments = tender?.documents?.some((doc) =>
+        const inDocuments = tender?.documents?.some(doc =>
           doc?.title?.toLowerCase().includes(lowerValue)
         );
-        const inCorrections = tender?.corrections?.some((cor) =>
+        const inCorrections = tender?.corrections?.some(cor =>
           cor?.title?.toLowerCase().includes(lowerValue)
         );
         const inLinks =
           tender?.link?.toLowerCase().includes(lowerValue) ||
-          tender?.documents?.some((doc) =>
+          tender?.documents?.some(doc =>
             doc?.link?.toLowerCase().includes(lowerValue)
           ) ||
-          tender?.corrections?.some((cor) =>
+          tender?.corrections?.some(cor =>
             cor?.link?.toLowerCase().includes(lowerValue)
           );
 
@@ -110,7 +110,7 @@ export default function SortSearch({
           </span>
           <Select
             defaultValue={sortBy}
-            onValueChange={(newSortBy) => onSortChange(newSortBy, sortAsc)}
+            onValueChange={newSortBy => onSortChange(newSortBy, sortAsc)}
           >
             <SelectTrigger className="border-none shadow-none focus:outline-none focus:shadow-none focus:ring-0 focus:ring-offset-0 h-auto py-0.5 px-1 w-36 text-muted-foreground">
               <SelectValue />
@@ -132,9 +132,7 @@ export default function SortSearch({
         <input
           type="text"
           placeholder="Search"
-          onChange={(event) =>
-            onSearchByChange(event.target.value.toLowerCase())
-          }
+          onChange={event => onSearchByChange(event.target.value.toLowerCase())}
           ref={searchInputRef}
           className="text-dwd-secondary1 rounded-l-md p-1 px-2 focus:outline-none w-full sm:w-auto"
         />
@@ -144,7 +142,7 @@ export default function SortSearch({
               size={16}
               className="cursor-pointer"
               onClick={() => {
-                onSearchByChange((searchInputRef.current!.value = ''));
+                onSearchByChange((searchInputRef.current!.value = ""));
               }}
             />
           ) : (

@@ -1,11 +1,11 @@
-'use client';
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
-import DirectorsMessage from './directors-message';
-import HigherStudiesContact from './higher-studies-contact';
-import PlacementProcedure from './placement-procedure';
-import PlacementStatistics from './placement-stats';
-import PreviousRecruiters from './previous-recruiters';
+"use client";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
+import DirectorsMessage from "./directors-message";
+import HigherStudiesContact from "./higher-studies-contact";
+import PlacementProcedure from "./placement-procedure";
+import PlacementStatistics from "./placement-stats";
+import PreviousRecruiters from "./previous-recruiters";
 
 export default function Page() {
   // Create refs for sections we want to observe
@@ -16,7 +16,7 @@ export default function Page() {
   const isStatsVisible = useInView(statsRef, { once: false, amount: 0.2 });
   const isTrackRecordVisible = useInView(trackRecordRef, {
     once: false,
-    amount: 0.2
+    amount: 0.2,
   });
 
   const statsVariants = {
@@ -24,8 +24,8 @@ export default function Page() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const counterVariants = {
@@ -36,11 +36,11 @@ export default function Page() {
       transition: {
         delay: custom * 0.1,
         duration: 0.5,
-        type: 'spring',
+        type: "spring",
         stiffness: 200,
-        damping: 15
-      }
-    })
+        damping: 15,
+      },
+    }),
   };
 
   return (
@@ -55,7 +55,7 @@ export default function Page() {
         <motion.h1
           initial={{ y: -50 }}
           animate={{ y: 0 }}
-          transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
+          transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
           className="text-main-title font-bold text-center text-primary mb-8 relative"
         >
           <span className="relative inline-block">
@@ -81,46 +81,46 @@ export default function Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             {
-              num: '01',
-              title: 'Outcome-Based Education',
+              num: "01",
+              title: "Outcome-Based Education",
               description:
-                'Students meet industry needs through specific objectives.'
+                "Students meet industry needs through specific objectives.",
             },
             {
-              num: '02',
-              title: 'Specialization Opportunities',
-              description: 'Electives allow niche expertise development.'
+              num: "02",
+              title: "Specialization Opportunities",
+              description: "Electives allow niche expertise development.",
             },
             {
-              num: '03',
-              title: 'Project-Centric Learning',
-              description: 'Real-world projects enhance practical skills.'
+              num: "03",
+              title: "Project-Centric Learning",
+              description: "Real-world projects enhance practical skills.",
             },
             {
-              num: '04',
-              title: 'IT-Focused Curriculum',
-              description: 'Curriculum aligned with tech-driven industries.'
+              num: "04",
+              title: "IT-Focused Curriculum",
+              description: "Curriculum aligned with tech-driven industries.",
             },
             {
-              num: '05',
-              title: 'Holistic Curriculum',
-              description: 'Blend of theory, soft skills, and projects.'
+              num: "05",
+              title: "Holistic Curriculum",
+              description: "Blend of theory, soft skills, and projects.",
             },
             {
-              num: '06',
-              title: 'Interdisciplinary Learning',
-              description: 'Diverse subjects promote problem-solving.'
+              num: "06",
+              title: "Interdisciplinary Learning",
+              description: "Diverse subjects promote problem-solving.",
             },
             {
-              num: '07',
-              title: 'Industry Involvement',
-              description: 'Updated curriculum with industry feedback.'
+              num: "07",
+              title: "Industry Involvement",
+              description: "Updated curriculum with industry feedback.",
             },
             {
-              num: '08',
-              title: 'Practical Learning',
-              description: 'Hackathons showcase practical skills.'
-            }
+              num: "08",
+              title: "Practical Learning",
+              description: "Hackathons showcase practical skills.",
+            },
           ].map((feature, index) => (
             <motion.div
               key={feature.num}
@@ -129,7 +129,7 @@ export default function Page() {
               transition={{
                 delay: 0.2 + index * 0.1,
                 duration: 0.6,
-                ease: 'easeOut'
+                ease: "easeOut",
               }}
               whileHover={{ scale: 1.02 }}
               className="relative bg-white p-6 rounded-lg border border-gray-200 shadow-sm"

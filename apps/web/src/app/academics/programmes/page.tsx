@@ -1,26 +1,26 @@
-'use client';
-import ProgramCards from '@/components/academics-components/programCards';
-import SectionHeading from '@/components/layout/section-heading';
-import { ArrowRightCircle } from 'lucide-react';
-import { AnimatePresence, motion } from 'motion/react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+"use client";
+import ProgramCards from "@/components/academics-components/programCards";
+import SectionHeading from "@/components/layout/section-heading";
+import { ArrowRightCircle } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function ProgrammesPage() {
   const words = [
-    'DISCOVERY',
-    'EXCELLENCE',
-    'KNOWLEDGE',
-    'INNOVATION',
-    'LEARNING'
+    "DISCOVERY",
+    "EXCELLENCE",
+    "KNOWLEDGE",
+    "INNOVATION",
+    "LEARNING",
   ];
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+      setCurrentWordIndex(prevIndex => (prevIndex + 1) % words.length);
     }, 3000); // Change word every 2 seconds
 
     return () => clearInterval(interval);
@@ -44,7 +44,7 @@ export default function ProgrammesPage() {
               exit={{ x: -50, opacity: 0 }}
               transition={{
                 duration: 0.5,
-                ease: 'easeInOut'
+                ease: "easeInOut",
               }}
             >
               {words[currentWordIndex]}

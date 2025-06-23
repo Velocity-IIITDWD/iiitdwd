@@ -1,6 +1,6 @@
-'use client';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
+"use client";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Table,
   TableBody,
@@ -8,12 +8,12 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
-} from '@/components/ui/table';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BTechCSEProgram } from '@/data/academics/cse-data';
+  TableRow,
+} from "@/components/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { BTechCSEProgram } from "@/data/academics/cse-data";
 export default function ContentTypes({
-  currentDept
+  currentDept,
 }: {
   currentDept: BTechCSEProgram;
 }) {
@@ -60,7 +60,7 @@ export default function ContentTypes({
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {currentDept?.disciplineCoreCourses.map((course) => (
+                  {currentDept?.disciplineCoreCourses.map(course => (
                     <TableRow key={course.id}>
                       <TableCell>{course.id}</TableCell>
                       <TableCell className="font-medium">
@@ -106,7 +106,7 @@ export default function ContentTypes({
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {currentDept.disciplineElectiveCourses.map((course) => (
+                    {currentDept.disciplineElectiveCourses.map(course => (
                       <TableRow key={course.id}>
                         <TableCell>{course.id}</TableCell>
                         <TableCell className="font-medium">
@@ -150,7 +150,7 @@ export default function ContentTypes({
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {currentDept.engineeringCoreCourses.map((course) => (
+                  {currentDept.engineeringCoreCourses.map(course => (
                     <TableRow key={course.id}>
                       <TableCell>{course.id}</TableCell>
                       <TableCell className="font-medium">
@@ -194,7 +194,7 @@ export default function ContentTypes({
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {currentDept.mathsAndStatsCourses.map((course) => (
+                  {currentDept.mathsAndStatsCourses.map(course => (
                     <TableRow key={course.id}>
                       <TableCell>{course.id}</TableCell>
                       <TableCell className="font-medium">

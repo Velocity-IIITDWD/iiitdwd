@@ -1,16 +1,16 @@
-'use client';
-import { AlumniCard } from '@/app/(home)/alumni-card';
-import { Input } from '@/components/ui/input';
+"use client";
+import { AlumniCard } from "@/app/(home)/alumni-card";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
-} from '@/components/ui/select';
-import Data from '@/data/alumni.json';
-import { Review } from '@/types/alumni';
-import { useEffect, useState } from 'react';
+  SelectValue,
+} from "@/components/ui/select";
+import Data from "@/data/alumni.json";
+import { Review } from "@/types/alumni";
+import { useEffect, useState } from "react";
 
 const distributeReviews = (reviews: Review[], columns: number) => {
   const distributed: Review[][] = Array.from({ length: columns }, () => []);
@@ -27,8 +27,8 @@ export default function Page() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [filteredReviews, setFilteredReviews] = useState<Review[]>([]);
   const [windowWidth, setWindowWidth] = useState(0);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedYear, setSelectedYear] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedYear, setSelectedYear] = useState<string>("all");
   const [availableYears, setAvailableYears] = useState<number[]>([]);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function Page() {
 
     // Get unique years
     const years = [
-      ...new Set(sortedReviews.map((review) => review.graduationYear))
+      ...new Set(sortedReviews.map(review => review.graduationYear)),
     ].sort((a, b) => a - b);
 
     setReviews(sortedReviews);
@@ -54,21 +54,21 @@ export default function Page() {
 
     // Add window resize listener
     const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Scroll to top and remove listener on unmount
     window.scrollTo(0, 0);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    const filtered = reviews.filter((review) => {
+    const filtered = reviews.filter(review => {
       const matchesSearch = review.name
         .toLowerCase()
         .includes(searchQuery.toLowerCase());
       // review.content.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesYear =
-        selectedYear === 'all' ||
+        selectedYear === "all" ||
         review.graduationYear.toString() === selectedYear;
       return matchesSearch && matchesYear;
     });
@@ -96,7 +96,7 @@ export default function Page() {
               type="text"
               placeholder="Search by name or content..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={e => setSearchQuery(e.target.value)}
               className="max-w-md"
             />
 
@@ -106,7 +106,7 @@ export default function Page() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Years</SelectItem>
-                {availableYears.map((year) => (
+                {availableYears.map(year => (
                   <SelectItem key={year} value={year.toString()}>
                     {year}
                   </SelectItem>

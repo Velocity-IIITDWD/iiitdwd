@@ -1,16 +1,16 @@
-'use client';
-import linkedinposts from '@/data/linkedinposts';
+"use client";
+import linkedinposts from "@/data/linkedinposts";
 import {
   IconPlayerPauseFilled,
-  IconPlayerPlayFilled
-} from '@tabler/icons-react';
-import { EmblaOptionsType } from 'embla-carousel';
-import Autoplay from 'embla-carousel-autoplay';
-import useEmblaCarousel from 'embla-carousel-react';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { NextButton, PrevButton } from './EmblaCarouselArrowButtons';
-import { useAutoplay } from './EmblaCarouselAutoplay';
-import { DotButton, useDotButton } from './EmblaCarouselDotButton';
+  IconPlayerPlayFilled,
+} from "@tabler/icons-react";
+import { EmblaOptionsType } from "embla-carousel";
+import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { NextButton, PrevButton } from "./EmblaCarouselArrowButtons";
+import { useAutoplay } from "./EmblaCarouselAutoplay";
+import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 // import LinkedInEmbedCards from './LinkedInEmbedCards';
 
 type PropType = {
@@ -22,17 +22,17 @@ type PropType = {
 const CommonCarousel: React.FC<PropType> = ({
   options,
   autoplayDelay = 5000,
-  children
+  children,
 }) => {
   const [playProgress, setPlayProgress] = useState(0);
   const startTimeRef = useRef(0);
   const rafIdRef = useRef(0);
-  const linkedInPosts = linkedinposts.map((post) => post.uri);
+  const linkedInPosts = linkedinposts.map(post => post.uri);
 
   // Enable loop functionality by default
   const carouselOptions: EmblaOptionsType = {
     ...options,
-    loop: true // Enable infinite looping
+    loop: true, // Enable infinite looping
   };
 
   const autoplayPlugin = useRef(
@@ -40,7 +40,7 @@ const CommonCarousel: React.FC<PropType> = ({
   );
 
   const [emblaRef, emblaApi] = useEmblaCarousel(carouselOptions, [
-    autoplayPlugin.current
+    autoplayPlugin.current,
   ]);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -156,7 +156,7 @@ const CommonCarousel: React.FC<PropType> = ({
         className="embla__play bg-white absolute bottom-2 rounded-full border border-slate-400 p-2 right-2"
         onClick={handleToggleAutoplay}
         type="button"
-        aria-label={autoplayIsPlaying ? 'Pause carousel' : 'Play carousel'}
+        aria-label={autoplayIsPlaying ? "Pause carousel" : "Play carousel"}
       >
         {autoplayIsPlaying ? (
           <IconPlayerPauseFilled />

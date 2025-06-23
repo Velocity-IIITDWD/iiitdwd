@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { Album, Building, Lightbulb, User } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Album, Building, Lightbulb, User } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function InstituteContent() {
   const [emptyDivs, setEmptyDivs] = useState(20);
@@ -22,10 +22,10 @@ export default function InstituteContent() {
     updateSize();
 
     // Add event listener for resize
-    window.addEventListener('resize', updateSize);
+    window.addEventListener("resize", updateSize);
 
     // Clean up
-    return () => window.removeEventListener('resize', updateSize);
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
   return (
     <div className="w-full relative overflow-x-hidden mt-12">

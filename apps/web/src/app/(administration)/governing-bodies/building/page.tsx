@@ -1,5 +1,5 @@
-import { DynamicProfileSections } from '@/components/committee';
-import buildingCommittee from '@/data/building-committee';
+import { DynamicProfileSections } from "@/components/committee";
+import buildingCommittee from "@/data/building-committee";
 
 export default async function Page() {
   return (

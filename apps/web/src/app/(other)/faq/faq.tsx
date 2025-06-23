@@ -1,6 +1,6 @@
-'use client';
-import { ChevronDownIcon, ChevronRightIcon } from 'lucide-react';
-import { ReactNode, useRef, useState } from 'react';
+"use client";
+import { ChevronDownIcon, ChevronRightIcon } from "lucide-react";
+import { ReactNode, useRef, useState } from "react";
 
 interface Faq {
   ques: string;
@@ -13,7 +13,7 @@ export default function Page({ ques, ans }: Faq) {
 
   function showOrHide() {
     if (spoiler.current) {
-      spoiler.current.classList.toggle('hidden');
+      spoiler.current.classList.toggle("hidden");
     }
     setIsOpen(!isOpen);
   }
@@ -33,7 +33,7 @@ export default function Page({ ques, ans }: Faq) {
       </div>
       <div
         className={`font-roboto mt-2 p-2 bg-gray-200 rounded-lg transition-all duration-300 ${
-          isOpen ? 'block' : 'hidden'
+          isOpen ? "block" : "hidden"
         }`}
         ref={spoiler}
       >

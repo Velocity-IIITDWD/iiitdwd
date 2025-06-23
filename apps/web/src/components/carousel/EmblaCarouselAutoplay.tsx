@@ -1,5 +1,5 @@
-import { EmblaCarouselType } from 'embla-carousel';
-import { useCallback, useEffect, useState } from 'react';
+import { EmblaCarouselType } from "embla-carousel";
+import { useCallback, useEffect, useState } from "react";
 
 type UseAutoplayType = {
   autoplayIsPlaying: boolean;
@@ -42,14 +42,14 @@ export const useAutoplay = (
 
     setAutoplayIsPlaying(autoplay.isPlaying());
     emblaApi
-      .on('autoplay:play', () => setAutoplayIsPlaying(true))
-      .on('autoplay:stop', () => setAutoplayIsPlaying(false))
-      .on('reInit', () => setAutoplayIsPlaying(autoplay.isPlaying()));
+      .on("autoplay:play", () => setAutoplayIsPlaying(true))
+      .on("autoplay:stop", () => setAutoplayIsPlaying(false))
+      .on("reInit", () => setAutoplayIsPlaying(autoplay.isPlaying()));
   }, [emblaApi]);
 
   return {
     autoplayIsPlaying,
     toggleAutoplay,
-    onAutoplayButtonClick
+    onAutoplayButtonClick,
   };
 };

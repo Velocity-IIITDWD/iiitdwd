@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger
-} from '@/components/ui/dialog';
-import { IconCalendarEvent } from '@tabler/icons-react';
-import { useEffect, useState } from 'react';
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { IconCalendarEvent } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
 
 export default function AppointmentDialog() {
   const [isMounted, setIsMounted] = useState(false);

@@ -1,11 +1,11 @@
-import { EmblaCarouselType } from 'embla-carousel';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { EmblaCarouselType } from "embla-carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, {
   ComponentPropsWithRef,
   useCallback,
   useEffect,
-  useState
-} from 'react';
+  useState,
+} from "react";
 
 type UsePrevNextButtonsType = {
   prevBtnDisabled: boolean;
@@ -42,20 +42,20 @@ export const usePrevNextButtons = (
     if (!emblaApi) return;
 
     onSelect(emblaApi);
-    emblaApi.on('reInit', onSelect).on('select', onSelect);
+    emblaApi.on("reInit", onSelect).on("select", onSelect);
   }, [emblaApi, onSelect]);
 
   return {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
-    onNextButtonClick
+    onNextButtonClick,
   };
 };
 
-type PropType = ComponentPropsWithRef<'button'>;
+type PropType = ComponentPropsWithRef<"button">;
 
-export const PrevButton: React.FC<PropType> = (props) => {
+export const PrevButton: React.FC<PropType> = props => {
   const { children, ...restProps } = props;
 
   return (
@@ -70,7 +70,7 @@ export const PrevButton: React.FC<PropType> = (props) => {
   );
 };
 
-export const NextButton: React.FC<PropType> = (props) => {
+export const NextButton: React.FC<PropType> = props => {
   const { children, ...restProps } = props;
 
   return (

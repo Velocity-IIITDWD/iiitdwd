@@ -1,11 +1,11 @@
-import { env } from '@/env/server';
-import { createClient, type QueryParams } from '@sanity/client';
+import { env } from "@/env/server";
+import { createClient, type QueryParams } from "@sanity/client";
 
 export const client = createClient({
   projectId: env.SANITY_PROJECT_ID,
   dataset: env.SANITY_DATASET,
-  apiVersion: '2025-02-19',
-  useCdn: false
+  apiVersion: "2025-02-19",
+  useCdn: false,
 });
 
 export const get = async <T>(
@@ -14,11 +14,11 @@ export const get = async <T>(
 ): Promise<T> => {
   try {
     const res = await client.fetch<T>(query, {
-      ...params
+      ...params,
     });
     return res;
   } catch (err) {
-    console.error('Error fetching data:', err);
+    console.error("Error fetching data:", err);
     throw err;
   }
 };

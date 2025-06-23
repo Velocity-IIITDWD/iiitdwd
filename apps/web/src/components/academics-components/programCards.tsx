@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import React from 'react';
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
 // Define types
 interface Program {
@@ -23,7 +23,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
   title,
   description,
   imageSrc,
-  link
+  link,
 }) => {
   return (
     <Link
@@ -66,33 +66,33 @@ const ProgramCards: React.FC<ProgramCardsProps> = ({ programs }) => {
   // Default programs if none are provided
   const defaultPrograms: Program[] = [
     {
-      title: 'Under-Graduate Programs',
+      title: "Under-Graduate Programs",
       description:
         "Explore top ranked master's, doctoral and professional degrees.",
-      link: '/academics/departments',
-      imageSrc: 'https://iiitdwd.ac.in/images/undergrad_programs.JPG'
+      link: "/academics/departments",
+      imageSrc: "https://iiitdwd.ac.in/images/undergrad_programs.JPG",
     },
     {
-      title: 'Online Programs',
+      title: "Online Programs",
       description:
-        'Find the rigorous training the university is known for online.',
-      link: 'https://online.iiitdwd.ac.in/',
-      imageSrc: 'https://iiitdwd.ac.in/images/online_programs.JPG'
+        "Find the rigorous training the university is known for online.",
+      link: "https://online.iiitdwd.ac.in/",
+      imageSrc: "https://iiitdwd.ac.in/images/online_programs.JPG",
     },
     {
-      title: 'Major Programs',
+      title: "Major Programs",
       description:
-        'Browse core degree programs with course details and requirements.',
-      link: 'https://iiitdwd.ac.in/docs/MajorPrograms.pdf',
-      imageSrc: 'https://iiitdwd.ac.in/images/minors.JPG'
+        "Browse core degree programs with course details and requirements.",
+      link: "https://iiitdwd.ac.in/docs/MajorPrograms.pdf",
+      imageSrc: "https://iiitdwd.ac.in/images/minors.JPG",
     },
     {
-      title: 'Minor Programs',
+      title: "Minor Programs",
       description:
-        'Explore minors that add depth or breadth to your main degree.',
-      link: 'https://iiitdwd.ac.in/docs/MinorPrograms.pdf',
-      imageSrc: 'https://iiitdwd.ac.in/images/course_catalog.JPG'
-    }
+        "Explore minors that add depth or breadth to your main degree.",
+      link: "https://iiitdwd.ac.in/docs/MinorPrograms.pdf",
+      imageSrc: "https://iiitdwd.ac.in/images/course_catalog.JPG",
+    },
   ];
 
   // Use provided programs or fall back to defaults
@@ -100,7 +100,7 @@ const ProgramCards: React.FC<ProgramCardsProps> = ({ programs }) => {
 
   return (
     <div className="w-[87.5vw] max-w-[1680px] mx-auto py-8">
-      {' '}
+      {" "}
       {/* Increased px-10 for more side margin */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {displayPrograms.map((program, index) => (

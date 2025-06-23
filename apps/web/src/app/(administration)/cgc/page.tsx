@@ -1,5 +1,5 @@
-import { DynamicProfileSections } from '@/components/committee';
-import cgc from '@/data/cgc';
+import { DynamicProfileSections } from "@/components/committee";
+import cgc from "@/data/cgc";
 
 export default async function Page() {
   return (

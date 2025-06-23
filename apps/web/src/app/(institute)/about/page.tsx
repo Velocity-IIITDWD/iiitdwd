@@ -1,11 +1,11 @@
-'use client';
-import Background from '@/assets/campus_0.webp';
-import SectionHeading from '@/components/layout/section-heading';
-import { ChevronRight } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import DetailSection from './details-section';
-import VisionMissionValues from './vision-mission-values';
+"use client";
+import Background from "@/assets/campus_0.webp";
+import SectionHeading from "@/components/layout/section-heading";
+import { ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import DetailSection from "./details-section";
+import VisionMissionValues from "./vision-mission-values";
 
 export default function AboutPage() {
   return (
@@ -15,9 +15,9 @@ export default function AboutPage() {
           className="h-full w-full object-cover absolute top-0 left-0"
           height={0}
           width={0}
-          sizes={'100%'}
+          sizes={"100%"}
           src={Background}
-          alt={'Main Background'}
+          alt={"Main Background"}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />
 
@@ -58,7 +58,7 @@ export default function AboutPage() {
         <iframe
           className="aspect-video w-[87.5vw] max-w-[1680px] mx-auto rounded overflow-hidden"
           src={
-            'https://www.youtube.com/embed/_QLrIgjopCg?si=GrjaKptEy4LEp2uW&autoplay=0'
+            "https://www.youtube.com/embed/_QLrIgjopCg?si=GrjaKptEy4LEp2uW&autoplay=0"
           }
         />
       </div>

@@ -1,11 +1,11 @@
 // src/app/(placement)/alumni-testimonials/[id]/page.tsx
-import AlumniDetail from '@/app/(placement)/alumni-testimonials/AlumniDetail';
-import Data from '@/data/alumni.json';
-import { Review } from '@/types/alumni';
+import AlumniDetail from "@/app/(placement)/alumni-testimonials/AlumniDetail";
+import Data from "@/data/alumni.json";
+import { Review } from "@/types/alumni";
 
 export async function generateStaticParams() {
   return Data.map((item: Review) => ({
-    id: item._id
+    id: item._id,
   }));
 }
 

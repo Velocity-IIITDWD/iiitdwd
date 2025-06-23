@@ -1,6 +1,6 @@
-import EmblaCarousel from '@/components/carousel/EmblaCarousel';
-import SectionHeading from '@/components/layout/section-heading';
-import { EmblaOptionsType } from 'embla-carousel';
+import EmblaCarousel from "@/components/carousel/EmblaCarousel";
+import SectionHeading from "@/components/layout/section-heading";
+import { EmblaOptionsType } from "embla-carousel";
 
 export default function MainCarousel() {
   const OPTIONS: EmblaOptionsType = { loop: true };
