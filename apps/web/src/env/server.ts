@@ -1,11 +1,11 @@
-import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";
+const SANITY_DATASET = process.env.SANITY_DATASET;
+const SANITY_PROJECT_ID = process.env.SANITY_PROJECT_ID;
 
-export const env = createEnv({
-  server: {
-    // SANITY_TOKEN: z.string(),
-    SANITY_DATASET: z.string(),
-    SANITY_PROJECT_ID: z.string(),
-  },
-  experimental__runtimeEnv: process.env,
-});
+if (!SANITY_DATASET || !SANITY_PROJECT_ID) {
+  console.warn("Warning: SANITY environment variables not set");
+}
+
+export const env = {
+  SANITY_DATASET: SANITY_DATASET,
+  SANITY_PROJECT_ID: SANITY_PROJECT_ID,
+};
