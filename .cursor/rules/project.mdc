@@ -23,14 +23,14 @@ alwaysApply: true
 
 ## Apps
 
-- iiitdwd : The main landing page for iiitdwd.ac.in
+- web : The main landing page for iiitdwd.ac.in
 - content : The CMS portal for `iiitdwd`
 
 ## Base File Structure
 ```
 ├── apps/                    # Application packages
-│   ├── iiitdwd/             # Main Institute Website
-│   └── content/             # Sanity CMS for iiitdwd
+│   ├── web/             # Main Institute Website
+│   └── cms/             # Sanity CMS for iiitdwd
 ├── packages/               # Shared packages
 │   ├── config/           # Shared configuration
 │   │   ├── eslint/       # ESLint configuration
