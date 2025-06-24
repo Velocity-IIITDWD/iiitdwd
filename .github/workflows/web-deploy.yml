@@ -90,6 +90,7 @@ jobs:
 
       - name: 📂 Transfer and extract files (SSH)
         id: ssh-transfer
+        if: steps.ssh-clean.outcome == 'success'
         continue-on-error: true
         timeout-minutes: 1
         env:
@@ -117,6 +118,6 @@ jobs:
             set ftp:ssl-allow no;
             open ${{ secrets.FTP_SERVER }};
             user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }};
-            mirror -R --verbose --parallel=10 --use-cache --exclude-glob=docs/** --exclude-glob=images/** ./apps/web/out/ ${{ inputs.deploy_path }}/
+            mirror -R --verbose --parallel=10 --use-cache --exclude-glob=docs/** --exclude-glob=images/** ./apps/web/out/ .
             bye
           "
