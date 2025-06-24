@@ -8,6 +8,7 @@ on:
     paths:
       - "apps/cms/**"
       - "packages/**"
+      - ".github/workflows/cms-deploy.yml"
 
 jobs:
   deploy:
@@ -53,8 +54,8 @@ jobs:
       - name: 🚀 Deploy to Vercel
         uses: BetaHuhn/deploy-to-vercel-action@v1
         with:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: apps/cms
+          WORKING_DIRECTORY: apps/cms
