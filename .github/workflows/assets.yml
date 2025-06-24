@@ -25,6 +25,6 @@ jobs:
             set ftp:ssl-allow no;
             open ${{ secrets.ASSETS_FTP_SERVER }};
             user ${{ secrets.ASSETS_FTP_USERNAME }} ${{ secrets.ASSETS_FTP_PASSWORD }};
-            mirror -R --verbose --parallel=10 --use-cache --exclude-glob=docs/** --exclude-glob=images/** --exclude-glob=.env ./apps/assets/ assets/
+            mirror -R --verbose --parallel=10 --use-cache --exclude-glob=docs/** --exclude-glob=images/** --exclude-glob=.env ./apps/assets/ .
             bye
           "
