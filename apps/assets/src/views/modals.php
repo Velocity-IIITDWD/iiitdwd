@@ -10,11 +10,11 @@
                 <input type="hidden" name="action" value="login">
                 <div class="form-group">
                     <label class="form-label">Username</label>
-                    <input type="text" name="username" class="form-input" required>
+                    <input type="text" name="username" class="form-input" placeholder="admin" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Password</label>
-                    <input type="password" name="password" class="form-input" required>
+                    <input type="password" name="password" class="form-input" placeholder="admin123" required>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">
                     Login

@@ -93,6 +93,74 @@ function openDeleteModal(filename, fileType) {
   }
 }
 
+// Copy file link functionality
+function copyFileLink(filename, fileType) {
+  // Create relative path only (without domain)
+  const relativePath =
+    "/" + (fileType === "doc" ? "docs/" : "images/") + filename;
+
+  // Find the button that was clicked
+  const button = event.target;
+  const originalText = button.textContent;
+
+  // Try using the modern Clipboard API first
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard
+      .writeText(relativePath)
+      .then(() => {
+        showCopiedFeedback(button, originalText);
+      })
+      .catch(() => {
+        fallbackCopyTextToClipboard(
+          relativePath,
+          filename,
+          button,
+          originalText
+        );
+      });
+  } else {
+    // Fallback for older browsers or non-secure contexts
+    fallbackCopyTextToClipboard(relativePath, filename, button, originalText);
+  }
+}
+
+// Show copied feedback by changing button text
+function showCopiedFeedback(button, originalText) {
+  button.textContent = "Copied!";
+  button.disabled = true;
+
+  // Reset button after 2 seconds
+  setTimeout(() => {
+    button.textContent = originalText;
+    button.disabled = false;
+  }, 2000);
+}
+
+// Fallback copy function for older browsers
+function fallbackCopyTextToClipboard(text, filename, button, originalText) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.left = "-999999px";
+  textArea.style.top = "-999999px";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    const successful = document.execCommand("copy");
+    if (successful) {
+      showCopiedFeedback(button, originalText);
+    } else {
+      showAlert("Failed to copy link. Please copy manually.", "error");
+    }
+  } catch (err) {
+    showAlert("Failed to copy link. Please copy manually.", "error");
+  }
+
+  document.body.removeChild(textArea);
+}
+
 // File upload handling
 function initializeFileUpload() {
   const fileUpload = document.getElementById("fileUpload");
@@ -309,3 +377,4 @@ window.openLoginModal = openLoginModal;
 window.openRenameModal = openRenameModal;
 window.openDeleteModal = openDeleteModal;
 window.closeModal = closeModal;
+window.copyFileLink = copyFileLink;
