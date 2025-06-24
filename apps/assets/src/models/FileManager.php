@@ -31,6 +31,41 @@ class FileManager {
     }
     
     /**
+     * Check if file exists before upload
+     * @return array Response array with success status and file existence info
+     */
+    public static function checkFileExists() {
+        if (!Auth::isAuthenticated()) {
+            return ['success' => false, 'message' => 'Authentication required'];
+        }
+        
+        if (!validateCSRFToken($_POST['csrf_token'] ?? '')) {
+            return ['success' => false, 'message' => 'Invalid security token'];
+        }
+        
+        $filename = sanitizeFilename($_POST['filename'] ?? '');
+        $targetType = $_POST['target_type'] ?? '';
+        
+        if (empty($filename) || empty($targetType)) {
+            return ['success' => false, 'message' => 'Missing filename or target type'];
+        }
+        
+        if (!in_array($targetType, ['docs', 'images'])) {
+            return ['success' => false, 'message' => 'Invalid target type'];
+        }
+        
+        // Prepare paths
+        $targetDir = ($targetType === 'images') ? IMAGES_PATH : DOCS_PATH;
+        $targetPath = $targetDir . '/' . $filename;
+        
+        return [
+            'success' => true,
+            'exists' => file_exists($targetPath),
+            'filename' => $filename
+        ];
+    }
+
+    /**
      * Handle file upload
      * @return array Response array with success status and message
      */
@@ -49,6 +84,7 @@ class FileManager {
         
         $file = $_FILES['file'];
         $targetType = $_POST['target_type'] ?? '';
+        $replaceFile = isset($_POST['replace_file']) && $_POST['replace_file'] === 'true';
         
         // Validate target type is selected
         if (empty($targetType) || !in_array($targetType, ['docs', 'images'])) {
@@ -66,14 +102,25 @@ class FileManager {
         $targetDir = ($targetType === 'images') ? IMAGES_PATH : DOCS_PATH;
         $targetPath = $targetDir . '/' . $filename;
         
-        // Check if file already exists
-        if (file_exists($targetPath)) {
-            return ['success' => false, 'message' => 'File already exists'];
+        // Check if file already exists and replacement is not allowed
+        if (file_exists($targetPath) && !$replaceFile) {
+            return [
+                'success' => false, 
+                'message' => 'File already exists',
+                'fileExists' => true,
+                'filename' => $filename
+            ];
         }
         
-        // Move uploaded file
+        // Move uploaded file (this will overwrite if replaceFile is true)
         if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-            return ['success' => true, 'message' => 'File uploaded successfully'];
+            $message = $replaceFile ? 'File replaced successfully' : 'File uploaded successfully';
+            return [
+                'success' => true, 
+                'message' => $message,
+                'filename' => $filename,
+                'targetType' => $targetType
+            ];
         }
         
         return ['success' => false, 'message' => 'Failed to save file'];
