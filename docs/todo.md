@@ -1,18 +1,9 @@
-### P0
+### Features
 
-- Push code and test all the workflows.
-- Migrate repository settings from the old repo.
-
----
-
-### Fixes
-
+- Streamline the schemas and structure of CMS. 
 - Get rid of postbuild script in the iiitdwd for the sitemap. Use updated next-sitemap package and it's standalone config. (maybe or not)
 - Bring consistency in naming conventions throughout the code and CI workflows.
 
-### Features
-
-- Streamline the schemas and structure of CMS.
 
 ### CI
 
