@@ -112,7 +112,7 @@ jobs:
 
       - name: 📂 FTP Sync (Fallback)
         if: steps.ssh-clean.outcome == 'failure' || steps.ssh-transfer.outcome == 'failure'
-        timeout-minutes: 2
+        timeout-minutes: 4
         run: |
           lftp -e "
             set ftp:ssl-allow no;
