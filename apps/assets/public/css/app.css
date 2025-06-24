@@ -2,6 +2,7 @@
 
 :root {
   --primary: #000;
+  --primary-light: #e6f3ff;
   --gray-50: #fafafa;
   --gray-100: #f5f5f5;
   --gray-200: #e5e5e5;
@@ -14,6 +15,7 @@
   --gray-900: #171717;
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
   --danger: #dc2626;
+  --warning: #ea580c;
 }
 
 /* Base Styles */
@@ -496,6 +498,32 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes highlight {
+  0% {
+    background-color: var(--primary-light);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.file-item.highlight {
+  animation: highlight 20s ease-out;
+}
+
+.url-copied-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin-left: 0.25rem;
 }
 
 /* Utilities */

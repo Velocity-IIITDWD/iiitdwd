@@ -10,11 +10,11 @@
                 <input type="hidden" name="action" value="login">
                 <div class="form-group">
                     <label class="form-label">Username</label>
-                    <input type="text" name="username" class="form-input" required>
+                    <input type="text" name="username" class="form-input" placeholder="admin" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Password</label>
-                    <input type="password" name="password" class="form-input" required>
+                    <input type="password" name="password" class="form-input" placeholder="admin123" required>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">
                     Login
@@ -79,6 +79,30 @@
                         </button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Replace File Modal -->
+    <div class="modal-overlay" id="replaceModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">File Already Exists</h3>
+                <button class="modal-close" onclick="cancelReplaceFile()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 1.5rem; color: var(--gray-600);">
+                    A file named "<strong id="replaceFileName"></strong>" already exists.<br>
+                    <small style="color: var(--warning);">Do you want to replace it with the new file?</small>
+                </p>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button type="button" class="btn btn-secondary" style="flex: 1;" 
+                            onclick="cancelReplaceFile()">Cancel</button>
+                    <button type="button" class="btn btn-primary" style="flex: 1;" 
+                            onclick="confirmReplaceFile()">
+                        Replace File
+                    </button>
+                </div>
             </div>
         </div>
     </div>

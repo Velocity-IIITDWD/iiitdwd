@@ -22,6 +22,11 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
       {
+        protocol: "https",
+        hostname: "assets.iiitdwd.ac.in",
+        pathname: "/**",
+      },
+      {
         hostname: "cdn.sanity.io",
         port: "",
         pathname: "/**",

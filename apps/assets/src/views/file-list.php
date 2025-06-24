@@ -85,8 +85,13 @@
                     </div>
                 </div>
                 
-                <?php if ($isAdmin): ?>
-                    <div class="file-actions">
+                <div class="file-actions">
+                    <button class="btn btn-secondary btn-sm" 
+                            onclick="copyFileLink('<?= addslashes($file['name']) ?>', '<?= $file['type'] ?>')">
+                        Copy Link
+                    </button>
+                    
+                    <?php if ($isAdmin): ?>
                         <button class="btn btn-secondary btn-sm" 
                                 onclick="openRenameModal('<?= addslashes($file['name']) ?>', '<?= $file['type'] ?>')">
                             Rename
@@ -95,8 +100,8 @@
                                 onclick="openDeleteModal('<?= addslashes($file['name']) ?>', '<?= $file['type'] ?>')">
                             Delete
                         </button>
-                    </div>
-                <?php endif; ?>
+                    <?php endif; ?>
+                </div>
             </div>
         <?php endforeach; ?>
     <?php endif; ?>

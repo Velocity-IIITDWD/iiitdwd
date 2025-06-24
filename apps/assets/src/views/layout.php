@@ -22,7 +22,7 @@
                     <button type="submit" class="admin-button">Logout</button>
                 </form>
             <?php else: ?>
-                <button class="admin-button" onclick="openLoginModal()">Admin</button>
+                <button class="admin-button" onclick="openLoginModal()">Login</button>
             <?php endif; ?>
         </header>
 

@@ -19,6 +19,9 @@ class ApiController {
         // Replace match expression with switch for PHP 7.4+ compatibility
         $operation = $_POST['operation'];
         switch ($operation) {
+            case 'checkFileExists':
+                $response = FileManager::checkFileExists();
+                break;
             case 'upload':
                 $response = FileManager::upload();
                 break;
