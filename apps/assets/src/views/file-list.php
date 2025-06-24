@@ -19,7 +19,8 @@
             <div>
                 <label class="form-label">Type</label>
                 <div class="select-wrapper">
-                    <select name="target_type" class="form-select">
+                    <select name="target_type" class="form-select" required>
+                        <option value="" disabled selected>Select file type...</option>
                         <option value="docs">Documents</option>
                         <option value="images">Images</option>
                     </select>

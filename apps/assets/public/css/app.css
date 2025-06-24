@@ -192,6 +192,10 @@ body {
   padding-right: 2.5rem;
 }
 
+.form-select option[disabled] {
+  color: var(--gray-400);
+}
+
 .select-wrapper {
   position: relative;
   width: 100%;
