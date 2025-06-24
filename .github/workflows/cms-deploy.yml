@@ -8,6 +8,7 @@ on:
     paths:
       - "apps/cms/**"
       - "packages/**"
+      - ".github/workflows/cms-deploy.yml"
 
 jobs:
   deploy:
