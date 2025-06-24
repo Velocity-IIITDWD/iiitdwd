@@ -47,7 +47,7 @@ jobs:
       - name: ⬇️ Install dependencies
         run: pnpm install
 
-      - name: 🛠️ Build content project
+      - name: 🛠️ Build CMS project
         run: |
           cd apps/cms && pnpm run build
 
