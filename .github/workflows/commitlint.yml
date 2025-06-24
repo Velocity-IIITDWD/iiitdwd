@@ -1,13 +1,20 @@
 name: Lint Commit Messages
-on: [push, pull_request]
-
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+  push:
+    branches: [dev]
 permissions:
+  checks: write
   contents: read
   pull-requests: read
-
 jobs:
   commitlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

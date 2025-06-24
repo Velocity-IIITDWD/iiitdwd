@@ -1,4 +1,4 @@
-name: IIITDWD Staging Deploy
+name: Web Staging Deploy
 
 on:
   workflow_dispatch:
@@ -6,16 +6,15 @@ on:
     branches:
       - dev
     paths:
-      - "apps/iiitdwd/**"
+      - "apps/web/**"
       - "packages/**"
 
 jobs:
   deploy:
-    uses: ./.github/workflows/iiitdwd-deploy.yml
+    uses: ./.github/workflows/web-deploy.yml
     with:
       deploy_path: beta
     secrets:
-      SSH_KEY: ${{ secrets.SSH_KEY }}
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
       SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}

@@ -1,7 +1,7 @@
 ### P0
 
-- Setup sanity DBs for testing and production in apropriate accounts.
 - Push code and test all the workflows.
+- Migrate repository settings from the old repo.
 
 ---
 

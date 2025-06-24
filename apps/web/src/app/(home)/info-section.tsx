@@ -166,9 +166,7 @@ export default function InfoSection() {
             />
             <div className="text-title-1 font-semibold">Admissions 2025</div>
             <div className="text-title-2 text-gray-600 mt-2">
-              Admissions for the 2025 batch are now open! Explore our programs
-              and apply today to be part of IIIT Dharwad's innovative learning
-              environment.
+              Admissions for the 2025 batch are now open!
             </div>
           </Link>
 
