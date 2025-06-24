@@ -1,0 +1,19 @@
+# File directories - exclude uploaded files
+docs/**
+images/**
+!docs/.gitkeep
+!images/.gitkeep
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.staging
+
+# Temporary files
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -4,14 +4,14 @@ This document lists all the required environment variables for running the proje
 
 ## Project Environment Variables
 
-### IIITDWD App
+### Web
 
 | Variable            | Description         | Required For            |
 | ------------------- | ------------------- | ----------------------- |
 | `SANITY_PROJECT_ID` | Sanity project ID   | Development, Production |
 | `SANITY_DATASET`    | Sanity dataset name | Development, Production |
 
-### Content App
+### CMS
 
 | Variable                        | Description                           | Required For            |
 | ------------------------------- | ------------------------------------- | ----------------------- |
@@ -31,29 +31,29 @@ This document lists all the required environment variables for running the proje
 
 ## GitHub Workflow Secrets
 
-| Secret                 | Description                    | Required For     |
-| ---------------------- | ------------------------------ | ---------------- |
-| `SSH_HOST`             | SSH host address               | Production CI/CD |
-| `SSH_USERNAME`         | SSH username                   | Production CI/CD |
-| `SSH_PASSWORD`         | SSH password                   | Production CI/CD |
-| `SANITY_DATASET`       | Sanity dataset name            | Production CI/CD |
-| `SANITY_PROJECT_ID`    | Sanity project ID              | Production CI/CD |
-| `FTP_SERVER`           | Production FTP server          | Production CI/CD |
-| `FTP_USERNAME`         | Production FTP username        | Production CI/CD |
-| `FTP_PASSWORD`         | Production FTP password        | Production CI/CD |
-| `STAGING_FTP_SERVER`   | Staging FTP server             | Staging CI/CD    |
-| `STAGING_FTP_USERNAME` | Staging FTP username           | Staging CI/CD    |
-| `STAGING_FTP_PASSWORD` | Staging FTP password           | Staging CI/CD    |
-| `VERCEL_TOKEN`         | Vercel deployment token        | Content CI/CD    |
-| `VERCEL_ORG_ID`        | Vercel organization ID         | Content CI/CD    |
-| `VERCEL_PROJECT_ID`    | Vercel project ID              | Content CI/CD    |
-| `GH_TOKEN`             | GitHub token for Vercel deploy | Content CI/CD    |
+| Secret                 | Description                    | Required For            |
+| ---------------------- | ------------------------------ | ----------------------- |
+| `SSH_HOST`             | SSH host address               | Production/Assets CI/CD |
+| `SSH_USERNAME`         | SSH username                   | Production/Assets CI/CD |
+| `SSH_PASSWORD`         | SSH password                   | Production/Assets CI/CD |
+| `SANITY_DATASET`       | Sanity dataset name            | Production CI/CD        |
+| `SANITY_PROJECT_ID`    | Sanity project ID              | Production CI/CD        |
+| `FTP_SERVER`           | Production FTP server          | Production CI/CD        |
+| `FTP_USERNAME`         | Production FTP username        | Production CI/CD        |
+| `FTP_PASSWORD`         | Production FTP password        | Production CI/CD        |
+| `STAGING_FTP_SERVER`   | Staging FTP server             | Staging CI/CD           |
+| `STAGING_FTP_USERNAME` | Staging FTP username           | Staging CI/CD           |
+| `STAGING_FTP_PASSWORD` | Staging FTP password           | Staging CI/CD           |
+| `VERCEL_TOKEN`         | Vercel deployment token        | Content CI/CD           |
+| `VERCEL_ORG_ID`        | Vercel organization ID         | Content CI/CD           |
+| `VERCEL_PROJECT_ID`    | Vercel project ID              | Content CI/CD           |
+| `GH_TOKEN`             | GitHub token for Vercel deploy | Content CI/CD           |
 
 ## Development Setup
 
 ```bash
-cp apps/iiitdwd/.env.example apps/iiitdwd/.env.local
-cp apps/content/.env.example apps/content/.env.local
+cp apps/web/.env.example apps/web/.env.local
+cp apps/cms/.env.example apps/cms/.env.local
 ```
 
 ## Security Notes

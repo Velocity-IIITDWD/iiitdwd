@@ -1,0 +1,102 @@
+# Force HTTPS
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Security: Deny access to ALL files by default, then allow specific ones
+
+<RequireAll>
+    Require all denied
+</RequireAll>
+
+# Allow access to main index.php (the web interface)
+
+<Files "index.php">
+Require all granted
+</Files>
+
+# Allow access to public directory (CSS, JS, static assets)
+
+<Directory "public">
+Require all granted
+# Cache static assets for 30 days
+<FilesMatch "\.(css|js|ico|png|jpg|jpeg|gif|svg)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+</Directory>
+
+# Allow access to docs directory (documents for download)
+
+<Directory "docs">
+Require all granted
+# Cache documents for 30 days
+<FilesMatch "\.(pdf|txt|doc|docx|xls|xlsx|ppt|pptx)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+</Directory>
+
+# Allow access to images directory (images for download)
+
+<Directory "images">
+Require all granted
+# Cache images for 30 days
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+</Directory>
+
+# Allow favicon
+
+<Files "favicon.ico">
+Require all granted
+Header set Cache-Control "max-age=2592000, public"
+</Files>
+
+# Explicitly deny access to sensitive files and directories (double protection)
+
+<Directory "src">
+Require all denied
+</Directory>
+
+<Directory "config">
+Require all denied
+</Directory>
+
+<Files ".env*">
+Require all denied
+</Files>
+
+<Files "setup.php">
+Require all denied
+</Files>
+
+<Files "*.example">
+Require all denied
+</Files>
+
+<Files "*.json">
+Require all denied
+</Files>
+
+<Files "README.md">
+Require all denied
+</Files>
+
+<Files ".gitignore">
+Require all denied
+</Files>
+
+<Files ".htaccess">
+Require all denied
+</Files>
+
+# Security headers
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>

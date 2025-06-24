@@ -1,0 +1,57 @@
+name: Assets Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/assets/**"
+      - ".github/workflows/assets.yml"
+
+jobs:
+  deploy:
+    name: Deploy Assets
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Prepare assets deployment
+        run: |
+          cd apps/assets
+          # Create deployment archive with all files except docs and images content
+          tar -czf ../assets-deploy.tar.gz \
+            --exclude='docs/*' \
+            --exclude='images/*' \
+            --exclude='.env' \
+            .
+
+      - name: 🔐 Install sshpass
+        run: sudo apt-get install -y sshpass
+
+      - name: 🧹 Clean remote directory (SSH) - Preserve docs, images, and .env
+        env:
+          TERM: xterm
+        run: |
+          export SSHPASS=${{ secrets.SSH_PASSWORD }}
+          sshpass -e ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} '
+          mkdir -p assets &&
+          cd assets &&
+          find . -mindepth 1 -maxdepth 1 ! -name "docs" ! -name "images" ! -name ".env" -exec rm -rf {} +'
+
+      - name: 📂 Transfer and extract files (SSH)
+        env:
+          TERM: xterm
+        run: |
+          export SSHPASS=${{ secrets.SSH_PASSWORD }}
+          sshpass -e scp -o StrictHostKeyChecking=no apps/assets-deploy.tar.gz ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:assets/
+          sshpass -e ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} '
+          cd assets &&
+          tar -xzf assets-deploy.tar.gz &&
+          rm assets-deploy.tar.gz'
+
+      - name: 🧹 Cleanup temporary files
+        run: |
+          rm -f apps/assets-deploy.tar.gz
