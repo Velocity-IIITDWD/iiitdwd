@@ -1,0 +1,24 @@
+{
+  "name": "iiitdwd-assets",
+  "version": "2.0.0",
+  "description": "Production-ready assets management system for IIIT Dharwad",
+  "main": "index.php",
+  "scripts": {
+    "dev": "php -S localhost:8000 -t .",
+    "setup": "php setup.php",
+    "lint": "php -l index.php && find src config -name '*.php' -exec php -l {} \\;",
+    "clean": "rm -rf docs/* images/* && touch docs/.gitkeep images/.gitkeep",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "assets",
+    "file-management",
+    "php",
+    "iiitdwd"
+  ],
+  "author": "IIIT Dharwad",
+  "license": "MIT",
+  "engines": {
+    "php": ">=8.0"
+  }
+}
