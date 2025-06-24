@@ -47,26 +47,14 @@ jobs:
       - name: ⬇️ Install dependencies
         run: pnpm install
 
-      - name: 🛠️ Build CMS project
+      - name: 🛠️ Build content project
         run: |
-          cd apps/cms
-          pnpm run build
-
-      - name: 📦 Install Vercel CLI
-        run: npm install --global vercel@latest
-
-      - name: 🔗 Link Vercel project
-        run: |
-          cd apps/cms
-          vercel link --yes --project ${{ secrets.VERCEL_PROJECT_ID }} --token ${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          cd apps/cms && pnpm run build
 
       - name: 🚀 Deploy to Vercel
-        run: |
-          cd apps/cms
-          vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN }}
-        env:
+        uses: BetaHuhn/deploy-to-vercel-action@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
