@@ -18,9 +18,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install lftp
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          echo "NEEDRESTART_MODE=a" | sudo tee -a /etc/needrestart/needrestart.conf
+          sudo apt-get clean
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends lftp
+        timeout-minutes: 10
+
       - name: 📂 FTP Sync Assets
         run: |
-          sudo apt-get update && sudo apt-get install -y lftp
           lftp -e "
             set ftp:ssl-allow no;
             open ${{ secrets.ASSETS_FTP_SERVER }};
