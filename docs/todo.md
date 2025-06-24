@@ -1,3 +1,7 @@
+# P0
+
+- remove exception of docs and images from the web deploy workflow after the assets workflow is implemented.
+
 ### Features
 
 - Streamline the schemas and structure of CMS.
@@ -20,3 +24,7 @@
 ### Miscellaneous
 
 - Write and update the `README.md`.
+
+### Ideating
+
+- a new workflow where we zip the out dir, upload using ftp and then unzip on the server using a webhook which will be served by a php script.

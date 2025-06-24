@@ -17,9 +17,6 @@ jobs:
     with:
       deploy_path: beta
     secrets:
-      SSH_HOST: ${{ secrets.SSH_HOST }}
-      SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
-      SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
       SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
       SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
       FTP_SERVER: ${{ secrets.STAGING_FTP_SERVER }}
