@@ -48,7 +48,12 @@ class FileManager {
         }
         
         $file = $_FILES['file'];
-        $targetType = $_POST['target_type'] ?? 'docs';
+        $targetType = $_POST['target_type'] ?? '';
+        
+        // Validate target type is selected
+        if (empty($targetType) || !in_array($targetType, ['docs', 'images'])) {
+            return ['success' => false, 'message' => 'Please select a file type (Documents or Images)'];
+        }
         
         // Validate upload
         $error = self::validateFileUpload($file, $targetType);

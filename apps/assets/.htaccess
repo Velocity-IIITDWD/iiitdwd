@@ -4,91 +4,87 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Security: Deny access to ALL files by default, then allow specific ones
-
-<RequireAll>
-    Require all denied
-</RequireAll>
-
 # Allow access to main index.php (the web interface)
 
 <Files "index.php">
-Require all granted
+    Require all granted
 </Files>
 
-# Allow access to public directory (CSS, JS, static assets)
-
-<Directory "public">
-Require all granted
-# Cache static assets for 30 days
-<FilesMatch "\.(css|js|ico|png|jpg|jpeg|gif|svg)$">
-Header set Cache-Control "max-age=2592000, public"
-</FilesMatch>
-</Directory>
-
-# Allow access to docs directory (documents for download)
-
-<Directory "docs">
-Require all granted
-# Cache documents for 30 days
-<FilesMatch "\.(pdf|txt|doc|docx|xls|xlsx|ppt|pptx)$">
-Header set Cache-Control "max-age=2592000, public"
-</FilesMatch>
-</Directory>
-
-# Allow access to images directory (images for download)
-
-<Directory "images">
-Require all granted
-# Cache images for 30 days
-<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg)$">
-Header set Cache-Control "max-age=2592000, public"
-</FilesMatch>
-</Directory>
-
-# Allow favicon
+# Allow access to favicon
 
 <Files "favicon.ico">
-Require all granted
-Header set Cache-Control "max-age=2592000, public"
+    Require all granted
+    Header set Cache-Control "max-age=2592000, public"
 </Files>
 
-# Explicitly deny access to sensitive files and directories (double protection)
+# Allow access to public directory files and set caching
+<FilesMatch "^public/.*\.(css|js|ico|png|jpg|jpeg|gif|svg)$">
+    Require all granted
+    Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
 
-<Directory "src">
-Require all denied
-</Directory>
+# Allow access to all files in public directory
+<FilesMatch "^public/">
+    Require all granted
+</FilesMatch>
 
-<Directory "config">
-Require all denied
-</Directory>
+# Allow access to docs directory files and set caching
+<FilesMatch "^docs/.*\.(pdf|txt|doc|docx|xls|xlsx|ppt|pptx)$">
+    Require all granted
+    Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# Allow access to all files in docs directory
+<FilesMatch "^docs/">
+    Require all granted
+</FilesMatch>
+
+# Allow access to images directory files and set caching
+<FilesMatch "^images/.*\.(jpg|jpeg|png|gif|webp|svg|mov)$">
+    Require all granted
+    Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# Allow access to all files in images directory
+<FilesMatch "^images/">
+    Require all granted
+</FilesMatch>
+
+# Explicitly deny access to sensitive files and directories
+<FilesMatch "^src/">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^config/">
+    Require all denied
+</FilesMatch>
 
 <Files ".env*">
-Require all denied
+    Require all denied
 </Files>
 
 <Files "setup.php">
-Require all denied
+    Require all denied
 </Files>
 
 <Files "*.example">
-Require all denied
+    Require all denied
 </Files>
 
-<Files "*.json">
-Require all denied
+<Files "package.json">
+    Require all denied
 </Files>
 
 <Files "README.md">
-Require all denied
+    Require all denied
 </Files>
 
 <Files ".gitignore">
-Require all denied
+    Require all denied
 </Files>
 
 <Files ".htaccess">
-Require all denied
+    Require all denied
 </Files>
 
 # Security headers

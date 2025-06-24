@@ -34,6 +34,7 @@ jobs:
       - name: 🧹 Clean remote directory (SSH) - Preserve docs, images, and .env
         env:
           TERM: xterm
+        timeout-minutes: 1
         run: |
           export SSHPASS=${{ secrets.SSH_PASSWORD }}
           sshpass -e ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} '
@@ -44,6 +45,7 @@ jobs:
       - name: 📂 Transfer and extract files (SSH)
         env:
           TERM: xterm
+        timeout-minutes: 1
         run: |
           export SSHPASS=${{ secrets.SSH_PASSWORD }}
           sshpass -e scp -o StrictHostKeyChecking=no apps/assets-deploy.tar.gz ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:assets/
