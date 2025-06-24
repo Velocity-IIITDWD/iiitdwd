@@ -78,6 +78,7 @@ jobs:
       - name: 🧹 Clean remote directory (SSH)
         id: ssh-clean
         continue-on-error: true
+        timeout-minutes: 1
         env:
           TERM: xterm
         run: |
@@ -90,6 +91,7 @@ jobs:
       - name: 📂 Transfer and extract files (SSH)
         id: ssh-transfer
         continue-on-error: true
+        timeout-minutes: 1
         env:
           TERM: xterm
         run: |
@@ -100,10 +102,17 @@ jobs:
           tar -xzf deploy.tar.gz &&
           rm deploy.tar.gz'
 
+      - name: 📦 Install lftp
+        if: steps.ssh-clean.outcome == 'failure' || steps.ssh-transfer.outcome == 'failure'
+        timeout-minutes: 2
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp
+
       - name: 📂 FTP Sync (Fallback)
         if: steps.ssh-clean.outcome == 'failure' || steps.ssh-transfer.outcome == 'failure'
+        timeout-minutes: 2
         run: |
-          sudo apt-get update && sudo apt-get install -y lftp
           lftp -e "
             set ftp:ssl-allow no;
             open ${{ secrets.FTP_SERVER }};
