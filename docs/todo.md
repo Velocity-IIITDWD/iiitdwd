@@ -1,9 +1,8 @@
 ### Features
 
-- Streamline the schemas and structure of CMS. 
+- Streamline the schemas and structure of CMS.
 - Get rid of postbuild script in the iiitdwd for the sitemap. Use updated next-sitemap package and it's standalone config. (maybe or not)
 - Bring consistency in naming conventions throughout the code and CI workflows.
-
 
 ### CI
 
