@@ -36,7 +36,9 @@ try {
     $allFiles = array_merge($docs, $images);
     
     // Sort files by name
-    usort($allFiles, fn($a, $b) => strcmp($a['name'], $b['name']));
+    usort($allFiles, function($a, $b) {
+        return strcmp($a['name'], $b['name']);
+    });
 } catch (Exception $e) {
     http_response_code(500);
     die('Error: Failed to read directories.');

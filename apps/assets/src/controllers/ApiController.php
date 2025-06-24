@@ -16,12 +16,22 @@ class ApiController {
         
         header('Content-Type: application/json');
         
-        $response = match ($_POST['operation']) {
-            'upload' => FileManager::upload(),
-            'rename' => FileManager::rename(),
-            'delete' => FileManager::delete(),
-            default => ['success' => false, 'message' => 'Invalid operation']
-        };
+        // Replace match expression with switch for PHP 7.4+ compatibility
+        $operation = $_POST['operation'];
+        switch ($operation) {
+            case 'upload':
+                $response = FileManager::upload();
+                break;
+            case 'rename':
+                $response = FileManager::rename();
+                break;
+            case 'delete':
+                $response = FileManager::delete();
+                break;
+            default:
+                $response = ['success' => false, 'message' => 'Invalid operation'];
+                break;
+        }
         
         echo json_encode($response);
         exit;
