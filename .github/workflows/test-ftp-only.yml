@@ -38,6 +38,6 @@ jobs:
             set ftp:ssl-allow no;
             open ${{ secrets.STAGING_FTP_SERVER }};
             user ${{ secrets.STAGING_FTP_USERNAME }} ${{ secrets.STAGING_FTP_PASSWORD }};
-            mirror -R --verbose --parallel=10 --use-cache --exclude-glob=docs/** --exclude-glob=images/** ./out/ .
+            mirror -R --verbose --parallel=10 --use-cache --exclude-glob=docs/** --exclude-glob=images/** ./apps/web/out/ .
             bye
           "
