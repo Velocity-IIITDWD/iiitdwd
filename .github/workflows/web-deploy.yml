@@ -47,13 +47,22 @@ jobs:
           cd apps/web
           pnpm run build
 
+      - name: Install lftp
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          echo "NEEDRESTART_MODE=a" | sudo tee -a /etc/needrestart/needrestart.conf
+          sudo apt-get clean
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends lftp
+        timeout-minutes: 10
+
       - name: 📂 FTP Sync
         run: |
-          sudo apt-get update && sudo apt-get install -y lftp
           lftp -e "
             set ftp:ssl-allow no;
             open ${{ secrets.FTP_SERVER }};
             user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }};
-            mirror -R --verbose --parallel=10 --use-cache ./apps/web/out/ .
+            mirror -R --verbose --parallel=10 --use-cache ./apps/web/out/ ${{ inputs.deploy_path }}
             bye
           "
