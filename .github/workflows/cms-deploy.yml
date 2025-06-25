@@ -48,6 +48,9 @@ jobs:
         run: pnpm install
 
       - name: 🛠️ Build CMS project
+        env:
+          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
         run: |
           cd apps/cms && pnpm run build
 
