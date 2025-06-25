@@ -20,6 +20,7 @@
 
 - Write and update the `README.md`.
 - Update cursor rules.
+- Create a proper documentation for the project architecture and how things are deployed.
 
 ### Ideating
 
