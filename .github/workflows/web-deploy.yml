@@ -2,7 +2,6 @@ name: Web Reusable Deploy Workflow
 
 on:
   workflow_call:
-    inputs:
     secrets:
       SANITY_DATASET:
         required: true
