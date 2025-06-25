@@ -708,3 +708,16 @@ function checkForHighlightFile() {
     }
   }
 }
+
+// Sort functionality
+function changeSort() {
+  const sortSelect = document.getElementById("sortSelect");
+  const selectedSort = sortSelect.value;
+
+  // Get current URL and parameters
+  const url = new URL(window.location);
+  url.searchParams.set("sort", selectedSort);
+
+  // Redirect to the new URL
+  window.location.href = url.toString();
+}
