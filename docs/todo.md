@@ -1,6 +1,6 @@
 # P0
 
-- remove exception of docs and images from the web deploy workflow after the assets workflow is implemented.
+- update cursor rules
 
 ### Features
 
