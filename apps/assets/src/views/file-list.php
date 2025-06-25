@@ -50,6 +50,14 @@
         <button class="filter-btn active" data-filter="all">All Files</button>
         <button class="filter-btn" data-filter="doc">Documents</button>
         <button class="filter-btn" data-filter="img">Images</button>
+        
+        <!-- Sort Dropdown -->
+        <div class="sort-container">
+            <select class="sort-select" id="sortSelect" onchange="changeSort()">
+                <option value="modified" <?= $sortBy === 'modified' ? 'selected' : '' ?>>Last Modified</option>
+                <option value="name" <?= $sortBy === 'name' ? 'selected' : '' ?>>Name</option>
+            </select>
+        </div>
     </div>
 </div>
 

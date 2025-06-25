@@ -29,16 +29,27 @@ $csrfToken = generateCSRFToken();
 // Validate required directories
 validateDirectories([DOCS_PATH, IMAGES_PATH]);
 
+// Get sort parameter from request
+$sortBy = $_GET['sort'] ?? 'modified';
+$sortBy = in_array($sortBy, ['name', 'modified']) ? $sortBy : 'modified';
+
 // Get files from directories
 try {
     $docs = getFilesFromDirectory(DOCS_PATH, 'doc');
     $images = getFilesFromDirectory(IMAGES_PATH, 'img');
     $allFiles = array_merge($docs, $images);
     
-    // Sort files by name
-    usort($allFiles, function($a, $b) {
-        return strcmp($a['name'], $b['name']);
-    });
+    // Sort files based on selected option
+    if ($sortBy === 'name') {
+        usort($allFiles, function($a, $b) {
+            return strcmp($a['name'], $b['name']);
+        });
+    } else {
+        // Sort by last modified (newest first)
+        usort($allFiles, function($a, $b) {
+            return $b['mtime'] - $a['mtime'];
+        });
+    }
 } catch (Exception $e) {
     http_response_code(500);
     die('Error: Failed to read directories.');

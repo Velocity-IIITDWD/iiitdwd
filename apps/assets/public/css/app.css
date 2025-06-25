@@ -335,6 +335,7 @@ body {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .filter-btn {
@@ -355,6 +356,39 @@ body {
 .filter-btn.active {
   background: var(--primary);
   color: white;
+  border-color: var(--primary);
+}
+
+/* Sort Dropdown */
+.sort-container {
+  margin-left: auto;
+}
+
+.sort-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gray-300);
+  background: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--gray-600);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 2rem;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+}
+
+.sort-select:hover {
+  background-color: var(--gray-100);
+}
+
+.sort-select:focus {
+  outline: none;
   border-color: var(--primary);
 }
 
@@ -563,5 +597,16 @@ body {
 
   .filters {
     justify-content: center;
+  }
+
+  .sort-container {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  .sort-select {
+    width: 100%;
+    text-align: center;
   }
 }
