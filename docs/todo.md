@@ -20,7 +20,7 @@
 
 - Write and update the `README.md`.
 - Update cursor rules.
-- Create a proper documentation for the project architecture and how things are deployed.
+- Create a proper documentation for the project architecture and how things are deployed. Also, how things are supposed to be done, how and when to use c ommands/scripts, etc. Everything should be documented.
 
 ### Ideating
 
