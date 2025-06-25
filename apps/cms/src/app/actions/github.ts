@@ -1,5 +1,6 @@
 "use server";
 import { Octokit } from "@octokit/core";
+import { validateSanityToken } from "./sanity-auth";
 
 type RunType = {
   status: string;
@@ -8,9 +9,20 @@ type RunType = {
 
 export async function dispatchWorkflow({
   isBetaDeploy,
+  sanityToken,
 }: {
   isBetaDeploy: boolean;
+  sanityToken: string;
 }) {
+  // Validate Sanity authentication before allowing deployment
+  const authCheck = await validateSanityToken(sanityToken);
+
+  if (!authCheck.isValid) {
+    throw new Error(
+      authCheck.error || "You must be authenticated to Sanity Studio to deploy."
+    );
+  }
+
   const repoURL = process.env.DEPLOY_REPO_URL;
   const productionWorkflow = process.env.DEPLOY_WORKFLOW;
   const betaWorkflow = process.env.DEPLOY_STAGING_WORKFLOW;
