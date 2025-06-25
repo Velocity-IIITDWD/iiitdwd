@@ -4,6 +4,10 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# [[Was added, because of react prefetches]]
+# Redirect any .pdf.txt request to the corresponding .pdf file
+RewriteRule ^(.*\.pdf)\.txt$ /$1 [R=301,L]
+
 # Allow access to main index.php (the web interface)
 
 <Files "index.php">
