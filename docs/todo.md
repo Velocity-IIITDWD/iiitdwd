@@ -1,8 +1,4 @@
-# P0
-
-- update cursor rules
-
-### Features
+### P0
 
 - Streamline the schemas and structure of CMS.
 - Get rid of postbuild script in the iiitdwd for the sitemap. Use updated next-sitemap package and it's standalone config. (maybe or not)
@@ -11,12 +7,11 @@
 ### CI
 
 - Resolve all linting and formatting issues!
+
   - Resolve all type errors.
   - Resolve all linting and formatting issues.
   - Update the configuration and CI to fail on any warnings or errors.
   - [ ] Enable `check-types` script in the husky pre-commit hook.
-
-### Legacy Tasks
 
 - Integrate the Sanity backup script.
   - [ ] [Legacy Github Workflow](https://github.com/Velocity-IIITDWD/iiitdwd.ac.in/blob/dev/.github/workflows/backup-sanity.yml)
@@ -24,6 +19,8 @@
 ### Miscellaneous
 
 - Write and update the `README.md`.
+- Update cursor rules.
+- Create a proper documentation for the project architecture and how things are deployed. Also, how things are supposed to be done, how and when to use c ommands/scripts, etc. Everything should be documented.
 
 ### Ideating
 

@@ -64,6 +64,6 @@ jobs:
             set ftp:ssl-allow no;
             open ${{ secrets.FTP_SERVER }};
             user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }};
-            mirror -R --verbose --parallel=10 --use-cache ./apps/web/out/ ${{ inputs.deploy_path }}
+            mirror -R --verbose --parallel=10 ./apps/web/out/ ${{ inputs.deploy_path }}
             bye
           "

@@ -13,21 +13,20 @@ This document lists all the required environment variables for running the proje
 
 ### CMS
 
-| Variable                        | Description                           | Required For            |
-| ------------------------------- | ------------------------------------- | ----------------------- |
-| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sanity project ID                     | Development, Production |
-| `NEXT_PUBLIC_SANITY_DATASET`    | Sanity dataset name                   | Development, Production |
-| `FTP_HOST`                      | FTP host for deployment               | Development, Production |
-| `FTP_USER`                      | FTP username for deployment           | Development, Production |
-| `FTP_PASS`                      | FTP password for deployment           | Development, Production |
-| `IMAGES_FTP_HOST`               | FTP host for image uploads            | Development, Production |
-| `IMAGES_FTP_USER`               | FTP username for image uploads        | Development, Production |
-| `IMAGES_FTP_PASS`               | FTP password for image uploads        | Development, Production |
-| `GITHUB_PAT`                    | GitHub personal access token          | Development, Production |
-| `DEPLOY_REPO_URL`               | Repository URL for deployment         | Development, Production |
-| `DEPLOY_WORKFLOW`               | GitHub workflow file name             | Development, Production |
-| `DEPLOY_STAGING_WORKFLOW`       | GitHub workflow file name for staging | Development, Production |
-| `DEPLOY_REF`                    | Git reference for deployment          | Development, Production |
+| Variable                        | Description         | Required For            |
+| ------------------------------- | ------------------- | ----------------------- |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sanity project ID   | Development, Production |
+| `NEXT_PUBLIC_SANITY_DATASET`    | Sanity dataset name | Development, Production |
+
+Below are only required to trigger the deployment workflows.
+
+| Variable                  | Description                           | Required For            |
+| ------------------------- | ------------------------------------- | ----------------------- |
+| `GITHUB_PAT`              | GitHub personal access token          | Development, Production |
+| `DEPLOY_REPO_URL`         | Repository URL for deployment         | Development, Production |
+| `DEPLOY_WORKFLOW`         | GitHub workflow file name             | Development, Production |
+| `DEPLOY_STAGING_WORKFLOW` | GitHub workflow file name for staging | Development, Production |
+| `DEPLOY_REF`              | Git reference for deployment          | Development, Production |
 
 ### Assets
 
@@ -64,6 +63,7 @@ Run `cd apps/assets && php setup.php` to setup the assets server. The below vari
 ```bash
 cp apps/web/.env.example apps/web/.env.local
 cp apps/cms/.env.example apps/cms/.env.local
+cd apps/assets && php setup.php
 ```
 
 ## Security Notes
