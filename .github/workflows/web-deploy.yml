@@ -3,10 +3,6 @@ name: Web Reusable Deploy Workflow
 on:
   workflow_call:
     inputs:
-      deploy_path:
-        required: true
-        type: string
-        description: "The path to deploy to (e.g., public_html or beta)"
     secrets:
       SANITY_DATASET:
         required: true
@@ -64,6 +60,6 @@ jobs:
             set ftp:ssl-allow no;
             open ${{ secrets.FTP_SERVER }};
             user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }};
-            mirror -R --verbose --parallel=10 ./apps/web/out/ ${{ inputs.deploy_path }}
+            mirror -R --verbose --parallel=10 ./apps/web/out/ .
             bye
           "
