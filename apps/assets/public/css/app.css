@@ -330,6 +330,28 @@ body {
   border-color: var(--primary);
 }
 
+/* Search Controls */
+.search-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sort-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  white-space: nowrap;
+}
+
 /* Filters */
 .filters {
   display: flex;
@@ -562,6 +584,16 @@ body {
   }
 
   .filters {
+    justify-content: center;
+  }
+
+  .search-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .sort-container {
     justify-content: center;
   }
 }
