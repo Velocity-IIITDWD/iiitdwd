@@ -8,6 +8,7 @@ A production-ready, secure file management system for hosting static assets with
 
 - **Browse Files**: View all documents and images with modern card-based layout
 - **Search & Filter**: Real-time search and category filtering
+- **Sort Files**: Sort by name (alphabetical) or last modified date (newest first)
 - **Download**: Direct file access via clean URLs
 - **Responsive Design**: Mobile-first design that works on all device sizes
 - **Keyboard Shortcuts**: Press `/` to search, `Esc` to clear
@@ -134,6 +135,7 @@ Optional environment variables (if you want to override defaults):
 - Visit the main page to browse files
 - Use search to find specific files
 - Filter by file type using the buttons
+- Sort files by name or last modified date using the dropdown
 - Click any file to download
 
 ### Admin Access

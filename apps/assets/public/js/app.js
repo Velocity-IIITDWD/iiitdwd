@@ -7,6 +7,7 @@ const App = {
   isAdmin: window.AssetsConfig?.isAdmin || false,
   csrfToken: window.AssetsConfig?.csrfToken || "",
   currentFilter: "all",
+  currentSort: "name",
   fileItems: [],
   pendingUpload: null, // Store pending upload data for replacement confirmation
 };
@@ -15,6 +16,12 @@ const App = {
 document.addEventListener("DOMContentLoaded", function () {
   App.fileItems = document.querySelectorAll(".file-item");
   initializeEventListeners();
+
+  // Set default sort value
+  const sortSelect = document.getElementById("sortSelect");
+  if (sortSelect) {
+    sortSelect.value = App.currentSort;
+  }
 
   // Check for newly uploaded file to highlight
   checkForHighlightFile();
@@ -459,10 +466,19 @@ async function proceedWithUpload(replace = false) {
 function initializeSearchAndFilter() {
   const searchInput = document.getElementById("searchInput");
   const filterBtns = document.querySelectorAll(".filter-btn");
+  const sortSelect = document.getElementById("sortSelect");
 
   if (searchInput) {
     searchInput.addEventListener("input", function () {
       const query = this.value.toLowerCase().trim();
+      filterFiles(query, App.currentFilter);
+    });
+  }
+
+  if (sortSelect) {
+    sortSelect.addEventListener("change", function () {
+      App.currentSort = this.value;
+      const query = searchInput?.value.toLowerCase().trim() || "";
       filterFiles(query, App.currentFilter);
     });
   }
@@ -481,7 +497,9 @@ function initializeSearchAndFilter() {
 function filterFiles(searchQuery, filterType) {
   const fileList = document.getElementById("fileList");
   let visibleCount = 0;
+  let visibleItems = [];
 
+  // First, filter the items
   App.fileItems.forEach(item => {
     const fileName = item.dataset.name;
     const fileType = item.dataset.type;
@@ -492,11 +510,29 @@ function filterFiles(searchQuery, filterType) {
       filterType === "all" || fileType === filterType || fileExt === filterType;
 
     if (matchesSearch && matchesFilter) {
-      item.style.display = "flex";
+      visibleItems.push(item);
       visibleCount++;
     } else {
       item.style.display = "none";
     }
+  });
+
+  // Sort the visible items
+  visibleItems.sort((a, b) => {
+    if (App.currentSort === "name") {
+      return a.dataset.name.localeCompare(b.dataset.name);
+    } else if (App.currentSort === "modified") {
+      const aTime = parseInt(a.dataset.mtime);
+      const bTime = parseInt(b.dataset.mtime);
+      return bTime - aTime; // Most recent first
+    }
+    return 0;
+  });
+
+  // Reorder the DOM elements
+  visibleItems.forEach(item => {
+    item.style.display = "flex";
+    fileList.appendChild(item);
   });
 
   // Show/hide empty state
