@@ -4,9 +4,11 @@ Options -MultiViews
 # Enable the rewrite engine
 RewriteEngine On
 
-# Redirect /docs and /images to asset.iiiitdwd.ac.in
-RewriteRule ^docs/(.*)$ https://assets.iiitdwd.ac.in/docs/$1 [R=301,L]
+# Redirect /images to assets subdomain
 RewriteRule ^images/(.*)$ https://assets.iiitdwd.ac.in/images/$1 [R=301,L]
+
+# Redirect /docs to assets subdomain  
+RewriteRule ^docs/(.*)$ https://assets.iiitdwd.ac.in/docs/$1 [R=301,L]
 
 # Try to serve the requested file directly
 # If the file doesn't exist, check if the corresponding .html file exists

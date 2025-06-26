@@ -8,6 +8,18 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: "/images/:path*",
+        destination: "https://assets.iiitdwd.ac.in/images/:path*",
+      },
+      {
+        source: "/docs/:path*",
+        destination: "https://assets.iiitdwd.ac.in/docs/:path*",
+      },
+    ];
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -33,18 +45,6 @@ const nextConfig: NextConfig = {
       },
     ],
     domains: ["avatar.vercel.sh"],
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/images/:path*",
-        destination: "https://iiitdwd.ac.in/images/:path*",
-      },
-      {
-        source: "/docs/:path*",
-        destination: "https://iiitdwd.ac.in/docs/:path*",
-      },
-    ];
   },
   trailingSlash: true,
 };

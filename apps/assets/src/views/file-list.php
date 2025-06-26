@@ -46,10 +46,27 @@
                placeholder="Search files..." autocomplete="off">
     </div>
     
-    <div class="filters">
-        <button class="filter-btn active" data-filter="all">All Files</button>
-        <button class="filter-btn" data-filter="doc">Documents</button>
-        <button class="filter-btn" data-filter="img">Images</button>
+    <div class="search-controls">
+        <div class="sort-container">
+            <label class="sort-label">Sort by:</label>
+            <div class="select-wrapper">
+                <select id="sortSelect" class="form-select">
+                    <option value="name">Name</option>
+                    <option value="modified">Last Modified</option>
+                </select>
+                <span class="select-chevron">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 20 20">
+                        <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Files</button>
+            <button class="filter-btn" data-filter="doc">Documents</button>
+            <button class="filter-btn" data-filter="img">Images</button>
+        </div>
     </div>
 </div>
 
@@ -73,7 +90,8 @@
             <div class="file-item" 
                  data-name="<?= strtolower($file['name']) ?>" 
                  data-type="<?= $file['type'] ?>"
-                 data-ext="<?= $file['ext'] ?>">
+                 data-ext="<?= $file['ext'] ?>"
+                 data-mtime="<?= $file['mtime'] ?>">
                 <div class="file-icon">
                     <?= strtoupper($file['ext']) ?>
                 </div>
