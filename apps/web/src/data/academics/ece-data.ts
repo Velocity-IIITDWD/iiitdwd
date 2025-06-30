@@ -42,9 +42,9 @@ const bTechECEProgramData: BTechECEProgram = {
   name: "Electronics and Communication Engineering",
   description:
     "The Department of Electronics and Communication Engineering provides strong foundations in circuit design, signal processing, communications, and embedded systems. The curriculum emphasizes both theoretical concepts and hands-on laboratory experience.",
-  hod: "Dr. Sibasankar Padhy",
-  hod_image: "https://www.iiitdwd.ac.in//images/Dr.SibasankarPadhy.jpg",
-  email: "sibasankar@iiitdwd.ac.in",
+  hod: "Dr. Rajesh Kumar",
+  hod_image: "https://www.iiitdwd.ac.in//images/RajeshKumar.jpg",
+  email: "rajesh.kumar@iiitdwd.ac.in",
   courseCategories: [
     {
       name: "Discipline core",
