@@ -26,4 +26,13 @@ export default [
     email: "manjunathkv@iiitdwd.ac.in",
     imageUrl: "/images/Dr.ManjunathKV.jpg",
   },
+  {
+    id: "4",
+    name: "Dr. Sunil Kumar PV",
+    title: "Assistant Professor",
+    position: "Faculty-In-Charge",
+    department: "Faculty Welfare",
+    email: "sunil.kumar@iiitdwd.ac.in",
+    imageUrl: "/images/Dr.SunilKumarPV.jpg",
+  },
 ];

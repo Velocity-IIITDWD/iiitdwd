@@ -10,12 +10,12 @@ export default [
   },
   {
     id: "2",
-    name: "Dr. Sibasankar Padhy",
+    name: "Dr. Rajesh Kumar",
     title: "Assistant Professor",
     position: "Head of the Department [HoD]",
     department: "ECE",
-    email: "sibasankar@iiitdwd.ac.in",
-    imageUrl: "https://www.iiitdwd.ac.in//images/Dr.SibasankarPadhy.jpg",
+    email: "rajesh.kumar@iiitdwd.ac.in",
+    imageUrl: "https://www.iiitdwd.ac.in//images/RajeshKumar.jpg",
   },
   {
     id: "3",
