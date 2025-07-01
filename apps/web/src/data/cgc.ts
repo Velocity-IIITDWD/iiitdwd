@@ -24,8 +24,8 @@ export default [
       },
       {
         content: ["Ex-officio Member"],
-        imageURL: "/images/Dr.SibasankarPadhy.jpg",
-        title: "Dr. Sibasankar Padhy",
+        imageURL: "/images/RajeshKumar.jpg",
+        title: "Dr. Rajesh Kumar",
       },
       {
         content: ["Ex-officio Member"],
