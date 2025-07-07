@@ -39,7 +39,7 @@ export const quickLinks: LinkItem[] = [
   },
   {
     title: "Scholarships",
-    href: "/docs/List_of_Scholarship.pdf",
+    href: "/docs/LIST_OF_Scholarship_Details.pdf",
   },
   {
     title: "Fee Refund",
