@@ -46,6 +46,10 @@ export const quickLinks: LinkItem[] = [
     href: "/docs/Fee-Refund.pdf",
   },
   {
+    title: "PM VIDYA LAXMI EDUCATION LOAN SCHEME - CANARA BANK",
+    href: "/docs/PM_VIDYA_LAXMI_EDUCATION_LOAN_-CANARA_BANK_FOR_IIIT_DHARWAD.pdf",
+  },
+  {
     title: "FAQ's",
     href: "/faq/",
   },
