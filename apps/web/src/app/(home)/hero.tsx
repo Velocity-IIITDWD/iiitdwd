@@ -34,7 +34,7 @@ export default function LandingSection(): JSX.Element {
       <div className="flex-1 flex flex-col w-full">
         <div className="relative flex-1 flex w-full flex-col items-center justify-center overflow-hidden">
           <Marquee className="!mt-0">
-            {firstRowImages.map((imageNum, index) => (
+            {firstRowImages?.map((imageNum, index) => (
               <Image
                 key={index}
                 src={`https://iiitdwd.ac.in/images/CAMPUS_${imageNum}.webp`}
@@ -47,10 +47,10 @@ export default function LandingSection(): JSX.Element {
                 priority={false}
                 sizes={"100%"}
               />
-            ))}
+            )) || []}
           </Marquee>
           <Marquee className="!mt-0 pr-[calc(33vw-2.67px)] md:pr-64">
-            {secondRowImages.map((imageNum, index) => (
+            {secondRowImages?.map((imageNum, index) => (
               <Image
                 key={index}
                 src={`https://iiitdwd.ac.in/images/CAMPUS_${imageNum}.webp`}
@@ -63,7 +63,7 @@ export default function LandingSection(): JSX.Element {
                 priority={false}
                 sizes={"100%"}
               />
-            ))}
+            )) || []}
           </Marquee>
         </div>
         <div className=" px-5 md:px-13 py-12 font-grotesk">
