@@ -4,17 +4,9 @@ import { Marquee } from "@/components/ui/marquee";
 import Image from "next/image";
 import { useMemo } from "react";
 
-export default function LandingSection({
-  data,
-}: {
-  data: string[];
-}): JSX.Element {
-  const half = Math.ceil(data.length / 2);
-  const firstHalf = data.slice(0, half);
-  const secondHalf = data.slice(half);
-
+export default function LandingSection(): JSX.Element {
   // Create array of all image numbers (1-91) in a deterministic order
-  const { firstRowImages, secondRowImages, thirdRowImages } = useMemo(() => {
+  const { firstRowImages, secondRowImages } = useMemo(() => {
     // Use a simple deterministic pattern instead of random shuffle
     const allImageNumbers = Array.from({ length: 91 }, (_, i) => i + 1);
 
@@ -32,9 +24,8 @@ export default function LandingSection({
     }
 
     return {
-      firstRowImages: shuffledImages.slice(0, 30),
-      secondRowImages: shuffledImages.slice(30, 61),
-      thirdRowImages: shuffledImages.slice(61, 91),
+      firstRowImages: shuffledImages.slice(0, 45), // Increased from 30 to 45
+      secondRowImages: shuffledImages.slice(45, 91), // Remaining images
     };
   }, []);
 
@@ -60,22 +51,6 @@ export default function LandingSection({
           </Marquee>
           <Marquee className="!mt-0 pr-[calc(33vw-2.67px)] md:pr-64">
             {secondRowImages.map((imageNum, index) => (
-              <Image
-                key={index}
-                src={`https://iiitdwd.ac.in/images/CAMPUS_${imageNum}.webp`}
-                alt={`Campus Image ${imageNum}`}
-                className="h-[calc(20vw-1.5px)] w-[calc(33vw-2.67px)] md:h-36 md:w-64 shadow"
-                height={0}
-                width={0}
-                loading="lazy"
-                quality={75}
-                priority={false}
-                sizes={"100%"}
-              />
-            ))}
-          </Marquee>
-          <Marquee className="!mt-0">
-            {thirdRowImages.map((imageNum, index) => (
               <Image
                 key={index}
                 src={`https://iiitdwd.ac.in/images/CAMPUS_${imageNum}.webp`}
