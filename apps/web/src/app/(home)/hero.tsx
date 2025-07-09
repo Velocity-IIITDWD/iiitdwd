@@ -1,3 +1,4 @@
+"use client";
 import { QuickLink } from "@/components/quick-link";
 import { Marquee } from "@/components/ui/marquee";
 import Image from "next/image";
