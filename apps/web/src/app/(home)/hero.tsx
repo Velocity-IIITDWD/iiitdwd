@@ -2,69 +2,97 @@
 import { QuickLink } from "@/components/quick-link";
 import { Marquee } from "@/components/ui/marquee";
 import Image from "next/image";
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 
 export default function LandingSection(): JSX.Element {
-  // Create array of all image numbers (1-91) in a deterministic order
-  const { firstRowImages, secondRowImages } = useMemo(() => {
-    // Use a simple deterministic pattern instead of random shuffle
-    const allImageNumbers = Array.from({ length: 91 }, (_, i) => i + 1);
+  // State for images, loading, and error
+  const [images, setImages] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-    // Create a deterministic but varied order by interleaving
-    const shuffledImages: number[] = [];
-    const step = 7; // Prime number for better distribution
-    let current = 0;
+  useEffect(() => {
+    async function fetchImages() {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await fetch(
+          "https://assets.iiitdwd.ac.in/api/floating-images.php"
+        );
+        if (!res.ok) throw new Error("Failed to fetch images");
+        const response = await res.json();
 
-    for (let i = 0; i < 91; i++) {
-      const imageNum = allImageNumbers[current];
-      if (imageNum !== undefined) {
-        shuffledImages.push(imageNum);
+        // Handle the API response format: { success: true, data: [{ url, filename, ... }] }
+        if (response.success && Array.isArray(response.data)) {
+          const imageUrls = response.data.map((item: any) => item.url);
+          setImages(imageUrls);
+        } else {
+          throw new Error("Unexpected API response format");
+        }
+      } catch (err: any) {
+        setError(err.message || "Unknown error");
+      } finally {
+        setLoading(false);
       }
-      current = (current + step) % 91;
     }
-
-    return {
-      firstRowImages: shuffledImages.slice(0, 45), // Increased from 30 to 45
-      secondRowImages: shuffledImages.slice(45, 91), // Remaining images
-    };
+    fetchImages();
   }, []);
+
+  // Split images into two rows
+  const firstRowImages = images.slice(0, Math.ceil(images.length / 2));
+  const secondRowImages = images.slice(Math.ceil(images.length / 2));
 
   return (
     <div className="flex relative flex-col items-center">
       <div className="flex-1 flex flex-col w-full">
         <div className="relative flex-1 flex w-full flex-col items-center justify-center overflow-hidden">
-          <Marquee className="!mt-0">
-            {firstRowImages?.map((imageNum, index) => (
-              <Image
-                key={index}
-                src={`https://iiitdwd.ac.in/images/CAMPUS_${imageNum}.webp`}
-                alt={`Campus Image ${imageNum}`}
-                className="h-[calc(20vw-1.5px)] w-[calc(33vw-2.67px)] md:h-36 md:w-64 shadow"
-                height={0}
-                width={0}
-                loading="lazy"
-                quality={75}
-                priority={false}
-                sizes={"100%"}
-              />
-            )) || []}
-          </Marquee>
-          <Marquee className="!mt-0 pr-[calc(33vw-2.67px)] md:pr-64">
-            {secondRowImages?.map((imageNum, index) => (
-              <Image
-                key={index}
-                src={`https://iiitdwd.ac.in/images/CAMPUS_${imageNum}.webp`}
-                alt={`Campus Image ${imageNum}`}
-                className="h-[calc(20vw-1.5px)] w-[calc(33vw-2.67px)] md:h-36 md:w-64 shadow"
-                height={0}
-                width={0}
-                loading="lazy"
-                quality={75}
-                priority={false}
-                sizes={"100%"}
-              />
-            )) || []}
-          </Marquee>
+          {loading ? (
+            <div className="text-center py-10 text-gray-400">
+              Loading images...
+            </div>
+          ) : error ? (
+            <div className="text-center py-10 text-red-500">{error}</div>
+          ) : (
+            <>
+              <Marquee className="!mt-0">
+                {firstRowImages.map((url, index) => (
+                  <Image
+                    key={`first-${index}`}
+                    src={url}
+                    alt={`Campus Image ${index + 1}`}
+                    className="h-[calc(20vw-1.5px)] w-[calc(33vw-2.67px)] md:h-36 md:w-64 shadow"
+                    height={144}
+                    width={256}
+                    loading="lazy"
+                    quality={75}
+                    priority={false}
+                    sizes="(max-width: 768px) 33vw, 256px"
+                    onError={e => {
+                      console.warn(`Failed to load image: ${url}`);
+                    }}
+                  />
+                ))}
+              </Marquee>
+              <Marquee className="!mt-0 pr-[calc(33vw-2.67px)] md:pr-64">
+                {secondRowImages.map((url, index) => (
+                  <Image
+                    key={`second-${index}`}
+                    src={url}
+                    alt={`Campus Image ${index + 1 + firstRowImages.length}`}
+                    className="h-[calc(20vw-1.5px)] w-[calc(33vw-2.67px)] md:h-36 md:w-64 shadow"
+                    height={144}
+                    width={256}
+                    loading="lazy"
+                    quality={75}
+                    priority={false}
+                    sizes="(max-width: 768px) 33vw, 256px"
+                    onError={e => {
+                      console.warn(`Failed to load image: ${url}`);
+                    }}
+                  />
+                ))}
+              </Marquee>
+            </>
+          )}
         </div>
         <div className=" px-5 md:px-13 py-12 font-grotesk">
           <div className="mx-auto max-w-6xl w-full">
