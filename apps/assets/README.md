@@ -37,7 +37,7 @@ A production-ready, secure file management system for hosting static assets with
 
 Get all hero images with their direct URLs - works in both development and production environments.
 
-**Endpoint:** `GET /apps/assets/api.php`
+**Endpoint:** `GET /apps/assets/api/floating-images.php`
 
 **Alternative:** `GET /apps/assets/?api=floating-images`
 
@@ -67,25 +67,25 @@ Get all hero images with their direct URLs - works in both development and produ
 **cURL (Development):**
 
 ```bash
-curl -X GET "http://localhost/apps/assets/api.php"
+curl -X GET "http://localhost/apps/assets/api/floating-images.php"
 ```
 
 **cURL (Production):**
 
 ```bash
-curl -X GET "https://yourdomain.com/apps/assets/api.php"
+curl -X GET "https://yourdomain.com/apps/assets/api/floating-images.php"
 ```
 
 **cURL with pretty JSON:**
 
 ```bash
-curl -X GET "http://localhost/apps/assets/api.php" | jq '.'
+curl -X GET "http://localhost/apps/assets/api/floating-images.php" | jq '.'
 ```
 
 **JavaScript:**
 
 ```javascript
-fetch("/apps/assets/api.php")
+fetch("/apps/assets/api/floating-images.php")
   .then(response => response.json())
   .then(data => {
     if (data.success) {
@@ -114,7 +114,7 @@ if ($data['success']) {
 
 ```php
 <?php
-$response = file_get_contents('https://yourdomain.com/apps/assets/api.php');
+$response = file_get_contents('https://yourdomain.com/apps/assets/api/floating-images.php');
 $data = json_decode($response, true);
 
 if ($data['success']) {
@@ -130,7 +130,7 @@ if ($data['success']) {
 ```python
 import requests
 
-response = requests.get('https://yourdomain.com/apps/assets/api.php')
+response = requests.get('https://yourdomain.com/apps/assets/api/floating-images.php')
 data = response.json()
 
 if data['success']:
@@ -155,7 +155,7 @@ if data['success']:
 
 3. **Test API Endpoint:**
    ```bash
-   curl -X GET "http://localhost/apps/assets/api.php"
+   curl -X GET "http://localhost/apps/assets/api/floating-images.php"
    ```
 
 ## Production Deployment
@@ -181,11 +181,12 @@ The API endpoint will automatically work in production. The URLs returned will b
 ```
 apps/assets/
 ├── index.php              # Main application entry point
-├── api.php                # Hero images API endpoint
 ├── hero-images.php        # Hero images management interface
 ├── .htaccess              # Security and routing configuration
 ├── .env                   # Environment configuration (not in repo)
 ├── setup.php              # Initial setup script
+├── api/
+│   └── floating-images.php   # Hero images API endpoint
 ├── config/
 │   └── app.php           # Application configuration
 ├── src/
