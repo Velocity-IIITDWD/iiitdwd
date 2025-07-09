@@ -1,7 +1,6 @@
 <!-- Navigation -->
-<div class="nav-links" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem;">
-    <a href="index.php" class="nav-btn<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? ' active' : '' ?>">File Manager</a>
-    <a href="hero-images.php" class="nav-btn<?= basename($_SERVER['PHP_SELF']) === 'hero-images.php' ? ' active' : '' ?>">Hero Images</a>
+<div class="nav-links" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; justify-content: center;">
+    <a href="hero-images.php" class="nav-btn">Explore Floating Images</a>
 </div>
 
 <?php if ($isAdmin): ?>
