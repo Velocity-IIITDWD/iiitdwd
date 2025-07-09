@@ -1,6 +1,6 @@
 <!-- Navigation -->
 <div class="nav-links" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; justify-content: center;">
-    <a href="hero-images.php" class="nav-btn">Explore Floating Images</a>
+    <a href="hero-images.php" class="nav-btn nav-btn-explore">Explore Floating Images</a>
 </div>
 
 <?php if ($isAdmin): ?>
@@ -129,13 +129,17 @@
     box-shadow: none;
     letter-spacing: 0.01em;
 }
+.nav-links .nav-btn.nav-btn-explore {
+    border: 1px solid #e5e7eb;
+    background: white;
+}
 .nav-links .nav-btn.active,
 .nav-links .nav-btn:focus {
     background: #111;
     color: #fff;
 }
 .nav-links .nav-btn:hover {
-    background: #222;
+    background: #111;
     color: #fff;
 }
 </style>
