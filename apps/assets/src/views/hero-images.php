@@ -10,7 +10,7 @@
         </svg>
         Back
     </a>
-    <h2 style="margin: 0; color: #2563eb;">Manage Floating Images</h2>
+    <h2 style="margin: 0; color:rgb(6, 7, 8);">Manage Floating Images</h2>
     <div style="width: 60px;"></div> <!-- Spacer for centering -->
 </div>
 
