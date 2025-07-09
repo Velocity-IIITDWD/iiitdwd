@@ -1,13 +1,12 @@
 # IIITDWD Assets Management System
 
-A production-ready, secure file management system for hosting static assets with authentication-protected administration features and dedicated hero image management.
+A production-ready, secure file management system for hosting static assets with authentication-protected administration features.
 
 ## Features
 
 ### Public Features
 
 - **Browse Files**: View all documents and images with modern card-based layout
-- **Hero Images Gallery**: Dedicated gallery for hero images with modern UI
 - **Search & Filter**: Real-time search and category filtering
 - **Download**: Direct file access via clean URLs
 - **Responsive Design**: Mobile-first design that works on all device sizes
@@ -19,151 +18,8 @@ A production-ready, secure file management system for hosting static assets with
 - **Modal-based UI**: Clean modal dialogs for all admin actions
 - **Rename Files**: In-place file renaming with custom modal
 - **Delete Files**: Secure file deletion with confirmation modal
-- **Bulk Operations**: Select multiple files for bulk deletion
 - **File Type Validation**: Automatic validation of allowed file types
 - **Visual Feedback**: Loading states and success/error notifications
-
-### Hero Images Management
-
-- **Dedicated Gallery**: Separate interface for managing hero images
-- **Image Previews**: Thumbnail previews with hover effects
-- **Bulk Upload**: Multiple image upload with progress tracking
-- **Bulk Operations**: Select and delete multiple images
-- **Direct Links**: Images open in new tabs for easy access
-
-## API Endpoints
-
-### Hero Images API
-
-Get all hero images with their direct URLs - works in both development and production environments.
-
-**Endpoint:** `GET /apps/assets/api/floating-images.php`
-
-**Alternative:** `GET /apps/assets/?api=floating-images`
-
-**Response Format:**
-
-```json
-{
-  "success": true,
-  "data": [
-    {
-      "url": "https://yourdomain.com/apps/assets/floating_images/image1.jpg",
-      "filename": "image1.jpg",
-      "upload_time": 1704067200
-    },
-    {
-      "url": "https://yourdomain.com/apps/assets/floating_images/image2.png",
-      "filename": "image2.png",
-      "upload_time": 1704067300
-    }
-  ],
-  "count": 2
-}
-```
-
-**Usage Examples:**
-
-**cURL (Development):**
-
-```bash
-curl -X GET "http://localhost/apps/assets/api/floating-images.php"
-```
-
-**cURL (Production):**
-
-```bash
-curl -X GET "https://yourdomain.com/apps/assets/api/floating-images.php"
-```
-
-**cURL with pretty JSON:**
-
-```bash
-curl -X GET "http://localhost/apps/assets/api/floating-images.php" | jq '.'
-```
-
-**JavaScript:**
-
-```javascript
-fetch("/apps/assets/api/floating-images.php")
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      data.data.forEach(image => {
-        console.log(`Image: ${image.filename}, URL: ${image.url}`);
-      });
-    }
-  });
-```
-
-PHP:
-
-```php
-$response = file_get_contents('https://yourdomain.com/apps/assets/floating-images');
-$data = json_decode($response, true);
-
-if ($data['success']) {
-    console.log('Found', data.count, 'hero images');
-    data.data.forEach(image => {
-        console.log('Image:', image.filename, 'URL:', image.url);
-    });
-});
-```
-
-**PHP:**
-
-```php
-<?php
-$response = file_get_contents('https://yourdomain.com/apps/assets/api/floating-images.php');
-$data = json_decode($response, true);
-
-if ($data['success']) {
-    foreach ($data['data'] as $image) {
-        echo "Image: {$image['filename']}, URL: {$image['url']}\n";
-    }
-}
-?>
-```
-
-**Python:**
-
-```python
-import requests
-
-response = requests.get('https://yourdomain.com/apps/assets/api/floating-images.php')
-data = response.json()
-
-if data['success']:
-    for image in data['data']:
-        print(f"Image: {image['filename']}, URL: {image['url']}")
-```
-
-## Quick Start
-
-1. **Clone and Setup:**
-
-   ```bash
-   git clone <repository-url>
-   cd apps/assets
-   php setup.php
-   ```
-
-2. **Configure Environment:**
-
-   - Copy `.env.example` to `.env`
-   - Update database and authentication settings
-
-3. **Test API Endpoint:**
-   ```bash
-   curl -X GET "http://localhost/apps/assets/api/floating-images.php"
-   ```
-
-## Production Deployment
-
-The API endpoint will automatically work in production. The URLs returned will be absolute URLs based on your domain:
-
-**Development:** `http://localhost/apps/assets/floating_images/image.jpg`
-**Production:** `https://yourdomain.com/apps/assets/floating_images/image.jpg`
 
 ## Security Features
 
@@ -181,12 +37,9 @@ The API endpoint will automatically work in production. The URLs returned will b
 ```
 apps/assets/
 ├── index.php              # Main application entry point
-├── hero-images.php        # Hero images management interface
 ├── .htaccess              # Security and routing configuration
 ├── .env                   # Environment configuration (not in repo)
 ├── setup.php              # Initial setup script
-├── api/
-│   └── floating-images.php   # Hero images API endpoint
 ├── config/
 │   └── app.php           # Application configuration
 ├── src/
@@ -194,46 +47,24 @@ apps/assets/
 │   │   └── ApiController.php     # API request handler
 │   ├── models/
 │   │   ├── Auth.php             # Authentication model
-│   │   ├── FileManager.php      # File operations model
-│   │   └── FloatingImagesManager.php  # Hero images model
+│   │   └── FileManager.php      # File operations model
 │   ├── utils/
-│   │   ├── env.php              # Environment utilities
+│   │   ├── env.php              # Environment loader
 │   │   ├── helpers.php          # Helper functions
 │   │   └── security.php         # Security utilities
 │   └── views/
-│       ├── file-list.php        # File listing view
-│       ├── hero-images.php      # Hero images view
-│       ├── layout.php           # Layout template
-│       └── modals.php           # Modal templates
+│       ├── layout.php           # Main HTML layout
+│       ├── file-list.php        # File listing partial
+│       └── modals.php           # Modal dialogs
 ├── public/
 │   ├── css/
-│   │   └── app.css              # Application styles
+│   │   └── app.css              # Compiled styles
 │   └── js/
-│       └── app.js               # Application JavaScript
-├── docs/                        # Documentation files
-├── images/                      # Regular images directory
-├── floating_images/             # Hero images directory
+│       └── app.js               # Frontend JavaScript
+├── docs/                        # Document uploads
+├── images/                      # Image uploads
 └── README.md                    # This file
 ```
-
-│ ├── utils/
-│ │ ├── env.php # Environment loader
-│ │ ├── helpers.php # Helper functions
-│ │ └── security.php # Security utilities
-│ └── views/
-│ ├── layout.php # Main HTML layout
-│ ├── file-list.php # File listing partial
-│ └── modals.php # Modal dialogs
-├── public/
-│ ├── css/
-│ │ └── app.css # Compiled styles
-│ └── js/
-│ └── app.js # Frontend JavaScript
-├── docs/ # Document uploads
-├── images/ # Image uploads
-└── README.md # This file
-
-````
 
 ### Key Improvements
 
@@ -266,7 +97,7 @@ apps/assets/
 
 ```bash
 php setup.php
-````
+```
 
 This interactive script will:
 
@@ -301,10 +132,9 @@ Optional environment variables (if you want to override defaults):
 ### Public Access
 
 - Visit the main page to browse files
-- Navigate to "Hero Images" tab for hero image gallery
 - Use search to find specific files
 - Filter by file type using the buttons
-- Click any file to download or view in new tab
+- Click any file to download
 
 ### Admin Access
 
@@ -312,32 +142,6 @@ Optional environment variables (if you want to override defaults):
 2. Login with admin credentials
 3. Upload new files using the upload form
 4. Use "Rename" and "Delete" buttons on each file
-5. Use bulk operations to select and delete multiple files
-
-### Hero Images Management
-
-1. Navigate to "Hero Images" tab
-2. Upload images using drag-and-drop or file picker
-3. Images automatically appear in gallery with thumbnails
-4. Click image filename to open in new tab
-5. Use "Copy Link" to get direct image URL
-6. Use bulk operations for multiple image management
-
-### API Integration
-
-Use the hero images API to fetch image data for your applications:
-
-```javascript
-// Fetch all hero images
-fetch("/apps/assets/?api=floating-images")
-  .then(response => response.json())
-  .then(data => {
-    console.log(`Found ${data.count} hero images`);
-    data.data.forEach(image => {
-      console.log(`${image.filename}: ${image.url}`);
-    });
-  });
-```
 
 ### Keyboard Shortcuts
 
@@ -355,31 +159,18 @@ fetch("/apps/assets/?api=floating-images")
    ```
 3. Ensure proper file permissions:
    - `.env` file: 600 (read/write owner only)
-   - `docs/`, `images/`, and `floating_images/` directories: 755 (writable)
-4. Test upload functionality for both regular files and hero images
+   - `docs/` and `images/` directories: 755 (writable)
+4. Test upload functionality
 5. Access your site and login with configured credentials
 
-### Production Deployment Checklist
+### Security Checklist
 
 - ✅ Run setup script to generate secure credentials
 - ✅ Verify `.env` file is not publicly accessible
 - ✅ Check directory permissions are correct
 - ✅ Test file upload and admin functions
-- ✅ Test hero images upload and API endpoint
 - ✅ Ensure HTTPS is enabled (check `.htaccess`)
 - ✅ Verify `src/` and `config/` directories are protected
-- ✅ Test API endpoint functionality
-
-### Testing API Endpoint
-
-After deployment, test the hero images API:
-
-```bash
-# Test API endpoint
-curl "https://yourdomain.com/apps/assets/?api=floating-images"
-
-# Should return JSON with success: true and data array
-```
 
 ## Security Considerations
 
@@ -389,7 +180,6 @@ curl "https://yourdomain.com/apps/assets/?api=floating-images"
 - Keep PHP version updated
 - Use HTTPS in production
 - Never commit `.env` files to version control
-- API endpoints are public but read-only
 
 ## Browser Support
 
