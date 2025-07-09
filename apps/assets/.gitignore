@@ -5,6 +5,7 @@ floating_images/**
 !docs/.gitkeep
 !images/.gitkeep
 
+
 # Environment files
 .env
 .env.local
