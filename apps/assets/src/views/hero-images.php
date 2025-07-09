@@ -3,9 +3,15 @@
 ?>
 
 <!-- Navigation -->
-<div class="nav-links" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem;">
-    <a href="index.php" class="nav-btn<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? ' active' : '' ?>">File Manager</a>
-    <a href="hero-images.php" class="nav-btn<?= basename($_SERVER['PHP_SELF']) === 'hero-images.php' ? ' active' : '' ?>">Floating Images</a>
+<div class="nav-links" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; justify-content: space-between; align-items: center;">
+    <a href="index.php" class="nav-btn" style="display: flex; align-items: center;">
+        <svg width="16" height="16" fill="none" viewBox="0 0 20 20" style="margin-right: 0.5rem;">
+            <path d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" fill="currentColor"/>
+        </svg>
+        Back
+    </a>
+    <h2 style="margin: 0; color: #2563eb;">Manage Floating Images</h2>
+    <div style="width: 60px;"></div> <!-- Spacer for centering -->
 </div>
 
 <?php if ($isAdmin): ?>

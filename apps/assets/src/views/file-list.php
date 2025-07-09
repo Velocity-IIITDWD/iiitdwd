@@ -1,50 +1,22 @@
 <!-- Navigation -->
-<div class="nav-links" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem;">
-    <a href="index.php" class="nav-btn<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? ' active' : '' ?>">File Manager</a>
-    <a href="hero-images.php" class="nav-btn<?= basename($_SERVER['PHP_SELF']) === 'hero-images.php' ? ' active' : '' ?>">Floating Images</a>
+<div class="nav-links" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; justify-content: center;">
+    <a href="hero-images.php" class="nav-btn">
+        <svg width="16" height="16" fill="none" viewBox="0 0 20 20" style="margin-right: 0.5rem;">
+            <path d="M4 3a2 2 0 00-2 2v1.586l.879.879A3 3 0 004.172 8H15a1 1 0 00.707-.293L17 6.414V5a2 2 0 00-2-2H4z" fill="currentColor"/>
+            <path d="M3 9.414V15a2 2 0 002 2h10a2 2 0 002-2V9.414l-1.707 1.707A3 3 0 0013.172 12H4.828a3 3 0 00-2.121-.879L3 9.414z" fill="currentColor"/>
+        </svg>
+        Manage Floating Images
+    </a>
 </div>
 
-<?php if ($isAdmin): ?>
-    <!-- Upload Section -->
-    <div class="upload-section">
-        <form class="upload-form" id="uploadForm">
-            <input type="hidden" name="operation" value="upload">
-            <input type="hidden" name="csrf_token" value="<?= $csrfToken ?>">
-            
-            <div>
-                <label class="form-label">Upload File</label>
-                <div class="file-upload" id="fileUpload">
-                    <div class="file-upload-text">
-                        <strong>Click to upload</strong> or drag and drop<br>
-                        <small>Max <?= formatFileSize(MAX_FILE_SIZE) ?></small>
-                    </div>
-                    <input type="file" name="file" class="file-upload-input" id="fileInput" required>
-                </div>
-            </div>
-            
-            <div>
-                <label class="form-label">Type</label>
-                <div class="select-wrapper">
-                    <select name="target_type" class="form-select" required>
-                        <option value="" disabled selected>Select file type...</option>
-                        <option value="docs">Documents</option>
-                        <option value="images">Images</option>
-                    </select>
-                    <span class="select-chevron">
-                        <svg width="16" height="16" fill="none" viewBox="0 0 20 20">
-                            <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                </div>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">
-                <span id="uploadText">Upload</span>
-            </button>
-        </form>
-    </div>
-<?php endif; ?>
+<!-- Welcome Message -->
+<div class="welcome-section" style="text-align: center; margin: 2rem 0;">
+    <h2 style="margin-bottom: 1rem; color: #2563eb;">Welcome to IIIT Dharwad Assets Management</h2>
+    <p style="color: #64748b; font-size: 1.1rem;">Click the button above to manage floating images for the homepage hero section.</p>
+</div>
 
+<!-- Hidden sections - keeping original structure for future reference -->
+<div style="display: none;">
 <!-- Search and Filters -->
 <div class="search-section">
     <div class="search-container">
@@ -140,3 +112,5 @@
     color: #fff;
 }
 </style>
+
+</div> <!-- End of hidden section -->
