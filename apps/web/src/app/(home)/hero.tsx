@@ -2,15 +2,33 @@
 import { QuickLink } from "@/components/quick-link";
 import { Marquee } from "@/components/ui/marquee";
 import Image from "next/image";
+import { useMemo } from "react";
 
 interface HeroProps {
   images: string[];
 }
 
 export default function LandingSection({ images }: HeroProps): JSX.Element {
+  // Randomize images on each render
+  const shuffledImages = useMemo(() => {
+    const arr = [...images];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = arr[i] as string;
+      arr[i] = arr[j] as string;
+      arr[j] = temp;
+    }
+    return arr;
+  }, [images]);
+
   // Split images into two rows
-  const firstRowImages = images.slice(0, Math.ceil(images.length / 2));
-  const secondRowImages = images.slice(Math.ceil(images.length / 2));
+  const firstRowImages = shuffledImages.slice(
+    0,
+    Math.ceil(shuffledImages.length / 2)
+  );
+  const secondRowImages = shuffledImages.slice(
+    Math.ceil(shuffledImages.length / 2)
+  );
 
   return (
     <div className="flex relative flex-col items-center">
