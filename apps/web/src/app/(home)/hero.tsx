@@ -2,15 +2,18 @@
 import { QuickLink } from "@/components/quick-link";
 import { Marquee } from "@/components/ui/marquee";
 import Image from "next/image";
-import { useMemo } from "react";
+import { useState, useEffect } from "react";
 
 interface HeroProps {
   images: string[];
 }
 
 export default function LandingSection({ images }: HeroProps): JSX.Element {
-  // Randomize images on each render
-  const shuffledImages = useMemo(() => {
+  // Use state to store shuffled images, starting with the original order
+  const [shuffledImages, setShuffledImages] = useState(images);
+
+  // Shuffle images only on the client side after hydration
+  useEffect(() => {
     const arr = [...images];
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -18,7 +21,7 @@ export default function LandingSection({ images }: HeroProps): JSX.Element {
       arr[i] = arr[j] as string;
       arr[j] = temp;
     }
-    return arr;
+    setShuffledImages(arr);
   }, [images]);
 
   // Split images into two rows
