@@ -7,6 +7,7 @@ A production-ready, secure file management system for hosting static assets with
 ### Public Features
 
 - **Browse Files**: View all documents and images with modern card-based layout
+- **Hero Images Gallery**: Dedicated section for managing and displaying hero images
 - **Search & Filter**: Real-time search and category filtering
 - **Download**: Direct file access via clean URLs
 - **Responsive Design**: Mobile-first design that works on all device sizes
@@ -42,6 +43,8 @@ apps/assets/
 ├── setup.php              # Initial setup script
 ├── config/
 │   └── app.php           # Application configuration
+├── api/
+│   └── floating-images.php   # Hero images API endpoint
 ├── src/
 │   ├── controllers/
 │   │   └── ApiController.php     # API request handler
@@ -63,6 +66,7 @@ apps/assets/
 │       └── app.js               # Frontend JavaScript
 ├── docs/                        # Document uploads
 ├── images/                      # Image uploads
+├── floating_images/             # Hero images storage
 └── README.md                    # This file
 ```
 
@@ -135,6 +139,7 @@ Optional environment variables (if you want to override defaults):
 - Use search to find specific files
 - Filter by file type using the buttons
 - Click any file to download
+- View the Hero Images gallery for featured images
 
 ### Admin Access
 
@@ -142,6 +147,17 @@ Optional environment variables (if you want to override defaults):
 2. Login with admin credentials
 3. Upload new files using the upload form
 4. Use "Rename" and "Delete" buttons on each file
+5. Manage hero images in the dedicated gallery section
+
+### Hero Images API
+
+- Fetch all hero images and their URLs:
+
+```bash
+curl -X GET "/apps/assets/api/floating-images.php"
+```
+
+- The API returns a JSON array of hero images with filenames and direct URLs.
 
 ### Keyboard Shortcuts
 
@@ -159,7 +175,7 @@ Optional environment variables (if you want to override defaults):
    ```
 3. Ensure proper file permissions:
    - `.env` file: 600 (read/write owner only)
-   - `docs/` and `images/` directories: 755 (writable)
+   - `docs/`, `images/`, and `floating_images/` directories: 755 (writable)
 4. Test upload functionality
 5. Access your site and login with configured credentials
 

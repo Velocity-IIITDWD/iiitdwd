@@ -1,0 +1,2 @@
+# This file ensures the floating_images directory is tracked by git
+# All uploaded images in this directory are ignored, but the directory structure is preserved

@@ -142,8 +142,12 @@ function cancelReplaceFile() {
 // Copy file link functionality
 function copyFileLink(filename, fileType) {
   // Create relative path only (without domain)
-  const relativePath =
-    "/" + (fileType === "doc" ? "docs/" : "images/") + filename;
+  let relativePath;
+  if (fileType === 'floating-img') {
+    relativePath = "/floating_images/" + filename;
+  } else {
+    relativePath = "/" + (fileType === "doc" ? "docs/" : "images/") + filename;
+  }
 
   // Find the button that was clicked
   const button = event.target;
@@ -287,6 +291,17 @@ async function handleFormSubmission(e) {
 
   try {
     const formData = new FormData(e.target);
+    const fileType = formData.get('file_type');
+    
+    // Update operation for floating images
+    if (fileType === 'floating-img') {
+      if (operation === 'rename') {
+        formData.set('operation', 'floatingImagesRename');
+      } else if (operation === 'delete') {
+        formData.set('operation', 'floatingImagesDelete');
+      }
+    }
+    
     const response = await fetch("", {
       method: "POST",
       body: formData,

@@ -1,8 +1,11 @@
 # File directories - exclude uploaded files
 docs/**
 images/**
+floating_images/**
 !docs/.gitkeep
 !images/.gitkeep
+!floating_images/.gitkeep
+
 
 # Environment files
 .env
