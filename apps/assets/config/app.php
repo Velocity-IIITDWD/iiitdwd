@@ -25,6 +25,7 @@ define('APP_ROOT', dirname(__DIR__));
 define('PUBLIC_PATH', APP_ROOT . '/public');
 define('DOCS_PATH', APP_ROOT . '/docs');
 define('IMAGES_PATH', APP_ROOT . '/images');
+define('FLOATING_IMAGES_PATH', APP_ROOT . '/floating_images');
 
 // Ensure directories exist
 if (!is_dir(DOCS_PATH)) {
@@ -32,5 +33,8 @@ if (!is_dir(DOCS_PATH)) {
 }
 if (!is_dir(IMAGES_PATH)) {
     mkdir(IMAGES_PATH, 0755, true);
+}
+if (!is_dir(FLOATING_IMAGES_PATH)) {
+    mkdir(FLOATING_IMAGES_PATH, 0755, true);
 }
 ?> 
