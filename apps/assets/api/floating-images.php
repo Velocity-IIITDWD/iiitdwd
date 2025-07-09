@@ -11,9 +11,9 @@ header('Access-Control-Allow-Methods: GET');
 header('Access-Control-Allow-Headers: Content-Type');
 
 // Load required files
-require_once __DIR__ . '/config/app.php';
-require_once __DIR__ . '/src/utils/helpers.php';
-require_once __DIR__ . '/src/models/FloatingImagesManager.php';
+require_once __DIR__ . '/../config/app.php';
+require_once __DIR__ . '/../src/utils/helpers.php';
+require_once __DIR__ . '/../src/models/FloatingImagesManager.php';
 
 try {
     // Get all floating images
