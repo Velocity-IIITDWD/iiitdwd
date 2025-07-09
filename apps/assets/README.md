@@ -42,6 +42,7 @@ Get all hero images with their direct URLs - works in both development and produ
 **Alternative:** `GET /apps/assets/?api=floating-images`
 
 **Response Format:**
+
 ```json
 {
   "success": true,
@@ -53,7 +54,7 @@ Get all hero images with their direct URLs - works in both development and produ
     },
     {
       "url": "https://yourdomain.com/apps/assets/floating_images/image2.png",
-      "filename": "image2.png", 
+      "filename": "image2.png",
       "upload_time": 1704067300
     }
   ],
@@ -64,23 +65,27 @@ Get all hero images with their direct URLs - works in both development and produ
 **Usage Examples:**
 
 **cURL (Development):**
+
 ```bash
 curl -X GET "http://localhost/apps/assets/api.php"
 ```
 
 **cURL (Production):**
+
 ```bash
 curl -X GET "https://yourdomain.com/apps/assets/api.php"
 ```
 
 **cURL with pretty JSON:**
+
 ```bash
 curl -X GET "http://localhost/apps/assets/api.php" | jq '.'
 ```
 
 **JavaScript:**
+
 ```javascript
-fetch('/apps/assets/api.php')
+fetch("/apps/assets/api.php")
   .then(response => response.json())
   .then(data => {
     if (data.success) {
@@ -92,6 +97,7 @@ fetch('/apps/assets/api.php')
 ```
 
 PHP:
+
 ```php
 $response = file_get_contents('https://yourdomain.com/apps/assets/floating-images');
 $data = json_decode($response, true);
@@ -105,6 +111,7 @@ if ($data['success']) {
 ```
 
 **PHP:**
+
 ```php
 <?php
 $response = file_get_contents('https://yourdomain.com/apps/assets/api.php');
@@ -119,6 +126,7 @@ if ($data['success']) {
 ```
 
 **Python:**
+
 ```python
 import requests
 
@@ -133,6 +141,7 @@ if data['success']:
 ## Quick Start
 
 1. **Clone and Setup:**
+
    ```bash
    git clone <repository-url>
    cd apps/assets
@@ -140,7 +149,8 @@ if data['success']:
    ```
 
 2. **Configure Environment:**
-   - Copy `.env.example` to `.env` 
+
+   - Copy `.env.example` to `.env`
    - Update database and authentication settings
 
 3. **Test API Endpoint:**
@@ -204,23 +214,25 @@ apps/assets/
 ├── floating_images/             # Hero images directory
 └── README.md                    # This file
 ```
-│   ├── utils/
-│   │   ├── env.php              # Environment loader
-│   │   ├── helpers.php          # Helper functions
-│   │   └── security.php         # Security utilities
-│   └── views/
-│       ├── layout.php           # Main HTML layout
-│       ├── file-list.php        # File listing partial
-│       └── modals.php           # Modal dialogs
+
+│ ├── utils/
+│ │ ├── env.php # Environment loader
+│ │ ├── helpers.php # Helper functions
+│ │ └── security.php # Security utilities
+│ └── views/
+│ ├── layout.php # Main HTML layout
+│ ├── file-list.php # File listing partial
+│ └── modals.php # Modal dialogs
 ├── public/
-│   ├── css/
-│   │   └── app.css              # Compiled styles
-│   └── js/
-│       └── app.js               # Frontend JavaScript
-├── docs/                        # Document uploads
-├── images/                      # Image uploads
-└── README.md                    # This file
-```
+│ ├── css/
+│ │ └── app.css # Compiled styles
+│ └── js/
+│ └── app.js # Frontend JavaScript
+├── docs/ # Document uploads
+├── images/ # Image uploads
+└── README.md # This file
+
+````
 
 ### Key Improvements
 
@@ -253,7 +265,7 @@ apps/assets/
 
 ```bash
 php setup.php
-```
+````
 
 This interactive script will:
 
@@ -316,7 +328,7 @@ Use the hero images API to fetch image data for your applications:
 
 ```javascript
 // Fetch all hero images
-fetch('/apps/assets/?api=floating-images')
+fetch("/apps/assets/?api=floating-images")
   .then(response => response.json())
   .then(data => {
     console.log(`Found ${data.count} hero images`);
