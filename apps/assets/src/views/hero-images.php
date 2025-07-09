@@ -14,7 +14,7 @@
     <div style="width: 60px;"></div> <!-- Spacer for centering -->
 </div>
 
-<?php if ($isAdmin): ?>
+<?php if ($isAdmin): ?> 
     <!-- Upload Section -->
     <div class="upload-section">
         <form class="upload-form" id="heroUploadForm">
