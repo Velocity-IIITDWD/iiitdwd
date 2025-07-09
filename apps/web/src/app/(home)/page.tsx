@@ -9,8 +9,7 @@ import MainCarousel from "./main-carousel";
 async function fetchFloatingImages() {
   try {
     const res = await fetch(
-      "https://assets.iiitdwd.ac.in/api/floating-images.php",
-      { cache: "no-store" }
+      "https://assets.iiitdwd.ac.in/api/floating-images.php"
     );
     if (!res.ok) throw new Error("Failed to fetch images");
     const response = await res.json();
