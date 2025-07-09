@@ -1,3 +1,9 @@
+<!-- Navigation -->
+<div class="nav-links" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem;">
+    <a href="index.php" class="nav-btn<?= basename($_SERVER['PHP_SELF']) === 'index.php' ? ' active' : '' ?>">File Manager</a>
+    <a href="hero-images.php" class="nav-btn<?= basename($_SERVER['PHP_SELF']) === 'hero-images.php' ? ' active' : '' ?>">Hero Images</a>
+</div>
+
 <?php if ($isAdmin): ?>
     <!-- Upload Section -->
     <div class="upload-section">
@@ -105,4 +111,32 @@
             </div>
         <?php endforeach; ?>
     <?php endif; ?>
-</div> 
+</div>
+
+<style>
+/* Navigation Buttons - Black & White, No Borders */
+.nav-links .nav-btn {
+    background: none;
+    color: #111;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    border-radius: 0;
+    box-shadow: none;
+    letter-spacing: 0.01em;
+}
+.nav-links .nav-btn.active,
+.nav-links .nav-btn:focus {
+    background: #111;
+    color: #fff;
+}
+.nav-links .nav-btn:hover {
+    background: #222;
+    color: #fff;
+}
+</style>

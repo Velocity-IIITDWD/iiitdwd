@@ -1,7 +1,7 @@
 <?php
 /**
- * IIIT Dharwad Assets Management System
- * Main application entry point
+ * Hero Images Management Page
+ * Handles floating images for homepage hero section
  */
 
 // Bootstrap the application
@@ -27,27 +27,17 @@ setSecurityHeaders();
 startSecureSession();
 $csrfToken = generateCSRFToken();
 
-// Validate required directories
-validateDirectories([DOCS_PATH, IMAGES_PATH]);
-
-// Get files from directories
+// Get floating images
 try {
-    $docs = getFilesFromDirectory(DOCS_PATH, 'doc');
-    $images = getFilesFromDirectory(IMAGES_PATH, 'img');
-    $allFiles = array_merge($docs, $images);
-    
-    // Sort files by name
-    usort($allFiles, function($a, $b) {
-        return strcmp($a['name'], $b['name']);
-    });
+    $floatingImages = FloatingImagesManager::getAllImages();
 } catch (Exception $e) {
     http_response_code(500);
-    die('Error: Failed to read directories.');
+    die('Error: Failed to read floating images directory.');
 }
 
 // Capture the main content
 ob_start();
-include 'src/views/file-list.php';
+include 'src/views/hero-images.php';
 $content = ob_get_clean();
 
 // Render the layout
