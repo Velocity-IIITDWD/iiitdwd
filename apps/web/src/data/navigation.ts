@@ -69,6 +69,18 @@ const navigationData: NavigationItem[] = [
             title: "PhD",
             href: "/docs/PhD_Fees.pdf",
           },
+          {
+            title: "Certificate Validation Fee",
+            href: "/docs/Office_Order-_Certificate_Validation_Fee.pdf",
+          },
+          {
+            title: "Late Course Registration Charge",
+            href: "/docs/Office_Order-_Course_Registration_Late.pdf",
+          },
+          {
+            title: "Late Semester Fee Charge",
+            href: "/docs/Office_Order-_Late_Semester_Fee_Payment.pdf",
+          },
         ],
       },
     ],
