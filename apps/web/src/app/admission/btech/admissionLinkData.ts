@@ -6,6 +6,11 @@ export interface LinkItem {
 export const bTechAdmissionLinks: LinkItem[] = [
   {
     title:
+      "Physical Reporting Dates for JoSAA/CSAB-2025 Allotted Students (20th – 23rd Aug 2025)",
+    href: "/docs/Circular.pdf",
+  },
+  {
+    title:
       "Revised Schedule of Events of JoSAA 2025 (ONLINE REPORTING) (as on June 19th 2025)",
     href: "https://drive.google.com/file/d/1vWaguAmsSruPI7yH8hXst5uJ-eCs3Ujg/view",
   },
