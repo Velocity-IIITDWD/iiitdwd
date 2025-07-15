@@ -30,6 +30,22 @@ export const bTechAdmissionLinks: LinkItem[] = [
 
 export const quickLinks: LinkItem[] = [
   {
+    title: "Fee Structure for the batch 2025-2026",
+    href: "/docs/Fee_Structure_2025-26.pdf",
+  },
+  {
+    title: "Fee Refund",
+    href: "/docs/Fee-Refund.pdf",
+  },
+  {
+    title: "Scholarships",
+    href: "/docs/LIST_OF_Scholarship_Details.pdf",
+  },
+  {
+    title: "PM VIDYA LAXMI EDUCATION LOAN SCHEME - CANARA BANK",
+    href: "/docs/PM_VIDYA_LAXMI_EDUCATION_LOAN_-CANARA_BANK_FOR_IIIT_DHARWAD.pdf",
+  },
+  {
     title: "Hostel Facility for 2024 batch students (TBD)",
     href: "#",
   },
@@ -37,22 +53,6 @@ export const quickLinks: LinkItem[] = [
     title:
       "State wise List of Reporting Centers for Physical Verification of PwD Candidates [for NIT+ System Only] JoSAA/CSAB 2024",
     href: "/docs/State-wise-List-of-Reporting-Centers.pdf",
-  },
-  {
-    title: "Fee Structure for the batch 2025-2026",
-    href: "/docs/Fee_Structure_2025-26.pdf",
-  },
-  {
-    title: "Scholarships",
-    href: "/docs/LIST_OF_Scholarship_Details.pdf",
-  },
-  {
-    title: "Fee Refund",
-    href: "/docs/Fee-Refund.pdf",
-  },
-  {
-    title: "PM VIDYA LAXMI EDUCATION LOAN SCHEME - CANARA BANK",
-    href: "/docs/PM_VIDYA_LAXMI_EDUCATION_LOAN_-CANARA_BANK_FOR_IIIT_DHARWAD.pdf",
   },
   {
     title: "FAQ's",
