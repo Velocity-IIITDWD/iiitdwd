@@ -7,7 +7,7 @@ export const footerLinks = [
       { text: "Research", href: "/academics/research" },
       {
         text: "Academic Calendar",
-        href: "https://iiitdwd.ac.in/docs/Academic_Calendar_year_234_2024-25.pdf",
+        href: "https://iiitdwd.ac.in/docs/Academic_Calendar_2025-26_Aug-Nov_25.pdf",
       },
       {
         text: "Curriculum",
