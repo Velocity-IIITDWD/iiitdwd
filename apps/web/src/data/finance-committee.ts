@@ -50,9 +50,9 @@ export default [
     title: "Non Member Secretary",
     profiles: [
       {
-        content: ["Officiating Registrar, IIIT Dharwad"],
-        imageURL: "/images/ravi_b_vitlapur.jpg",
-        title: "Mr. Ravi B. Vitlapur",
+        content: ["Registrar, IIIT Dharwad"],
+        imageURL: "/images/Muruganatham_Ponnusamy.jpeg",
+        title: "Prof. (Dr.) Muruganantham Ponnusamy",
       },
     ],
   },

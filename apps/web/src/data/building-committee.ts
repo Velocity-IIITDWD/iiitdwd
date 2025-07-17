@@ -23,9 +23,9 @@ export default [
         title: "Prof. S. R. Mahadeva Prasanna",
       },
       {
-        content: ["Member"],
-        imageURL: "",
-        title: "Mr. Ravi B Vitlapur",
+        content: ["Member, Registrar, IIIT Dharwad"],
+        imageURL: "/images/Muruganatham_Ponnusamy.jpeg",
+        title: "Prof. (Dr.) Muruganantham Ponnusamy",
       },
       {
         content: ["Member Secretary"],
