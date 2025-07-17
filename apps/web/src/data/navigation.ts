@@ -119,7 +119,7 @@ const navigationData: NavigationItem[] = [
         title: "Public disclosures",
         href: "/disclosures",
         items: [
-          { title: "RTI", href: "/docs/RTI.pdf" },
+          { title: "RTI", href: "/docs/RTI_footer.pdf" },
           {
             title: "IIIT PPP Act",
             href: "/docs/iiit_ppp_2017.pdf",
