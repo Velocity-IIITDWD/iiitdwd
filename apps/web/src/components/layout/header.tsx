@@ -75,7 +75,7 @@ function AnimatedNavbar() {
         </div>
         <div className="flex gap-3 flex-wrap">
           <Link href={"https://aims.iiitdwd.ac.in/aims/"}>AIMS</Link>
-          <Link href={"https://iiitdwd.ac.in/pdfs/RTI.pdf"}>RTI</Link>
+          <Link href={"/docs/RTI_footer.pdf"}>RTI</Link>
           <Link href={"/academics/nirf"}>NIRF</Link>
           <Link
             href={

@@ -186,7 +186,7 @@ export default function MobileHeader({
             AIMS
           </Link>
           <Link
-            href={"https://iiitdwd.ac.in/pdfs/RTI.pdf"}
+            href={"/docs/RTI_footer.pdf"}
             onClick={() =>
               trackEvent({
                 action: "click",
