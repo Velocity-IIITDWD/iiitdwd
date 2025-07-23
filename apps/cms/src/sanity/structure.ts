@@ -1,4 +1,4 @@
-// structure.ts
+// structure.ts updated
 import { StructureResolver } from "sanity/structure";
 
 export const structure: StructureResolver = S =>
