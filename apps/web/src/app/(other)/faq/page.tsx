@@ -51,7 +51,10 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
               Science and Engineering (CSE), Data Science and Artificial
               Intelligence (DSAI), and Electronics and Communication Engineering
               (ECE). The details of the programs can be found{" "}
-              <a className="text-blue-800 hover:underline" href="/academics">
+              <a
+                className="text-blue-800 hover:underline"
+                href="/academics/programmes"
+              >
                 at this page.
               </a>
             </div>
@@ -69,7 +72,10 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
               India as well as USA. With energy and commitment, faculty are
               working on setting high standards in both teaching/learning, and
               R&D. Faculty profiles can be found
-              <a className="text-blue-800 hover:underline" href="/faculty">
+              <a
+                className="text-blue-800 hover:underline"
+                href="/academics/faculty/"
+              >
                 {" "}
                 here.
               </a>
@@ -92,7 +98,7 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
               and research. The campus is equipped with advanced laboratories,
               spacious classrooms, auditoriums, sports facilities, and
               residential accommodation for
-              <a className="text-blue-800 hover:underline" href="/facilities">
+              <a className="text-blue-800 hover:underline" href="/amenities">
                 {" "}
                 students.
               </a>
