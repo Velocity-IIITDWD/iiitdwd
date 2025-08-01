@@ -6,6 +6,16 @@ export interface LinkItem {
 export const bTechAdmissionLinks: LinkItem[] = [
   {
     title:
+      "Admission form for students allotted through JoSAA/CSAB Counselling",
+    href: "https://forms.gle/HhFLbufmLBh8FwW56",
+  },
+  {
+    title:
+      "Available Seats – CSAB 2025 Counselling",
+    href: "/docs/Notice_.pdf",
+  },
+  {
+    title:
       "Physical Reporting Dates for JoSAA/CSAB-2025 Allotted Students (20th – 23rd Aug 2025)",
     href: "/docs/Circular.pdf",
   },
@@ -63,8 +73,8 @@ export const quickLinks: LinkItem[] = [
 export const eligibilityCriteria: LinkItem[] = [
   {
     title:
-      "Guidelines for students alloted through JoSAA/CSAB Counselling (will be updated soon)",
-    href: "#",
+      "Guidelines for students alloted through JoSAA/CSAB Counselling",
+    href: "https://docs.google.com/document/d/1RGk05UNFZwZhcAcgTEsIuym2WEIkhVsezghJId9xkh4/edit?usp=sharing",
   },
   {
     title: "Undertaking to be signed by students and their parents",
