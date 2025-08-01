@@ -62,12 +62,12 @@ export default function PlacementStatistics() {
       placementPercentage: 62,
     },
     "2025": {
-      companies: 86,
-      offers: 203, // Estimated based on trend
-      highestCTC: 71.94,
-      averageCTC: 11.9,
+      companies: 94,
+      offers: 214, // Estimated based on trend
+      highestCTC: 78.12,
+      averageCTC: 12,
       medianCTC: 9.34,
-      placementPercentage: 77.23,
+      placementPercentage: 82,
     },
   };
 
