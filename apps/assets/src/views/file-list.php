@@ -51,10 +51,18 @@
                placeholder="Search files..." autocomplete="off">
     </div>
     
-    <div class="filters">
-        <button class="filter-btn active" data-filter="all">All Files</button>
-        <button class="filter-btn" data-filter="doc">Documents</button>
-        <button class="filter-btn" data-filter="img">Images</button>
+    <div class="controls-row">
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Files</button>
+            <button class="filter-btn" data-filter="doc">Documents</button>
+            <button class="filter-btn" data-filter="img">Images</button>
+        </div>
+        
+        <div class="sort-controls">
+            <span class="sort-label">Sort by:</span>
+            <button class="sort-btn active" data-sort="mtime">Last Updated</button>
+            <button class="sort-btn" data-sort="name">Name</button>
+        </div>
     </div>
 </div>
 
@@ -78,7 +86,9 @@
             <div class="file-item" 
                  data-name="<?= strtolower($file['name']) ?>" 
                  data-type="<?= $file['type'] ?>"
-                 data-ext="<?= $file['ext'] ?>">
+                 data-ext="<?= $file['ext'] ?>"
+                 data-mtime="<?= $file['mtime'] ?>"
+                 data-original-name="<?= $file['name'] ?>">
                 <div class="file-icon">
                     <?= strtoupper($file['ext']) ?>
                 </div>
@@ -141,5 +151,61 @@
 .nav-links .nav-btn:hover {
     background: #111;
     color: #fff;
+}
+
+/* Controls Row Layout */
+.controls-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Sort Controls */
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sort-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.sort-btn {
+    background: none;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 0.375rem;
+    transition: all 0.15s ease;
+}
+
+.sort-btn:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.sort-btn.active {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+@media (max-width: 640px) {
+    .controls-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .sort-controls {
+        justify-content: center;
+    }
 }
 </style>

@@ -36,9 +36,9 @@ try {
     $images = getFilesFromDirectory(IMAGES_PATH, 'img');
     $allFiles = array_merge($docs, $images);
     
-    // Sort files by name
+    // Sort files by last updated (newest first)
     usort($allFiles, function($a, $b) {
-        return strcmp($a['name'], $b['name']);
+        return $b['mtime'] - $a['mtime'];
     });
 } catch (Exception $e) {
     http_response_code(500);
