@@ -40,7 +40,7 @@ const ModernSocialMediaGrid = () => {
     },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/iiitdharwad_",
+      url: "https://www.instagram.com/iiit.dharwad/",
       icon: (
         <svg
           viewBox="0 0 24 24"
