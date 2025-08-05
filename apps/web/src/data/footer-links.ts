@@ -62,7 +62,7 @@ export const footerLinks = [
         text: "Website Team",
         href: "/website-team",
       },
-      { text: "RTI", href: "/docs/RTI_footer.pdf" },
+      { text: "RTI", href: "/docs/rti.pdf" },
     ],
   },
   {
