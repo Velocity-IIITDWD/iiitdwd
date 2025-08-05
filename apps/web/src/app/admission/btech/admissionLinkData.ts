@@ -5,8 +5,7 @@ export interface LinkItem {
 
 export const bTechAdmissionLinks: LinkItem[] = [
   {
-    title:
-      "Admission Guidelines JoSAA/CSAB-2025",
+    title: "Admission Guidelines JoSAA/CSAB-2025",
     href: "https://docs.google.com/document/d/1RGk05UNFZwZhcAcgTEsIuym2WEIkhVsezghJId9xkh4/edit?usp=sharing",
   },
   {
@@ -99,8 +98,7 @@ export const quickLinks: LinkItem[] = [
 
 export const eligibilityCriteria: LinkItem[] = [
   {
-    title:
-      "Guidelines for students alloted through JoSAA/CSAB Counselling",
+    title: "Guidelines for students alloted through JoSAA/CSAB Counselling",
     href: "https://docs.google.com/document/d/1RGk05UNFZwZhcAcgTEsIuym2WEIkhVsezghJId9xkh4/edit?usp=sharing",
   },
   {
