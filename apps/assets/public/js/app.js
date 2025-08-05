@@ -7,6 +7,7 @@ const App = {
   isAdmin: window.AssetsConfig?.isAdmin || false,
   csrfToken: window.AssetsConfig?.csrfToken || "",
   currentFilter: "all",
+  currentSort: "mtime", // Default to last updated
   fileItems: [],
   pendingUpload: null, // Store pending upload data for replacement confirmation
 };
@@ -143,7 +144,7 @@ function cancelReplaceFile() {
 function copyFileLink(filename, fileType) {
   // Create relative path only (without domain)
   let relativePath;
-  if (fileType === 'floating-img') {
+  if (fileType === "floating-img") {
     relativePath = "/floating_images/" + filename;
   } else {
     relativePath = "/" + (fileType === "doc" ? "docs/" : "images/") + filename;
@@ -291,17 +292,17 @@ async function handleFormSubmission(e) {
 
   try {
     const formData = new FormData(e.target);
-    const fileType = formData.get('file_type');
-    
+    const fileType = formData.get("file_type");
+
     // Update operation for floating images
-    if (fileType === 'floating-img') {
-      if (operation === 'rename') {
-        formData.set('operation', 'floatingImagesRename');
-      } else if (operation === 'delete') {
-        formData.set('operation', 'floatingImagesDelete');
+    if (fileType === "floating-img") {
+      if (operation === "rename") {
+        formData.set("operation", "floatingImagesRename");
+      } else if (operation === "delete") {
+        formData.set("operation", "floatingImagesDelete");
       }
     }
-    
+
     const response = await fetch("", {
       method: "POST",
       body: formData,
@@ -474,11 +475,12 @@ async function proceedWithUpload(replace = false) {
 function initializeSearchAndFilter() {
   const searchInput = document.getElementById("searchInput");
   const filterBtns = document.querySelectorAll(".filter-btn");
+  const sortBtns = document.querySelectorAll(".sort-btn");
 
   if (searchInput) {
     searchInput.addEventListener("input", function () {
       const query = this.value.toLowerCase().trim();
-      filterFiles(query, App.currentFilter);
+      filterAndSortFiles(query, App.currentFilter, App.currentSort);
     });
   }
 
@@ -488,15 +490,26 @@ function initializeSearchAndFilter() {
       this.classList.add("active");
       App.currentFilter = this.dataset.filter;
       const query = searchInput?.value.toLowerCase().trim() || "";
-      filterFiles(query, App.currentFilter);
+      filterAndSortFiles(query, App.currentFilter, App.currentSort);
+    });
+  });
+
+  sortBtns.forEach(btn => {
+    btn.addEventListener("click", function () {
+      sortBtns.forEach(b => b.classList.remove("active"));
+      this.classList.add("active");
+      App.currentSort = this.dataset.sort;
+      const query = searchInput?.value.toLowerCase().trim() || "";
+      filterAndSortFiles(query, App.currentFilter, App.currentSort);
     });
   });
 }
 
-function filterFiles(searchQuery, filterType) {
+function filterAndSortFiles(searchQuery, filterType, sortType) {
   const fileList = document.getElementById("fileList");
-  let visibleCount = 0;
+  let visibleItems = [];
 
+  // First, filter the items
   App.fileItems.forEach(item => {
     const fileName = item.dataset.name;
     const fileType = item.dataset.type;
@@ -507,24 +520,43 @@ function filterFiles(searchQuery, filterType) {
       filterType === "all" || fileType === filterType || fileExt === filterType;
 
     if (matchesSearch && matchesFilter) {
+      visibleItems.push(item);
       item.style.display = "flex";
-      visibleCount++;
     } else {
       item.style.display = "none";
     }
   });
 
+  // Sort the visible items
+  visibleItems.sort((a, b) => {
+    if (sortType === "mtime") {
+      // Sort by modification time (newest first)
+      return parseInt(b.dataset.mtime) - parseInt(a.dataset.mtime);
+    } else if (sortType === "name") {
+      // Sort by name (alphabetically)
+      const nameA = a.dataset.originalName || a.dataset.name;
+      const nameB = b.dataset.originalName || b.dataset.name;
+      return nameA.localeCompare(nameB);
+    }
+    return 0;
+  });
+
+  // Re-order the DOM elements
+  visibleItems.forEach(item => {
+    fileList.appendChild(item);
+  });
+
   // Show/hide empty state
   if (fileList) {
     let emptyState = fileList.querySelector(".empty-state");
-    if (visibleCount === 0 && App.fileItems.length > 0) {
+    if (visibleItems.length === 0 && App.fileItems.length > 0) {
       if (!emptyState) {
         emptyState = document.createElement("div");
         emptyState.className = "empty-state";
         emptyState.innerHTML = "<p>No files match your search</p>";
         fileList.appendChild(emptyState);
       }
-    } else if (emptyState && visibleCount > 0) {
+    } else if (emptyState && visibleItems.length > 0) {
       emptyState.remove();
     }
   }
@@ -552,7 +584,7 @@ function initializeKeyboardShortcuts() {
         // Only clear search if no modals are open
         searchInput.value = "";
         searchInput.blur();
-        filterFiles("", App.currentFilter);
+        filterAndSortFiles("", App.currentFilter, App.currentSort);
       }
     }
   });
