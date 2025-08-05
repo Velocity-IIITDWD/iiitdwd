@@ -6,6 +6,42 @@ export interface LinkItem {
 export const bTechAdmissionLinks: LinkItem[] = [
   {
     title:
+      "Admission Guidelines JoSAA/CSAB-2025",
+    href: "https://docs.google.com/document/d/1RGk05UNFZwZhcAcgTEsIuym2WEIkhVsezghJId9xkh4/edit?usp=sharing",
+  },
+  {
+    title:
+      "Admission form for B.Tech students allotted through JoSAA/CSAB Counselling 2025",
+    href: "https://forms.gle/HhFLbufmLBh8FwW56",
+  },
+  {
+    title: "Fee Structure-2025",
+    href: "/docs/Fee_Structure_2025-26.pdf",
+  },
+  {
+    title: "Fee Refund Policy",
+    href: "/docs/Fee-Refund.pdf",
+  },
+  {
+    title: "PM VIDYA LAXMI EDUCATION LOAN SCHEME - CANARA BANK",
+    href: "/docs/PM_VIDYA_LAXMI_EDUCATION_LOAN_-CANARA_BANK_FOR_IIIT_DHARWAD.pdf",
+  },
+  {
+    title: "Scholarships",
+    href: "/docs/LIST_OF_Scholarship_Details.pdf",
+  },
+  {
+    title: "FAQ's",
+    href: "/faq/",
+  },
+  /*
+  {
+    title:
+      "Available Seats – CSAB 2025 Counselling",
+    href: "/docs/Notice_.pdf",
+  },
+  {
+    title:
       "Physical Reporting Dates for JoSAA/CSAB-2025 Allotted Students (20th – 23rd Aug 2025)",
     href: "/docs/Circular.pdf",
   },
@@ -26,6 +62,7 @@ export const bTechAdmissionLinks: LinkItem[] = [
     title: "For General Queries you can contact here",
     href: "https://docs.google.com/document/d/1BNdjNk8k87dhHIWza4TMKPCq_YCCZgOG",
   },
+  */
 ];
 
 export const quickLinks: LinkItem[] = [
@@ -63,8 +100,8 @@ export const quickLinks: LinkItem[] = [
 export const eligibilityCriteria: LinkItem[] = [
   {
     title:
-      "Guidelines for students alloted through JoSAA/CSAB Counselling (will be updated soon)",
-    href: "#",
+      "Guidelines for students alloted through JoSAA/CSAB Counselling",
+    href: "https://docs.google.com/document/d/1RGk05UNFZwZhcAcgTEsIuym2WEIkhVsezghJId9xkh4/edit?usp=sharing",
   },
   {
     title: "Undertaking to be signed by students and their parents",
