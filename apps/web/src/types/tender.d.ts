@@ -16,5 +16,5 @@ interface Tender {
   publishDate: string | number;
   submissionDeadline: string | number;
   title: string;
-  updatedAt: number;
+  updatedAt: string | number;
 }
