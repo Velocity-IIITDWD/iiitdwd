@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type SortSearchProps = {
   selectedTab: string;
@@ -40,7 +40,7 @@ export default function SortSearch({
   archiveData,
   setActiveData,
   setArchiveData,
-}: SortSearchProps) {
+}: SortSearchProps): JSX.Element {
   const [sortAsc, setSortAsc] = useState(false);
   const [sortBy, setSortBy] = useState("Recently Updated");
   const [searchFor, setSearchFor] = useState("");
@@ -54,6 +54,12 @@ export default function SortSearch({
       [...data].sort((t1, t2) => multiplier * (t1[attr] >= t2[attr] ? 1 : -1))
     );
   };
+
+  // Apply default sorting on mount and when data changes
+  useEffect(() => {
+    const data = selectedTab === "active" ? active : archive;
+    sortAndSetData(sortBy, sortAsc, data);
+  }, [active, archive, selectedTab]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onSortChange = (newSortBy: string, newSortAsc: boolean) => {
     setSortBy(newSortBy);
