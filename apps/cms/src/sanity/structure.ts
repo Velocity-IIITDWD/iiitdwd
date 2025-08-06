@@ -1,221 +1,278 @@
-import type { ListItemBuilder, StructureResolver } from "sanity/structure";
+// structure.ts updated
+import { StructureResolver } from "sanity/structure";
 
-const showSchemas: Array<string> = [];
-const schemaFilter = (v: ListItemBuilder) =>
-  showSchemas.includes(v.getId() ?? "");
-
-// https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = S =>
   S.list()
-    .title("Content")
+    .title("Institute Management")
     .items([
       S.listItem()
-        .title("Academics")
+        .title("Institute")
         .child(
           S.list()
-            .title("Academics")
+            .title("Institute Management")
+            .items([
+              S.listItem()
+                .title("About Us")
+                .schemaType("about")
+                .child(S.documentTypeList("about").title("About Us")),
+              S.listItem()
+                .title("Campus")
+                .schemaType("campusData")
+                .child(S.documentTypeList("campusData").title("Campus")),
+              S.listItem()
+                .title("Events & Awards")
+                .schemaType("event")
+                .child(S.documentTypeList("event").title("Events & Awards")),
+              S.listItem()
+                .title("Contact")
+                .child(
+                  S.list()
+                    .title("Contact Management")
+                    .items([
+                      S.listItem()
+                        .title("Contact Persons")
+                        .schemaType("contact")
+                        .child(
+                          S.documentTypeList("contact").title("Contact Persons")
+                        ),
+                      S.listItem()
+                        .title("Contact Categories")
+                        .schemaType("contactCategory")
+                        .child(
+                          S.documentTypeList("contactCategory").title(
+                            "Contact Categories"
+                          )
+                        ),
+                      S.listItem()
+                        .title("Contact Data")
+                        .schemaType("contactData")
+                        .child(
+                          S.documentTypeList("contactData").title(
+                            "Contact Data"
+                          )
+                        ),
+                    ])
+                ),
+              S.listItem()
+                .title("KRC")
+                .child(
+                  S.list()
+                    .title("KRC Management")
+                    .items([
+                      S.listItem()
+                        .title("KRC Data")
+                        .schemaType("krcData")
+                        .child(S.documentTypeList("krcData").title("KRC Data")),
+                      S.listItem()
+                        .title("Krc Data TEL(First three)")
+                        .schemaType("krcDataTel")
+                        .child(
+                          S.documentTypeList("krcDataTel").title(
+                            "Krc Data TEL(First three)"
+                          )
+                        ),
+                      S.listItem()
+                        .title("KRC Data TEL(Full)")
+                        .schemaType("krcDataTelFull")
+                        .child(
+                          S.documentTypeList("krcDataTelFull").title(
+                            "KRC Data TEL(Full)"
+                          )
+                        ),
+                    ])
+                ),
+              S.listItem()
+                .title("Careers")
+                .schemaType("job")
+                .child(S.documentTypeList("job").title("Careers")),
+              S.listItem()
+                .title("Tenders")
+                .schemaType("tender")
+                .child(
+                  S.documentTypeList("tender").title("Tenders & Procurement")
+                ),
+              S.listItem()
+                .title("Blocks / gallery")
+                .schemaType("gallery")
+                .child(S.documentTypeList("gallery").title("Blocks / gallery")),
+            ])
+        ),
+      S.listItem()
+        .title("Admissions")
+        .child(
+          S.list()
+            .title("Admission Management")
             .items([
               S.listItem()
                 .title("Seat Structure")
+                .schemaType("seatStructure")
                 .child(
                   S.documentTypeList("seatStructure").title("Seat Structure")
                 ),
               S.listItem()
-                .title("Links Structure")
-                .child(
-                  S.documentTypeList("linksStructure").title("Links Structure")
-                ),
-              S.listItem()
                 .title("Description Structure")
+                .schemaType("descriptionStructure")
                 .child(
                   S.documentTypeList("descriptionStructure").title(
                     "Description Structure"
                   )
                 ),
               S.listItem()
-                .title("CSE Academic")
-                .child(S.documentTypeList("cseDetail").title("CSE")),
+                .title("Links Structure")
+                .schemaType("linksStructure")
+                .child(
+                  S.documentTypeList("linksStructure").title("Links Structure")
+                ),
+            ])
+        ),
+      S.listItem()
+        .title("Administration")
+        .child(
+          S.list()
+            .title("Administration Management")
+            .items([
               S.listItem()
-                .title("ECE Academic")
-                .child(S.documentTypeList("eceDetail").title("ECE")),
+                .title("Visitor")
+                .schemaType("visitor")
+                .child(S.documentTypeList("visitor").title("Visitor")),
               S.listItem()
-                .title("DSAI Academic")
-                .child(S.documentTypeList("dsaiDetail").title("DSAI")),
+                .title("Chairman")
+                .schemaType("chairPerson")
+                .child(S.documentTypeList("chairPerson").title("Chairman")),
               S.listItem()
-                .title("Faculty")
-                .child(S.documentTypeList("faculty").title("Faculty")),
+                .title("Board of Governors")
+                .schemaType("boardOfGovernor")
+                .child(
+                  S.documentTypeList("boardOfGovernor").title(
+                    "Board of Governors"
+                  )
+                ),
+              S.listItem()
+                .title("The Senate")
+                .schemaType("senate")
+                .child(S.documentTypeList("senate").title("The Senate")),
+              S.listItem()
+                .title("Finance Committee")
+                .schemaType("finance")
+                .child(
+                  S.documentTypeList("finance").title("Finance Committee")
+                ),
+              S.listItem()
+                .title("Building & Working Committee")
+                .schemaType("buildingAndWorks")
+                .child(
+                  S.documentTypeList("buildingAndWorks").title(
+                    "Building & Working Committee"
+                  )
+                ),
               S.listItem()
                 .title("Staff")
+                .schemaType("staff")
                 .child(S.documentTypeList("staff").title("Staff")),
+            ])
+        ),
+      S.listItem()
+        .title("Academics")
+        .child(
+          S.list()
+            .title("Academic Management")
+            .items([
+              S.listItem()
+                .title("Faculty")
+                .schemaType("faculty")
+                .child(S.documentTypeList("faculty").title("Faculty")),
+              S.listItem()
+                .title("NIRF")
+                .schemaType("nirf")
+                .child(S.documentTypeList("nirf").title("NIRF")),
+              S.listItem()
+                .title("Research")
+                .schemaType("researchProfiles")
+                .child(
+                  S.documentTypeList("researchProfiles").title(
+                    "Research Profiles"
+                  )
+                ),
+              S.listItem()
+                .title("Departments")
+                .child(
+                  S.list()
+                    .title("Department Management")
+                    .items([
+                      S.listItem()
+                        .title("Computer Science Engineering")
+                        .schemaType("cseDetail")
+                        .child(S.documentTypeList("cseDetail").title("CSE")),
+                      S.listItem()
+                        .title("Data Science & AI")
+                        .schemaType("dsaiDetail")
+                        .child(S.documentTypeList("dsaiDetail").title("DSAI")),
+                      S.listItem()
+                        .title("Electronics & Communication")
+                        .schemaType("eceDetail")
+                        .child(S.documentTypeList("eceDetail").title("ECE")),
+                    ])
+                ),
+              S.listItem()
+                .title("Annual Report")
+                .schemaType("annualReport")
+                .child(
+                  S.documentTypeList("annualReport").title("Annual Report")
+                ),
             ])
         ),
       S.listItem()
         .title("Home")
         .child(
           S.list()
-            .title("Home")
+            .title("Home Management")
             .items([
               S.listItem()
-                .title("Main Carousel Image")
+                .title("Main Carousel Images")
+                .schemaType("mainCarouselImage")
                 .child(
                   S.documentTypeList("mainCarouselImage").title(
-                    "Main Carousel Image"
+                    "Main Carousel Images"
                   )
                 ),
               S.listItem()
                 .title("Program Cards")
+                .schemaType("programCards")
                 .child(
                   S.documentTypeList("programCards").title("Program Cards")
                 ),
               S.listItem()
-                .title("Program Type")
-                .child(
-                  S.documentTypeList("programsType").title("Program Type")
-                ),
+                .title("Programs")
+                .schemaType("programsType")
+                .child(S.documentTypeList("programsType").title("Programs")),
             ])
         ),
       S.listItem()
-        .title("General Information")
+        .title("CGC")
         .child(
           S.list()
-            .title("General Information")
+            .title("CGC")
             .items([
               S.listItem()
-                .title("About")
-                .child(S.documentTypeList("about").title("About")),
-              S.listItem()
-                .title("Chair Person")
-                .child(S.documentTypeList("chairPerson").title("Chair Person")),
-              S.listItem()
-                .title("Contact")
-                .child(S.documentTypeList("contact").title("Contact")),
-              S.listItem()
-                .title("Visitor")
-                .child(S.documentTypeList("visitor").title("Visitor")),
-              S.listItem()
-                .title("Careers")
-                .child(S.documentTypeList("job").title("Careers")),
-              S.listItem()
-                .title("Finance")
-                .child(S.documentTypeList("finance").title("Finance")),
-            ])
-        ),
-      S.listItem()
-        .title("Governance & Administration")
-        .child(
-          S.list()
-            .title("Governance & Administration")
-            .items([
-              S.listItem()
-                .title("Board Of Governor")
-                .child(
-                  S.documentTypeList("boardOfGovernor").title(
-                    "Board Of Governor"
-                  )
-                ),
-              S.listItem()
-                .title("Gallery")
-                .child(S.documentTypeList("gallery").title("Gallery")),
-              S.listItem()
-                .title("Senate")
-                .child(S.documentTypeList("senate").title("Senate")),
-            ])
-        ),
-      S.listItem()
-        .title("News & Updates")
-        .child(
-          S.list()
-            .title("News & Updates Documents")
-            .items([
-              S.listItem()
-                .title("Announcements")
-                .child(
-                  S.documentTypeList("announcement").title("Announcements")
-                ),
-              S.listItem()
-                .title("Tenders")
-                .child(S.documentTypeList("tender").title("Tenders")),
-              S.listItem()
-                .title("Former Director")
-                .child(
-                  S.documentTypeList("formerDirector").title("Former Director")
-                ),
-              S.listItem()
-                .title("Building And Works")
-                .child(
-                  S.documentTypeList("buildingAndWorks").title(
-                    "Building And Works"
-                  )
-                ),
-            ])
-        ),
-      S.listItem()
-        .title("Report and Ranking")
-        .child(
-          S.list()
-            .title("Report and Ranking")
-            .items([
-              S.listItem()
-                .title("Annual Reports")
-                .child(
-                  S.documentTypeList("annualReport").title("Annual Reports")
-                ),
-              S.listItem()
-                .title("NIRF")
-                .child(S.documentTypeList("nirf").title("NIRF")),
-            ])
-        ),
-      S.listItem()
-        .title("Research and Development")
-        .child(
-          S.list()
-            .title("Research and Development")
-            .items([
-              S.listItem()
-                .title("KRC Data")
-                .child(S.documentTypeList("krcData").title("KRC Data")),
-              S.listItem()
-                .title("KRC Data Tel")
-                .child(S.documentTypeList("krcDataTel").title("KRC Data Tel")),
-              S.listItem()
-                .title("KRC Data Tel Full")
-                .child(
-                  S.documentTypeList("krcDataTelFull").title(
-                    "KRC Data Tel Full"
-                  )
-                ),
-              S.listItem()
-                .title("Research Profiles")
-                .child(
-                  S.documentTypeList("researchProfiles").title(
-                    "Research Profiles"
-                  )
-                ),
+                .title("cgc")
+                .schemaType("cgc")
+                .child(S.documentTypeList("cgc").title("cgc")),
             ])
         ),
       S.listItem()
         .title("Student Life")
         .child(
           S.list()
-            .title("Student Life")
+            .title("Student Life Management")
             .items([
               S.listItem()
-                .title("Campus")
-                .child(S.documentTypeList("campusData").title("Campus Data")),
-              S.listItem()
-                .title("Events")
-                .child(S.documentTypeList("event").title("Events")),
-              S.listItem()
-                .title("Facility")
-                .child(S.documentTypeList("facility").title("Facility")),
-              S.listItem()
-                .title("Magazine")
-                .child(S.documentTypeList("issues").title("Magazines")),
-              S.listItem()
                 .title("Clubs")
+                .schemaType("club")
                 .child(S.documentTypeList("club").title("Clubs")),
+
               S.listItem()
                 .title("Student Coordinators")
+                .schemaType("student_coordinators")
                 .child(
                   S.documentTypeList("student_coordinators").title(
                     "Student Coordinators"
@@ -223,7 +280,4 @@ export const structure: StructureResolver = S =>
                 ),
             ])
         ),
-      S.listItem().title("CGC").child(S.documentTypeList("cgc").title("CGC")),
-      ...S.documentTypeListItems().filter(schemaFilter),
-      S.divider(),
     ]);
