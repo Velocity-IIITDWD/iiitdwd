@@ -5,7 +5,7 @@ import { queryTenders } from "@/sanity/lib/queries";
 import { QueryTendersResult } from "@/sanity/types";
 import { Metadata } from "next";
 
-export default async function TendersPage() {
+export default async function TendersPage(): Promise<JSX.Element> {
   const now = Date.now();
   const active: Tender[] = [];
   const archive: Tender[] = [];
@@ -16,6 +16,9 @@ export default async function TendersPage() {
       ...tender,
       publishDate: Date.parse(tender.publishDate as string),
       submissionDeadline: Date.parse(tender.submissionDeadline as string),
+      updatedAt: tender.updatedAt
+        ? new Date(tender.updatedAt).getTime()
+        : Date.now(),
     };
     if (newTender.cancelled || newTender.submissionDeadline <= now)
       archive.push(newTender);
