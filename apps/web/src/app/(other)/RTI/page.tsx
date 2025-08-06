@@ -33,7 +33,7 @@ export default function RTIPage(): React.ReactElement {
       {/* Links */}
       <div className="text-blue-700 underline space-y-2 text-[17px] ml-5">
         <a href="/RTI/PIO">Public Information Officers</a><br />
-        <a className="mt-5" href="#">RTI Section 4 Disclosure</a>
+        <a className="mt-5" href="RTI/rti-disclosure">RTI Section 4 Disclosure</a>
       </div>
     </main>
   );
