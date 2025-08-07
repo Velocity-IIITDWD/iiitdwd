@@ -268,17 +268,65 @@ const publicityAndPublicInterfaceData: TableRow[] = [
 const eGovernanceData: TableRow[] = [
   {
     sNo: "4.1",
-    item: "Particulars of recipients of concessions, permits or authorisations granted by it [Section 4(1)(b)(xiv)]",
+    item: "Language in which Information Manual/Handbook Available [F.No. 1/6/2011-IR dt. 15.4.2013]",
     details: [
-      { point: "(i) Student Concessions", remark: "As per institute policy." },
+      { point: "(i) English", remark: "Fully Met" },
+      { point: "(ii) Vernacular/ Local Language", remark: "Not Met" },
     ],
   },
   {
     sNo: "4.2",
+    item: "When was the information Manual/Handbook last updated? [F.No. 1/6/2011-IR dt. 15.4.2013]",
+    details: [
+      { point: "Last date of Annual updation", remark: "Not Met" },
+    ],
+  },
+  {
+    sNo: "4.3",
     item: "Information available in electronic form [Section 4(1)(b)(xiv)]",
     details: [
-      { point: "(i) Official Website", remark: "www.iiitdwd.ac.in" },
-      { point: "(ii) Online Portals", remark: "Student and Faculty portals." },
+      { point: "(i) Details of information available in electronic form", remark: "Details available at website.\n\nwww.iiitdwd.ac.in" },
+      { point: "(ii) Name/ title of the document/record/ other information", remark: "Details available at website.\n\nwww.iiitdwd.ac.in" },
+      { point: "(iii) Location where available", remark: "www.iiitdwd.ac.in" },
+    ],
+  },
+  {
+    sNo: "4.4",
+    item: "Particulars of facilities available to citizen for obtaining information [Section 4(1)(b)(xv)]",
+    details: [
+      { point: "(i) Name & location of the faculty", remark: "www.iiitdwd.ac.in" },
+      { point: "(ii) Details of information made available", remark: "Fully Met" },
+      { point: "(iii) Working hours of the facility", remark: "9.30 AM- 1.00 PM" },
+      { point: "(iv)  Contact person & contact details (Phone, fax email)", remark: "Fully met,\nMr. Ravi Vitlapur, Assistant\nRegistrar,(Officiating Regaistrar)" },
+    ],
+  },
+  {
+    sNo: "4.5",
+    item: "Such other information as may be prescribed under section 4(i) (b)(xvii)",
+    details: [
+      { point: "(i) Grievance redressal mechanism", remark: "Fully Met" },
+      { point: "(ii) Details of applications received under RTI and information provided", remark: "Fully Met" },
+      { point: "(iii) List of completed schemes/ projects/ Programmes", remark: "Not Met" },
+      { point: "(iv) List of schemes/ projects/ programme underway", remark: "Not Met" },
+      { point: "(v) Details of all contracts entered into including name of the contractor, amount of contract and period of completion of contract", remark: "Not Met" },
+      { point: "(vi) Annual Report", remark: "Fully met, Submitted to Ministry of Education" },
+      { point: "(vii) Frequently Asked Question (FAQs)", remark: "Fully Met" },
+      { point: "(viii) Any other information such as\n\na) Citizen’s Charter\n\nb) Result Framework Document (RFD)\n\nc) Six monthly reports on the\n\nd) Performance against the benchmarks set in the Citizen’s Charter", remark: "Not Met" },
+    ],
+  },
+  {
+    sNo: "4.5",
+    item: "Receipt & Disposal of RTI applications & appeals [F.No. 1/6/2011-IR dt. 15.04.2013]",
+    details: [
+      { point: "(i) Details of applications received and disposed", remark: "Fully Met" },
+      { point: "(ii) Details of appeals received and orders issued", remark: "Fully Met, Quarterly returns are submitted" },
+    ],
+  },
+  {
+    sNo: "4.6",
+    item: "Replies to questions asked in the parliament [Section 4(1)(d)(2)]",
+    details: [
+      { point: "(i) Details of questions asked and replies given", remark: "Fully Met" },
     ],
   },
 ];
@@ -286,10 +334,13 @@ const eGovernanceData: TableRow[] = [
 const informationAsMayBePrescribedData: TableRow[] = [
   {
     sNo: "5.1",
-    item: "Such other information as may be prescribed [Section 4(1)(b)(xvii)]",
+    item: "Such other information as may be prescribed [F.No. 1/2/2016-IR dt. 17.8.2016, F.No. 1/6/2011-IR dt. 15.4.2013]",
     details: [
-      { point: "(i) RTI Act details", remark: "Public Information Officer contact." },
-      { point: "(ii) Grievance Redressal", remark: "Mechanism and contact." },
+      { point: "(i) Name & details of\n\n(a) Current CPIOs & FAAs\n\n(b) Earlier CPIO & FAAs from 1.1.2015", remark: "(a)CPIO- Mr.Ravi Vitlapur, Assistant Registrar.\n\n(b) FAA- Dr. Muruganantham Ponnusamy, Registrar" },
+      { point: "(ii) Details of third party audit of voluntary disclosure\n\n(a) Dates of audit carried out\n\n(b) Report of the audit carried out", remark: "Not met" },
+      { point: "(iii) Appointment of Nodal Officers not below the rank of Joint Secretary/Additional HoD\n\n(a) Date of appointment\n\n(b) Name & Designation of the officers", remark: "Not Applicable" },
+      { point: "(iv) Consultancy committee of key stake holders for advice on suo-motu disclosure\n\n(a) Dates from which constituted\n\n(b) Name & Designation of the officers", remark: "Not Applicable" },
+      { point: "(v) Committee of PIOs/FAAs with rich experience in RTI to identify frequently sought information under RTI\n\n(a) Dates from which constituted\n\n(b) Name & Designation of the Officers", remark: "Not Applicable" },
     ],
   },
 ];
@@ -297,11 +348,16 @@ const informationAsMayBePrescribedData: TableRow[] = [
 const informationDisclosedOnOwnInitiativeData: TableRow[] = [
   {
     sNo: "6.1",
-    item: "Information disclosed on own initiative [Section 4(1)(b)(xvii)]",
+    item: "Item / information disclosed so that public have minimum resort to use of RTI Act to obtain information",
     details: [
-      { point: "(i) Annual Reports", remark: "Published annually on website." },
-      { point: "(ii) Tenders and Procurements", remark: "Available on tender portal." },
-      { point: "(iii) Campus Facilities", remark: "Details on infrastructure page." },
+      { point: "", remark: "Partially met\nwww.iiitdwd.ac.in" },
+    ],
+  },
+  {
+    sNo: "6.2",
+    item: "Guidelines for Indian Government Websites (GIGW) is followed (released in February, 2009 and included in the Central Secretariat Manual of Office Procedures (CSMOP) by Department of Administrative Reforms and Public Grievances, Ministry of Personnel, Public Grievance and Pensions, Govt. Of India)",
+    details: [
+      { point: "(i) Whether STQC certification obtained and its validity.\n(ii) Does the website show the certificate on the Website?", remark: "Not Applicable" },
     ],
   },
 ];
