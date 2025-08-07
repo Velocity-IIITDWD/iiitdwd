@@ -1,42 +1,35 @@
-// components/TableDisplay.tsx
+// rti-disclosure/TableDisplay.tsx
 "use client";
 
 import React from 'react';
-import Image from 'next/image'; // Import Next.js Image component
+import Image from 'next/image';
 
-// Define the data structure for an image
 interface TableImage {
   imageURL: string;
   altText: string;
 }
 
-// Define the data structure for a single detail row within the table
 interface TableRowDetail {
   point: string;
-  remark: string | TableImage; // Modified to accept string or TableImage
+  remark: string | TableImage;
 }
 
-// Define the data structure for a single main row in the table
 interface TableRow {
   sNo: string;
   item: string;
   details: TableRowDetail[];
 }
 
-// Define props for the TableDisplay component
 interface TableDisplayProps {
   data: TableRow[];
 }
 
 export function TableDisplay({ data }: TableDisplayProps) {
-  // Helper function to render text with line breaks
-  const renderRemarkText = (text: string) => {
-    // Split the text by newline characters and map each segment to a React node
-    // Join them with <br /> tags
+  const renderTextWithBreaks = (text: string) => {
     return text.split('\n').map((line, index) => (
       <React.Fragment key={index}>
         {line}
-        {index < text.split('\n').length - 1 && <br />} {/* Add <br /> except for the last line */}
+        {index < text.split('\n').length - 1 && <br />}
       </React.Fragment>
     ));
   };
@@ -83,30 +76,28 @@ export function TableDisplay({ data }: TableDisplayProps) {
                         className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 align-top"
                         rowSpan={row.details.length}
                       >
-                        {row.sNo}
+                        {renderTextWithBreaks(row.sNo)}
                       </td>
                       <td
                         className="px-6 py-4 whitespace-normal text-sm text-gray-700 align-top"
                         rowSpan={row.details.length}
                       >
-                        {row.item}
+                        {renderTextWithBreaks(row.item)}
                       </td>
                     </>
                   )}
                   <td className="px-6 py-4 whitespace-normal text-sm text-gray-700 align-top">
-                    {detail.point}
+                    {renderTextWithBreaks(detail.point)}
                   </td>
                   <td className="px-6 py-4 whitespace-normal text-sm text-gray-700 align-top">
-                    {/* Conditional rendering for remark */}
                     {typeof detail.remark === 'string' ? (
-                      renderRemarkText(detail.remark) // Use the helper function here
+                      renderTextWithBreaks(detail.remark)
                     ) : (
-                      // Render image if remark is an object (TableImage)
                       <Image
                         src={detail.remark.imageURL}
                         alt={detail.remark.altText}
-                        width={200} // Adjust width as needed
-                        height={150} // Adjust height as needed
+                        width={200}
+                        height={150}
                         className="max-w-full h-auto rounded-md shadow-sm"
                       />
                     )}
