@@ -168,17 +168,59 @@ const organizationAndFunctionData: TableRow[] = [
 const budgetAndProgrammeData: TableRow[] = [
   {
     sNo: "2.1",
-    item: "Budget allocated to each agency [Section 4(1)(b)(xi)]",
+    item: "Budget allocated to each agency including all plans, proposed expenditure and reports on disbursements made etc. [Section 4(1)(b)(xi)]",
     details: [
-      { point: "(i) Annual Budget", remark: "Available in Annual Reports." },
-      { point: "(ii) Expenditure details", remark: "Available in Financial Statements." },
+      { point: "(i) Total Budget for the public authority", remark: "Not Met" },
+      { point: "(ii) Budget for each agency and plan & programmes", remark: "Not Met" },
+      { point: "(iii) Proposed expenditures", remark: "Not Met" },
+      { point: "(iv) Revised budget for each agency, if any", remark: "Not Met" },
+      { point: "(v) Report on disbursements made and place where the related reports are available", remark: "Not Met" },
     ],
   },
   {
     sNo: "2.2",
-    item: "Manner of execution of subsidy programmes [Section 4(1)(b)(xii)]",
+    item: "Foreign and domestic tours (F.No. 1/8/2012-IR dt. 11.9.2012)",
     details: [
-      { point: "(i) Scholarship Schemes", remark: "Details on student welfare page." },
+      { point: "(i) Budget", remark: "Not Applicable" },
+      { point: "(ii) Foreign and domestic Tours by ministries and officials of the rank of Joint Secretary to the Government and above, as well as the heads of the Department.\n\na) Places visited\n\nb) The period of visit\n\nc) The number of members in the official delegation\n\nd) Expenditure on the visit", remark: "Not Applicable" },
+      { point: "(iii) Information related to procurements\n\na) Notice/tender enquires, and corrigenda if any thereon,\n\nb) Details of the bids awarded comprising the names of the suppliers of goods/services being procured,\n\nc) The works contracts concluded – in any such combination of the above-and\n\nd) The rate /rates and the total amount at which such procurement or works contract is to be executed.", remark: "Partially met\n\nhttps://www.iiitdwd.ac.in/tenders/" },
+    ],
+  },
+  {
+    sNo: "2.3",
+    item: "Manner of execution of Subsidy programme [Section 4(i)(b)(xii)]",
+    details: [
+      { point: "(i) Name of the programme of activity", remark: "Not Applicable" },
+      { point: "(ii) Objective of the programme", remark: "Not Applicable" },
+      { point: "(iii) Procedure to avail benefits", remark: "Not Applicable" },
+      { point: "(iv) Duration of the programme/ scheme", remark: "Not Applicable" },
+      { point: "(v) Physical and financial targets of the programme", remark: "Not Applicable" },
+      { point: "(vi) Nature/ scale of subsidy /amount allotted", remark: "Not Applicable" },
+      { point: "(vii) Eligibility criteria for grant of subsidy", remark: "Not Applicable" },
+      { point: "(viii) Details of beneficiaries of subsidy programme (number, profile etc)", remark: "Not Applicable" },
+    ],
+  },
+  {
+    sNo: "2.4",
+    item: "Discretionary and nondiscretionary grants [F.No. 1/6/2011-IR dt. 15.04.2013]",
+    details: [
+      { point: "(i) Discretionary and non-discretionary grants/ allocations to State Govt./ NGOs/other institutions", remark: "Not Met" },
+      { point: "(ii) Annual accounts of all legal entities who are provided grants by public Not met authorities", remark: "Not Met" },
+    ],
+  },
+  {
+    sNo: "2.5",
+    item: "Particulars of recipients of concessions, permits of authorizations granted by the public authority [Section 4(1)(b)(xiii)]",
+    details: [
+      { point: "(i) Concessions, permits or authorizations granted by public authority", remark: "Not Applicable" },
+      { point: "(ii) For each concession, permit or authorization granted\n\na) Eligibility criteria\n\nProcedure for getting the concession/grant and/or permits of authorizations", remark: "Not Applicable" },
+    ],
+  },
+  {
+    sNo: "2.6",
+    item: "`CAG & PAC paras [F No. 1/6/2011-IR dt. 15.4.2013]",
+    details: [
+      { point: "(i) CAG and PAC paras and the action taken reports (ATRs) after these have been laid on the table of both houses of the parliament.", remark: "Fully Met" },
     ],
   },
 ];
@@ -186,10 +228,39 @@ const budgetAndProgrammeData: TableRow[] = [
 const publicityAndPublicInterfaceData: TableRow[] = [
   {
     sNo: "3.1",
-    item: "Particulars of all plans, proposed expenditures and reports on disbursements made [Section 4(1)(b)(xiii)]",
+    item: "Particulars for any arrangement for consultation with or representation by the members of the public in relation to the formulation of policy or implementation there of [Section 4(1)(b)(vii)]\n\n[F.No. 1/6/2011-IR dt. 15.04.2013]",
     details: [
-      { point: "(i) Annual Plan", remark: "Available on institute's official website." },
-      { point: "(ii) Research Projects", remark: "Details in research section." },
+      { point: "Arrangement for consultations with or representation by the members of the public\n(i) Relevant Acts, Rules, Forms and other documents which are normally accessed by citizens", remark: "Fully met,\n www.iiitdwd.ac.in" },
+      { point: "(ii) Arrangements for consultation with or representation by\n\na) Members of the public in policy formulation/ policy implementation\n\nb) Day & time allotted for visitors\n\nc) Contact details of Information & Facilitation Counter (IFC) to provide publications frequently sought by RTI applicants", remark: "Fully met,\n\nPublic Information officer: Mr.Ravi B Vitlapur, Officiating Registrar\nPhone no; 0836-2250879\nEmail: registrar@iiitdwd.ac.in" },
+      { point: "Public- private partnerships (PPP)\n\n(i) Details of Special Purpose Vehicle (SPV), if any\n\n(ii) Detailed project reports (DPRs)\n\n(iii) Concession agreements\n\n(iv) Operation and maintenance manuals\n\n(v) Other documents generated as part of the implementation of the PPP\n\n(vi) Information relating to fees, tolls, or the other kinds of revenues that may be collected under authorisation from the government\n\n(vii) Information relating to outputs and outcomes\n\n(viii) The process of the selection of the private sector party (concessionaire etc.)\n\n(ix) All payment made under the PPP project", remark: "Not Applicable" },
+    ],
+  },
+  {
+    sNo: "3.2",
+    item: "Are the details of policies/decisions, which affect public, informed to them [Section4(1)(c)]",
+    details: [
+      { point: "Publish all relevant facts while formulating important policies or announcing decisions which affect public to make the process more interactive;\n\n(i) Policy decisions/ legislations taken in the previous one year\n\n(ii) Outline the Public consultation process\n\n(iii) Outline the arrangement for consultation before formulation of policy", remark: "Not Applicable" },
+    ],
+  },
+  {
+    sNo: "3.3",
+    item: "Dissemination of information widely and in such form and manner which is easily accessible to the public [Section 4(3)]",
+    details: [
+      { point: "Use of the most effective means of communication\n\n(i) Internet (website)", remark: "Fully Met" },
+    ],
+  },
+  {
+    sNo: "3.4",
+    item: "Form of accessibility of information manual/handbook [Section 4(1)(b)]",
+    details: [
+      { point: "Information manual/handbook available in\n\n(i) Electronic format\n\n(ii) Electronic format", remark: "Not Applicable" },
+    ],
+  },
+  {
+    sNo: "3.5",
+    item: "Whether information manual/handbook available free of cost or not [Section 4(1)(b)]",
+    details: [
+      { point: "List of materials available\n\n(i) Free of cost\n\n(ii) At a reasonable cost of the medium", remark: "Not Applicable" },
     ],
   },
 ];
