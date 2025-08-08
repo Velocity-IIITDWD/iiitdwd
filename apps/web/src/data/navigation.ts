@@ -63,11 +63,11 @@ const navigationData: NavigationItem[] = [
           },
           {
             title: "M.Tech",
-            href: "/docs/MTech_Fees.pdf",
+            href: "/docs/M.TECH_Research_2025_26_updated_August_8__2025.pdf",
           },
           {
             title: "PhD",
-            href: "/docs/PhD_Fees.pdf",
+            href: "/docs/Fee_structure_PHD_25-26_updated_on_August_8__2025.pdf",
           },
           {
             title: "Certificate Validation Fee",
