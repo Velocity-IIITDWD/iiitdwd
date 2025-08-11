@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 // Assuming TableDisplay.tsx is in components/TableDisplay.tsx
 import { TableDisplay } from "../rti-disclosure/TableDisplay";
 
@@ -33,7 +33,7 @@ const organizationAndFunctionData: TableRow[] = [
     item: "Particulars of organisation, functions and duties [Section 4(1)(b)(i)]",
     details: [
       { point: "(i) Name and address of the Organization FM", remark: "IIIT Dharwad Campus, Ittigatti Road, Near Sattur Colony, Dharwad-580009" },
-      { point: "(ii) Head of the organization FM", remark: "Dr. S. R. Mahadeva Prasanna , Director" },
+      { point: "(ii) Head of the organization FM", remark:{ text: "Dr. S. R. Mahadeva Prasanna , Director", url: "https://iiitdwd.ac.in/director/" } },
       { point: "(iii) Vision, Mission and Key objectives FM", remark: "https://iiitdwd.ac.in" },
       { point: "(iv) Function and duties FM", remark: "Teaching and learning" },
       {
