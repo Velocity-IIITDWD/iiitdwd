@@ -1,17 +1,22 @@
 // rti-disclosure/TableDisplay.tsx
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
+import Image from "next/image";
+import React from "react";
 
 interface TableImage {
   imageURL: string;
   altText: string;
 }
 
+interface TableLink {
+  text: string;
+  url: string;
+}
+
 interface TableRowDetail {
   point: string;
-  remark: string | TableImage;
+  remark: string | TableImage | TableLink;
 }
 
 interface TableRow {
@@ -26,10 +31,10 @@ interface TableDisplayProps {
 
 export function TableDisplay({ data }: TableDisplayProps) {
   const renderTextWithBreaks = (text: string) => {
-    return text.split('\n').map((line, index) => (
+    return text.split("\n").map((line, index) => (
       <React.Fragment key={index}>
         {line}
-        {index < text.split('\n').length - 1 && <br />}
+        {index < text.split("\n").length - 1 && <br />}
       </React.Fragment>
     ));
   };
@@ -69,7 +74,10 @@ export function TableDisplay({ data }: TableDisplayProps) {
           {data.map((row, rowIndex) => (
             <React.Fragment key={rowIndex}>
               {row.details.map((detail, detailIndex) => (
-                <tr key={`${rowIndex}-${detailIndex}`} className="hover:bg-gray-50">
+                <tr
+                  key={`${rowIndex}-${detailIndex}`}
+                  className="hover:bg-gray-50"
+                >
                   {detailIndex === 0 && (
                     <>
                       <td
@@ -92,7 +100,7 @@ export function TableDisplay({ data }: TableDisplayProps) {
                   <td className="px-6 py-4 whitespace-normal text-sm text-gray-700 align-top">
                     {typeof detail.remark === 'string' ? (
                       renderTextWithBreaks(detail.remark)
-                    ) : (
+                    ) : 'imageURL' in detail.remark ? ( // Check for the 'imageURL' key
                       <Image
                         src={detail.remark.imageURL}
                         alt={detail.remark.altText}
@@ -100,6 +108,10 @@ export function TableDisplay({ data }: TableDisplayProps) {
                         height={150}
                         className="max-w-full h-auto rounded-md shadow-sm"
                       />
+                    ) : ( // Assume it's a TableLink
+                      <a href={detail.remark.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        {renderTextWithBreaks(detail.remark.text)}
+                      </a>
                     )}
                   </td>
                 </tr>
