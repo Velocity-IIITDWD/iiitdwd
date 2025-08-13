@@ -66,12 +66,12 @@ export default function ProgrammesPage() {
 
         <div className="flex flex-col gap-4 md:gap-6 w-full">
           <Link
-            href="https://iiitdwd.ac.in/docs/Academic_Calendar_2025-26_Aug-Nov_25.pdf"
+            href="/docs/Academic_Calendar_2025-26_high_semester_updated_-_Ashwin_H.pdf"
             className="relative focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 hover:shadow-md cursor-pointer overflow-clip flex rounded-lg border w-full border-gray-400 bg-white hover:border-gray-500"
           >
             <div className="h-24 w-40 relative max-md:hidden">
               <Image
-                src="/docs/Academic_Calendar_2025-26_high_semester_updated_-_Ashwin_H.pdf"
+                src="https://www.iiitdwd.ac.in/images/curriculum.JPG"
                 alt="Academic Calendar for Year 2-4"
                 fill
                 className="object-cover"
@@ -92,12 +92,12 @@ export default function ProgrammesPage() {
           </Link>
 
           <Link
-            href="/released-soon"
+            href="/docs/Academic_Calendar_2025-26_1st_sem_updated_-_Ashwin_H.pdf"
             className="relative focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 hover:shadow-md cursor-pointer overflow-clip flex rounded-lg border w-full border-gray-400 bg-white hover:border-gray-500"
           >
             <div className="h-24 w-40 relative max-md:hidden">
               <Image
-                src="/docs/Academic_Calendar_2025-26_1st_sem_updated_-_Ashwin_H.pdf"
+                src="https://www.iiitdwd.ac.in/images/curriculum.JPG"
                 alt="Academic Calendar for Year 2-4"
                 fill
                 className="object-cover"
