@@ -221,6 +221,133 @@ export const GetContactInfo = `*[_type == "contactData"][0] {
   }
 }`;
 
+export const GetTechClubs = `*[_type == "techClub"]{
+  _id,
+  name,
+  description,
+  logo,
+  image,
+  memberCount,
+  members[] {
+    name,
+    position,
+    image,
+  },
+  alumni[] {
+    name,
+    position,
+    image,
+  },
+  vision,
+  mission,
+  meetingDetails {
+    schedule,
+    location
+  },
+  events[] {
+    title,
+    description,
+    images[] {
+        image,
+    },
+    videos[] {
+        video,
+    },
+  },
+  upcomingEvents[] {
+    title,
+    description,
+    schedule,
+  },
+  links {
+    gmail,
+    linkedin,
+    instagram,
+    twitter,
+    website,
+    github
+  }
+}`;
+
+export const GetNonTechClubs = `*[_type == "nonTechClub"]{
+  _id,
+  name,
+  description,
+  logo,
+  image,
+  memberCount,
+  members[] {
+    name,
+    position
+  },
+  alumni[] {
+    name,
+    position,
+    image,
+  },
+  achievements[] {
+    title,
+    description,
+    images[] {
+        image,
+    },
+  meetingDetails {
+    schedule,
+    location
+  },
+  links {
+    gmail,
+    instagram,
+    twitter
+  }
+}`;
+
+export const GetCulturalClubs = `*[_type == "culturalClub"]{
+  _id,
+  name,
+  description,
+  logo,
+  image,
+  memberCount,
+  members[] {
+    name,
+    position,
+    image,
+  },
+  alumni[] {
+    name,
+    position,
+    image,
+  },
+  vision,
+  mission,
+  meetingDetails {
+    schedule,
+    location
+  },
+  events[] {
+    title,
+    description,
+    images[] {
+        image,
+    },
+    videos[] {
+        video,
+    },
+  },
+  upcomingEvents[] {
+    title,
+    description,
+    schedule,
+  },
+  links {
+    gmail,
+    linkedin,
+    instagram,
+    twitter,
+  }
+}`;
+
 export const queryCarousel = '*[_type == "mainCarouselImage"]';
 export const queryEvents = '*[_type == "event"]';
 export const queryEventIds = '*[_type == "event"] {"eventId": id}';
@@ -240,3 +367,4 @@ export const GetAllContacts =
   '*[_type == "contact"]{ _id, "category": category->{category}.category }';
 export const GetAllDocumentIds =
   '*[_type != "system.document" && !(_id in path("_.**"))]._id';
+  
