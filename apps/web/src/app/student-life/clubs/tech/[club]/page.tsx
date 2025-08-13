@@ -2,10 +2,19 @@ import { AnimatedNumber } from "@/components/ui/animatedCounter";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { FadeInOnScroll } from "@/components/ui/FadeInOnScroll";
 import { MemberCards } from "@/components/ui/MemberCards";
+import { EventGallery } from "@/components/ui/EventGallery"; // Import the new component
 import { createClient, type QueryParams } from "@sanity/client";
 import Image from "next/image";
 import React from "react";
 import { config } from "../../config";
+
+// Interface for a single event, needs to be defined here too
+interface Event {
+  title: string;
+  description: string;
+  images?: Array<{ image: string }>;
+  videos?: Array<{ video: string }>;
+}
 
 // Interface to match all the fields in your updated schema
 interface Club {
@@ -17,6 +26,7 @@ interface Club {
   memberCount: number;
   members?: Array<{ name: string; position: string; image?: string }>;
   alumni?: Array<{ name: string; position: string; image?: string }>;
+  events?: Event[]; // Add events to the main interface
   vision?: string;
   mission?: string;
   slug?: {
@@ -50,7 +60,7 @@ export async function generateStaticParams() {
   return slugs || [];
 }
 
-// Updated query to fetch members, alumni, and memberCount
+// Updated query to fetch members, alumni, memberCount, and events
 async function getClubBySlug(slug: string): Promise<Club | null> {
   const query = `*[_type == "techClub" && slug.current == $slug][0]{
     _id,
@@ -68,6 +78,16 @@ async function getClubBySlug(slug: string): Promise<Club | null> {
       name,
       position,
       image
+    },
+    events[]{
+      title,
+      description,
+      images[]{
+        image
+      },
+      videos[]{
+        video
+      }
     },
     vision,
     mission,
@@ -109,7 +129,7 @@ export default async function ClubPage({
 
   // Pick a random phrase
   const randomIndex = Math.floor(Math.random() * memberPhrases.length);
-  const selectedPhrase = memberPhrases[randomIndex].text;
+  const selectedPhrase = memberPhrases[randomIndex]?.text || "";
 
   // Split the selected phrase at the placeholder
   const [part1, part2] = selectedPhrase.split("#");
@@ -241,6 +261,11 @@ export default async function ClubPage({
               </p>
             </div>
           </section>
+        )}
+
+        {/* Past Events Section (Now using the modular component) */}
+        {clubData.events && clubData.events.length > 0 && (
+          <EventGallery events={clubData.events} clubName={clubData.name} />
         )}
       </div>
     </main>
