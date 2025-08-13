@@ -67,7 +67,7 @@ const navigationData: NavigationItem[] = [
           },
           {
             title: "PhD",
-            href: "/docs/Fee_structure_PHD_25-26_updated_on_August_8__2025.pdf",
+            href: "/docs/Fee_structure_PHD_25-26_updated_on_August_8__2025_-_Ashwin_H.pdf",
           },
           {
             title: "Certificate Validation Fee",

@@ -7,11 +7,11 @@ export const footerLinks = [
       { text: "Research", href: "/academics/research" },
       {
         text: "Academic Calendar",
-        href: "https://iiitdwd.ac.in/docs/Academic_Calendar_2025-26_Aug-Nov_25.pdf",
+        href: "/docs/Academic_Calendar_2025-26_high_semester_updated_-_Ashwin_H.pdf",
       },
       {
         text: "Academic Calendar for 1st year B.Tech Students",
-        href: "/released-soon",
+        href: "/docs/Academic_Calendar_2025-26_1st_sem_updated_-_Ashwin_H.pdf",
       },
       {
         text: "Curriculum",
