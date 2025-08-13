@@ -71,7 +71,7 @@ export default function ProgrammesPage() {
           >
             <div className="h-24 w-40 relative max-md:hidden">
               <Image
-                src="https://www.iiitdwd.ac.in/images/curriculum.JPG"
+                src="/docs/Academic_Calendar_2025-26_high_semester_updated_-_Ashwin_H.pdf"
                 alt="Academic Calendar for Year 2-4"
                 fill
                 className="object-cover"
@@ -97,7 +97,7 @@ export default function ProgrammesPage() {
           >
             <div className="h-24 w-40 relative max-md:hidden">
               <Image
-                src="https://www.iiitdwd.ac.in/images/curriculum.JPG"
+                src="/docs/Academic_Calendar_2025-26_1st_sem_updated_-_Ashwin_H.pdf"
                 alt="Academic Calendar for Year 2-4"
                 fill
                 className="object-cover"
@@ -108,7 +108,7 @@ export default function ProgrammesPage() {
               <div className="flex flex-col justify-center flex-1 gap-1">
                 <span className="text-title-1 text-main font-semibold">
                   Academic Calendar 2025-26 for First Year B.Tech Students
-                  (August - November)
+                  (August - December)
                 </span>
                 <span className="text-body font-normal">
                   Stay on schedule and upto date throughout the year.
