@@ -2,13 +2,15 @@ import { AnimatedNumber } from "@/components/ui/animatedCounter";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { FadeInOnScroll } from "@/components/ui/FadeInOnScroll";
 import { MemberCards } from "@/components/ui/MemberCards";
-import { EventGallery } from "@/components/ui/EventGallery"; // Import the new component
+import { EventGallery } from "@/components/ui/EventGallery";
+import { UpcomingEvents } from "@/components/ui/UpcomingEvents";
+import { Socials } from "@/components/ui/Socials";
 import { createClient, type QueryParams } from "@sanity/client";
 import Image from "next/image";
 import React from "react";
 import { config } from "../../config";
 
-// Interface for a single event, needs to be defined here too
+// Interface for a single event
 interface Event {
   title: string;
   description: string;
@@ -16,7 +18,24 @@ interface Event {
   videos?: Array<{ video: string }>;
 }
 
-// Interface to match all the fields in your updated schema
+// Interface for a single upcoming event
+interface UpcomingEvent {
+  title: string;
+  description?: string;
+  schedule?: string;
+}
+
+// Interface for social links
+interface Links {
+  gmail?: string;
+  linkedin?: string;
+  instagram?: string;
+  twitter?: string;
+  website?: string;
+  github?: string;
+}
+
+// Main Club interface, including new fields
 interface Club {
   _id: string;
   name: string;
@@ -26,7 +45,9 @@ interface Club {
   memberCount: number;
   members?: Array<{ name: string; position: string; image?: string }>;
   alumni?: Array<{ name: string; position: string; image?: string }>;
-  events?: Event[]; // Add events to the main interface
+  events?: Event[];
+  upcomingEvents?: UpcomingEvent[];
+  links?: Links;
   vision?: string;
   mission?: string;
   slug?: {
@@ -60,7 +81,7 @@ export async function generateStaticParams() {
   return slugs || [];
 }
 
-// Updated query to fetch members, alumni, memberCount, and events
+// Updated query to fetch all club data, including upcoming events and links
 async function getClubBySlug(slug: string): Promise<Club | null> {
   const query = `*[_type == "techClub" && slug.current == $slug][0]{
     _id,
@@ -88,6 +109,19 @@ async function getClubBySlug(slug: string): Promise<Club | null> {
       videos[]{
         video
       }
+    },
+    upcomingEvents[]{
+      title,
+      description,
+      schedule
+    },
+    links{
+      gmail,
+      linkedin,
+      instagram,
+      twitter,
+      website,
+      github
     },
     vision,
     mission,
@@ -263,9 +297,19 @@ export default async function ClubPage({
           </section>
         )}
 
-        {/* Past Events Section (Now using the modular component) */}
+        {/* Past Events Section */}
         {clubData.events && clubData.events.length > 0 && (
           <EventGallery events={clubData.events} clubName={clubData.name} />
+        )}
+
+        {/* Upcoming Events Section */}
+        {clubData.upcomingEvents && clubData.upcomingEvents.length > 0 && (
+          <UpcomingEvents events={clubData.upcomingEvents} />
+        )}
+
+        {/* Socials Section */}
+        {clubData.links && (
+          <Socials links={clubData.links} clubName={clubData.name} />
         )}
       </div>
     </main>
