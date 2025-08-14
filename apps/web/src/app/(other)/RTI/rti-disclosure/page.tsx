@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 // Assuming TableDisplay.tsx is in components/TableDisplay.tsx
-import { TableDisplay, TableLink, TableRow } from "../rti-disclosure/TableDisplay";
+import {
+  TableDisplay,
+  TableLink,
+  TableRow,
+} from "../rti-disclosure/TableDisplay";
 
 interface TableImage {
   imageURL: string;
@@ -332,7 +336,7 @@ const organizationAndFunctionData: TableRow[] = [
   {
     sNo: "1.13",
     item: "Transfer policy and transfer orders [F No. 1/6/2011- IR dt. 15.4.2013]",
-    details: [{ point: "", remark: "" }],
+    details: [{ point: "Not Applicable", remark: "Not Applicable" }],
   },
 ];
 
