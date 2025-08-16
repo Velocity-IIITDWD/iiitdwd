@@ -416,7 +416,7 @@ export const nonTechClubs = defineType({
       name: "Alumni",
       title: "alumni",
       type: "array",
-      description: "Alumni Info of the technical club",
+      description: "Alumni Info of the non-technical club",
       of: [
         {
           type: "object",
@@ -447,7 +447,7 @@ export const nonTechClubs = defineType({
       name: "achievements",
       title: "Achievements",
       type: "array",
-      description: "Achievements of the Club in bullet points",
+      description: "Achievements of the Club",
       of: [
         {
           type: "object",
@@ -533,6 +533,15 @@ export const nonTechClubs = defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
+    }),
   ],
 });
 
@@ -546,40 +555,40 @@ export const culturalClubs = defineField({
       name: "name",
       title: "Club Name",
       type: "string",
-      description: "Name of the technical club",
+      description: "Name of the Cultural club",
       options: {
-        list: techClubNames.map(name => ({ title: name, value: name })),
+        list: culturalClubNames.map(name => ({ title: name, value: name })),
       },
     }),
     defineField({
       name: "description",
       title: "Description",
       type: "text",
-      description: "Brief description of the technical club in under 50 words",
+      description: "Brief description of the Cultural club in under 50 words",
     }),
     defineField({
       name: "logo",
       title: "Logo",
       type: "string",
-      description: "Logo of the technical club",
+      description: "Logo of the cultural club",
     }),
     defineField({
       name: "image",
       title: "Image",
       type: "string",
-      description: "Landscape Image of the technical club (for clubcard)",
+      description: "Landscape Image of the cultural club (for clubcard)",
     }),
     defineField({
       name: "memberCount",
       title: "Member Count",
       type: "number",
-      description: "Number of members in the technical club",
+      description: "Number of members in the cultural club",
     }),
     defineField({
       name: "members",
       title: "Members",
       type: "array",
-      description: "Important Member Positions of the technical club",
+      description: "Important Member Positions of the cultural club",
       of: [
         {
           type: "object",
@@ -610,7 +619,7 @@ export const culturalClubs = defineField({
       name: "Alumni",
       title: "alumni",
       type: "array",
-      description: "Alumni Info of the technical club",
+      description: "Alumni Info of the cultural club",
       of: [
         {
           type: "object",
@@ -641,19 +650,19 @@ export const culturalClubs = defineField({
       name: "vision",
       title: "Vision",
       type: "text",
-      description: "Vision of the technical club",
+      description: "Vision of the cultural club",
     }),
     defineField({
       name: "mission",
       title: "Mission",
       type: "text",
-      description: "Mission of the technical club",
+      description: "Mission of the cultural club",
     }),
     defineField({
       name: "meetingDetails",
       title: "Meeting Details",
       type: "object",
-      description: "Details about the meetings of the technical club",
+      description: "Details about the meetings of the cultural club",
       fields: [
         defineField({
           name: "schedule",
@@ -767,33 +776,42 @@ export const culturalClubs = defineField({
       name: "links",
       title: "Links",
       type: "object",
-      description: "Social media and other links of the technical club",
+      description: "Social media and other links of the cultural club",
       fields: [
         defineField({
           name: "gmail",
           title: "Gmail",
           type: "string",
-          description: "Gmail of the technical club",
+          description: "Gmail of the cultural club",
         }),
         defineField({
           name: "linkedin",
           title: "LinkedIn",
           type: "string",
-          description: "LinkedIn handle of the technical club",
+          description: "LinkedIn handle of the cultural club",
         }),
         defineField({
           name: "instagram",
           title: "Instagram",
           type: "string",
-          description: "Instagram handle of the technical club",
+          description: "Instagram handle of the cultural club",
         }),
         defineField({
           name: "twitter",
           title: "Twitter",
           type: "string",
-          description: "Twitter of the technical club",
+          description: "Twitter of the cultural club",
         }),
       ],
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
     }),
   ],
 });

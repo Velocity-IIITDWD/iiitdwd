@@ -30,7 +30,7 @@ export const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
     <section className="mb-12 w-full max-w-xl rounded-2xl bg-gray-100 p-8 shadow-lg">
       <FadeInOnScroll>
         <h2 className="text-center text-4xl font-bold text-gray-900 mb-6">
-          Quick Peak at our Upcoming Events
+          Quick Peek at our Upcoming Events
         </h2>
       </FadeInOnScroll>
       <div className="flex flex-col gap-4">

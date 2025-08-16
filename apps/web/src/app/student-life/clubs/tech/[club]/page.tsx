@@ -1,10 +1,10 @@
 import { AnimatedNumber } from "@/components/ui/animatedCounter";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { EventGallery } from "@/components/ui/EventGallery";
 import { FadeInOnScroll } from "@/components/ui/FadeInOnScroll";
 import { MemberCards } from "@/components/ui/MemberCards";
-import { EventGallery } from "@/components/ui/EventGallery";
-import { UpcomingEvents } from "@/components/ui/UpcomingEvents";
 import { Socials } from "@/components/ui/Socials";
+import { UpcomingEvents } from "@/components/ui/UpcomingEvents";
 import { createClient, type QueryParams } from "@sanity/client";
 import Image from "next/image";
 import React from "react";
@@ -149,6 +149,10 @@ export default async function ClubPage({
       </main>
     );
   }
+
+  clubData.name = clubData.name.includes("IIIT Dharwad")
+    ? clubData.name
+    : clubData.name + " IIIT Dharwad";
 
   const memberPhrases = [
     { text: `${clubData.name} has # active members.` },

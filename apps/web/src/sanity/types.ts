@@ -433,9 +433,9 @@ export type nonTechClubs = {
   }>;
 }
 
-export type culturalClubs = {
+export type CulturalClub = {
   _id: string;
-  _type: "culturalClubs";
+  _type: "culturalClub";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -466,11 +466,10 @@ export type culturalClubs = {
   }>;
   vision?: string;
   mission?: string;
-  meetingDetails?: Array<{
+  meetingDetails?: {
     schedule?: string;
     location?: string;
-    _key: string;
-  }>;
+  };
   events?: Array<{
     title?: string;
     description?: string;
@@ -488,15 +487,19 @@ export type culturalClubs = {
     title?: string;
     description?: string;
     schedule?: string;
+    _key: string;
   }>;
-  links?: Array<{
+  links?: {
     gmail?: string;
     linkedin?: string;
     instagram?: string;
     twitter?: string;
-    _key: string;
-  }>;
-}
+  };
+  slug?: {
+    current: string;
+    _type: 'slug';
+  }
+};
 
 export type Issues = {
   _id: string;
@@ -1100,7 +1103,7 @@ export type AllSanitySchemaTypes =
   // | Club
   | techClubs
   | nonTechClubs
-  | culturalClubs
+  | CulturalClub
   | Issues
   | Team
   | FacultyAdvisor

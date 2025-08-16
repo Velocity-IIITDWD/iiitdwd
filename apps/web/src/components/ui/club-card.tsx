@@ -317,7 +317,7 @@ export function ClubCard({
     return a.name.localeCompare(b.name);
   });
 
-  const dynamicHref = `/student-life/clubs/${_type.replace("Clubs", "").toLowerCase()}/${name.replace(/\s+/g, "-").toLowerCase()}`;
+  const dynamicHref = `/student-life/clubs/${_type === "nonTechClubs" ? "non-tech" : _type.replace("Clubs", "").toLowerCase()}/${name.replace(/\s+/g, "-").toLowerCase()}`;
 
   return (
     <>
@@ -529,15 +529,15 @@ export function ClubCard({
                 )}
             </div>
 
-            <DrawerFooter className="px-0 pt-2">
-              <DrawerClose asChild>
-                <Button variant="outline">Close</Button>
-              </DrawerClose>
-              <Link href={dynamicHref}>
-                <Button className="max-w-4xl" variant="outline">
+            <DrawerFooter className="px-0 pt-2 max-w-full flex flex-col gap-2">
+              <Link href={dynamicHref} className="w-full">
+                <Button className="w-full" variant="outline">
                   Know More
                 </Button>
               </Link>
+              <DrawerClose asChild>
+                <Button variant="outline">Close</Button>
+              </DrawerClose>
             </DrawerFooter>
           </div>
         </DrawerContent>

@@ -57,13 +57,15 @@ export function MemberCards({ members }: MemberCardsProps) {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-12 w-full max-w-10xl"
+      // 👇 Change this line to use flexbox for centering
+      className="flex flex-wrap justify-center gap-12 w-full max-w-10xl"
     >
       {validMembers.slice(0, 10).map((member, index) => (
         <motion.div
           key={index}
           variants={cardVariants}
-          className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
+          // The card itself needs a defined width to work correctly with flexbox
+          className="w-64 bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
         >
           {/* Image Container */}
           <div className="relative w-full aspect-square overflow-hidden">
@@ -79,7 +81,7 @@ export function MemberCards({ members }: MemberCardsProps) {
           </div>
 
           {/* Content Container */}
-          <div className="p-4 text-center">
+          <div className="p-5 text-center">
             {/* Name as title */}
             <h3 className="font-semibold text-lg text-gray-900 mb-2 line-clamp-2">
               {member.name}
