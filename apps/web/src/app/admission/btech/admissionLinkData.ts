@@ -6,8 +6,8 @@ export interface LinkItem {
 export const bTechAdmissionLinks: LinkItem[] = [
   {
     title:
-      "Admission Guidelines JoSAA/CSAB-2025",
-    href: "https://docs.google.com/document/d/1RGk05UNFZwZhcAcgTEsIuym2WEIkhVsezghJId9xkh4/edit?usp=sharing",
+      "Physical reporting from 20th Aug 2025 to 23rd Aug 2025",
+    href: "https://docs.google.com/document/d/1RGk05UNFZwZhcAcgTEsIuym2WEIkhVsezghJId9xkh4/edit?tab=t.0",
   },
   {
     title:
