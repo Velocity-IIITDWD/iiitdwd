@@ -5,8 +5,7 @@ export interface LinkItem {
 
 export const bTechAdmissionLinks: LinkItem[] = [
   {
-    title:
-      "Physical reporting from 20th Aug 2025 to 23rd Aug 2025",
+    title: "Physical reporting from 20th Aug 2025 to 23rd Aug 2025",
     href: "/docs/B.Tech._Admission_Guidelines_for_2025-26_Students.pdf",
   },
   {
@@ -99,8 +98,7 @@ export const quickLinks: LinkItem[] = [
 
 export const eligibilityCriteria: LinkItem[] = [
   {
-    title:
-      "Guidelines for students alloted through JoSAA/CSAB Counselling",
+    title: "Guidelines for students alloted through JoSAA/CSAB Counselling",
     href: "/docs/B.Tech._Admission_Guidelines_for_2025-26_Students.pdf",
   },
   {
