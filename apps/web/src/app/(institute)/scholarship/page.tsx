@@ -47,7 +47,9 @@ export default function ScholarshipsPage() {
 
           {/* OBC Category */}
           <div className="flex flex-col gap-4 md:gap-8">
-            <h2 className="text-title-1 font-semibold text-main">OBC Category</h2>
+            <h2 className="text-title-1 font-semibold text-main">
+              OBC Category
+            </h2>
             <ul className="list-none">
               <li>
                 <Link
@@ -63,7 +65,9 @@ export default function ScholarshipsPage() {
 
           {/* PWD Category */}
           <div className="flex flex-col gap-4 md:gap-8">
-            <h2 className="text-title-1 font-semibold text-main">PWD Category</h2>
+            <h2 className="text-title-1 font-semibold text-main">
+              PWD Category
+            </h2>
             <ul className="list-none">
               <li>
                 <Link
@@ -79,7 +83,9 @@ export default function ScholarshipsPage() {
 
           {/* SC Category */}
           <div className="flex flex-col gap-4 md:gap-8">
-            <h2 className="text-title-1 font-semibold text-main">SC Category</h2>
+            <h2 className="text-title-1 font-semibold text-main">
+              SC Category
+            </h2>
             <ul className="list-none">
               <li>
                 <Link
@@ -95,7 +101,9 @@ export default function ScholarshipsPage() {
 
           {/* ST Category */}
           <div className="flex flex-col gap-4 md:gap-8">
-            <h2 className="text-title-1 font-semibold text-main">ST Category</h2>
+            <h2 className="text-title-1 font-semibold text-main">
+              ST Category
+            </h2>
             <ul className="list-none">
               <li>
                 <Link
