@@ -101,10 +101,10 @@ export const eligibilityCriteria: LinkItem[] = [
     title: "Guidelines for students alloted through JoSAA/CSAB Counselling",
     href: "/docs/B.Tech._Admission_Guidelines_for_2025-26_Students.pdf",
   },
-  {
+  /*{
     title: "Undertaking to be signed by students and their parents",
     href: "/docs/undertaking_2023.pdf",
-  },
+  }*/
   {
     title:
       "Performance in Class XII for candidates seeking admission in IIIT Dharwad - 2024",
