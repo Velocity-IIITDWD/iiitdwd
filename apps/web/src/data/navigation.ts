@@ -34,6 +34,7 @@ const navigationData: NavigationItem[] = [
         href: "/careers",
       },
       { title: "Tenders", href: "/tenders" },
+      { title: "Scholarships", href: "/scholarship" },
     ],
   },
   {
@@ -121,7 +122,7 @@ const navigationData: NavigationItem[] = [
         items: [
           {
             title: "RTI",
-            href: "/RTI"
+            href: "/RTI",
           },
           {
             title: "IIIT PPP Act",
