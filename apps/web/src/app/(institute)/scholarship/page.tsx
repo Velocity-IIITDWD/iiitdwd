@@ -116,6 +116,24 @@ export default function ScholarshipsPage() {
               </li>
             </ul>
           </div>
+
+          {/* Scholarships for IIIT Dharwad Students */}
+          <div className="flex flex-col gap-4 md:gap-8">
+            <h2 className="text-title-1 font-semibold text-main">
+              Scholarships for IIIT Dharwad Students
+            </h2>
+            <ul className="list-none">
+              <li>
+                <Link
+                  href="/docs/List_of_Scholarship.pdf"
+                  className="text-main underline"
+                  target="_blank"
+                >
+                  View PDF
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>
