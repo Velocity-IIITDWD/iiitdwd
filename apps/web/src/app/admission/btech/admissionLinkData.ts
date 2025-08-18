@@ -7,7 +7,7 @@ export const bTechAdmissionLinks: LinkItem[] = [
   {
     title:
       "Physical reporting from 20th Aug 2025 to 23rd Aug 2025",
-    href: "https://docs.google.com/document/d/1RGk05UNFZwZhcAcgTEsIuym2WEIkhVsezghJId9xkh4/edit?tab=t.0",
+    href: "/docs/B.Tech._Admission_Guidelines_for_2025-26_Students.pdf",
   },
   {
     title:
@@ -101,7 +101,7 @@ export const eligibilityCriteria: LinkItem[] = [
   {
     title:
       "Guidelines for students alloted through JoSAA/CSAB Counselling",
-    href: "https://docs.google.com/document/d/1RGk05UNFZwZhcAcgTEsIuym2WEIkhVsezghJId9xkh4/edit?usp=sharing",
+    href: "/docs/B.Tech._Admission_Guidelines_for_2025-26_Students.pdf",
   },
   {
     title: "Undertaking to be signed by students and their parents",
