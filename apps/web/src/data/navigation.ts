@@ -63,11 +63,11 @@ const navigationData: NavigationItem[] = [
           },
           {
             title: "M.Tech",
-            href: "/docs/MTech_Fees.pdf",
+            href: "/docs/M.TECH_Research_2025_26_updated_August_8__2025.pdf",
           },
           {
             title: "PhD",
-            href: "/docs/PhD_Fees.pdf",
+            href: "/docs/Fee_structure_PHD_25-26_updated_on_August_8__2025_-_Ashwin_H.pdf",
           },
           {
             title: "Certificate Validation Fee",
@@ -121,35 +121,7 @@ const navigationData: NavigationItem[] = [
         items: [
           {
             title: "RTI",
-            items: [
-              { title: "RTI ", href: "/docs/rti.pdf" },
-              {
-                title: "Organization and Function ",
-                href: "/docs/1-Organisation_and_Function.pdf",
-              },
-              {
-                title: "Budget and program ",
-                href: "/docs/2-Budget_and_Programme.pdf",
-              },
-              {
-                title: "Publicity and Public Interface ",
-                href: "/docs/3-Publicity_and_Public_interface.pdf",
-              },
-              { title: "E Governance ", href: "/docs/4-E-Governance.pdf" },
-              {
-                title: "Information as may be prescribed",
-                href: "/docs/5-Information_as_may_be_prescribed.pdf",
-              },
-              {
-                title: "Information Disclosed on own Initiative",
-                href: "/docs/6-Information_Disclosed_on_own_Initiative.pdf",
-              },
-              {
-                title: "Public Relation Officer",
-                href: "/docs/Public_Relation_Officer.pdf",
-              },
-            ],
-            href: "",
+            href: "/RTI"
           },
           {
             title: "IIIT PPP Act",

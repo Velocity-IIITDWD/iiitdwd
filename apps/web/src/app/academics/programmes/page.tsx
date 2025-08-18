@@ -66,7 +66,7 @@ export default function ProgrammesPage() {
 
         <div className="flex flex-col gap-4 md:gap-6 w-full">
           <Link
-            href="https://iiitdwd.ac.in/docs/Academic_Calendar_2025-26_Aug-Nov_25.pdf"
+            href="/docs/Academic_Calendar_2025-26_high_semester_updated_-_Ashwin_H.pdf"
             className="relative focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 hover:shadow-md cursor-pointer overflow-clip flex rounded-lg border w-full border-gray-400 bg-white hover:border-gray-500"
           >
             <div className="h-24 w-40 relative max-md:hidden">
@@ -92,7 +92,7 @@ export default function ProgrammesPage() {
           </Link>
 
           <Link
-            href="/released-soon"
+            href="/docs/Academic_Calendar_2025-26_1st_sem_updated_-_Ashwin_H.pdf"
             className="relative focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 hover:shadow-md cursor-pointer overflow-clip flex rounded-lg border w-full border-gray-400 bg-white hover:border-gray-500"
           >
             <div className="h-24 w-40 relative max-md:hidden">
@@ -108,7 +108,7 @@ export default function ProgrammesPage() {
               <div className="flex flex-col justify-center flex-1 gap-1">
                 <span className="text-title-1 text-main font-semibold">
                   Academic Calendar 2025-26 for First Year B.Tech Students
-                  (August - November)
+                  (August - December)
                 </span>
                 <span className="text-body font-normal">
                   Stay on schedule and upto date throughout the year.
