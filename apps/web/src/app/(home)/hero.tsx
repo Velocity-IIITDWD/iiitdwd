@@ -108,7 +108,7 @@ export default function LandingSection({ images }: HeroProps): JSX.Element {
           <QuickLink href="/scholarship/" label="Scholarships" />
           <QuickLink
             href="https://docs.google.com/document/d/1RGk05UNFZwZhcAcgTEsIuym2WEIkhVsezghJId9xkh4/edit?usp=sharing"
-            label="Guidelines"
+            label="Physical Reporting"
           />
         </div>
       </div>
