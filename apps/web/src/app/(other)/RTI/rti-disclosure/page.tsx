@@ -80,7 +80,14 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point:
           "(i) Powers and duties of officers (administrative, financial and judicial)",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(ii) Power and duties of other employees",
@@ -89,7 +96,14 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point:
           "(iii) Rules/ orders under which powers and duty are derived and",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       { point: "(iv) Exercised", remark: "Yes" },
       {
@@ -105,7 +119,14 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point:
           "(i) Process of decision making Identify key decision making points",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(ii) Final decision making authority",
@@ -113,7 +134,14 @@ const organizationAndFunctionData: TableRow[] = [
       },
       {
         point: "(iii) Related provisions, acts, rules etc.",
-        remark: "As per IIIT(PPP)Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(iv) Time limit for taking a decisions, if any",
@@ -135,15 +163,36 @@ const organizationAndFunctionData: TableRow[] = [
       },
       {
         point: "(ii) Norms/ standards for functions/ service delivery",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(iii) Process by which these services can be accessed",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(iv) Time-limit for achieving the targets",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(v) Process of redress of grievances",
@@ -157,16 +206,37 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Title and nature of the record/ manual /instruction",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point:
           "(ii) List of Rules, regulations, instructions manuals and records.",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(iii) Acts/ Rules manuals etc.",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(iv) Transfer policy and transfer orders",
@@ -180,7 +250,14 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Categories of documents",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(ii) Custodian of documents/categories",
@@ -217,15 +294,36 @@ const organizationAndFunctionData: TableRow[] = [
       },
       {
         point: "(iii) Dates from which constituted",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(iv) Term/ Tenure",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017 ",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(v) Powers and functions",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(vi) Whether their meetings are open to the public?",
@@ -265,11 +363,25 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) List of employees with Gross monthly remuneration",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
       {
         point: "(ii) System of compensation as provided in its regulations",
-        remark: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+        remark: {
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+          ],
+        },
       },
     ],
   },
