@@ -156,7 +156,7 @@ export default function InfoSection() {
             />
 
             <Image
-              src={"https://iiitdwd.ac.in/images/admission_2025.jpeg"}
+              src={"/images/WELCOME.jpg"}
               alt="Director of IIIT Dharwad"
               width={220}
               height={300}
@@ -164,9 +164,11 @@ export default function InfoSection() {
               style={{ width: "auto", maxWidth: "100%" }}
               priority
             />
-            <div className="text-title-1 font-semibold">Admissions 2025</div>
+            <div className="text-title-1 font-semibold">
+              Batch of 2025, Welcome Aboard
+            </div>
             <div className="text-title-2 text-gray-600 mt-2">
-              Admissions for the 2025 batch are now open!
+              An exciting journey at IIIT Dharwad awaits you!
             </div>
           </Link>
 
