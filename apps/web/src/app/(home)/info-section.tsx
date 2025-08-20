@@ -156,7 +156,7 @@ export default function InfoSection() {
             />
 
             <Image
-              src={"/images/WELCOME.jpg"}
+              src={"/images/PosterFinal.pdf.jpg"}
               alt="Director of IIIT Dharwad"
               width={220}
               height={300}
