@@ -1,22 +1,17 @@
+// apps/web/src/app/(other)/RTI/rti-disclosure/page.tsx
 "use client";
 
 import { useState } from "react";
-// Assuming TableDisplay.tsx is in components/TableDisplay.tsx
-import {
-  TableDisplay,
-  TableLink,
-  TableRow,
-} from "../rti-disclosure/TableDisplay";
+import { TableDisplay, TableLink, TableRow } from "./TableDisplay"; // Ensure the path is correct
 
 interface TableImage {
   imageURL: string;
   altText: string;
 }
 
-// Define the data structures (copied from TableDisplay.tsx for self-containment)
 interface TableRowDetail {
   point: string;
-  remark: string | TableImage;
+  remark: string | TableImage | TableLink; // Updated to match TableDisplay.tsx
 }
 
 interface TableRow {
@@ -50,7 +45,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://iiitdwd.ac.in/director/",
             },
           ],
-        } as TableLink,
+        },
       },
       {
         point: "(iii) Vision, Mission and Key objectives",
@@ -58,7 +53,7 @@ const organizationAndFunctionData: TableRow[] = [
           links: [
             { text: "https://iiitdwd.ac.in", url: "https://iiitdwd.ac.in" },
           ],
-        } as TableLink,
+        },
       },
       { point: "(iv) Function and duties", remark: "Teaching and learning" },
       {
@@ -86,6 +81,10 @@ const organizationAndFunctionData: TableRow[] = [
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
+            },
           ],
         },
       },
@@ -101,6 +100,10 @@ const organizationAndFunctionData: TableRow[] = [
             {
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
         },
@@ -125,6 +128,10 @@ const organizationAndFunctionData: TableRow[] = [
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
+            },
           ],
         },
       },
@@ -139,6 +146,10 @@ const organizationAndFunctionData: TableRow[] = [
             {
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
         },
@@ -169,6 +180,10 @@ const organizationAndFunctionData: TableRow[] = [
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
+            },
           ],
         },
       },
@@ -180,6 +195,10 @@ const organizationAndFunctionData: TableRow[] = [
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
+            },
           ],
         },
       },
@@ -190,6 +209,10 @@ const organizationAndFunctionData: TableRow[] = [
             {
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
         },
@@ -212,6 +235,10 @@ const organizationAndFunctionData: TableRow[] = [
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
+            },
           ],
         },
       },
@@ -224,6 +251,10 @@ const organizationAndFunctionData: TableRow[] = [
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
+            },
           ],
         },
       },
@@ -234,6 +265,10 @@ const organizationAndFunctionData: TableRow[] = [
             {
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
         },
@@ -255,6 +290,10 @@ const organizationAndFunctionData: TableRow[] = [
             {
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
         },
@@ -290,7 +329,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://www.iiitdwd.ac.in/governing-bodies/financial/",
             },
           ],
-        } as TableLink,
+        },
       },
       {
         point: "(iii) Dates from which constituted",
@@ -299,6 +338,10 @@ const organizationAndFunctionData: TableRow[] = [
             {
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
         },
@@ -311,6 +354,10 @@ const organizationAndFunctionData: TableRow[] = [
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
+            },
           ],
         },
       },
@@ -321,6 +368,10 @@ const organizationAndFunctionData: TableRow[] = [
             {
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
         },
@@ -348,7 +399,7 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point: "(i) Name and designation",
         remark:
-          "1. Dr. S R Mahadeva Prasanna, Director\n\n2. Mr. Ravi B Vitlapur, Officiating Registrar",
+          "1. Dr. S R Mahadeva Prasanna, Director\n\n2. Mr. Ravi B Vitlapur, Assistant Registrar",
       },
       {
         point: "(ii) Telephone , fax and email ID",
@@ -369,6 +420,10 @@ const organizationAndFunctionData: TableRow[] = [
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
+            },
           ],
         },
       },
@@ -379,6 +434,10 @@ const organizationAndFunctionData: TableRow[] = [
             {
               text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+            {
+              text: "and Statures of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
         },
@@ -392,7 +451,7 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point:
           "(i) Name and designation of the public information officer (PIO), Assistant Public Information (s) & Appellate Authority",
-        remark: "Mr. Ravi Vitlapur(Assistant Registrar)PIO",
+        remark: "Mr. Ravi Vitlapur (Assistant Registrar) PIO",
       },
       {
         point:
@@ -409,11 +468,13 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point:
           "No. of employees against whom disciplinary action has been\n\n(i) Pending for Minor penalty or major penalty proceedings ",
-        remark: "",
+        remark:
+          "Pending cases for major penalty: NIL\nPending cases for minor penalty: NIL",
       },
       {
         point: "(ii) Finalised for Minor penalty or major penalty proceedings",
-        remark: "",
+        remark:
+          "Finalised cases for major penalty: NIL\nFinalised cases for minor penalty: NIL",
       },
     ],
   },
@@ -441,7 +502,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in/docs/rti.pdf",
             },
           ],
-        } as TableLink,
+        },
       },
     ],
   },
@@ -494,7 +555,7 @@ const budgetAndProgrammeData: TableRow[] = [
               url: "https://www.iiitdwd.ac.in/tenders/",
             },
           ],
-        } as TableLink,
+        },
       },
     ],
   },
@@ -586,13 +647,13 @@ const publicityAndPublicInterfaceData: TableRow[] = [
           "Arrangement for consultations with or representation by the members of the public\n(i) Relevant Acts, Rules, Forms and other documents which are normally accessed by citizens",
         remark: {
           links: [{ text: "www.iiitdwd.ac.in", url: "https://iiitdwd.ac.in" }],
-        } as TableLink,
+        },
       },
       {
         point:
           "(ii) Arrangements for consultation with or representation by\n\na) Members of the public in policy formulation/ policy implementation\n\nb) Day & time allotted for visitors\n\nc) Contact details of Information & Facilitation Counter (IFC) to provide publications frequently sought by RTI applicants",
         remark:
-          "Public Information officer: Mr.Ravi B Vitlapur, Officiating Registrar\nPhone no; 0836-2250879\nEmail: registrar@iiitdwd.ac.in",
+          "Public Information officer: Mr.Ravi B Vitlapur, Assistant Registrar\nPhone no; 0836-2250879\nEmail: registrar@iiitdwd.ac.in",
       },
       {
         point:
@@ -669,7 +730,7 @@ const eGovernanceData: TableRow[] = [
         point: "(i) Details of information available in electronic form",
         remark: {
           links: [{ text: "www.iiitdwd.ac.in", url: "https://iiitdwd.ac.in" }],
-        } as TableLink,
+        },
       },
       {
         point: "(ii) Name/ title of the document/record/ other information",
@@ -705,8 +766,7 @@ const eGovernanceData: TableRow[] = [
       },
       {
         point: "(iv)  Contact person & contact details (Phone, fax email)",
-        remark:
-          "Mr. Ravi Vitlapur, Assistant\nRegistrar,(Officiating Regaistrar)",
+        remark: "Mr. Ravi Vitlapur, \nAssistant Registrar",
       },
     ],
   },
@@ -815,7 +875,7 @@ const informationDisclosedOnOwnInitiativeData: TableRow[] = [
         point: "",
         remark: {
           links: [{ text: "www.iiitdwd.ac.in", url: "https://iiitdwd.ac.in" }],
-        } as TableLink,
+        },
       },
     ],
   },
@@ -843,12 +903,10 @@ const allTableData: { [key: string]: TableRow[] } = {
 };
 
 export default function InformationPage() {
-  // State to manage the currently selected sidebar option
   const [selectedOption, setSelectedOption] = useState<string>(
     "organization_function"
-  ); // Default to the first option
+  );
 
-  // Define sidebar options with a unique key and display name
   const sidebarOptions = [
     { key: "organization_function", name: "Organisation and Functions" },
     { key: "budget_programme", name: "Budget and Programme" },
@@ -861,7 +919,6 @@ export default function InformationPage() {
     },
   ];
 
-  // Get the data for the currently selected option
   const currentTableData = allTableData[selectedOption] || [];
 
   return (
