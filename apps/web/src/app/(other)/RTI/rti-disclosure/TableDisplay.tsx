@@ -1,4 +1,4 @@
-// rti-disclosure/TableDisplay.tsx
+// apps/web/src/app/(other)/RTI/rti-disclosure/TableDisplay.tsx
 "use client";
 
 import Image from "next/image";
@@ -20,7 +20,7 @@ export interface TableLink {
 
 export interface TableRowDetail {
   point: string;
-  remark: string | TableImage | TableLink;
+  remark: string | TableImage | TableLink; // Updated to include TableLink
 }
 
 export interface TableRow {
@@ -70,9 +70,7 @@ export function TableDisplay({ data }: TableDisplayProps) {
 
   // Generate colors for section headers
   const getHeaderColor = (index: number) => {
-    const colors = [
-      "bg-[rgb(247,220,173)] text-black", // 247, 220, 173
-    ];
+    const colors = ["bg-[rgb(247,220,173)] text-black"];
     return colors[index % colors.length];
   };
 
@@ -130,7 +128,7 @@ export function TableDisplay({ data }: TableDisplayProps) {
                   <td className="px-6 py-4 whitespace-normal text-sm text-gray-700 align-top">
                     {typeof detail.remark === "string" ? (
                       renderTextWithBreaks(detail.remark)
-                    ) : "imageURL" in detail.remark ? ( // Check for the 'imageURL' key
+                    ) : "imageURL" in detail.remark ? (
                       <Image
                         src={detail.remark.imageURL}
                         alt={detail.remark.altText}
@@ -138,7 +136,7 @@ export function TableDisplay({ data }: TableDisplayProps) {
                         height={150}
                         className="max-w-full h-auto rounded-md shadow-sm"
                       />
-                    ) : "links" in detail.remark ? ( // New check for the 'links' key
+                    ) : "links" in detail.remark ? (
                       <div>
                         {detail.remark.links.map((link, linkIndex) => (
                           <div key={linkIndex}>
@@ -153,17 +151,7 @@ export function TableDisplay({ data }: TableDisplayProps) {
                           </div>
                         ))}
                       </div>
-                    ) : (
-                      // Assume it's a TableLink
-                      <a
-                        href={detail.remark.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
-                      >
-                        {renderTextWithBreaks(detail.remark.text)}
-                      </a>
-                    )}
+                    ) : null}
                   </td>
                 </tr>
               ))}
