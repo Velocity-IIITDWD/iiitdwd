@@ -82,7 +82,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -102,7 +102,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -129,7 +129,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -148,7 +148,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -181,7 +181,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -196,7 +196,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -211,7 +211,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -219,7 +219,18 @@ const organizationAndFunctionData: TableRow[] = [
       },
       {
         point: "(v) Process of redress of grievances",
-        remark: "Through grievance readressal cell",
+        remark: {
+          links: [
+            {
+              text: "Internal Complaints Committee",
+              url: "https://assets.iiitdwd.ac.in/docs/ICC_committee.pdf",
+            },
+            {
+              text: "Anti Ragging ",
+              url: "https://assets.iiitdwd.ac.in/docs/Anti_Ragging_Information.pdf",
+            },
+          ],
+        },
       },
     ],
   },
@@ -236,7 +247,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -252,7 +263,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -267,7 +278,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -292,7 +303,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -340,7 +351,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -355,7 +366,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -370,7 +381,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -421,7 +432,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
@@ -436,7 +447,7 @@ const organizationAndFunctionData: TableRow[] = [
               url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
             },
             {
-              text: "and Statures of IIIT Dharwad",
+              text: "and Statutes of IIIT Dharwad",
               url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
             },
           ],
