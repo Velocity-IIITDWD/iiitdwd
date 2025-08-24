@@ -36,6 +36,9 @@ const techClubNames = [
   "Quantum Computing Club",
   "Techniosys",
   "GND_0 VLSI Club IIIT Dharwad",
+  "MLSA IIIT Dharwad",
+  "accelAIrate",
+  "Vidkarya"
 ]
 
 const nonTechClubNames = [
