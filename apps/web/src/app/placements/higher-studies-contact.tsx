@@ -50,37 +50,8 @@ const HigherStudiesContact = () => {
           .
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <Card className="shadow-md hover:shadow-lg transition-shadow">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-main ">
-                CGC, Faculty-In-Charge
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center gap-4">
-                <Avatar className="h-16 w-16 border-2 border-main ">
-                  <AvatarFallback className="bg-main/10 text-main ">
-                    MV
-                  </AvatarFallback>
-                </Avatar>
-                <div className="text-title-3">
-                  <h3 className="font-semibold text-main text-title-2">
-                    Dr. Manjunath K Vanahalli
-                  </h3>
-                  <p className="text-gray-600">Asst. Professor</p>
-                  <div className="flex items-center mt-2 text-main">
-                    <Mail className="h-4 w-4 mr-2" />
-                    <Link href="mailto:cgc@iiitdwd.ac.in" className="text-body">
-                      cgc@iiitdwd.ac.in
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-md hover:shadow-lg transition-shadow">
+        <div className="flex flex-col items-center gap-6">
+          <Card className="shadow-md hover:shadow-lg transition-shadow md:w-[600px] lg:w-[700px]">
             <CardHeader className="pb-2">
               <CardTitle className="text-main ">
                 CGC, Member Secretary (Placement Lead)
@@ -129,6 +100,78 @@ const HigherStudiesContact = () => {
               assistance.
             </CardFooter>
           </Card>
+
+          <div className="grid md:grid-cols-2 gap-6 md:w-[1224px] lg:w-[1424px]">
+            <Card className="shadow-md hover:shadow-lg transition-shadow md:w-[600px] lg:w-[700px] md:h-[200px] lg:h-[230px]">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-main ">
+                  CGC, Faculty-In-Charge
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center gap-4">
+                  <Avatar className="h-16 w-16 border-2 border-main ">
+                    <AvatarFallback className="bg-main/10 text-main ">
+                      MV
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="text-title-3">
+                    <h3 className="font-semibold text-main text-title-2">
+                      Dr. Manjunath K Vanahalli
+                    </h3>
+                    <p className="text-gray-600">Asst. Professor</p>
+                    <div className="flex items-center mt-2 text-main">
+                      <Mail className="h-4 w-4 mr-2" />
+                      <Link
+                        href="mailto:cgc@iiitdwd.ac.in"
+                        className="text-body"
+                      >
+                        cgc@iiitdwd.ac.in
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-md hover:shadow-lg transition-shadow md:w-[600px] lg:w-[700px]">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-main ">
+                  CGC, Professor-In-Charge
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center gap-4">
+                  <Avatar className="h-16 w-16 border-2 border-main ">
+                    <AvatarFallback className="bg-main/10 text-main ">
+                      VP
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="text-title-3">
+                    <h3 className="font-semibold text-main text-title-2">
+                      Prof. Vasudev Parvati
+                    </h3>
+                    <p className="text-gray-600">Asst. Professor</p>
+                    <div className="flex items-center mt-2 text-main">
+                      <Mail className="h-4 w-4 mr-2" />
+                      <Link
+                        href="mailto:cgc@iiitdwd.ac.in"
+                        className="text-body"
+                      >
+                        cgc@iiitdwd.ac.in
+                      </Link>
+                    </div>
+                    <div className="flex items-center mt-1 text-main">
+                      <Phone className="h-4 w-4 mr-2" />
+                      <Link href="tel:+919886376600" className="text-body">
+                        +91 9886376600
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </>
