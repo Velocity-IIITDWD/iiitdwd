@@ -101,8 +101,8 @@ const HigherStudiesContact = () => {
             </CardFooter>
           </Card>
 
-          <div className="grid md:grid-cols-2 gap-6 md:w-[1224px] lg:w-[1424px]">
-            <Card className="shadow-md hover:shadow-lg transition-shadow md:w-[600px] lg:w-[700px] md:h-[200px] lg:h-[230px]">
+          <div className="grid md:grid-cols-2 gap-6 md:w-[600px] lg:w-[700px]">
+            <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader className="pb-2">
                 <CardTitle className="text-main ">
                   CGC, Faculty-In-Charge
@@ -134,7 +134,7 @@ const HigherStudiesContact = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-md hover:shadow-lg transition-shadow md:w-[600px] lg:w-[700px]">
+            <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader className="pb-2">
                 <CardTitle className="text-main ">
                   CGC, Professor-In-Charge
