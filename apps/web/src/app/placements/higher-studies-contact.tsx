@@ -151,7 +151,6 @@ const HigherStudiesContact = () => {
                     <h3 className="font-semibold text-main text-title-2">
                       Prof. Vasudev Parvati
                     </h3>
-                    <p className="text-gray-600">Asst. Professor</p>
                     <div className="flex items-center mt-2 text-main">
                       <Mail className="h-4 w-4 mr-2" />
                       <Link
@@ -164,7 +163,7 @@ const HigherStudiesContact = () => {
                     <div className="flex items-center mt-1 text-main">
                       <Phone className="h-4 w-4 mr-2" />
                       <Link href="tel:+919886376600" className="text-body">
-                        +91 9886376600
+                        +91 9845253751
                       </Link>
                     </div>
                   </div>
