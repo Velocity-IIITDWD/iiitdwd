@@ -95,14 +95,14 @@ const HigherStudiesContact = () => {
                 </div>
               </div>
             </CardContent>
-            <CardFooter className="pt-0 !text-subheadline text-gray-600">
+            <CardFooter className="pt-0 text-lg text-gray-600">
               Feel free to reach out to Mr. Ujwal Doddamani for further
               assistance.
             </CardFooter>
           </Card>
 
-          <div className="grid md:grid-cols-2 gap-6 md:w-[1224px] lg:w-[1424px]">
-            <Card className="shadow-md hover:shadow-lg transition-shadow md:w-[600px] lg:w-[700px] md:h-[200px] lg:h-[230px]">
+          <div className="grid md:grid-cols-2 gap-6 md:w-[600px] lg:w-[700px]">
+            <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader className="pb-2">
                 <CardTitle className="text-main ">
                   CGC, Faculty-In-Charge
@@ -134,7 +134,7 @@ const HigherStudiesContact = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-md hover:shadow-lg transition-shadow md:w-[600px] lg:w-[700px]">
+            <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader className="pb-2">
                 <CardTitle className="text-main ">
                   CGC, Professor-In-Charge
@@ -151,7 +151,6 @@ const HigherStudiesContact = () => {
                     <h3 className="font-semibold text-main text-title-2">
                       Prof. Vasudev Parvati
                     </h3>
-                    <p className="text-gray-600">Asst. Professor</p>
                     <div className="flex items-center mt-2 text-main">
                       <Mail className="h-4 w-4 mr-2" />
                       <Link
@@ -164,7 +163,7 @@ const HigherStudiesContact = () => {
                     <div className="flex items-center mt-1 text-main">
                       <Phone className="h-4 w-4 mr-2" />
                       <Link href="tel:+919886376600" className="text-body">
-                        +91 9886376600
+                        +91 9845253751
                       </Link>
                     </div>
                   </div>
