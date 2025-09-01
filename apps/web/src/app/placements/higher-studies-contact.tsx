@@ -95,7 +95,7 @@ const HigherStudiesContact = () => {
                 </div>
               </div>
             </CardContent>
-            <CardFooter className="pt-0 !text-subheadline text-gray-600">
+            <CardFooter className="pt-0 text-lg text-gray-600">
               Feel free to reach out to Mr. Ujwal Doddamani for further
               assistance.
             </CardFooter>
