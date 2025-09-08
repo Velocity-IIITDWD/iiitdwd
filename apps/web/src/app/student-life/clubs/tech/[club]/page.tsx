@@ -229,7 +229,7 @@ export default async function ClubPage({
               <h2 className="mb-2 text-center text-title-1 font-bold">
                 About {clubData.name}
               </h2>
-              <p className="text-center text-body text-gray-700">
+              <p className="text-center text-body text-gray-700 whitespace-pre-wrap">
                 {clubData.description}
               </p>
             </div>
@@ -240,7 +240,7 @@ export default async function ClubPage({
                 <h2 className="mb-2 text-center text-title-1 font-bold">
                   Vision of {clubData.name}
                 </h2>
-                <p className="text-center text-body text-gray-700">
+                <p className="text-center text-body text-gray-700 whitespace-pre-wrap">
                   {clubData.vision}
                 </p>
               </div>
@@ -252,7 +252,7 @@ export default async function ClubPage({
                 <h2 className="mb-2 text-center text-title-1 font-bold">
                   Mission of {clubData.name}
                 </h2>
-                <p className="text-center text-body text-gray-700">
+                <p className="text-center text-body text-gray-700 whitespace-pre-wrap">
                   {clubData.mission}
                 </p>
               </div>
