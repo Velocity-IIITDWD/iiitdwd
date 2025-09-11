@@ -94,6 +94,10 @@ export const quickLinks: LinkItem[] = [
     title: "FAQ's",
     href: "/faq/",
   },
+  {
+    title: "CPI to Percentage Conversion Notes",
+    href: "/docs/6._CPI_to_Percentage_Conversion_notes.pdf",
+  },
 ];
 
 export const eligibilityCriteria: LinkItem[] = [
