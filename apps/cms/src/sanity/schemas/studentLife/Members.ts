@@ -29,7 +29,7 @@ const techClubNames = [
   "BlocSoc",
   "GDSC IIIT Dharwad",
   "E cell",
-  "IEEE SB & CS",
+  "IEEE SB",
   "Inquizitive",
   "IRIS",
   "DSAI Society",
