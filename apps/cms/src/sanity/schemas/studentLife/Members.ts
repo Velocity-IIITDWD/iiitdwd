@@ -27,7 +27,7 @@ const techClubNames = [
   "Velocity",
   "Return 0",
   "BlocSoc",
-  "GDSC IIIT Dharwad",
+  "GDG IIIT Dharwad",
   "E cell",
   "IEEE SB",
   "Inquizitive",
