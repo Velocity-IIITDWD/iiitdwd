@@ -17,11 +17,11 @@ import {
 } from "@/components/ui/table";
 import { ExternalLink, FileText, Search, X } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export type Jobs = {
   title: string;
-  category: "faculty" | "staff" | "others";
+  category: string;
   details: string;
   lastDate: string;
   generalInstructions: string;
@@ -35,29 +35,46 @@ export type Jobs = {
 
 const currDate = new Date();
 
-const checkValid = (s: string) => {
-  let jobDateString = s.trim();
+const checkValid = (s: string): boolean => {
+  const initial = (s ?? "").trim();
+  if (!initial) return false;
 
+  let jobDateString = initial;
   if (jobDateString.length <= 12) jobDateString += " 11:59 PM";
 
   const sanitizedString = jobDateString.replace(/'/g, "");
-  const [datePart, timePart] = sanitizedString.split(/\s*[\n\s]+\s*/);
+  const parts = sanitizedString.split(/\s*[\n\s]+\s*/);
+  const datePart = parts[0];
+  const timePart = parts[1] ?? "11:59 PM";
+  if (!datePart) return false;
 
   const dateSeparator = datePart.includes("/") ? "/" : ".";
-  const [day, month, year] = datePart.split(dateSeparator).map(Number);
+  const [dayStr, monthStr, yearStr] = datePart.split(dateSeparator);
+  const day = Number(dayStr);
+  const month = Number(monthStr);
+  const year = Number(yearStr);
+  if (!Number.isFinite(day) || !Number.isFinite(month) || !Number.isFinite(year)) return false;
 
   const [time, modifier] = timePart.split(" ");
-  const [hour, minute] = time?.split(":").map(Number);
+  const [hourStr, minuteStr] = (time ?? "11:59").split(":");
+  const hourNum = Number(hourStr);
+  const minuteNum = Number(minuteStr);
 
-  const adjustedHour = modifier === "PM" && hour !== 12 ? hour + 12 : hour;
-  const finalHour = modifier === "AM" && hour === 12 ? 0 : adjustedHour;
+  const adjustedHour = modifier === "PM" && hourNum !== 12 ? hourNum + 12 : hourNum;
+  const finalHour = modifier === "AM" && hourNum === 12 ? 0 : adjustedHour;
 
-  const jobDate = new Date(year, month - 1, day, finalHour, minute);
+  const jobDate = new Date(
+    year,
+    month - 1,
+    day,
+    Number.isFinite(finalHour) ? finalHour : 23,
+    Number.isFinite(minuteNum) ? minuteNum : 59
+  );
 
   return jobDate >= currDate;
 };
 
-export default function CareersPage({ Fulldata }: { Fulldata: Jobs[] }) {
+export default function CareersPage({ Fulldata, categories: initialCategories }: { Fulldata: Jobs[]; categories?: { value: string; title: string }[] }): JSX.Element {
   const [updatedJobsData, setUpdatedJobsData] = useState<Jobs[]>(Fulldata);
 
   useEffect(() => {
@@ -79,6 +96,68 @@ export default function CareersPage({ Fulldata }: { Fulldata: Jobs[] }) {
   const [category, setCategory] = useState("all");
   const [searchText, setSearchText] = useState("");
   const [filteredJobs, setFilteredJobs] = useState(updatedJobsData);
+  const categoryLabelMap: Record<string, string> = useMemo(() => {
+    const map: Record<string, string> = {
+      faculty: "Faculty",
+      staff: "Staff",
+      "phd/m.tech": "PhD/ M.Tech",
+      "project staff/research assistant": "Project Staff/ Research Assistant",
+    };
+    for (const c of initialCategories ?? []) map[c.value] = c.title;
+    return map;
+  }, [initialCategories]);
+
+  // Ensure dropdown always shows all allowed categories from CMS schema
+  const allowedCategoryList = useMemo(() => {
+    // Start with categories from CMS; fallback keeps known list if CMS returns none
+    const fromCms = (initialCategories ?? [])
+      .filter(c => c.value !== "others")
+      .map(c => ({ value: c.value, label: c.title }));
+    if (fromCms.length > 0) return fromCms;
+    return [
+      { value: "faculty", label: categoryLabelMap["faculty"] ?? "faculty" },
+      { value: "staff", label: categoryLabelMap["staff"] ?? "staff" },
+      { value: "phd/m.tech", label: categoryLabelMap["phd/m.tech"] ?? "phd/m.tech" },
+      {
+        value: "project staff/research assistant",
+        label: categoryLabelMap["project staff/research assistant"] ?? "project staff/research assistant",
+      },
+    ];
+  }, [initialCategories, categoryLabelMap]);
+
+  const categories = useMemo(() => {
+    const seen = new Set<string>();
+    const collected: { value: string; label: string }[] = [];
+
+    // 1) Include all allowed categories from schema first
+    for (const item of allowedCategoryList) {
+      if (!seen.has(item.value)) {
+        seen.add(item.value);
+        collected.push(item);
+      }
+    }
+
+    // 2) Add categories returned from query (initialCategories)
+    for (const c of initialCategories ?? []) {
+      const value = c.value;
+      if (value === "others") continue;
+      if (!seen.has(value)) {
+        seen.add(value);
+        collected.push({ value, label: categoryLabelMap[value] ?? value });
+      }
+    }
+
+    // 3) Add categories discovered in current data
+    for (const job of updatedJobsData) {
+      const value = job?.category;
+      if (value && value !== "others" && !seen.has(value)) {
+        seen.add(value);
+        collected.push({ value, label: categoryLabelMap[value] ?? value });
+      }
+    }
+
+    return collected;
+  }, [updatedJobsData, initialCategories, categoryLabelMap, allowedCategoryList]);
   useEffect(() => {
     setFilteredJobs(
       updatedJobsData
@@ -111,9 +190,11 @@ export default function CareersPage({ Fulldata }: { Fulldata: Jobs[] }) {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All</SelectItem>
-              <SelectItem value="faculty">Faculty</SelectItem>
-              <SelectItem value="staff">Staff</SelectItem>
-              <SelectItem value="others">Others</SelectItem>
+              {categories.map(cat => (
+                <SelectItem key={cat.value} value={cat.value}>
+                  {cat.label}
+                </SelectItem>
+              ))}
             </SelectContent>
           </Select>
 

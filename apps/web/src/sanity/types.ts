@@ -372,7 +372,7 @@ export type Job = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  category?: "faculty" | "staff" | "others";
+  category?: string;
   details?: string;
   lastDate?: string;
   generalInstructions?: string;

@@ -21,7 +21,8 @@ export const Jobs = defineType({
         list: [
           { title: "Faculty", value: "faculty" },
           { title: "Staff", value: "staff" },
-          { title: "Others", value: "others" },
+          { title: "PhD/ M.Tech", value: "phd/m.tech" },
+          { title: "Project Staff/ Research Assistant", value: "project staff/research assistant" }
         ],
       },
       description: "Category of the job",
