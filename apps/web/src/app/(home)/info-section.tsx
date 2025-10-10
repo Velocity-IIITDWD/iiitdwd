@@ -156,7 +156,7 @@ export default function InfoSection() {
             />
 
             <Image
-              src={"/images/PosterFinal.pdf.jpg"}
+              src={"/images/intra_iiitdwd.jpg"}
               alt="Director of IIIT Dharwad"
               width={220}
               height={300}
@@ -165,10 +165,11 @@ export default function InfoSection() {
               priority
             />
             <div className="text-title-1 font-semibold">
-              Batch of 2025, Welcome Aboard
+              Intra IIIT Dharwad Sports Event 2025
             </div>
             <div className="text-title-2 text-gray-600 mt-2">
-              An exciting journey at IIIT Dharwad awaits you!
+              Unite, play, and prove your mettle as IIIT Dharwad turns into a
+              sporting arena!
             </div>
           </Link>
 
