@@ -1,8 +1,8 @@
 import { type SchemaTypeDefinition } from "sanity";
 import {
-    descriptionStructure,
-    linksStructure,
-    seatStructure,
+  descriptionStructure,
+  linksStructure,
+  seatStructure,
 } from "./academics/Admission";
 import { Credit } from "./academics/Credits";
 import { cseDetail } from "./academics/CSEAcademics";
@@ -14,9 +14,9 @@ import { cgc } from "./cgc/cgc";
 import { About } from "./generalInfo/About";
 import { chairPerson } from "./generalInfo/ChairPerson";
 import {
-    ContactCategory,
-    ContactData,
-    ContactInf,
+  ContactCategory,
+  ContactData,
+  ContactInf,
 } from "./generalInfo/ContactInfo";
 import { former } from "./generalInfo/Former";
 import { JobCategory } from "./generalInfo/JobCategory";
@@ -37,14 +37,15 @@ import { krcData } from "./researchDevelopment/KrcData";
 import { krcDataTel } from "./researchDevelopment/KrcDataTel";
 import { krcDataTelFull } from "./researchDevelopment/KrcDataTelFull";
 import {
-    research,
-    researchAdvertisement,
+  research,
+  researchAdvertisement,
 } from "./researchDevelopment/Research";
 import { campusData } from "./studentLife/CampusData";
 import { EventInfo } from "./studentLife/Events";
 import { facilities } from "./studentLife/Facilities";
 import { FacultyAdvisor, Issues, Member, Team } from "./studentLife/Magazine";
-import { Club } from "./studentLife/Members";
+// import { Club } from "./studentLife/Members";
+import { culturalClubs, nonTechClubs, techClubs } from "./studentLife/Members";
 import { student_coordinators } from "./studentLife/student_coordinators";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -79,7 +80,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     FacultyAdvisor,
     Team,
     Issues,
-    Club,
+    // Club,
+    techClubs,
+    nonTechClubs,
+    culturalClubs,
     NIRF,
     Tender,
     AnnualReport,

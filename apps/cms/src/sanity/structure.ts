@@ -213,7 +213,15 @@ export const structure: StructureResolver = S =>
                 .child(S.documentTypeList("issues").title("Magazines")),
               S.listItem()
                 .title("Clubs")
-                .child(S.documentTypeList("club").title("Clubs")),
+                .child(
+                  S.list()
+                    .title("Clubs")
+                    .items([
+                      S.documentTypeListItem("techClub").title("Technical Clubs"),
+                      S.documentTypeListItem("nonTechClub").title("Non-Technical Clubs"),
+                      S.documentTypeListItem("culturalClub").title("Cultural Clubs"),
+                    ])
+                ),
               S.listItem()
                 .title("Student Coordinators")
                 .child(

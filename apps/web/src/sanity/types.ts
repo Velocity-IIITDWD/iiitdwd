@@ -270,6 +270,7 @@ export type Nirf = {
   engineeringReport?: string;
 };
 
+/*
 export type Club = {
   _id: string;
   _type: "club";
@@ -312,6 +313,194 @@ export type Club = {
   github?: string;
   twitter?: string;
   linktree?: string;
+};
+*/
+
+export type techClubs = {
+  _id: string;
+  _type: "techClubs";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?:
+    | "Velocity"
+    | "Return 0"
+    | "BlocSoc"
+    | "GDSC IIIT Dharwad"
+    | "E cell"
+    | "IEEE SB & CS"
+    | "Inquizitive"
+    | "IRIS"
+    | "DSAI Society"
+    | "Quantum Computing Club"
+    | "Techniosys"
+    | "GND_0 VLSI Club IIIT Dharwad";
+  description?: string;
+  logo?: string;
+  image?: string;
+  memberCount?: number;
+  members?: Array<{
+    name?: string;
+    position?: string;
+    image?: string;
+    _key: string;
+  }>;
+  alumni?: Array<{
+    name?: string;
+    position?: string;
+    image?: string;
+    _key: string;
+  }>;
+  faculty?: string;
+  profile_link?: string;
+  vision?: string;
+  mission?: string;
+  // meetingDetails?: Array<{
+  //   schedule?: string;
+  //   location?: string;
+  //   _key: string;
+  // }>;
+  events?: Array<{
+    title?: string;
+    description?: string;
+    images?: Array<{
+      image?: string;
+      _key: string;
+    }>;
+    videos?: Array<{
+      video?: string;
+      _key: string;
+    }>;
+    _key: string;
+  }>;
+  upcomingEvents?: Array<{
+    title?: string;
+    description?: string;
+    schedule?: string;
+  }>;
+  links?: Array<{
+    gmail?: string;
+    linkedin?: string;
+    instagram?: string;
+    website?: string;
+    github?: string;
+    twitter?: string;
+    _key: string;
+  }>;
+}
+
+export type nonTechClubs = {
+  _id: string;
+  _type: "nonTechClubs";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?:
+    | "Cricket Club"
+    | "Badminton Club"
+    | "Volleyball Club"
+    | "Basketball Club"
+    | "Athletics Club"
+    | "Counselling Cell"
+    | "Magazine Committee";
+  description?: string;
+  logo?: string;
+  image?: string;
+  memberCount?: number;
+  members?: Array<{
+    name?: string;
+    position?: string;
+    image?: string;
+    _key: string;
+  }>;
+  achievements?: Array<{
+    title?: string;
+    description?: string;
+    images?: Array<{
+      image?: string;
+      _key: string;
+    }>;
+    _key: string;
+  }>;
+  // meetingDetails?: Array<{
+  //   schedule?: string;
+  //   location?: string;
+  //   _key: string;
+  // }>;
+  links?: Array<{
+    gmail?: string;
+    instagram?: string;
+    twitter?: string;
+    _key: string;
+  }>;
+}
+
+export type CulturalClub = {
+  _id: string;
+  _type: "culturalClub";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?:
+    | "Zeitgeist"
+    | "Iridescence"
+    | "440 Hz"
+    | "Dynamight"
+    | "Prabodhini"
+    | "Mosaic Club"
+    | "In Motion"
+    | "LimeLight";
+  description?: string;
+  logo?: string;
+  image?: string;
+  memberCount?: number;
+  members?: Array<{
+    name?: string;
+    position?: string;
+    image?: string;
+    _key: string;
+  }>;
+  alumni?: Array<{
+    name?: string;
+    position?: string;
+    image?: string;
+    _key: string;
+  }>;
+  vision?: string;
+  mission?: string;
+  // meetingDetails?: {
+  //   schedule?: string;
+  //   location?: string;
+  // };
+  events?: Array<{
+    title?: string;
+    description?: string;
+    images?: Array<{
+      image?: string;
+      _key: string;
+    }>;
+    videos?: Array<{
+      video?: string;
+      _key: string;
+    }>;
+    _key: string;
+  }>;
+  upcomingEvents?: Array<{
+    title?: string;
+    description?: string;
+    schedule?: string;
+    _key: string;
+  }>;
+  links?: {
+    gmail?: string;
+    linkedin?: string;
+    instagram?: string;
+    twitter?: string;
+  };
+  slug?: {
+    current: string;
+    _type: 'slug';
+  }
 };
 
 export type Issues = {
@@ -913,7 +1102,10 @@ export type AllSanitySchemaTypes =
   | AnnualReport
   | Tender
   | Nirf
-  | Club
+  // | Club
+  | techClubs
+  | nonTechClubs
+  | CulturalClub
   | Issues
   | Team
   | FacultyAdvisor
