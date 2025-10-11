@@ -351,13 +351,15 @@ export type techClubs = {
     image?: string;
     _key: string;
   }>;
+  faculty?: string;
+  profile_link?: string;
   vision?: string;
   mission?: string;
-  meetingDetails?: Array<{
-    schedule?: string;
-    location?: string;
-    _key: string;
-  }>;
+  // meetingDetails?: Array<{
+  //   schedule?: string;
+  //   location?: string;
+  //   _key: string;
+  // }>;
   events?: Array<{
     title?: string;
     description?: string;
@@ -420,11 +422,11 @@ export type nonTechClubs = {
     }>;
     _key: string;
   }>;
-  meetingDetails?: Array<{
-    schedule?: string;
-    location?: string;
-    _key: string;
-  }>;
+  // meetingDetails?: Array<{
+  //   schedule?: string;
+  //   location?: string;
+  //   _key: string;
+  // }>;
   links?: Array<{
     gmail?: string;
     instagram?: string;
@@ -466,10 +468,10 @@ export type CulturalClub = {
   }>;
   vision?: string;
   mission?: string;
-  meetingDetails?: {
-    schedule?: string;
-    location?: string;
-  };
+  // meetingDetails?: {
+  //   schedule?: string;
+  //   location?: string;
+  // };
   events?: Array<{
     title?: string;
     description?: string;

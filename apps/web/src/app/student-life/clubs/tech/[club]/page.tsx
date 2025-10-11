@@ -45,6 +45,8 @@ interface Club {
   memberCount: number;
   members?: Array<{ name: string; position: string; image?: string }>;
   alumni?: Array<{ name: string; position: string; image?: string }>;
+  faculty?: string;
+  profile_link?: string;
   events?: Event[];
   upcomingEvents?: UpcomingEvent[];
   links?: Links;
@@ -100,6 +102,8 @@ async function getClubBySlug(slug: string): Promise<Club | null> {
       position,
       image
     },
+    faculty,
+    profile_link,
     events[]{
       title,
       description,
@@ -184,7 +188,7 @@ export default async function ClubPage({
 
   const breadcrumbs = [
     { title: "Home", href: "/" },
-    { title: "Student Life", href: "/student-life" },
+    { title: "Student Life", href: "/student-life/overview" },
     { title: "Clubs", href: "/student-life/clubs" },
     { title: "Technical Clubs", href: "/student-life/clubs/tech" },
     {
@@ -204,7 +208,7 @@ export default async function ClubPage({
             alt={`${clubData.name} cover image`}
             fill
             priority
-            className="object-cover object-center"
+            className="object-contain object-center"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />
@@ -299,6 +303,13 @@ export default async function ClubPage({
               </p>
             </div>
           </section>
+        )}
+
+        {/* Faculty Advisor Section */}
+        {(clubData.faculty && clubData.faculty.length > 0) && (clubData.profile_link && clubData.profile_link.length > 0) && (
+          <p className="mt-4 mb-17 text-center text-2xl text-body text-gray-700">
+            Faculty Advisor for the Club:{' '}<span className="hover:text-blue-600"><strong><a href={clubData.profile_link} target="_blank" rel="noopener noreferrer">{clubData.faculty}</a></strong></span>
+          </p>
         )}
 
         {/* Past Events Section */}

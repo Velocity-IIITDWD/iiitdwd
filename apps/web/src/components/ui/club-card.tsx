@@ -339,7 +339,8 @@ export function ClubCard({
                 src={imageUrl}
                 alt={name}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                style={{ objectFit: "cover" }} // Ensure the image covers the area without distortion
               />
             ) : (
               <div className="relative h-48 w-full bg-gray-200" />
@@ -371,13 +372,13 @@ export function ClubCard({
                   <span className="font-medium">{memberCount} members</span>
                 </div>
                 {/*meetingDetails.schedule && (
-                  <div className="flex items-center gap-2 text-[#001B3D]">
-                    <Calendar className="h-5 w-5" />
-                    {<span className="font-medium">
-                      {meetingDetails.schedule}
-                    </span>}
-                  </div>
-                )*/}
+                <div className="flex items-center gap-2 text-[#001B3D]">
+                  <Calendar className="h-5 w-5" />
+                  {<span className="font-medium">
+                    {meetingDetails.schedule}
+                  </span>}
+                </div>
+              )*/}
               </div>
             )}
           </div>
@@ -446,14 +447,14 @@ export function ClubCard({
                   <p className="text-gray-600">{mission}</p>
                 </div>
               )}
-              {meetingDetails?.schedule && meetingDetails?.location && (
+              {/* {meetingDetails?.schedule && meetingDetails?.location && (
                 <div>
                   <h4 className="font-semibold">📍 Meeting Details:</h4>
                   <p className="text-gray-600">
                     {meetingDetails.schedule} at {meetingDetails.location}
                   </p>
                 </div>
-              )}
+              )} */}
               {links &&
                 (links.instagram ||
                   links.linkedin ||

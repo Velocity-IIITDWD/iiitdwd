@@ -30,7 +30,7 @@ const techClubNames = [
   "GDG IIIT Dharwad",
   "E cell",
   "IEEE SB",
-  "Inquizitive",
+  "InQuizitive",
   "IRIS",
   "DSAI Society",
   "Quantum Computing Club",
@@ -60,6 +60,8 @@ const culturalClubNames = [
   "Prabodhini",
   "Mosaic Club",
   "LimeLight",
+  "Flavorhood",
+  "Out of Service",
 ]
 
 export const techClubs = defineType({
@@ -164,6 +166,18 @@ export const techClubs = defineType({
       ],
     }),
     defineField({
+      name: "faculty",
+      title: "Faculty Advisor",
+      type: "string",
+      description: "Faculty Advisor of the technical club",
+    }),
+    defineField({
+      name: "profile_link",
+      title: "Link to Faculty Profile",
+      type: "string",
+      description: "URL for faculty Profile",
+    }),
+    defineField({
       name: "vision",
       title: "Vision",
       type: "text",
@@ -175,26 +189,26 @@ export const techClubs = defineType({
       type: "text",
       description: "Mission of the technical club",
     }),
-    defineField({
-      name: "meetingDetails",
-      title: "Meeting Details",
-      type: "object",
-      description: "Details about the meetings of the technical club",
-      fields: [
-        defineField({
-          name: "schedule",
-          title: "Schedule",
-          type: "string",
-          description: "Meeting schedule (e.g., Weekly Fridays, 7:00 PM)",
-        }),
-        defineField({
-          name: "location",
-          title: "Location",
-          type: "string",
-          description: "Location of the meetings (e.g., E Block - Room 310)",
-        }),
-      ],
-    }),
+    // defineField({
+    //   name: "meetingDetails",
+    //   title: "Meeting Details",
+    //   type: "object",
+    //   description: "Details about the meetings of the technical club",
+    //   fields: [
+    //     defineField({
+    //       name: "schedule",
+    //       title: "Schedule",
+    //       type: "string",
+    //       description: "Meeting schedule (e.g., Weekly Fridays, 7:00 PM)",
+    //     }),
+    //     defineField({
+    //       name: "location",
+    //       title: "Location",
+    //       type: "string",
+    //       description: "Location of the meetings (e.g., E Block - Room 310)",
+    //     }),
+    //   ],
+    // }),
     defineField({
       name: "events",
       title: "Events",
@@ -490,26 +504,26 @@ export const nonTechClubs = defineType({
         }
       ]
     }),
-    defineField({
-      name: "meetingDetails",
-      title: "Meeting Details",
-      type: "object",
-      description: "Details about the meetings of the non-technical club",
-      fields: [
-        defineField({
-          name: "schedule",
-          title: "Schedule",
-          type: "string",
-          description: "Meeting schedule (e.g., Weekly Fridays, 7:00 PM)",
-        }),
-        defineField({
-          name: "location",
-          title: "Location",
-          type: "string",
-          description: "Location of the meetings (e.g., E Block - Room 310)",
-        }),
-      ],
-    }),
+    // defineField({
+    //   name: "meetingDetails",
+    //   title: "Meeting Details",
+    //   type: "object",
+    //   description: "Details about the meetings of the non-technical club",
+    //   fields: [
+    //     defineField({
+    //       name: "schedule",
+    //       title: "Schedule",
+    //       type: "string",
+    //       description: "Meeting schedule (e.g., Weekly Fridays, 7:00 PM)",
+    //     }),
+    //     defineField({
+    //       name: "location",
+    //       title: "Location",
+    //       type: "string",
+    //       description: "Location of the meetings (e.g., E Block - Room 310)",
+    //     }),
+    //   ],
+    // }),
     defineField({
       name: "links",
       title: "Links",
@@ -661,26 +675,26 @@ export const culturalClubs = defineField({
       type: "text",
       description: "Mission of the cultural club",
     }),
-    defineField({
-      name: "meetingDetails",
-      title: "Meeting Details",
-      type: "object",
-      description: "Details about the meetings of the cultural club",
-      fields: [
-        defineField({
-          name: "schedule",
-          title: "Schedule",
-          type: "string",
-          description: "Meeting schedule (e.g., Weekly Fridays, 7:00 PM)",
-        }),
-        defineField({
-          name: "location",
-          title: "Location",
-          type: "string",
-          description: "Location of the meetings (e.g., E Block - Room 310)",
-        }),
-      ],
-    }),
+    // defineField({
+    //   name: "meetingDetails",
+    //   title: "Meeting Details",
+    //   type: "object",
+    //   description: "Details about the meetings of the cultural club",
+    //   fields: [
+    //     defineField({
+    //       name: "schedule",
+    //       title: "Schedule",
+    //       type: "string",
+    //       description: "Meeting schedule (e.g., Weekly Fridays, 7:00 PM)",
+    //     }),
+    //     defineField({
+    //       name: "location",
+    //       title: "Location",
+    //       type: "string",
+    //       description: "Location of the meetings (e.g., E Block - Room 310)",
+    //     }),
+    //   ],
+    // }),
     defineField({
       name: "events",
       title: "Events",

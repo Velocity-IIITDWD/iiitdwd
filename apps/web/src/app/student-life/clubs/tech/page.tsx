@@ -300,6 +300,8 @@ async function getTechClubs(): Promise<Club[]> {
       schedule,
       location
     },
+    faculty,
+    profile_link,
     vision,
     mission,
     links{
@@ -318,6 +320,9 @@ async function getTechClubs(): Promise<Club[]> {
 export default async function TechClubsPage(): Promise<React.ReactElement> {
   const organizations = await getTechClubs();
 
+  // Sort organizations alphabetically by name
+  const sortedOrganizations = [...organizations].sort((a, b) => a.name.localeCompare(b.name));
+
   return (
     <main>
       <div className="w-full min-h-screen py-8">
@@ -332,7 +337,7 @@ export default async function TechClubsPage(): Promise<React.ReactElement> {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {organizations.map((org) => (
+            {sortedOrganizations.map((org) => (
               <ClubCard
                 key={org._id}
                 name={org.name}

@@ -161,9 +161,9 @@
 // }
 
 import { ClubCard } from "@/components/ui/club-card";
-import React from "react";
 import { createClient, type QueryParams } from "@sanity/client";
-import { config } from "../config"
+import React from "react";
+import { config } from "../config";
 
 interface Club {
   _id: string;
@@ -239,6 +239,9 @@ async function getCulturalClubs(): Promise<Club[]> {
 
 export default async function ClubsPage(): Promise<React.ReactElement> {
   const organizations = await getCulturalClubs();
+  const sortedOrganizations = [...organizations].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   return (
     <main>
@@ -262,7 +265,7 @@ export default async function ClubsPage(): Promise<React.ReactElement> {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {organizations.map((org) => (
+            {sortedOrganizations.map(org => (
               <ClubCard
                 key={org._id}
                 name={org.name}

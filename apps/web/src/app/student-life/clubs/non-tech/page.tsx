@@ -154,11 +154,10 @@
 //   );
 // }
 
-
 import { ClubCard } from "@/components/ui/club-card";
-import React from "react";
 import { createClient, type QueryParams } from "@sanity/client";
-import { config } from "../config"; 
+import React from "react";
+import { config } from "../config";
 
 interface Club {
   _id: string;
@@ -225,6 +224,9 @@ async function getNonTechClubs(): Promise<Club[]> {
 
 export default async function NonTechClubsPage(): Promise<React.ReactElement> {
   const organizations = await getNonTechClubs();
+  const sortedOrganizations = [...organizations].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   return (
     <main>
@@ -235,12 +237,19 @@ export default async function NonTechClubsPage(): Promise<React.ReactElement> {
               Non-Technical Clubs
             </h2>
             <p className="text-title-3 text-gray-600 max-w-4xl mx-auto">
-              Welcome to the diverse and dynamic world of Non-Technical Clubs at IIIT Dharwad! These clubs are the backbone of our student life, offering a vibrant array of activities that cater to every interest outside the realm of technology. From the thrill of competitive sports and the camaraderie of team games to the creative expression of literature and art, our non-technical clubs provide a platform for you to unwind, discover new passions, and build lifelong friendships.
+              Welcome to the diverse and dynamic world of Non-Technical Clubs at
+              IIIT Dharwad! These clubs are the backbone of our student life,
+              offering a vibrant array of activities that cater to every
+              interest outside the realm of technology. From the thrill of
+              competitive sports and the camaraderie of team games to the
+              creative expression of literature and art, our non-technical clubs
+              provide a platform for you to unwind, discover new passions, and
+              build lifelong friendships.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {organizations.map((org) => (
+            {sortedOrganizations.map(org => (
               <ClubCard
                 key={org._id}
                 name={org.name}

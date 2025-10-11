@@ -165,7 +165,7 @@ export default async function ClubPage({
 
   const breadcrumbs = [
     { title: "Home", href: "/" },
-    { title: "Student Life", href: "/student-life" },
+    { title: "Student Life", href: "/student-life/overview" },
     { title: "Clubs", href: "/student-life/clubs" },
     { title: "Non-Technical Clubs", href: "/student-life/clubs/non-tech" },
     {
@@ -185,7 +185,7 @@ export default async function ClubPage({
             alt={`${clubData.name} cover image`}
             fill
             priority
-            className="object-cover object-center"
+            className="object-contain object-center"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />

@@ -201,7 +201,7 @@ const navigationData: NavigationItem[] = [
   },
   {
     title: "Student life",
-    href: "#",
+    href: "/student-life/overview",
     items: [
       // {
       //   title: 'Overview',
@@ -209,6 +209,10 @@ const navigationData: NavigationItem[] = [
       //   meta: { disableLayout: true }
       // },
       // { title: 'Hostel', href: '/student-life/hostel' },
+      // {
+      //   title: "Overview",
+      //   href: "/student-life/overview",
+      // },
       {
         title: "IIC and Clubs",
         href: "/student-life/clubs",

@@ -238,12 +238,10 @@ export const GetTechClubs = `*[_type == "techClub"]{
     position,
     image,
   },
+  faculty,
+  profile_link,
   vision,
   mission,
-  meetingDetails {
-    schedule,
-    location
-  },
   events[] {
     title,
     description,
@@ -291,10 +289,6 @@ export const GetNonTechClubs = `*[_type == "nonTechClub"]{
     images[] {
         image,
     },
-  meetingDetails {
-    schedule,
-    location
-  },
   links {
     gmail,
     instagram,
@@ -321,10 +315,6 @@ export const GetCulturalClubs = `*[_type == "culturalClub"]{
   },
   vision,
   mission,
-  meetingDetails {
-    schedule,
-    location
-  },
   events[] {
     title,
     description,
