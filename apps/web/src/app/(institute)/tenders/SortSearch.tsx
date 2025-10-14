@@ -42,7 +42,7 @@ export default function SortSearch({
   setArchiveData,
 }: SortSearchProps): JSX.Element {
   const [sortAsc, setSortAsc] = useState(false);
-  const [sortBy, setSortBy] = useState("Recently Updated");
+  const [sortBy, setSortBy] = useState("Publish Date");
   const [searchFor, setSearchFor] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
 
