@@ -143,6 +143,32 @@ export default function ProgrammesPage() {
               <ArrowRightCircle className="text-main" size={30} />
             </div>
           </Link>
+
+          <Link
+            href="/docs/6._CPI_to_Percentage_Conversion_notes.pdf"
+            className="relative focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 hover:shadow-md cursor-pointer overflow-clip flex rounded-lg border w-full border-gray-400 bg-white hover:border-gray-500"
+          >
+            <div className="h-24 w-40 relative max-md:hidden">
+              <Image
+                  src="https://www.iiitdwd.ac.in/images/calendar.JPG"
+                  alt="CPI Calculation Formula"
+                  fill
+                  className="object-cover"
+                  priority
+              />
+            </div>
+            <div className="w-full flex items-center p-4">
+              <div className="flex flex-col justify-center flex-1 gap-1">
+                <span className="text-title-1 text-main font-semibold">
+                  CPI to Percentage Conversion
+                </span>
+                <span className="text-body font-normal">
+                  Learn how Cumulative Performance Index (CPI) translates to percentage scores.
+                </span>
+              </div>
+              <ArrowRightCircle className="text-main" size={30} />
+            </div>
+          </Link>
         </div>
       </div>
     </main>
