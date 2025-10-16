@@ -430,8 +430,8 @@ export const nonTechClubs = defineType({
       ],
     }),
     defineField({
-      name: "Alumni",
-      title: "alumni",
+      name: "alumni",
+      title: "Alumni",
       type: "array",
       description: "Alumni Info of the non-technical club",
       of: [
@@ -633,8 +633,8 @@ export const culturalClubs = defineField({
       ],
     }),
     defineField({
-      name: "Alumni",
-      title: "alumni",
+      name: "alumni",
+      title: "Alumni",
       type: "array",
       description: "Alumni Info of the cultural club",
       of: [
