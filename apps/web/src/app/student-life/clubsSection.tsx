@@ -18,7 +18,7 @@ export default function ClubsSection() {
             description="Form friendships, show talent, network, and build leadership skills."
             imgSrc="https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg"
             btnText="Visit Cultural Clubs"
-            link="/student-life/clubs/cultual"
+            link="/student-life/clubs/cultural"
           />
           <ClubCard
             title="Non-Tech Clubs"
