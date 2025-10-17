@@ -63,7 +63,6 @@ export const footerLinks = [
         href: "/website-team",
       },
       { text: "RTI", href: "/RTI" },
-      { text: "IIIT Laws 2020", href: "/docs/Indian_Institutes_of_Information_Technology_Laws__Amendment__Act__2020.pdf" }
     ],
   },
   {
