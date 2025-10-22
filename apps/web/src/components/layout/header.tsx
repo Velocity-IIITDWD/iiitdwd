@@ -79,7 +79,7 @@ function AnimatedNavbar() {
           <Link href={"/academics/nirf"}>NIRF</Link>
           <Link
             href={
-              "https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=6862046"
+              "https://onlinesbi.sbi.bank.in/sbicollect/icollecthome.htm?corpID=6862046"
             }
           >
             Students Fee Portal
