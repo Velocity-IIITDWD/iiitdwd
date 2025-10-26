@@ -35,4 +35,13 @@ export default [
     email: "sunil.kumar@iiitdwd.ac.in",
     imageUrl: "/images/Dr.SunilKumarPV.jpg",
   },
+  {
+    id: "5",
+    name: "Dr. Suvadip Hazra",
+    title: "Assistant Professor",
+    position: "Faculty-In-Charge",
+    department: "Examinations, NAD, and AIMS",
+    email: "suvadip@iiitdwd.ac.in",
+    imageUrl: "/images/Dr-Suvadip-Hazra.png",
+  }
 ];
