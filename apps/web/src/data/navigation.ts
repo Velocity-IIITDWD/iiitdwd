@@ -144,6 +144,10 @@ const navigationData: NavigationItem[] = [
             title: "IIIT Dharwad Statutes",
             href: "/docs/IIIT_Dharwad_statutes.pdf",
           },
+          {
+            title: "Medium of Instruction",
+            href: "/docs/Medium_of_Instruction_Certificate.pdf",
+          }
         ],
       },
     ],
