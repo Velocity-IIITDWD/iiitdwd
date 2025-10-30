@@ -117,7 +117,7 @@ export default function DesktopHeader() {
       {navigationData.map((item, index) => (
         <MenubarMenu key={index} value={item.title}>
           <MenubarTrigger
-            className="font-medium"
+            className="font-bold text-[14.7px] leading-tight text-gray-900 hover:text-primary transition-colors"
             onMouseEnter={() => setOpenMenu(item.title)}
             onClick={() =>
               item.href &&

@@ -49,7 +49,7 @@ export default function LandingSection({ images }: HeroProps): JSX.Element {
                     key={`first-${index}`}
                     src={url}
                     alt={`Campus Image ${index + 1}`}
-                    className="h-[calc(20vw-1.5px)] w-[calc(33vw-2.67px)] md:h-36 md:w-64 shadow"
+                    className="h-[calc(25vw-1.5px)] w-[calc(40vw-2.67px)] md:h-48 md:w-80 shadow"
                     height={144}
                     width={256}
                     loading="lazy"
@@ -68,7 +68,7 @@ export default function LandingSection({ images }: HeroProps): JSX.Element {
                     key={`second-${index}`}
                     src={url}
                     alt={`Campus Image ${index + 1 + firstRowImages.length}`}
-                    className="h-[calc(20vw-1.5px)] w-[calc(33vw-2.67px)] md:h-36 md:w-64 shadow"
+                    className="h-[calc(25vw-1.5px)] w-[calc(40vw-2.67px)] md:h-48 md:w-80 shadow"
                     height={144}
                     width={256}
                     loading="lazy"
@@ -85,11 +85,10 @@ export default function LandingSection({ images }: HeroProps): JSX.Element {
           )}
         </div>
         <div className=" px-5 md:px-13 py-12 font-grotesk">
-          <div className="mx-auto max-w-6xl w-full">
+          <div className="mx-auto max-w-7xl w-full">
             <div className="text-main-title uppercase text-center font-bold">
-              <div>Creating thinkers and leaders</div>
-              <div>in technology to positively</div>
-              <div>impact society</div>
+              <div>Creating thinkers and leaders in technology</div>
+              <div>to positively impact society</div>
             </div>
           </div>
         </div>
@@ -106,10 +105,10 @@ export default function LandingSection({ images }: HeroProps): JSX.Element {
           <QuickLink href="/admission" label="Admissions" />
           <QuickLink href="/amenities" label="Campus" />
           <QuickLink href="/scholarship/" label="Scholarships" />
-          <QuickLink
+          {/*<QuickLink
             href="/docs/B.Tech._Admission_Guidelines_for_2025-26_Students.pdf"
             label="Physical Reporting"
-          />
+          />*/}
         </div>
       </div>
     </div>
