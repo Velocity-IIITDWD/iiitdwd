@@ -129,16 +129,16 @@ function AnimatedNavbar() {
               bounce: 0.1,
             }}
           >
-            <span className="text-body font-normal mb-[2px]">
+            <span className="text-[16px] md:text-[18px] font-normal mb-[2px]">
               ಭಾರತೀಯ ಮಾಹಿತಿ ತಂತ್ರಜ್ಞಾನ ಸಂಸ್ಥೆ, ಧಾರವಾಡ
             </span>
-            <span className="text-body font-normal">
+            <span className="text-[16px] md:text-[18px] font-normal">
               भारतीय सूचना प्रौद्योगिकी संस्थान, धारवाड़
             </span>
-            <span className="text-body font-medium">
+            <span className="text-[17px] md:text-[20px] font-semibold">
               Indian Institute of Information Technology, Dharwad
             </span>
-            <div className="text-callout font-light">
+            <div className="text-[14px] md:text-[16px] font-light">
               [Institute of National Importance by An Act of Parliament]
             </div>
           </motion.div>
