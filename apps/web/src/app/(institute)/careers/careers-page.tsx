@@ -33,69 +33,64 @@ export type Jobs = {
   }[];
 };
 
-const currDate = new Date();
-
-const checkValid = (s: string): boolean => {
-  const initial = (s ?? "").trim();
-  if (!initial) return false;
-
-  let jobDateString = initial;
-  if (jobDateString.length <= 12) jobDateString += " 11:59 PM";
-
-  const sanitizedString = jobDateString.replace(/'/g, "");
-  const parts = sanitizedString.split(/\s*[\n\s]+\s*/);
-  const datePart = parts[0];
-  const timePart = parts[1] ?? "11:59 PM";
-  if (!datePart) return false;
-
-  const dateSeparator = datePart.includes("/") ? "/" : ".";
-  const [dayStr, monthStr, yearStr] = datePart.split(dateSeparator);
-  const day = Number(dayStr);
-  const month = Number(monthStr);
-  const year = Number(yearStr);
-  if (!Number.isFinite(day) || !Number.isFinite(month) || !Number.isFinite(year)) return false;
-
-  const [time, modifier] = timePart.split(" ");
-  const [hourStr, minuteStr] = (time ?? "11:59").split(":");
-  const hourNum = Number(hourStr);
-  const minuteNum = Number(minuteStr);
-
-  const adjustedHour = modifier === "PM" && hourNum !== 12 ? hourNum + 12 : hourNum;
-  const finalHour = modifier === "AM" && hourNum === 12 ? 0 : adjustedHour;
-
-  const jobDate = new Date(
-    year,
-    month - 1,
-    day,
-    Number.isFinite(finalHour) ? finalHour : 23,
-    Number.isFinite(minuteNum) ? minuteNum : 59
-  );
-
-  return jobDate >= currDate;
-};
-
-export default function CareersPage({ Fulldata, categories: initialCategories }: { Fulldata: Jobs[]; categories?: { value: string; title: string }[] }): JSX.Element {
+export default function CareersPage({
+  Fulldata,
+  categories: initialCategories,
+}: {
+  Fulldata: Jobs[];
+  categories?: { value: string; title: string }[];
+}): JSX.Element {
   const [updatedJobsData, setUpdatedJobsData] = useState<Jobs[]>(Fulldata);
 
+  // ✅ UPDATED SORT LOGIC
   useEffect(() => {
-    const data = Fulldata.map(job => {
-      //   const isDateValid = checkValid(job.lastDate);
-      return {
-        ...job,
-        // application: isDateValid ? job.application : '#',
-        actualDate: job.lastDate,
-      };
-    }).sort(
-      (a, b) =>
-        new Date(b.actualDate).getTime() - new Date(a.actualDate).getTime()
-    );
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset time to start of day for accurate comparison
 
-    setUpdatedJobsData(data);
+    const parseDate = (dateStr: string) => {
+      if (!dateStr || !dateStr.trim()) return null;
+      const date = new Date(dateStr);
+      return isNaN(date.getTime()) ? null : date;
+    };
+
+    const sorted = Fulldata
+      .map(job => ({
+        ...job,
+        parsedDate: parseDate(job.lastDate),
+      }))
+      .sort((a, b) => {
+        const aDate = a.parsedDate;
+        const bDate = b.parsedDate;
+
+        const aFuture = aDate ? aDate >= today : false;
+        const bFuture = bDate ? bDate >= today : false;
+
+        // 1) Future deadlines come first (sorted by soonest first)
+        if (aFuture && !bFuture) return -1;
+        if (!aFuture && bFuture) return 1;
+        if (aFuture && bFuture) {
+          return bDate!.getTime() - aDate!.getTime();
+        }
+
+        // 2) After future dates, NA values come next
+        const aIsNA = !aDate;
+        const bIsNA = !bDate;
+        
+        if (aIsNA && !bIsNA) return -1;
+        if (!aIsNA && bIsNA) return 1;
+        if (aIsNA && bIsNA) return 0;
+
+        // 3) Past deadlines come last (sorted by most recent first)
+        return bDate!.getTime() - aDate!.getTime();
+      });
+
+    setUpdatedJobsData(sorted);
   }, [Fulldata]);
 
   const [category, setCategory] = useState("all");
   const [searchText, setSearchText] = useState("");
   const [filteredJobs, setFilteredJobs] = useState(updatedJobsData);
+
   const categoryLabelMap: Record<string, string> = useMemo(() => {
     const map: Record<string, string> = {
       faculty: "Faculty",
@@ -107,9 +102,7 @@ export default function CareersPage({ Fulldata, categories: initialCategories }:
     return map;
   }, [initialCategories]);
 
-  // Ensure dropdown always shows all allowed categories from CMS schema
   const allowedCategoryList = useMemo(() => {
-    // Start with categories from CMS; fallback keeps known list if CMS returns none
     const fromCms = (initialCategories ?? [])
       .filter(c => c.value !== "others")
       .map(c => ({ value: c.value, label: c.title }));
@@ -120,7 +113,9 @@ export default function CareersPage({ Fulldata, categories: initialCategories }:
       { value: "phd/m.tech", label: categoryLabelMap["phd/m.tech"] ?? "phd/m.tech" },
       {
         value: "project staff/research assistant",
-        label: categoryLabelMap["project staff/research assistant"] ?? "project staff/research assistant",
+        label:
+          categoryLabelMap["project staff/research assistant"] ??
+          "project staff/research assistant",
       },
     ];
   }, [initialCategories, categoryLabelMap]);
@@ -129,7 +124,6 @@ export default function CareersPage({ Fulldata, categories: initialCategories }:
     const seen = new Set<string>();
     const collected: { value: string; label: string }[] = [];
 
-    // 1) Include all allowed categories from schema first
     for (const item of allowedCategoryList) {
       if (!seen.has(item.value)) {
         seen.add(item.value);
@@ -137,7 +131,6 @@ export default function CareersPage({ Fulldata, categories: initialCategories }:
       }
     }
 
-    // 2) Add categories returned from query (initialCategories)
     for (const c of initialCategories ?? []) {
       const value = c.value;
       if (value === "others") continue;
@@ -147,7 +140,6 @@ export default function CareersPage({ Fulldata, categories: initialCategories }:
       }
     }
 
-    // 3) Add categories discovered in current data
     for (const job of updatedJobsData) {
       const value = job?.category;
       if (value && value !== "others" && !seen.has(value)) {
@@ -158,16 +150,15 @@ export default function CareersPage({ Fulldata, categories: initialCategories }:
 
     return collected;
   }, [updatedJobsData, initialCategories, categoryLabelMap, allowedCategoryList]);
+
   useEffect(() => {
     setFilteredJobs(
       updatedJobsData
         .filter(job => category === "all" || job.category === category)
         .filter(job => {
           if (!searchText) return true;
-
           const title = job.title?.toLowerCase() || "";
           const details = job.details?.toLowerCase() || "";
-
           return title.includes(searchText) || details.includes(searchText);
         })
     );
