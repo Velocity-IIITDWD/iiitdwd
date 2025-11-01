@@ -147,7 +147,7 @@ export default function InfoSection() {
           <PlacementCard />
 
           <Link
-            href={"/admission"}
+            href={"https://linktr.ee/IIITDharwad?utm_source=qr_code"}
             className="[grid-area:6/2] md:[grid-area:6/2/span_1/span_2] lg:[grid-area:4/2] flex flex-col p-6 justify-end relative hover:bg-secondary/30 group transition-all duration-300"
           >
             <IconArrowUpRight
@@ -156,7 +156,7 @@ export default function InfoSection() {
             />
 
             <Image
-              src={"/images/intra_iiitdwd.jpg"}
+              src={"/images/avinya.png"}
               alt="Director of IIIT Dharwad"
               width={220}
               height={300}
@@ -165,11 +165,11 @@ export default function InfoSection() {
               priority
             />
             <div className="text-title-1 font-semibold">
-              Intra IIIT Dharwad Sports Event 2025
+              Avinya, the Techno-Cultural Fest of IIIT Dharwad, is live!
             </div>
             <div className="text-title-2 text-gray-600 mt-2">
-              Unite, play, and prove your mettle as IIIT Dharwad turns into a
-              sporting arena!
+              Celebrate innovation, culture, and creativity as IIIT Dharwad
+              comes alive with Avinya 2025 – the ultimate Techno-Cultural Fest!
             </div>
           </Link>
 
