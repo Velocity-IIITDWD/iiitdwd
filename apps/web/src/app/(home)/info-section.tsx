@@ -147,7 +147,7 @@ export default function InfoSection() {
           <PlacementCard />
 
           <Link
-            href={"https://linktr.ee/IIITDharwad?utm_source=qr_code"}
+            href={"https://avinya25.vercel.app/"}
             className="[grid-area:6/2] md:[grid-area:6/2/span_1/span_2] lg:[grid-area:4/2] flex flex-col p-6 justify-end relative hover:bg-secondary/30 group transition-all duration-300"
           >
             <IconArrowUpRight
