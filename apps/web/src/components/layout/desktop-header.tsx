@@ -41,7 +41,9 @@ export default function DesktopHeader() {
       if (item.items && item.items.length > 0) {
         return (
           <MenubarSub key={index}>
-            <MenubarSubTrigger>{item.title}</MenubarSubTrigger>
+            <MenubarSubTrigger className="hover:bg-primary hover:!text-white rounded-md transition-all duration-150 ease-out">
+              {item.title}
+            </MenubarSubTrigger>
             <MenubarSubContent asChild>
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
@@ -57,7 +59,9 @@ export default function DesktopHeader() {
                   if (subItem?.items && subItem.items.length > 0) {
                     return (
                       <MenubarSub key={subIndex}>
-                        <MenubarSubTrigger>{subItem.title}</MenubarSubTrigger>
+                        <MenubarSubTrigger className="hover:bg-primary hover:!text-white rounded-md transition-all duration-150 ease-out">
+                          {subItem.title}
+                        </MenubarSubTrigger>
                         <MenubarSubContent asChild>
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
@@ -75,7 +79,10 @@ export default function DesktopHeader() {
                                 nestedIndex: number
                               ) => (
                                 <MenubarItem key={nestedIndex} asChild>
-                                  <Link href={nestedItem.href!}>
+                                  <Link
+                                    href={nestedItem.href!}
+                                    className="hover:bg-primary hover:!text-white rounded-md transition-all duration-150 ease-out px-2 py-1 block"
+                                  >
                                     {nestedItem.title}
                                   </Link>
                                 </MenubarItem>
@@ -88,7 +95,12 @@ export default function DesktopHeader() {
                   } else {
                     return (
                       <MenubarItem key={subIndex} asChild>
-                        <Link href={subItem.href!}>{subItem.title}</Link>
+                        <Link
+                          href={subItem.href!}
+                          className="hover:bg-primary hover:text-white rounded-md transition-all duration-150 ease-out"
+                        >
+                          {subItem.title}
+                        </Link>
                       </MenubarItem>
                     );
                   }
@@ -110,7 +122,12 @@ export default function DesktopHeader() {
               })
             }
           >
-            <Link href={item.href!}>{item.title}</Link>
+            <Link
+              href={item.href!}
+              className="hover:bg-primary hover:text-white rounded-md transition-all duration-150 ease-out"
+            >
+              {item.title}
+            </Link>
           </MenubarItem>
         );
       }
@@ -126,7 +143,7 @@ export default function DesktopHeader() {
       {navigationData.map((item, index) => (
         <MenubarMenu key={index} value={item.title}>
           <MenubarTrigger
-            className="font-bold text-[14.7px] leading-tight text-gray-900 hover:text-primary transition-colors"
+            className="font-bold text-[14.7px] leading-tight text-gray-900 hover:bg-primary hover:!text-white rounded-md px-3 py-1.5 transition-all duration-150 ease-out"
             onMouseEnter={() => setOpenMenu(item.title)}
             onClick={() =>
               item.href &&
@@ -138,7 +155,9 @@ export default function DesktopHeader() {
             }
           >
             {item?.href ? (
-              <Link href={item?.href}>{item.title}</Link>
+              <Link href={item?.href} className="hover:!text-white">
+                {item.title}
+              </Link>
             ) : (
               item.title
             )}
@@ -168,7 +187,7 @@ export default function DesktopHeader() {
       {/* Search button - shows only when scrolled */}
       {isScrolled && (
         <button
-          className="text-gray-600 hover:text-primary rounded-full bg-tertiary/20 px-2 py-1 flex items-center text-body cursor-pointer"
+          className="text-gray-600 hover:text-primary rounded-full bg-tertiary/20 px-2 py-1 flex items-center text-body cursor-pointer transition-colors duration-150"
           onClick={() => {
             query.toggle();
             trackEvent({
