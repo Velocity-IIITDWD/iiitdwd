@@ -72,9 +72,9 @@ function AnimatedNavbar() {
         }}
         className="sticky top-0 flex flex-col left-0 w-full right-0 z-50 bg-white shadow-md overflow-hidden"
       >
-        {/* Top row: logo + text + search (only when NOT scrolled) + mobile toggle */}
-        <div className="w-full flex items-start justify-between px-4 md:px-8 py-2">
-          <div className="flex gap-4 items-start flex-1">
+        {/* Top row: logo + text + compact nav + search + mobile toggle */}
+        <div className="w-full flex items-start justify-between px-4 md:px-8 py-2 gap-2">
+          <div className="flex gap-4 items-start flex-1 min-w-0">
             {/* Logo */}
             <motion.div
               animate={{
@@ -83,6 +83,7 @@ function AnimatedNavbar() {
                   : "clamp(4rem, 6vw, 6rem)",
               }}
               transition={{ type: "spring", visualDuration: 0.8, bounce: 0.1 }}
+              className="flex-shrink-0"
             >
               <Link href="/" className="relative">
                 <Image
@@ -98,7 +99,7 @@ function AnimatedNavbar() {
 
             {/* Institute name – hidden on scroll */}
             <motion.div
-              className="flex flex-col max-xl:hidden w-fit text-primary text-left"
+              className="flex flex-col max-xl:hidden w-fit text-primary text-left flex-shrink-0"
               animate={{
                 opacity: isScrolled ? 0 : 1,
                 x: isScrolled ? "-20px" : "0px",
@@ -106,7 +107,7 @@ function AnimatedNavbar() {
               transition={{ type: "spring", visualDuration: 0.8, bounce: 0.1 }}
             >
               <span className="text-[16px] md:text-[18px] font-normal mb-[2px]">
-                ಭಾರತೀಯ ಮಾಹಿತಿ ತಂತ್ರಜ್ಞಾನ ಸಂಸ್ಥೆ, ಧಾರವಾಡ
+                ಭಾರತೀಯ ಮಾಹಿತಿ ತಂತ್ರಜ್ಞಾನ ಸಂಸ್ಥೆ, ಧಾರವಾಳ
               </span>
               <span className="text-[16px] md:text-[18px] font-normal">
                 भारतीय सूचना प्रौद्योगिकी संस्थान, धारवाड़
@@ -119,34 +120,34 @@ function AnimatedNavbar() {
               </div>
             </motion.div>
 
-            {/* Compact nav – appears beside logo when scrolled */}
+            {/* Compact nav – appears on scroll, positioned left with search space */}
             <motion.div
-              className="hidden lg:flex items-start flex-1 justify-center px-4 whitespace-nowrap overflow-hidden"
+              className="hidden lg:flex items-center flex-1 min-w-0"
               animate={{
                 opacity: isScrolled ? 1 : 0,
-                x: isScrolled ? "0px" : "-20px",
+                x: isScrolled ? "-4rem" : "-20px",
               }}
               transition={{ type: "spring", visualDuration: 0.8, bounce: 0.1 }}
               style={{ pointerEvents: isScrolled ? "auto" : "none" }}
             >
-              <div className="flex gap-0.5 text-sm">
+              <div className="flex gap-0 text-sm flex-shrink-0">
                 <DesktopHeader hideSearch={true} />
               </div>
             </motion.div>
           </div>
 
-          {/* Search button – visible ONLY when NOT scrolled */}
+          {/* Search button – VISIBLE when NOT scrolled, HIDDEN when scrolled */}
           <motion.div
-            className="hidden lg:flex items-center"
+            className="hidden lg:flex items-center flex-shrink-0"
             animate={{
               opacity: isScrolled ? 0 : 1,
               display: isScrolled ? "none" : "flex",
-              x: isScrolled ? "20px" : "0px",
+              x: isScrolled ? "60px" : "0px",
             }}
             transition={{ type: "spring", visualDuration: 0.8, bounce: 0.1 }}
           >
             <button
-              className="text-gray-600 hover:text-primary rounded-full bg-tertiary/20 px-2 py-1 flex items-center text-body cursor-pointer"
+              className="text-gray-600 hover:text-primary rounded-full bg-tertiary/20 px-2 py-1 flex items-center text-body cursor-pointer transition-colors duration-150"
               onClick={() => {
                 query.toggle();
                 trackEvent({
@@ -167,7 +168,7 @@ function AnimatedNavbar() {
           </motion.div>
 
           {/* Mobile menu toggle */}
-          <div className="lg:hidden z-10">
+          <div className="lg:hidden z-10 flex-shrink-0">
             <Button
               variant="ghost"
               size="icon"
@@ -210,7 +211,7 @@ function AnimatedNavbar() {
           }}
           transition={{ type: "spring", visualDuration: 0.8, bounce: 0.1 }}
         >
-          <div className="px-4 py-3 w-full flex justify-center items-center">
+          <div className="px-4 md:px-8 py-3 w-full flex justify-center items-center">
             <DesktopHeader hideSearch={true} />
           </div>
         </motion.div>
