@@ -98,7 +98,7 @@ export default function LandingSection({ images }: HeroProps): JSX.Element {
         className="w-fit uppercase my-10 flex max-md:flex-col max-md:w-full items-center gap-4 py-4"
       >
         <div className="hidden text-title-3 md:block whitespace-nowrap text-gray-500">
-          Quick Links:
+          <strong>Quick Links:</strong>
         </div>
         <div className="flex gap-1 md:gap-4 max-md:flex-col w-full max-md:max-w-[260px] items-center">
           <QuickLink href="/academics/programmes" label="Academics" />
