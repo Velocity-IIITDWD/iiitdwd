@@ -13,7 +13,7 @@ import { trackEvent } from "@/lib/ga";
 import { NavigationItem } from "@/types/navigation";
 import { useKBar } from "kbar";
 import { Command, Search } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -21,6 +21,16 @@ export default function DesktopHeader() {
   const { query } = useKBar();
   const [openMenu, setOpenMenu] = useState<string>("");
   const [isMacOS, setIsMacOS] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", latest => {
+    if (latest > 0 && !isScrolled) {
+      setIsScrolled(true);
+    } else if (latest == 0 && isScrolled) {
+      setIsScrolled(false);
+    }
+  });
 
   useEffect(() => {
     setIsMacOS(window.navigator.platform.toLowerCase().includes("mac"));
@@ -112,7 +122,6 @@ export default function DesktopHeader() {
       className="border-b max-lg:hidden border-none px-2"
       value={openMenu}
       onValueChange={setOpenMenu}
-      // onMouseLeave={() => setOpenMenu('')}
     >
       {navigationData.map((item, index) => (
         <MenubarMenu key={index} value={item.title}>
@@ -138,7 +147,6 @@ export default function DesktopHeader() {
             <MenubarContent
               asChild
               onMouseEnter={() => setOpenMenu(item.title)}
-              // onMouseLeave={() => setOpenMenu('')}
             >
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
@@ -157,25 +165,28 @@ export default function DesktopHeader() {
         </MenubarMenu>
       ))}
 
-      <button
-        className="text-gray-600 hover:text-primary rounded-full bg-tertiary/20 px-2 py-1 flex items-center text-body cursor-pointer"
-        onClick={() => {
-          query.toggle();
-          trackEvent({
-            action: "click",
-            category: "search",
-            label: "command_palette",
-          });
-        }}
-      >
-        <Search size={14} className="mr-3" />
-        {isMacOS ? (
-          <Command size={14} className="mr-1" />
-        ) : (
-          <span className="mr-1">Ctrl</span>
-        )}
-        K
-      </button>
+      {/* Search button - shows only when scrolled */}
+      {isScrolled && (
+        <button
+          className="text-gray-600 hover:text-primary rounded-full bg-tertiary/20 px-2 py-1 flex items-center text-body cursor-pointer"
+          onClick={() => {
+            query.toggle();
+            trackEvent({
+              action: "click",
+              category: "search",
+              label: "command_palette",
+            });
+          }}
+        >
+          <Search size={14} className="mr-3" />
+          {isMacOS ? (
+            <Command size={14} className="mr-1" />
+          ) : (
+            <span className="mr-1">Ctrl</span>
+          )}
+          K
+        </button>
+      )}
     </Menubar>
   );
 }
