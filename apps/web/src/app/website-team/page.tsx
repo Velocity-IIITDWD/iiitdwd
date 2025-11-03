@@ -14,10 +14,211 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
-import { data as teamMembers } from "@/data/website-team";
+import { alumniTeam, currentTeam, TeamMember } from "@/data/website-team";
 
 const MotionLink = motion(Link);
 
+/* -------------------------------------------------------------
+   Re-usable card component – works for both current & alumni
+   ------------------------------------------------------------- */
+function MemberCard({
+  member,
+  index,
+  hoveredMember,
+  setHoveredMember,
+  expandedSkills,
+  toggleSkills,
+}: {
+  member: TeamMember;
+  index: number;
+  hoveredMember: string | null;
+  setHoveredMember: (id: string | null) => void;
+  expandedSkills: Record<string, boolean>;
+  toggleSkills: (id: string) => void;
+}) {
+  return (
+    <motion.div
+      key={member.id}
+      className="relative group"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      whileHover={{ scale: 1.02 }}
+      onHoverStart={() => setHoveredMember(member.id)}
+      onHoverEnd={() => setHoveredMember(null)}
+    >
+      <div className="relative overflow-hidden rounded-xl bg-card border border-border/50 backdrop-blur-sm shadow-lg transition-all duration-300 group-hover:shadow-xl h-full">
+        <div className="absolute bottom-0 right-0 w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-[--main]/20 -translate-y-1/2 translate-x-1/2 blur-xl" />
+
+        <div className="aspect-square relative overflow-hidden">
+          <motion.div
+            className="h-full w-full"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Image
+              src={member.image || "/placeholder.svg"}
+              alt={`Photo of ${member.name}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              priority={index < 4}
+            />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: hoveredMember === member.id ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="w-full">
+                <p className="text-white text-title-3 line-clamp-3 mb-3">
+                  {member.bio}
+                </p>
+                <div className="flex gap-3 justify-end">
+                  {member.social.github && (
+                    <MotionLink
+                      href={member.social.github}
+                      className="text-white/90 hover:text-white transition-colors bg-black/30 rounded-full p-1.5"
+                      aria-label={`${member.name}'s GitHub profile`}
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="h-4 w-4" />
+                    </MotionLink>
+                  )}
+                  {member.social.twitter && (
+                    <MotionLink
+                      href={member.social.twitter}
+                      className="text-white/90 hover:text-white transition-colors bg-black/30 rounded-full p-1.5"
+                      aria-label={`${member.name}'s Twitter profile`}
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Twitter className="h-4 w-4" />
+                    </MotionLink>
+                  )}
+                  {member.social.linkedin && (
+                    <MotionLink
+                      href={member.social.linkedin}
+                      className="text-white/90 hover:text-white transition-colors bg-black/30 rounded-full p-1.5"
+                      aria-label={`${member.name}'s LinkedIn profile`}
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                    </MotionLink>
+                  )}
+                  {member.social.email && (
+                    <MotionLink
+                      href={`mailto:${member.social.email}`}
+                      className="text-white/90 hover:text-white transition-colors bg-black/30 rounded-full p-1.5"
+                      aria-label={`Email ${member.name}`}
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <Mail className="h-4 w-4" />
+                    </MotionLink>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        <div className="p-4 relative">
+          <div className="flex justify-between items-start">
+            <div>
+              <h2 className="text-title-2 font-bold leading-tight">
+                {member.name}
+              </h2>
+              <p className="text-callout text-muted-foreground">
+                {member.role}
+              </p>
+            </div>
+            <motion.button
+              onClick={() => toggleSkills(member.id)}
+              className="text-muted-foreground hover:text-foreground transition-colors bg-muted/50 rounded-full p-1"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label={
+                expandedSkills[member.id] ? "Collapse skills" : "Expand skills"
+              }
+            >
+              {expandedSkills[member.id] ? (
+                <ChevronUp className="h-3 w-3" />
+              ) : (
+                <ChevronDown className="h-3 w-3" />
+              )}
+            </motion.button>
+          </div>
+
+          <div className="relative mt-2">
+            {/* Always visible skills */}
+            <div className="flex flex-wrap gap-1">
+              {member.skills.slice(0, 3).map(skill => (
+                <Badge
+                  key={skill}
+                  variant="secondary"
+                  className="text-callout px-1.5 py-0 font-normal bg-secondary/50 hover:bg-secondary/70 transition-colors"
+                >
+                  {skill}
+                </Badge>
+              ))}
+              {!expandedSkills[member.id] && member.skills.length > 3 && (
+                <Badge
+                  variant="outline"
+                  className="text-[10px] px-1.5 py-0 font-normal cursor-pointer hover:bg-muted/80"
+                  onClick={() => toggleSkills(member.id)}
+                >
+                  +{member.skills.length - 3}
+                </Badge>
+              )}
+            </div>
+
+            {/* Expandable skills */}
+            <AnimatePresence>
+              {expandedSkills[member.id] && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-2 overflow-hidden"
+                >
+                  <div className="flex flex-wrap gap-1">
+                    {member.skills.slice(3).map(skill => (
+                      <Badge
+                        key={skill}
+                        variant="secondary"
+                        className="text-[10px] px-1.5 py-0 font-normal bg-secondary/50 hover:bg-secondary/70 transition-colors"
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+/* -------------------------------------------------------------
+   Main page component
+   ------------------------------------------------------------- */
 export default function TeamPage() {
   const [expandedSkills, setExpandedSkills] = useState<Record<string, boolean>>(
     {}
@@ -32,7 +233,7 @@ export default function TeamPage() {
     }));
   };
 
-  // Particle animation setup
+  /* ---------- PARTICLE BACKGROUND (unchanged) ---------- */
   useEffect(() => {
     const canvas = document.getElementById("particles") as HTMLCanvasElement;
     if (!canvas) return;
@@ -106,6 +307,7 @@ export default function TeamPage() {
     };
   }, []);
 
+  /* ---------- RENDER ---------- */
   return (
     <>
       <canvas
@@ -114,6 +316,7 @@ export default function TeamPage() {
       />
 
       <div className="container relative z-10 py-12 px-4 md:px-6 md:py-16 lg:py-24 mx-auto max-w-7xl">
+        {/* Header */}
         <motion.div
           className="mx-auto max-w-4xl text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -129,192 +332,46 @@ export default function TeamPage() {
           </p>
         </motion.div>
 
-        <div
-          ref={containerRef}
-          className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8"
-        >
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={member.id}
-              className="relative group"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              whileHover={{ scale: 1.02 }}
-              onHoverStart={() => setHoveredMember(member.id)}
-              onHoverEnd={() => setHoveredMember(null)}
+        {/* ---------- CURRENT TEAM ---------- */}
+        {currentTeam.length > 0 && (
+          <>
+            <h2 className="text-3xl font-semibold text-center mb-8 text-primary">
+              Current Team
+            </h2>
+            <div
+              ref={containerRef}
+              className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mb-16"
             >
-              <div className="relative overflow-hidden rounded-xl bg-card border border-border/50 backdrop-blur-sm shadow-lg transition-all duration-300 group-hover:shadow-xl h-full">
-                {/* Decorative elements */}
-                {/* Removed top gradient bar */}
-                <div className="absolute bottom-0 right-0 w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-[--main]/20 -translate-y-1/2 translate-x-1/2 blur-xl" />
+              {currentTeam.map((member, idx) => (
+                <MemberCard
+                  key={member.id}
+                  member={member}
+                  index={idx}
+                  hoveredMember={hoveredMember}
+                  setHoveredMember={setHoveredMember}
+                  expandedSkills={expandedSkills}
+                  toggleSkills={toggleSkills}
+                />
+              ))}
+            </div>
+          </>
+        )}
 
-                <div className="aspect-square relative overflow-hidden">
-                  <motion.div
-                    className="h-full w-full"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <Image
-                      src={member.image || "/placeholder.svg"}
-                      alt={`Photo of ${member.name}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      priority={index < 4}
-                    />
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-4"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: hoveredMember === member.id ? 1 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="w-full">
-                        <p className="text-white text-title-3 line-clamp-3 mb-3">
-                          {member.bio}
-                        </p>
-                        <div className="flex gap-3 justify-end">
-                          {member.social.github && (
-                            <MotionLink
-                              href={member.social.github}
-                              className="text-white/90 hover:text-white transition-colors bg-black/30 rounded-full p-1.5"
-                              aria-label={`${member.name}'s GitHub profile`}
-                              whileHover={{ scale: 1.2, rotate: 5 }}
-                              whileTap={{ scale: 0.9 }}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Github className="h-4 w-4" />
-                            </MotionLink>
-                          )}
-                          {member.social.twitter && (
-                            <MotionLink
-                              href={member.social.twitter}
-                              className="text-white/90 hover:text-white transition-colors bg-black/30 rounded-full p-1.5"
-                              aria-label={`${member.name}'s Twitter profile`}
-                              whileHover={{ scale: 1.2, rotate: 5 }}
-                              whileTap={{ scale: 0.9 }}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Twitter className="h-4 w-4" />
-                            </MotionLink>
-                          )}
-                          {member.social.linkedin && (
-                            <MotionLink
-                              href={member.social.linkedin}
-                              className="text-white/90 hover:text-white transition-colors bg-black/30 rounded-full p-1.5"
-                              aria-label={`${member.name}'s LinkedIn profile`}
-                              whileHover={{ scale: 1.2, rotate: 5 }}
-                              whileTap={{ scale: 0.9 }}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <Linkedin className="h-4 w-4" />
-                            </MotionLink>
-                          )}
-                          {member.social.email && (
-                            <MotionLink
-                              href={`mailto:${member.social.email}`}
-                              className="text-white/90 hover:text-white transition-colors bg-black/30 rounded-full p-1.5"
-                              aria-label={`Email ${member.name}`}
-                              whileHover={{ scale: 1.2, rotate: 5 }}
-                              whileTap={{ scale: 0.9 }}
-                            >
-                              <Mail className="h-4 w-4" />
-                            </MotionLink>
-                          )}
-                        </div>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                </div>
-
-                <div className="p-4 relative">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h2 className="text-title-2 font-bold leading-tight">
-                        {member.name}
-                      </h2>
-                      <p className="text-callout text-muted-foreground">
-                        {member.role}
-                      </p>
-                    </div>
-                    <motion.button
-                      onClick={() => toggleSkills(member.id)}
-                      className="text-muted-foreground hover:text-foreground transition-colors bg-muted/50 rounded-full p-1"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      aria-label={
-                        expandedSkills[member.id]
-                          ? "Collapse skills"
-                          : "Expand skills"
-                      }
-                    >
-                      {expandedSkills[member.id] ? (
-                        <ChevronUp className="h-3 w-3" />
-                      ) : (
-                        <ChevronDown className="h-3 w-3" />
-                      )}
-                    </motion.button>
-                  </div>
-
-                  <div className="relative mt-2">
-                    {/* Always visible skills */}
-                    <div className="flex flex-wrap gap-1">
-                      {member.skills.slice(0, 3).map(skill => (
-                        <Badge
-                          key={skill}
-                          variant="secondary"
-                          className="text-callout px-1.5 py-0 font-normal bg-secondary/50 hover:bg-secondary/70 transition-colors"
-                        >
-                          {skill}
-                        </Badge>
-                      ))}
-                      {!expandedSkills[member.id] &&
-                        member.skills.length > 3 && (
-                          <Badge
-                            variant="outline"
-                            className="text-[10px] px-1.5 py-0 font-normal cursor-pointer hover:bg-muted/80"
-                            onClick={() => toggleSkills(member.id)}
-                          >
-                            +{member.skills.length - 3}
-                          </Badge>
-                        )}
-                    </div>
-
-                    {/* Expandable skills */}
-                    <AnimatePresence>
-                      {expandedSkills[member.id] && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="mt-2 overflow-hidden"
-                        >
-                          <div className="flex flex-wrap gap-1">
-                            {member.skills.slice(3).map(skill => (
-                              <Badge
-                                key={skill}
-                                variant="secondary"
-                                className="text-[10px] px-1.5 py-0 font-normal bg-secondary/50 hover:bg-secondary/70 transition-colors"
-                              >
-                                {skill}
-                              </Badge>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+        {/* ---------- ALUMNI ---------- */}
+        <h2 className="text-3xl font-semibold text-center mb-8 text-primary/80">
+          Alumni
+        </h2>
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+          {alumniTeam.map((member, idx) => (
+            <MemberCard
+              key={member.id}
+              member={member}
+              index={idx}
+              hoveredMember={hoveredMember}
+              setHoveredMember={setHoveredMember}
+              expandedSkills={expandedSkills}
+              toggleSkills={toggleSkills}
+            />
           ))}
         </div>
       </div>
