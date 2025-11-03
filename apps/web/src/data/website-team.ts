@@ -13,11 +13,30 @@ export interface TeamMember {
   };
 }
 
-export const data: TeamMember[] = [
+/* ---------- CURRENT TEAM ---------- */
+export const currentTeam: TeamMember[] = [
+  {
+    id: "barghav",
+    name: "Barghav Abhilash B R",
+    role: "Lead",
+    bio: "Lazy Full-Stack Dev and still exploring",
+    skills: ["Js", "Ts", "Angular", "Next.js", "PostgreSQL"],
+    image: "/images/website_m1.jpg",
+    social: {
+      twitter: "https://x.com/GFless_Kurrodu",
+      github: "https://github.com/Meow-Codes",
+      linkedin: "https://www.linkedin.com/in/barghav-abhilash-b-r-2ab2ba29a/",
+      email: "barghavabhilash@gmail.com",
+    },
+  },
+];
+
+/* ---------- ALUMNI ---------- */
+export const alumniTeam: TeamMember[] = [
   {
     id: "pratik",
     name: "Pratik Pakhale",
-    role: "Lead",
+    role: "Alumni",
     bio: "Web Enthusiast",
     skills: ["Infra", "JS", "Python", "Go"],
     image: "https://iiitdwd.ac.in/images/pratik-pakhale.webp",
@@ -28,11 +47,10 @@ export const data: TeamMember[] = [
       email: "pratikpakhale20@gmail.com",
     },
   },
-
   {
     id: "nikhil",
     name: "Nikhil Karthik",
-    role: "Lead",
+    role: "Alumni",
     bio: "Web and Game Developer",
     skills: ["JS", "Python", "Java", "OpenGL", "Metal"],
     image: "https://iiitdwd.ac.in/images/nikhil-karthik.jpg",
@@ -46,7 +64,7 @@ export const data: TeamMember[] = [
   {
     id: "shreyansh",
     name: "Shreyansh Tiwari",
-    role: "Member",
+    role: "Alumni",
     bio: "",
     skills: ["NextJS"],
     image: "https://iiitdwd.ac.in/images/shreyansh-tiwari.jpeg",
@@ -55,7 +73,7 @@ export const data: TeamMember[] = [
   {
     id: "ashith",
     name: "Ashith Shetty",
-    role: "Member",
+    role: "Alumni",
     bio: "",
     skills: ["NextJS"],
     image: "https://iiitdwd.ac.in/images/ashith-shetty.jpg",
@@ -64,7 +82,7 @@ export const data: TeamMember[] = [
   {
     id: "karan",
     name: "Karan Naik",
-    role: "Member",
+    role: "Alumni",
     bio: "",
     skills: ["NextJS"],
     image: "https://iiitdwd.ac.in/images/karan-naik.jpg",
@@ -73,7 +91,7 @@ export const data: TeamMember[] = [
   {
     id: "ashitosh",
     name: "Ashitosh Sable",
-    role: "Member",
+    role: "Alumni",
     bio: "Contributor",
     skills: ["UI"],
     image: "https://iiitdwd.ac.in/images/ashitosh-sable.jpg",
@@ -82,7 +100,7 @@ export const data: TeamMember[] = [
   {
     id: "vineeth",
     name: "Pj Vineeth Kumar",
-    role: "Member",
+    role: "Alumni",
     bio: "Designer and Developer",
     skills: ["Figma", "React", "NextJS"],
     image: "https://iiitdwd.ac.in/images/pj-vineeth-kumar.jpg",
@@ -96,7 +114,7 @@ export const data: TeamMember[] = [
   {
     id: "harsh",
     name: "Harsh Soni",
-    role: "Ex-Member",
+    role: "Alumni",
     bio: `I'm a passionate full-stack developer with an interest in cybersecurity and Web3, currently pursuing BTech in Computer Science and Engineering at IIIT Dharwad. I've led teams to develop dynamic web applications`,
     skills: ["Javascript", "MERN", "AWS", "Docker", "Wagmi", "Viem"],
     image: "https://iiitdwd.ac.in/images/harsh-soni.jpeg",
@@ -109,7 +127,7 @@ export const data: TeamMember[] = [
   {
     id: "abhigyan",
     name: "Abhigyan Niranjan",
-    role: "Ex-Member",
+    role: "Alumni",
     bio: "I love solving technical problems and exploring new technologies. I am a fullstack developer with a strong focus and expertise in backend development.",
     skills: [
       "TypeScript",
