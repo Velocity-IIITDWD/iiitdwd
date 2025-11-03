@@ -29,6 +29,20 @@ export const currentTeam: TeamMember[] = [
       email: "barghavabhilash@gmail.com",
     },
   },
+  {
+    id: "shardendu",
+    name: "Shardendu Mishra",
+    role: "Lead",
+    bio: "I’m Shardendu Mishra, a Software Engineer who learns by coding and codes by learning. I engineer software and products that solve real problems and deliver optimized solutions.",
+    skills: ["Golang", "Linux", "Git", "Low Level Design and Database", "Architecture", "SvelteKit", "NextJS"],
+    image: "/images/website_m2.png",
+    social: {
+      twitter: "https://x.com/Shardendu_M",
+      github: "https://github.com/MishraShardendu22/",
+      linkedin: "https://www.linkedin.com/in/shardendumishra22/",
+      email: "mishrashardendu22@gmail.com",
+    },
+  },
 ];
 
 /* ---------- ALUMNI ---------- */
