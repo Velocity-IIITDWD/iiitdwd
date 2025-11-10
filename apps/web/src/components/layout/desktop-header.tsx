@@ -17,13 +17,14 @@ import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-export default function DesktopHeader() {
+export default function DesktopHeader(): JSX.Element {
   const { query } = useKBar();
   const [openMenu, setOpenMenu] = useState<string>("");
   const [isMacOS, setIsMacOS] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const currentMenuRef = useRef<string>("");
 
   useMotionValueEvent(scrollY, "change", latest => {
     if (latest > 0 && !isScrolled) {
@@ -37,30 +38,41 @@ export default function DesktopHeader() {
     setIsMacOS(window.navigator.platform.toLowerCase().includes("mac"));
   }, []);
 
-  // Smooth open/close with 100ms grace period
+  // Smooth open/close with proper hover tracking
   const handleMouseEnter = (title: string) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
       closeTimeoutRef.current = null;
     }
+    currentMenuRef.current = title;
     setOpenMenu(title);
   };
 
-  const handleMouseLeave = () => {
-    closeTimeoutRef.current = setTimeout(() => {
-      setOpenMenu("");
-    }, 100);
+  const handleMouseLeave = (title: string) => {
+    // Only start timeout if we're leaving the currently tracked menu
+    if (currentMenuRef.current === title) {
+      closeTimeoutRef.current = setTimeout(() => {
+        // Only close if we haven't entered another menu
+        if (currentMenuRef.current === title) {
+          currentMenuRef.current = "";
+          setOpenMenu("");
+        }
+      }, 300);
+    }
   };
 
-  const renderMenuItems = (items: NavigationItem[]) => {
+  const renderMenuItems = (
+    items: NavigationItem[],
+    parentMenuTitle: string
+  ) => {
     return items.map((item, index) => {
       if (item.items && item.items.length > 0) {
         return (
           <MenubarSub key={index}>
             <MenubarSubTrigger
-              className="data-[state=open]:bg-primary data-[state=open]:!text-white hover:bg-primary hover:!text-white rounded-md transition-all duration-150 ease-out"
-              onMouseEnter={() => handleMouseEnter(item.title)}
-              onMouseLeave={handleMouseLeave}
+              className="data-[state=open]:bg-primary data-[state=open]:!text-white hover:bg-primary hover:!text-white rounded-r-md transition-all duration-150 ease-out hover:border-primary"
+              onMouseEnter={() => handleMouseEnter(parentMenuTitle)}
+              onMouseLeave={() => handleMouseLeave(parentMenuTitle)}
             >
               {item.title}
             </MenubarSubTrigger>
@@ -74,65 +86,10 @@ export default function DesktopHeader() {
                   ease: "easeInOut",
                   staggerChildren: 0.1,
                 }}
-                onMouseEnter={() => handleMouseEnter(item.title)}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={() => handleMouseEnter(parentMenuTitle)}
+                onMouseLeave={() => handleMouseLeave(parentMenuTitle)}
               >
-                {item.items.map((subItem, subIndex) => {
-                  if (subItem?.items && subItem.items.length > 0) {
-                    return (
-                      <MenubarSub key={subIndex}>
-                        <MenubarSubTrigger
-                          className="data-[state=open]:bg-primary data-[state=open]:!text-white hover:bg-primary hover:!text-white rounded-md transition-all duration-150 ease-out"
-                          onMouseEnter={() => handleMouseEnter(subItem.title)}
-                          onMouseLeave={handleMouseLeave}
-                        >
-                          {subItem.title}
-                        </MenubarSubTrigger>
-                        <MenubarSubContent asChild>
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeInOut",
-                              staggerChildren: 0.1,
-                            }}
-                            onMouseEnter={() => handleMouseEnter(subItem.title)}
-                            onMouseLeave={handleMouseLeave}
-                          >
-                            {subItem.items.map(
-                              (
-                                nestedItem: NavigationItem,
-                                nestedIndex: number
-                              ) => (
-                                <MenubarItem key={nestedIndex} asChild>
-                                  <Link
-                                    href={nestedItem.href!}
-                                    className="hover:bg-primary hover:text-white rounded-md transition-all duration-150 ease-out px-2 py-1 block"
-                                  >
-                                    {nestedItem.title}
-                                  </Link>
-                                </MenubarItem>
-                              )
-                            )}
-                          </motion.div>
-                        </MenubarSubContent>
-                      </MenubarSub>
-                    );
-                  } else {
-                    return (
-                      <MenubarItem key={subIndex} asChild>
-                        <Link
-                          href={subItem.href!}
-                          className="hover:bg-primary hover:text-white rounded-md transition-all duration-150 ease-out"
-                        >
-                          {subItem.title}
-                        </Link>
-                      </MenubarItem>
-                    );
-                  }
-                })}
+                {renderMenuItems(item.items, parentMenuTitle)}
               </motion.div>
             </MenubarSubContent>
           </MenubarSub>
@@ -142,6 +99,7 @@ export default function DesktopHeader() {
           <MenubarItem
             key={index}
             asChild
+            onMouseEnter={() => handleMouseEnter(parentMenuTitle)}
             onClick={() =>
               trackEvent({
                 action: "click",
@@ -152,7 +110,8 @@ export default function DesktopHeader() {
           >
             <Link
               href={item.href!}
-              className="hover:bg-primary hover:text-white rounded-md transition-all duration-150 ease-out"
+              className="hover:bg-primary hover:text-white transition-all duration-150 ease-out block hover:border-primary"
+              onMouseEnter={() => handleMouseEnter(parentMenuTitle)}
             >
               {item.title}
             </Link>
@@ -174,7 +133,7 @@ export default function DesktopHeader() {
             asChild={!!item?.href}
             className="font-bold text-[14.7px] leading-tight text-gray-900 data-[state=open]:bg-primary data-[state=open]:!text-white hover:bg-primary hover:!text-white rounded-md px-3 py-1.5 transition-all duration-150 ease-out"
             onMouseEnter={() => handleMouseEnter(item.title)}
-            onMouseLeave={handleMouseLeave}
+            onMouseLeave={() => handleMouseLeave(item.title)}
             onClick={() =>
               item.href &&
               trackEvent({
@@ -199,7 +158,7 @@ export default function DesktopHeader() {
             <MenubarContent
               asChild
               onMouseEnter={() => handleMouseEnter(item.title)}
-              onMouseLeave={handleMouseLeave}
+              onMouseLeave={() => handleMouseLeave(item.title)}
             >
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
@@ -210,8 +169,10 @@ export default function DesktopHeader() {
                   ease: "easeInOut",
                   staggerChildren: 0.1,
                 }}
+                onMouseEnter={() => handleMouseEnter(item.title)}
+                onMouseLeave={() => handleMouseLeave(item.title)}
               >
-                {renderMenuItems(item.items)}
+                {renderMenuItems(item.items, item.title)}
               </motion.div>
             </MenubarContent>
           )}
