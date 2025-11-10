@@ -15,7 +15,7 @@ import { useKBar } from "kbar";
 import { Command, Search } from "lucide-react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function DesktopHeader() {
   const { query } = useKBar();
@@ -23,6 +23,7 @@ export default function DesktopHeader() {
   const [isMacOS, setIsMacOS] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useMotionValueEvent(scrollY, "change", latest => {
     if (latest > 0 && !isScrolled) {
@@ -36,12 +37,31 @@ export default function DesktopHeader() {
     setIsMacOS(window.navigator.platform.toLowerCase().includes("mac"));
   }, []);
 
+  // Smooth open/close with 100ms grace period
+  const handleMouseEnter = (title: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setOpenMenu(title);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpenMenu("");
+    }, 100);
+  };
+
   const renderMenuItems = (items: NavigationItem[]) => {
     return items.map((item, index) => {
       if (item.items && item.items.length > 0) {
         return (
           <MenubarSub key={index}>
-            <MenubarSubTrigger className="hover:bg-primary hover:!text-white rounded-md transition-all duration-150 ease-out">
+            <MenubarSubTrigger
+              className="data-[state=open]:bg-primary data-[state=open]:!text-white hover:bg-primary hover:!text-white rounded-md transition-all duration-150 ease-out"
+              onMouseEnter={() => handleMouseEnter(item.title)}
+              onMouseLeave={handleMouseLeave}
+            >
               {item.title}
             </MenubarSubTrigger>
             <MenubarSubContent asChild>
@@ -54,12 +74,18 @@ export default function DesktopHeader() {
                   ease: "easeInOut",
                   staggerChildren: 0.1,
                 }}
+                onMouseEnter={() => handleMouseEnter(item.title)}
+                onMouseLeave={handleMouseLeave}
               >
                 {item.items.map((subItem, subIndex) => {
                   if (subItem?.items && subItem.items.length > 0) {
                     return (
                       <MenubarSub key={subIndex}>
-                        <MenubarSubTrigger className="hover:bg-primary hover:!text-white rounded-md transition-all duration-150 ease-out">
+                        <MenubarSubTrigger
+                          className="data-[state=open]:bg-primary data-[state=open]:!text-white hover:bg-primary hover:!text-white rounded-md transition-all duration-150 ease-out"
+                          onMouseEnter={() => handleMouseEnter(subItem.title)}
+                          onMouseLeave={handleMouseLeave}
+                        >
                           {subItem.title}
                         </MenubarSubTrigger>
                         <MenubarSubContent asChild>
@@ -72,6 +98,8 @@ export default function DesktopHeader() {
                               ease: "easeInOut",
                               staggerChildren: 0.1,
                             }}
+                            onMouseEnter={() => handleMouseEnter(subItem.title)}
+                            onMouseLeave={handleMouseLeave}
                           >
                             {subItem.items.map(
                               (
@@ -81,7 +109,7 @@ export default function DesktopHeader() {
                                 <MenubarItem key={nestedIndex} asChild>
                                   <Link
                                     href={nestedItem.href!}
-                                    className="hover:bg-primary hover:!text-white rounded-md transition-all duration-150 ease-out px-2 py-1 block"
+                                    className="hover:bg-primary hover:text-white rounded-md transition-all duration-150 ease-out px-2 py-1 block"
                                   >
                                     {nestedItem.title}
                                   </Link>
@@ -136,7 +164,7 @@ export default function DesktopHeader() {
 
   return (
     <Menubar
-      className="border-b max-lg:hidden border-none px-2"
+      className="border-b max-lg:hidden border-none px-2 flex items-center"
       value={openMenu}
       onValueChange={setOpenMenu}
     >
@@ -144,8 +172,9 @@ export default function DesktopHeader() {
         <MenubarMenu key={index} value={item.title}>
           <MenubarTrigger
             asChild={!!item?.href}
-            className="font-bold text-[14.7px] leading-tight text-gray-900 hover:bg-primary hover:!text-white rounded-md px-3 py-1.5 transition-all duration-150 ease-out"
-            onMouseEnter={() => setOpenMenu(item.title)}
+            className="font-bold text-[14.7px] leading-tight text-gray-900 data-[state=open]:bg-primary data-[state=open]:!text-white hover:bg-primary hover:!text-white rounded-md px-3 py-1.5 transition-all duration-150 ease-out"
+            onMouseEnter={() => handleMouseEnter(item.title)}
+            onMouseLeave={handleMouseLeave}
             onClick={() =>
               item.href &&
               trackEvent({
@@ -158,9 +187,7 @@ export default function DesktopHeader() {
             {item?.href ? (
               <Link
                 href={item.href}
-                className={
-                  "block font-bold text-[14.7px] leading-tight text-gray-900 hover:bg-primary hover:!text-white rounded-md px-3 py-1.5 transition-all duration-150 ease-out data-[state=open]:!text-white"
-                }
+                className="block font-bold text-[14.7px] leading-tight text-gray-900 px-3 py-1.5"
               >
                 {item.title}
               </Link>
@@ -171,7 +198,8 @@ export default function DesktopHeader() {
           {item.items && item.items.length > 0 && (
             <MenubarContent
               asChild
-              onMouseEnter={() => setOpenMenu(item.title)}
+              onMouseEnter={() => handleMouseEnter(item.title)}
+              onMouseLeave={handleMouseLeave}
             >
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
@@ -193,7 +221,7 @@ export default function DesktopHeader() {
       {/* Search button - shows only when scrolled */}
       {isScrolled && (
         <button
-          className="text-gray-600 hover:text-primary rounded-full bg-tertiary/20 px-2 py-1 flex items-center text-body cursor-pointer transition-colors duration-150"
+          className="text-gray-600 hover:text-primary rounded-full bg-tertiary/20 px-2 py-1 flex items-center text-body cursor-pointer transition-colors duration-150 ml-4"
           onClick={() => {
             query.toggle();
             trackEvent({
