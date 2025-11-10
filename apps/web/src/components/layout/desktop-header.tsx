@@ -143,6 +143,7 @@ export default function DesktopHeader() {
       {navigationData.map((item, index) => (
         <MenubarMenu key={index} value={item.title}>
           <MenubarTrigger
+            asChild={!!item?.href}
             className="font-bold text-[14.7px] leading-tight text-gray-900 hover:bg-primary hover:!text-white rounded-md px-3 py-1.5 transition-all duration-150 ease-out"
             onMouseEnter={() => setOpenMenu(item.title)}
             onClick={() =>
@@ -155,7 +156,12 @@ export default function DesktopHeader() {
             }
           >
             {item?.href ? (
-              <Link href={item?.href} className="hover:!text-white">
+              <Link
+                href={item.href}
+                className={
+                  "block font-bold text-[14.7px] leading-tight text-gray-900 hover:bg-primary hover:!text-white rounded-md px-3 py-1.5 transition-all duration-150 ease-out data-[state=open]:!text-white"
+                }
+              >
                 {item.title}
               </Link>
             ) : (
