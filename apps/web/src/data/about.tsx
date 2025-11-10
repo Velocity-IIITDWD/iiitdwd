@@ -31,7 +31,7 @@ const aboutPageSections: AboutSection[] = [
       <>
         <p>IIIT Dharwad is led by a team of experienced professionals:</p>
         <ul className="list-[square] pl-4 mt-3">
-          <li className="mb-4">Director: Dr. Prasana Mahadev</li>
+          <li className="mb-4">Director: Prof. S. R. Mahadeva Prasanna</li>
           <li className="mb-4">Key Administrative Personnel</li>
         </ul>
         <p>
