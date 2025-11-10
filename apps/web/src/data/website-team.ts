@@ -43,6 +43,32 @@ export const currentTeam: TeamMember[] = [
       email: "mishrashardendu22@gmail.com",
     },
   },
+  {
+    id: "taran",
+    name: "Taran Jain",
+    role: "Member",
+    bio: "A curious learner exploring how technology and innovation can build a smarter, safer world.",
+    skills: ["MERN", "JS", "TS", "PostgreSQL"],
+    image: "/images/website_m4.png",
+    social: {
+      linkedin: "https://www.linkedin.com/in/taran-jain-96160a29a/",
+      email: "23bds062@iiitdwd.ac.in",
+    },
+  },
+  {
+    id: "arnav",
+    name: "Arnav Angarkar",
+    role: "Member",
+    bio: "CSE student trying to get machines to do the boring stuff — and occasionally make them do something fun too.",
+    skills: ["Python", "Django", "Streamlit", "C", "TypeScript", "React", "Next.js", "Flask", "TensorFlow", "MongoDB", "MAVLink", "Cirq", "js"],
+    image: "/images/website_m5.png",
+    social: {
+      twitter: "https://x.com/ArnavA_0824",
+      github: "https://github.com/ArnavBallinCode",
+      linkedin: "https://www.linkedin.com/in/arnav-angarkar/",
+      email: "arnav.angarkar20@gmail.com",
+    },
+  },
 ];
 
 /* ---------- ALUMNI ---------- */
@@ -157,6 +183,23 @@ export const alumniTeam: TeamMember[] = [
     social: {
       github: "https://github.com/SlightlyEpic",
       linkedin: "https://www.linkedin.com/in/abhigyan-niranjan",
+    },
+  },
+  {
+    id: "nayan",
+    name: "Nayan Kumar biradar",
+    role: "Alumni",
+    bio: "I’m Nayan Kumar Biradar, a passionate Full Stack Developer and AI Explorer dedicated to building innovative, real-world tech solutions.",
+    skills: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+    ],
+    image: "/images/website_m3.png",
+    social: {
+      github: "https://github.com/nkbiradar",
+      linkedin: "https://www.linkedin.com/in/nayan-kumar-biradar/",
+      email: "nayankuma1234@gmail.com",
     },
   },
 ];
