@@ -282,7 +282,7 @@ const navigationData: NavigationItem[] = [
   },
   {
     title: "Online",
-    href: "https://online.iiitdwd.ac.in",
+    href: "/online/mtech",
   },
 ];
 
