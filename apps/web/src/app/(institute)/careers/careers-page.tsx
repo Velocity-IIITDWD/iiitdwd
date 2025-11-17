@@ -23,6 +23,7 @@ export type Jobs = {
   title: string;
   category: string;
   details: string;
+  publishDate: string;
   lastDate: string;
   generalInstructions: string;
   application: string;
@@ -42,47 +43,29 @@ export default function CareersPage({
 }): JSX.Element {
   const [updatedJobsData, setUpdatedJobsData] = useState<Jobs[]>(Fulldata);
 
-  // ✅ UPDATED SORT LOGIC
+  // ✅ UPDATED SORT LOGIC: 
+  // 1) If deadline is given (lastDate), sort by deadline with farthest deadline first.
+  // 2) If deadline is NA/missing, sort by publishDate with most recent first.
   useEffect(() => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset time to start of day for accurate comparison
-
-    const parseDate = (dateStr: string) => {
-      if (!dateStr || !dateStr.trim()) return null;
+    const parseDate = (dateStr: string | undefined | null) => {
+      if (!dateStr || !`${dateStr}`.trim() || dateStr === "NA") return null;
       const date = new Date(dateStr);
       return isNaN(date.getTime()) ? null : date;
     };
 
-    const sorted = Fulldata
-      .map(job => ({
-        ...job,
-        parsedDate: parseDate(job.lastDate),
-      }))
-      .sort((a, b) => {
-        const aDate = a.parsedDate;
-        const bDate = b.parsedDate;
+    const sorted = [...Fulldata].sort((a, b) => {
+      const aDeadline = parseDate(a.lastDate);
+      const bDeadline = parseDate(b.lastDate);
 
-        const aFuture = aDate ? aDate >= today : false;
-        const bFuture = bDate ? bDate >= today : false;
+      // Choose key: deadline if present, otherwise publishDate
+      const aKey = aDeadline ?? parseDate(a.publishDate);
+      const bKey = bDeadline ?? parseDate(b.publishDate);
 
-        // 1) Future deadlines come first (sorted by soonest first)
-        if (aFuture && !bFuture) return -1;
-        if (!aFuture && bFuture) return 1;
-        if (aFuture && bFuture) {
-          return bDate!.getTime() - aDate!.getTime();
-        }
-
-        // 2) After future dates, NA values come next
-        const aIsNA = !aDate;
-        const bIsNA = !bDate;
-        
-        if (aIsNA && !bIsNA) return -1;
-        if (!aIsNA && bIsNA) return 1;
-        if (aIsNA && bIsNA) return 0;
-
-        // 3) Past deadlines come last (sorted by most recent first)
-        return bDate!.getTime() - aDate!.getTime();
-      });
+      if (aKey && bKey) return bKey.getTime() - aKey.getTime();
+      if (aKey && !bKey) return -1;
+      if (!aKey && bKey) return 1;
+      return 0;
+    });
 
     setUpdatedJobsData(sorted);
   }, [Fulldata]);
