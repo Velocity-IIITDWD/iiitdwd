@@ -563,6 +563,7 @@ export type Job = {
   title?: string;
   category?: string;
   details?: string;
+  publishDate?: string;
   lastDate?: string;
   generalInstructions?: string;
   application?: string;

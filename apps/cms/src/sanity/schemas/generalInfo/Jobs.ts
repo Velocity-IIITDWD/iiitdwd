@@ -34,6 +34,12 @@ export const Jobs = defineType({
       description: "Details of the job",
     }),
     defineField({
+      name: "publishDate",
+      title: "Publish Date",
+      type: "datetime",
+      description: "Publish Date of the job",
+    }),
+    defineField({
       name: "lastDate",
       title: "Last Date",
       type: "datetime",
