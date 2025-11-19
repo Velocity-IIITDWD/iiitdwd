@@ -286,7 +286,7 @@ function InstituteName(): JSX.Element {
   return (
     <>
       <span className="text-[16px] md:text-[18px] font-normal mb-[2px]">
-        ಭಾರತೀಯ ಮಾಹಿತಿ ತಂತ್ರಜ್ಞಾನ ಸಂಸ್ಥೆ, ಧಾರವಾಳ
+        ಭಾರತೀಯ ಮಾಹಿತಿ ತಂತ್ರಜ್ಞಾನ ಸಂಸ್ಥೆ, ಧಾರವಾಡ
       </span>
       <span className="text-[16px] md:text-[18px] font-normal">
         भारतीय सूचना प्रौद्योगिकी संस्थान, धारवाड़
