@@ -282,7 +282,7 @@ const navigationData: NavigationItem[] = [
   },
   {
     title: "Online",
-    href: "/online/mtech",
+    href: "https://online-website-topaz.vercel.app/",
   },
 ];
 
