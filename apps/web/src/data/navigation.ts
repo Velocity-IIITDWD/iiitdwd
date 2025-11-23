@@ -282,7 +282,7 @@ const navigationData: NavigationItem[] = [
   },
   {
     title: "Online",
-    href: "https://online-website-topaz.vercel.app/",
+    href: "https://online.iiitdwd.ac.in",
   },
 ];
 
