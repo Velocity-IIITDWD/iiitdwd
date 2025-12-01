@@ -29,11 +29,11 @@ const navigationData: NavigationItem[] = [
       },
       { title: "Events / Awards", href: "/events" },
       { title: "Contact", href: "/contact" },
-      {
-        title: "Careers",
-        href: "/careers",
-      },
-      { title: "Tenders", href: "/tenders" },
+      // {
+      //   title: "Careers",
+      //   href: "/careers",
+      // },
+      // { title: "Tenders", href: "/tenders" },
       { title: "Scholarships", href: "/scholarship" },
     ],
   },
@@ -116,40 +116,40 @@ const navigationData: NavigationItem[] = [
         href: "/cgc",
         meta: { disableLayout: false },
       },
+    ],
+  },
+  {
+    title: "Public disclosures",
+    href: "/disclosures",
+    items: [
       {
-        title: "Public disclosures",
-        href: "/disclosures",
-        items: [
-          {
-            title: "RTI",
-            href: "/RTI",
-          },
-          {
-            title: "IIIT PPP Act",
-            href: "/docs/iiit_ppp_2017.pdf",
-          },
-          {
-            title: "ARIIA",
-            href: "/docs/ARIIA.pdf",
-          },
-          {
-            title: "ICC Committee",
-            href: "/docs/ICC_committee.pdf",
-          },
-          {
-            title: "Sexual Harassment Act",
-            href: "/docs/sexual-harrassment-of-women-act-and-rules-2013.pdf",
-          },
-          {
-            title: "IIIT Dharwad Statutes",
-            href: "/docs/IIIT_Dharwad_statutes.pdf",
-          },
-          {
-            title: "Medium of Instruction",
-            href: "/docs/Medium_of_Instruction_Certificate.pdf",
-          }
-        ],
+        title: "RTI",
+        href: "/RTI",
       },
+      {
+        title: "IIIT PPP Act",
+        href: "/docs/iiit_ppp_2017.pdf",
+      },
+      {
+        title: "ARIIA",
+        href: "/docs/ARIIA.pdf",
+      },
+      {
+        title: "ICC Committee",
+        href: "/docs/ICC_committee.pdf",
+      },
+      {
+        title: "Sexual Harassment Act",
+        href: "/docs/sexual-harrassment-of-women-act-and-rules-2013.pdf",
+      },
+      {
+        title: "IIIT Dharwad Statutes",
+        href: "/docs/IIIT_Dharwad_statutes.pdf",
+      },
+      {
+        title: "Medium of Instruction",
+        href: "/docs/Medium_of_Instruction_Certificate.pdf",
+      }
     ],
   },
   {
@@ -251,6 +251,37 @@ const navigationData: NavigationItem[] = [
       //   href: '/student-life/achievements'
       // }
     ],
+  },
+  {
+    title: "Faculty & Staff",
+    href: "#",
+    items: [
+      { title: "Faculty", href: "/academics/faculty/"}
+    ]
+  },
+  {
+    title: "Staff",
+    href: "/staff",
+    items: [
+      { title: "Staff", href: "/staff"}
+    ]
+  },
+  {
+    title: "Research",
+    href: "/academics/research/",
+    items: [
+      { title: "Overview", href: "#" },
+      { title: "Research", href: "/academics/research/" },
+      { title: "IDRP", href: "#" },
+    ]
+  },
+  {
+    title: "Careers & Tenders",
+    href: "#",
+    items: [
+      { title: "Careers", href: "/careers" },
+      { title: "Tenders", href: "/tenders" }
+    ]
   },
   {
     title: "Career Guidance Cell",
