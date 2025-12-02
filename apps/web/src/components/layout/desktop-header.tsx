@@ -196,21 +196,26 @@ export default function DesktopHeader(): JSX.Element {
       ]
     }
 
-    if(item.title === "Careers"){
-      const staffItem = navigationData.find( navItem => navItem.title === "Staff");
-      const careersAndTendersItem = navigationData.find( navItem => navItem.title === "Careers & Tenders" );
+    if(item.title === "Careers & Tenders"){
+      const facultyCareersItem = navigationData.find(navItem => navItem.title === "Faculty Careers");
+      const staffCareersItem = navigationData.find(navItem => navItem.title === "Staff Careers");
+      const phd123Item = navigationData.find(navItem => navItem.title === "PHD/123 Careers");
       return[
         {
           sectionTitle: "For Faculty",
-          items: item.items || [],
+          items: facultyCareersItem?.items || [],
         },
         {
           sectionTitle: "For Staff",
-          items: staffItem?.items || [],
+          items: staffCareersItem?.items || [],
         },
         {
-          sectionTitle: "Careers & Tenders",
-          items: careersAndTendersItem?.items || [],
+          sectionTitle: "For PHD, Mtech, Project Staff, Research Asst.",
+          items: phd123Item?.items || [],
+        },
+        {
+          sectionTitle: "Tenders",
+          items: item.items || [],
         },
       ]
     }
@@ -218,7 +223,7 @@ export default function DesktopHeader(): JSX.Element {
   };
 
   const filteredNavigationData = navigationData.filter(item => {
-    return !["Administration", "Admissions", "Career Guidance Cell", "Staff", "Public disclosures", "Careers & Tenders"].includes(item.title);
+    return !["Administration", "Admissions", "Career Guidance Cell", "Staff", "Public disclosures", "Faculty Careers", "Staff Careers", "PHD/123 Careers"].includes(item.title);
   });
 
   return (
