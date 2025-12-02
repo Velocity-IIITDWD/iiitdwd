@@ -253,7 +253,7 @@ const navigationData: NavigationItem[] = [
     ],
   },
   {
-    title: "Faculty & Staff",
+    title: "Careers",
     href: "#",
     items: [
       { title: "Faculty", href: "/academics/faculty/"}
