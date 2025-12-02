@@ -10,13 +10,11 @@ export default async function PhdMtechProjStaffPage(): JSX.Element {
     get<{ value: string; title: string }[]>(queryJobCategories),
   ]);
 
-  // Filter: everything that is NOT faculty or staff
   const filteredJobs = data.filter(job => {
     const category = job?.category?.toLowerCase().trim();
     return category !== "faculty" && category !== "staff";
   });
 
-  // Pass ALL categories except faculty and staff for the dropdown
   const filteredCategories = categories.filter(cat => {
     const value = cat?.value?.toLowerCase().trim();
     return value !== "faculty" && value !== "staff";

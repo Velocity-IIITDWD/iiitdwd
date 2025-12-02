@@ -41,14 +41,14 @@ export default function InfoSection() {
           <div className="relative [grid-area:3/2] lg:[grid-area:2/2] group transition-all duration-300 flex flex-col justify-end p-6 overflow-hidden shadow-sm hover:shadow-md">
             <div className="absolute inset-0 opacity-5 bg-grid-pattern"></div>
 
-            <div className="relative w-full h-[220px] mb-4 overflow-hidden rounded-md flex items-center justify-center bg-gray-100">
+            <div className="relative w-full h-[320px] mb-4 overflow-hidden rounded-md flex items-center justify-center bg-gray-100">
               <Image
                 src={director}
                 alt="Director of IIIT Dharwad"
                 width={220}
                 height={220}
                 className="object-cover object-center rounded transition-transform duration-500 group-hover:scale-105"
-                style={{ maxHeight: 200, width: "auto", maxWidth: "100%" }}
+                style={{ maxHeight: 250, width: "auto", maxWidth: "100%" }}
                 priority
               />
             </div>
