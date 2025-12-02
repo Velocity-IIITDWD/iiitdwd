@@ -252,13 +252,13 @@ const navigationData: NavigationItem[] = [
       // }
     ],
   },
-  {
-    title: "Careers",
-    href: "#",
-    items: [
-      { title: "Faculty", href: "/academics/faculty/"}
-    ]
-  },
+  // {
+  //   title: "Careers",
+  //   href: "#",
+  //   items: [
+  //     { title: "Faculty", href: "/academics/faculty/"}
+  //   ]
+  // },
   {
     title: "Staff",
     href: "/staff",
@@ -279,8 +279,29 @@ const navigationData: NavigationItem[] = [
     title: "Careers & Tenders",
     href: "#",
     items: [
-      { title: "Careers", href: "/careers" },
-      { title: "Tenders", href: "/tenders" }
+      { title: "Careers", href: "/careers"},
+      { title: "Tenders", href: "/tenders"},
+    ]
+  },
+  {
+    title: "Faculty Careers",
+    href: "#",
+    items: [
+      { title: "Faculty", href: "/careers/faculty" },
+    ]
+  },
+  {
+    title: "Staff Careers",
+    href: "#",
+    items: [
+      { title: "Staff", href: "/careers/staff" },
+    ]
+  },
+  {
+    title: "PHD/123 Careers",
+    href: "#",
+    items: [
+      { title: "Phd/M.tech/Project Staff/ Research Asst.", href: "/careers/Phd_Mtech_ProjStaff_ResearchAsst" },
     ]
   },
   {
