@@ -10,10 +10,8 @@ export default async function FacultyPage(): JSX.Element {
     get<{ value: string; title: string }[]>(queryJobCategories),
   ]);
 
-  // Filter only faculty jobs
   const facultyJobs = data.filter(job => job.category === "faculty");
 
-  // Filter categories to only show faculty
   const facultyCategories = categories.filter(cat => cat.value === "faculty");
 
   return <CareersPage Fulldata={facultyJobs} categories={facultyCategories} />;

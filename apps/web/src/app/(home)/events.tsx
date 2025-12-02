@@ -12,30 +12,32 @@ export default async function EventsSection() {
     (a, b) =>
       new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()
   );
+
   return (
     <CommonCarousel>
       {carouselData?.slice(0, 5).map((item, index) => (
         <div className="embla__slide" key={index}>
-          <div
-            className="slide_number_main mx-auto flex w-full h-full bg-cover bg-center relative gap-6"
-            // style={{
-            //   backgroundImage: `url(https://iiitdwd.ac.in${item?.url!})`
-            // }}
-          >
-            <Image
-              src={`https://iiitdwd.ac.in${item?.url!}`}
-              alt={item?.caption!}
-              width={0}
-              height={0}
-              className="object-cover flex-1 rounded max-h-[350px]"
-            />
+          {/* Main card container */}
+          <div className="mx-auto max-w-4xl w-full">
+            {/* Image container */}
+            <div className="relative w-full h-96 md:h-[400px] rounded-lg overflow-hidden">
+              <Image
+                src={`https://iiitdwd.ac.in${item?.url!}`}
+                alt={item?.caption || "Event image"}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
+                className="object-contain bg-black"
+                priority={index === 0}
+              />
+            </div>
 
-            <div className="text-title-2 flex-1 flex flex-col justify-between gap-4 h-full py-10">
-              {item?.caption}
+            {/* Caption + Button – directly below the image */}
+            <div className="mt-6 text-center md:text-left">
+              <h3 className="text-title-2 text-black mb-6">{item?.caption}</h3>
 
               <Link
                 href={item?.link!}
-                className="flex gap-4 uppercase w-fit text-title-3 text-bold text-amber-50 hover:bg-main/90 transition-colors bg-main rounded px-4 md:px-6 py-2 items-center"
+                className="inline-flex gap-4 uppercase w-fit text-title-3 text-amber-50 hover:bg-main/90 transition-colors bg-main rounded px-6 py-3 items-center"
               >
                 Read More
                 <ArrowRightIcon size={18} />

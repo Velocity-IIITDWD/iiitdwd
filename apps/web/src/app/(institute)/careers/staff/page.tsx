@@ -10,13 +10,11 @@ export default async function StaffPage(): JSX.Element {
     get<{ value: string; title: string }[]>(queryJobCategories),
   ]);
 
-  // Filter only staff jobs
   const staffJobs = data.filter(job => {
     const category = job?.category?.toLowerCase().trim();
     return category === "staff";
   });
 
-  // Filter categories to only show staff
   const staffCategories = [{ value: "staff", title: "Staff" }];
 
   return <CareersPage Fulldata={staffJobs} categories={staffCategories} />;
