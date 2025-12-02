@@ -151,7 +151,6 @@ export default function DesktopHeader(): JSX.Element {
         navItem => navItem.title === "Administration"
       );
       const publicDisclosuresItem = navigationData.find( navItem => navItem.title === "Public disclosures");
-      const careersAndTendersItem = navigationData.find( navItem => navItem.title === "Careers & Tenders" );
 
       return [
         {
@@ -165,10 +164,6 @@ export default function DesktopHeader(): JSX.Element {
         {
           sectionTitle: "Public Disclosures",
           items: publicDisclosuresItem?.items || [],
-        },
-        {
-          sectionTitle: "Careers & Tenders",
-          items: careersAndTendersItem?.items || [],
         },
       ];
     }
@@ -201,8 +196,9 @@ export default function DesktopHeader(): JSX.Element {
       ]
     }
 
-    if(item.title === "Faculty & Staff"){
+    if(item.title === "Careers"){
       const staffItem = navigationData.find( navItem => navItem.title === "Staff");
+      const careersAndTendersItem = navigationData.find( navItem => navItem.title === "Careers & Tenders" );
       return[
         {
           sectionTitle: "For Faculty",
@@ -211,7 +207,11 @@ export default function DesktopHeader(): JSX.Element {
         {
           sectionTitle: "For Staff",
           items: staffItem?.items || [],
-        }
+        },
+        {
+          sectionTitle: "Careers & Tenders",
+          items: careersAndTendersItem?.items || [],
+        },
       ]
     }
     return null;
