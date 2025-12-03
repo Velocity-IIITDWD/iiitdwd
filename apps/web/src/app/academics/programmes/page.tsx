@@ -81,7 +81,7 @@ export default function ProgrammesPage() {
             <div className="w-full flex items-center p-4">
               <div className="flex flex-col justify-center flex-1 gap-1">
                 <span className="text-title-1 text-main font-semibold">
-                  Academic Calendar 2025-26 (August - November)
+                  Academic Calendar 2025-26 (August - April)
                 </span>
                 <span className="text-body font-normal">
                   Stay on schedule and upto date throughout the year.
