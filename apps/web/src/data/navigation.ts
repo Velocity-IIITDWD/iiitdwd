@@ -247,6 +247,14 @@ const navigationData: NavigationItem[] = [
         title: "IIIT Dharwad Statutes",
         href: "/docs/IIIT_Dharwad_statutes.pdf",
       },
+      {
+        title: "Academic Calender",
+        href: "/docs/Academic_Calender_2026.pdf"
+      },
+      {
+        title: "Academic Calendar for First Year B.tech Students",
+        href: "/docs/Academic_Calender_2026_Firts_Years.pdf"
+      }
       // {
       //   title: 'Achievements',
       //   href: '/student-life/achievements'
