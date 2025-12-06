@@ -64,6 +64,7 @@ export const footerLinks = [
       },
       { text: "RTI", href: "/RTI" },
       { text: "IIIT Laws 2020", href: "/docs/Indian_Institutes_of_Information_Technology_Laws__Amendment__Act__2020.pdf" },
+      { text: "IDP", href: "https://idp.iiitdwd.ac.in/"}
     ],
   },
   {
