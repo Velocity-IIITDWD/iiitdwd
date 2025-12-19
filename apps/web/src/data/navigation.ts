@@ -288,7 +288,6 @@ const navigationData: NavigationItem[] = [
     title: "Careers & Tenders",
     href: "#",
     items: [
-      { title: "Careers", href: "/careers"},
       { title: "Tenders", href: "/tenders"},
     ]
   },
