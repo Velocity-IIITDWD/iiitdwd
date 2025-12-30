@@ -5,7 +5,7 @@ export default function ComingSoon(): React.ReactElement {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center text-center px-4 py-16">
       <h3 className="text-2xl md:text-4xl font-bold mb-15">
-        Academic Calendar for First Year B.Tech will be Released Soon
+        This Page is Under Development, will be Released Soon
       </h3>
 
       <a

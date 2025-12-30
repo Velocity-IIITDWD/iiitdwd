@@ -7,11 +7,11 @@ export const footerLinks = [
       { text: "Research", href: "/academics/research" },
       {
         text: "Academic Calendar",
-        href: "/docs/Academic_Calendar_2025-26_high_semester_updated_-_Ashwin_H.pdf",
+        href: "/docs/Academic_Calender_2026.pdf",
       },
       {
         text: "Academic Calendar for 1st year B.Tech Students",
-        href: "/docs/Academic_Calendar_2025-26_1st_sem_updated_-_Ashwin_H.pdf",
+        href: "/docs/Academic_Calender_2026_Firts_Years.pdf",
       },
       {
         text: "Curriculum",
@@ -64,6 +64,7 @@ export const footerLinks = [
       },
       { text: "RTI", href: "/RTI" },
       { text: "IIIT Laws 2020", href: "/docs/Indian_Institutes_of_Information_Technology_Laws__Amendment__Act__2020.pdf" },
+      { text: "IDP (One nation one subscription)", href: "https://idp.iiitdwd.ac.in/"}
     ],
   },
   {

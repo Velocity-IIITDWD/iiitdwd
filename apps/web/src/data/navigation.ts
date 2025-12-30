@@ -29,11 +29,11 @@ const navigationData: NavigationItem[] = [
       },
       { title: "Events / Awards", href: "/events" },
       { title: "Contact", href: "/contact" },
-      {
-        title: "Careers",
-        href: "/careers",
-      },
-      { title: "Tenders", href: "/tenders" },
+      // {
+      //   title: "Careers",
+      //   href: "/careers",
+      // },
+      // { title: "Tenders", href: "/tenders" },
       { title: "Scholarships", href: "/scholarship" },
     ],
   },
@@ -92,6 +92,7 @@ const navigationData: NavigationItem[] = [
     items: [
       { title: "Visitor", href: "/visitor" },
       { title: "Chairperson", href: "/chairperson" },
+      { title: "Former Chairperson", href: "/former-chairperson" },
       {
         title: "Board of Governors",
         href: "/governing-bodies/board",
@@ -116,40 +117,40 @@ const navigationData: NavigationItem[] = [
         href: "/cgc",
         meta: { disableLayout: false },
       },
+    ],
+  },
+  {
+    title: "Public disclosures",
+    href: "/disclosures",
+    items: [
       {
-        title: "Public disclosures",
-        href: "/disclosures",
-        items: [
-          {
-            title: "RTI",
-            href: "/RTI",
-          },
-          {
-            title: "IIIT PPP Act",
-            href: "/docs/iiit_ppp_2017.pdf",
-          },
-          {
-            title: "ARIIA",
-            href: "/docs/ARIIA.pdf",
-          },
-          {
-            title: "ICC Committee",
-            href: "/docs/ICC_committee.pdf",
-          },
-          {
-            title: "Sexual Harassment Act",
-            href: "/docs/sexual-harrassment-of-women-act-and-rules-2013.pdf",
-          },
-          {
-            title: "IIIT Dharwad Statutes",
-            href: "/docs/IIIT_Dharwad_statutes.pdf",
-          },
-          {
-            title: "Medium of Instruction",
-            href: "/docs/Medium_of_Instruction_Certificate.pdf",
-          }
-        ],
+        title: "RTI",
+        href: "/RTI",
       },
+      {
+        title: "IIIT PPP Act",
+        href: "/docs/iiit_ppp_2017.pdf",
+      },
+      {
+        title: "ARIIA",
+        href: "/docs/ARIIA.pdf",
+      },
+      {
+        title: "ICC Committee",
+        href: "/docs/ICC_committee.pdf",
+      },
+      {
+        title: "Sexual Harassment Act",
+        href: "/docs/sexual-harrassment-of-women-act-and-rules-2013.pdf",
+      },
+      {
+        title: "IIIT Dharwad Statutes",
+        href: "/docs/IIIT_Dharwad_statutes.pdf",
+      },
+      {
+        title: "Medium of Instruction",
+        href: "/docs/Medium_of_Instruction_Certificate.pdf",
+      }
     ],
   },
   {
@@ -159,6 +160,7 @@ const navigationData: NavigationItem[] = [
       { title: "Programmes", href: "/academics/programmes" },
       // { title: 'Calendar', href: '/academics/calendar' },
       { title: "Departments", href: "/academics/departments" },
+      { title: "Center of Excellence", href: "/released-soon" },
       {
         title: "Faculty",
         href: "/academics/faculty",
@@ -246,11 +248,70 @@ const navigationData: NavigationItem[] = [
         title: "IIIT Dharwad Statutes",
         href: "/docs/IIIT_Dharwad_statutes.pdf",
       },
+      {
+        title: "Academic Calender",
+        href: "/docs/Academic_Calender_2026.pdf"
+      },
+      {
+        title: "Academic Calendar for First Year B.tech Students",
+        href: "/docs/Academic_Calender_2026_Firts_Years.pdf"
+      }
       // {
       //   title: 'Achievements',
       //   href: '/student-life/achievements'
       // }
     ],
+  },
+  // {
+  //   title: "Careers",
+  //   href: "#",
+  //   items: [
+  //     { title: "Faculty", href: "/academics/faculty/"}
+  //   ]
+  // },
+  {
+    title: "Staff",
+    href: "/staff",
+    items: [
+      { title: "Staff", href: "/staff"}
+    ]
+  },
+  {
+    title: "Research",
+    href: "/academics/research/",
+    items: [
+      { title: "Overview", href: "#" },
+      { title: "Research", href: "/academics/research/" },
+      { title: "IDRP", href: "#" },
+    ]
+  },
+  {
+    title: "Careers & Tenders",
+    href: "#",
+    items: [
+      { title: "Tenders", href: "/tenders"},
+    ]
+  },
+  {
+    title: "Faculty Careers",
+    href: "#",
+    items: [
+      { title: "Faculty", href: "/careers/faculty" },
+    ]
+  },
+  {
+    title: "Staff Careers",
+    href: "#",
+    items: [
+      { title: "Staff", href: "/careers/staff" },
+    ]
+  },
+  {
+    title: "PHD/123 Careers",
+    href: "#",
+    items: [
+      { title: "Phd/M.tech/Project Staff/ Research Asst.", href: "/careers/Phd_Mtech_ProjStaff_ResearchAsst" },
+    ]
   },
   {
     title: "Career Guidance Cell",
@@ -282,7 +343,7 @@ const navigationData: NavigationItem[] = [
   },
   {
     title: "Online",
-    href: "https://online.iiitdwd.ac.in/",
+    href: "https://online.iiitdwd.ac.in",
   },
 ];
 
