@@ -92,6 +92,7 @@ const navigationData: NavigationItem[] = [
     items: [
       { title: "Visitor", href: "/visitor" },
       { title: "Chairperson", href: "/chairperson" },
+      { title: "Former Chairperson", href: "/former-chairperson" },
       {
         title: "Board of Governors",
         href: "/governing-bodies/board",
