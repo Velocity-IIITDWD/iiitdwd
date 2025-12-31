@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Page(): JSX.Element {
   const data = {
-    image: "https://iiitdwd.ac.in/images/Jalaj_Dani.jpeg",
-    name: "Mr. Jalaj Dani",
+    image: "https://iiitdwd.ac.in/images/Sridhar%20Vembu.webp",
+    name: "Dr. Sridhar Vembu",
     position: "Former Chairperson, IIIT Dharwad",
   };
 
