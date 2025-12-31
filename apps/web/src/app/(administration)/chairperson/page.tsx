@@ -3,42 +3,42 @@ import Profile from "../director/profile";
 export default async function Page() {
   return (
     <Profile
-      image="https://iiitdwd.ac.in/images/Sridhar%20Vembu.webp"
+      image="/images/jalaj_dani.jpeg"
       email="chairperson@iiitdwd.ac.in"
-      name="Dr. Sridhar Vembu"
+      name="Mr. Jalaj Dani"
       position="Chairperson, IIIT Dharwad"
       quote={``}
       about={[
-        `Dr. Sridhar Vembu is the co-founder and Chief Scientist of Zoho Corporation, a globally respected technology leader and a pioneer in rural development through innovation. Raised in a humble village in Tamil Nadu, India, Dr. Vembu's academic journey led him to earn a degree in Electrical Engineering from IIT Madras and a Ph.D. from Princeton University.
-In 1996, he co-founded AdventNet, which evolved into Zoho Corporation in 2009. Under his visionary leadership, Zoho grew into a global provider of cloud-based business software, empowering millions of users and businesses across the world. The company operates with a strong philosophy of self-reliance, long-term thinking, and customer-focused innovation.`,
+        `Co-Promoter, Asian Paints | Business Leader & Philanthropist | Chairperson, Dani Foundation | Chairman, IIM Tiruchirappalli`,
 
-        `A defining aspect of Dr. Vembu's mission has been his unwavering commitment to social impact. He has championed the establishment of offices in rural areas, such as Tenkasi in Tamil Nadu, to decentralize opportunities and bring technological innovation closer to underserved regions. His initiative, Zoho Schools of Learning, offers free vocational education to high school graduates, especially from rural communities, providing them with hands-on training and job opportunities without the burden of a formal college degree.
+        `Mr. Jalaj Dani is a respected business leader, institution-builder, and philanthropist whose contributions span industry leadership, professional sports development, public health, education, and social impact. As Chairman of the Indian Institute of Management Tiruchirappalli, he is actively engaged in governance, academic development, and strategic direction.`,
 
-Dr. Vembu's approach to business blends technological excellence with deep social responsibility. His work has earned him numerous accolades, including the Padma Shri in 2021 and CNN-News18 Indian of the Year in 2022. In 2025, he transitioned from the role of CEO to Chief Scientist, dedicating his focus to research, product innovation, and the long-term vision of Zoho.`,
+        `As Co-Promoter of Asian Paints Limited, one of the world’s leading paints and coatings companies, he has played a pivotal role in shaping the organization’s international expansion, supply chain excellence, people development, and adjacencies in chemicals and industrial solutions. His leadership consistently emphasizes innovation adoption, manufacturing excellence, sustainability, and value creation through technology.`,
 
-        `Respected for his humility, foresight, and belief in inclusive growth, Dr. Sridhar Vembu continues to inspire a generation of entrepreneurs to think beyond conventional boundaries and create impact-driven enterprises.
-`,
+        `Beyond Asian Paints, he is actively building a diversified investment platform. Through Asiana AIF, direct investments, and strategic partnerships, he invests in high-growth businesses across technology, healthcare, advanced manufacturing, and consumer sectors, with a strong preference for long-term partnerships over transactional capital. He has also been instrumental in pioneering new sports enterprises in India, including the establishment and growth of Ultimate Table Tennis and Chennaiyin FC.`,
+
+        `As Chairperson of the Dani Foundation, Mr. Dani leads large-scale social initiatives focused on education, public health, culture, women empowerment, and physical literacy. Through the Dani Sports Foundation and the Sportscom movement, he is a national advocate for building India’s grassroots sports and physical activity ecosystem. He also supports civic innovation and climate resilience through advisory leadership roles, including with Project Mumbai, a globally recognised public-impact institution.`,
+
+        `Across all his roles, Mr. Dani champions the belief that capital must be purposeful and society-enhancing. He brings together government, private sector, and civil society stakeholders to create sustainable, inclusive, and scalable ecosystems that unlock economic opportunity and improve quality of life.`,
+
+        `His deep commitment to India’s development, combined with a global perspective on innovation and investments, positions him as a trusted partner to institutions and family o􀆯ices seeking to build enduring, impact-aligned platforms in India and beyond.`,
       ]}
       message={[
-        `It gives me immense pride to address the vibrant and growing community of young minds at IIIT Dharwad, an Institute of National Importance built on the foundation of excellence, innovation, and inclusivity.`,
+        `It is an honour to assume the role of Chairman of the Indian Institute of Information Technology, Dharwad.`,
 
-        `As the Chairperson of the Board of Governors, it is both an honour and a responsibility to guide an institution that not only imparts technical education, but also fosters ethical leadership, social responsibility, and purposeful innovation.`,
+        `IIIT Dharwad represents more than an academic institution — it is a space where ideas, technology, and responsibility must converge to shape the future. At a time when digital transformation is redefining economies, governance, and everyday life, institutions like ours carry the responsibility of not just keeping pace with change, but guiding it.`,
 
-        `As you embark on your journey through the ever-evolving world of technology, I urge you to look beyond the conventional. The future will not be shaped by degrees alone, but by the depth of your curiosity, the practicality of your skills, and the authenticity of your intent. A vision without committed action remains a distant dream, but when purpose and perseverance come together, transformation becomes inevitable.`,
+        `Our vision must extend beyond classrooms and curricula. IIIT Dharwad must evolve as a centre for deep technical excellence, interdisciplinary thinking, and innovation that serves society at scale. We must encourage inquiry that is bold, research that is relevant, and learning that equips students to navigate complexity with integrity and purpose.`,
 
-        `India's strength lies not just in its cities, but also in its villages, small towns, and the untapped potential scattered across our vast landscape. At Zoho, and in my personal journey, I have seen firsthand that real transformation happens at the grassroots. Whether in urban hubs or rural communities, talent knows no boundaries. Let us not limit our dreams to glass towers in metros, India's rural heartland holds immense potential, waiting for innovators like you to engage, build, and uplift.`,
+        `I see IIIT Dharwad as a platform where academia and industry collaborate meaningfully, where young minds are empowered to solve real-world challenges, and where technology is approached not merely as a tool, but as a force for inclusive and sustainable progress.`,
 
-        `IIIT Dharwad, nestled in the twin cities of Hubballi-Dharwad, is uniquely positioned to bridge the aspirations of cutting-edge technology with the grounded realities of India. With a strong academic foundation in Computer Science, Electronics, and Data Science & AI, this institute is emerging as a catalyst for decentralized and inclusive innovation, not just for Karnataka, but for the nation at large.`,
-
-        `While you acquire domain knowledge and technical expertise, I encourage you to also develop roots in values like integrity, humility, and service. True success is not measured by titles or wealth, but by your ability to contribute meaningfully to society while staying grounded in your principles.`,
-
-        `To the students of IIIT Dharwad: dream boldly, stay grounded, and build with purpose. You are not just preparing for jobs, you are preparing to lead India into a future where innovation is rooted in values, and where education becomes a force for empowerment and positive change.`,
+        `I look forward to working with the Board, faculty, students, alumni, and partners to collectively shape an institution defined by clarity of vision, excellence in execution, and lasting impact.`,
 
         `Let us build that future together.`,
 
         `Warm regards,`,
       ]}
-      signatureText="Dr. Sridhar Vembu"
+      signatureText="Mr. Jalaj Dani"
       signaturePosition="Chairperson, IIIT Dharwad"
     />
   );
