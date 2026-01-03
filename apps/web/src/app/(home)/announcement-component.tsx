@@ -150,7 +150,7 @@ export default function AnnouncementComponent({
 
         <div className="flex justify-between items-center max-md:flex-col max-md:items-start gap-2">
           <Link
-            href="/annoucements"
+            href="/announcements"
             className="text-main hover:underline flex text-title-3 items-center"
           >
             View all Announcements <span className="ml-2">→</span>
