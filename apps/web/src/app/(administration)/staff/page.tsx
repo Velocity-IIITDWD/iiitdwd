@@ -3,6 +3,12 @@ import { groupAndOrderItems } from "@/lib/utils";
 import { get } from "@/sanity/lib/client";
 import { GetAllStaff } from "@/sanity/lib/queries";
 import { GetAllStaffResult } from "@/sanity/types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Staff",
+  description: "Faculty and administrative staff of IIIT Dharwad",
+};
 
 export default async function Page() {
   const response = await get<GetAllStaffResult>(GetAllStaff);
