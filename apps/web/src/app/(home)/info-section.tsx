@@ -1,3 +1,4 @@
+"use client";
 import director from "@/assets/director.jpg";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Image from "next/image";
@@ -7,8 +8,10 @@ import EventsSection from "./events";
 import NotificationSection from "./notification";
 import PlacementCard from "./placement-card";
 import ModernSocialMediaGrid from "./social-media";
+import VideoPlayer from "./video-player";
 
-export default function InfoSection() {
+
+export default function InfoSection(): React.ReactNode {
   const externalLink =
     "https://www.instagram.com/reel/DRG3BLyDC8J/?igsh=dmJ3YnN3cW5zNWFj";
 
@@ -135,40 +138,7 @@ export default function InfoSection() {
               hover:bg-secondary/30 group transition-all duration-300
             "
             >
-              <a
-                href={externalLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 md:flex-[0_0_60%] lg:flex-[0_0_70%] relative overflow-hidden rounded-lg"
-              >
-                {/* 16:9 aspect‑ratio box */}
-                <div className="relative w-full pt-[56.25%]">
-                  <video
-                    src="https://iiitdwd.ac.in/images/orientation.mp4"
-                    autoPlay
-                    muted={false}
-                    loop
-                    playsInline
-                    preload="auto"
-                    poster={"/images/thumnail.png"}
-                    className="
-                      absolute inset-0 w-full h-full object-cover
-                      transition-transform duration-500 group-hover:scale-105
-                    "
-                    style={
-                      { imageRendering: "crisp-edges" } as React.CSSProperties
-                    }
-                  />
-                </div>
-
-                <IconArrowUpRight
-                  className="
-                    absolute top-4 right-4 z-10 text-gray-500
-                    group-hover:text-black transition-all
-                  "
-                  size={20}
-                />
-              </a>
+              <VideoPlayer externalLink={externalLink} />
 
               <div className="flex-1 flex flex-col justify-center">
                 <a
