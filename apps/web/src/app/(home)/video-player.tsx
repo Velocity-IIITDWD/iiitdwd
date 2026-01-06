@@ -5,15 +5,30 @@ import {
   IconVolume,
   IconVolumeOff,
 } from "@tabler/icons-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface VideoPlayerProps {
   externalLink: string;
 }
 
-export default function VideoPlayer({ externalLink }: VideoPlayerProps) {
+export default function VideoPlayer({
+  externalLink,
+}: VideoPlayerProps): JSX.Element {
+  const [mounted, setMounted] = useState(false);
+  const hasPlayed = mounted ? localStorage.getItem("homeVideoPlayed") : null;
   const [isMuted, setIsMuted] = useState(true);
+  const [shouldAutoplay, setShouldAutoplay] = useState(!hasPlayed);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted && !hasPlayed) {
+      localStorage.setItem("homeVideoPlayed", "true");
+    }
+  }, [mounted, hasPlayed]);
 
   const toggleMute = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -35,7 +50,7 @@ export default function VideoPlayer({ externalLink }: VideoPlayerProps) {
         <video
           ref={videoRef}
           src="https://iiitdwd.ac.in/images/orientation.mp4"
-          autoPlay
+          autoPlay={shouldAutoplay}
           muted={isMuted}
           loop
           playsInline
