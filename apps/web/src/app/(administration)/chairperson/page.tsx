@@ -21,7 +21,7 @@ export default async function Page() {
 
         `Across all his roles, Mr. Dani champions the belief that capital must be purposeful and society-enhancing. He brings together government, private sector, and civil society stakeholders to create sustainable, inclusive, and scalable ecosystems that unlock economic opportunity and improve quality of life.`,
 
-        `His deep commitment to India’s development, combined with a global perspective on innovation and investments, positions him as a trusted partner to institutions and family o􀆯ices seeking to build enduring, impact-aligned platforms in India and beyond.`,
+        `His deep commitment to India’s development, combined with a global perspective on innovation and investments, positions him as a trusted partner to institutions and family offices seeking to build enduring, impact-aligned platforms in India and beyond.`,
       ]}
       message={[
         `It is an honour to assume the role of Chairman of the Indian Institute of Information Technology, Dharwad.`,

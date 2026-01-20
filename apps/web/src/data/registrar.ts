@@ -1,4 +1,5 @@
 export default [
+  /*
   {
     title: "Registrar",
     profiles: [
@@ -9,7 +10,7 @@ export default [
         imageURL: "/images/Muruganatham_Ponnusamy.jpeg",
       },
     ],
-  },
+  }, */
   {
     title: "Assistant Registrar",
     profiles: [
@@ -18,6 +19,17 @@ export default [
         content: [],
         title: "Mr. Ravi B Vitlapur",
         imageURL: "https://iiitdwd.ac.in/images/ravi_b_vitlapur.jpg",
+      },
+    ],
+  },
+  {
+    title: "Assistant Registrar",
+    profiles: [
+      {
+        index: 2,
+        content: [],
+        title: "Dr. Rajesh N S",
+        imageURL: "https://iiitdwd.ac.in/images/Dr.RajeshNS.jpeg",
       },
     ],
   },

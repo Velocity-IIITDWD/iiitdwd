@@ -4,8 +4,8 @@ export default [
     profiles: [
       {
         content: ["Chairperson, IIIT Dharwad"],
-        imageURL: "/images/Sridhar Vembu.webp",
-        title: "Dr. Sridhar Vembu",
+        imageURL: "/images/jalaj_dani.jpeg",
+        title: "Mr. Jalaj Dani",
       },
     ],
   },
@@ -46,6 +46,7 @@ export default [
       },
     ],
   },
+  /*
   {
     title: "Non Member Secretary",
     profiles: [
@@ -55,5 +56,6 @@ export default [
         title: "Prof. (Dr.) Muruganantham Ponnusamy",
       },
     ],
-  },
+    
+  }, */
 ];
