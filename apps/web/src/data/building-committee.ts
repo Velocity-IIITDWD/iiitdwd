@@ -22,11 +22,13 @@ export default [
         imageURL: "/images/s_r_mahadeva_prasanna.jpg",
         title: "Prof. S. R. Mahadeva Prasanna",
       },
+      /*
       {
         content: ["Member, Registrar, IIIT Dharwad"],
         imageURL: "/images/Muruganatham_Ponnusamy.jpeg",
         title: "Prof. (Dr.) Muruganantham Ponnusamy",
       },
+      */
       {
         content: ["Member Secretary"],
         imageURL: "/images/mahesh_chandra_k_j.jpeg",
