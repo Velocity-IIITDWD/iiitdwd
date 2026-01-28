@@ -29,7 +29,7 @@ export default [
         index: 2,
         content: [],
         title: "Dr. Rajesh N S",
-        imageURL: "https://iiitdwd.ac.in/images/Dr.RajeshNS.jpeg",
+        imageURL: "https://iiitdwd.ac.in/images/Dr._Rajesh.jpg.jpeg",
       },
     ],
   },
