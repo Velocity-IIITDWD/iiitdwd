@@ -22,7 +22,8 @@ export default function ContentTypes({
     !currentDept.disciplineCoreCourses ||
     !currentDept.engineeringCoreCourses ||
     !currentDept.mathsAndStatsCourses ||
-    !currentDept.disciplineElectiveCourses
+    !currentDept.disciplineElectiveCourses ||
+    !currentDept.openElectiveCourses
   ) {
     return null;
   }
@@ -30,13 +31,14 @@ export default function ContentTypes({
   return (
     <div className="space-y-8">
       <Tabs defaultValue="disciplineCore" className="w-full">
-        <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-4 h-fit gap-2">
+        <TabsList className="grid grid-cols-2 md:grid-cols-5 mb-4 h-fit gap-2">
           <TabsTrigger value="disciplineCore">Discipline Core</TabsTrigger>
           <TabsTrigger value="disciplineElective">
             Discipline Elective
           </TabsTrigger>
           <TabsTrigger value="engineeringCore">Engineering Core</TabsTrigger>
           <TabsTrigger value="mathsStats">Mathematics & Statistics</TabsTrigger>
+          <TabsTrigger value="openElective">Open Elective</TabsTrigger>
         </TabsList>
 
         <TabsContent value="disciplineCore">
@@ -195,6 +197,45 @@ export default function ContentTypes({
                 </TableHeader>
                 <TableBody>
                   {currentDept.mathsAndStatsCourses.map(course => (
+                    <TableRow key={course.id}>
+                      <TableCell>{course.id}</TableCell>
+                      <TableCell className="font-medium">
+                        {course.name}
+                      </TableCell>
+                      <TableCell>
+                        <Badge
+                          variant="outline"
+                          className="bg-main/15 text-main"
+                        >
+                          {course.credits} credits
+                        </Badge>
+                      </TableCell>
+                      <TableCell>Semester {course.semester}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="openElective">
+          <Card>
+            <CardContent>
+              <Table>
+                <TableCaption>
+                  Open elective courses available for the program
+                </TableCaption>
+                <TableHeader>
+                  <TableRow className="bg-secondary/70 hover:bg-secondary/80 transition-colors">
+                    <TableHead className="w-[50px]">ID</TableHead>
+                    <TableHead>Course Name</TableHead>
+                    <TableHead className="w-[150px]">Credits</TableHead>
+                    <TableHead className="w-[150px]">Semester</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {currentDept.openElectiveCourses.map(course => (
                     <TableRow key={course.id}>
                       <TableCell>{course.id}</TableCell>
                       <TableCell className="font-medium">

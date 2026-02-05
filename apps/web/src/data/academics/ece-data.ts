@@ -31,6 +31,7 @@ export interface BTechECEProgram {
   disciplineElectiveCourses: Course[];
   engineeringCoreCourses: Course[];
   mathsAndStatsCourses: Course[];
+  openElectiveCourses: Course[];
   openElectivesAndProjectsCredits: number;
   hssAndIECredits: number;
   totalCredits: number;
@@ -167,6 +168,65 @@ const bTechECEProgramData: BTechECEProgram = {
     { id: 4, name: "Optimization", credits: 2, semester: 2 },
     { id: 5, name: "Differential Equations", credits: 2, semester: 3 },
     { id: 6, name: "Multivariate Calculus", credits: 2, semester: 3 },
+  ],
+  openElectiveCourses: [
+    { id: 1, name: "Introduction to Data Analytics", credits: 2, semester: 2 },
+    { id: 2, name: "Principles of Quantum Physics", credits: 2, semester: 2 },
+    {
+      id: 3,
+      name: "Visual Design- Principles and Application in Product Communication",
+      credits: 2,
+      semester: 2,
+    },
+    { id: 4, name: "Linux for Engineers", credits: 2, semester: 2 },
+    {
+      id: 5,
+      name: "Introduction to Sensor Technology",
+      credits: 2,
+      semester: 2,
+    },
+    { id: 6, name: "Introduction to Cybersecurity", credits: 2, semester: 2 },
+    {
+      id: 7,
+      name: "Introduction to Financial Analytics",
+      credits: 2,
+      semester: 2,
+    },
+    {
+      id: 8,
+      name: "Fundamentals of Sensing and Controls",
+      credits: 2,
+      semester: 2,
+    },
+    {
+      id: 9,
+      name: "Consumer Psychology and Decision Making",
+      credits: 2,
+      semester: 2,
+    },
+    { id: 10, name: "Strategic Management", credits: 2, semester: 2 },
+    {
+      id: 11,
+      name: "Introduction to Blockchain and IoT",
+      credits: 2,
+      semester: 2,
+    },
+    { id: 12, name: "Digital Forensics", credits: 2, semester: 4 },
+    {
+      id: 13,
+      name: "Embedded Intelligent Sensing Systems",
+      credits: 2,
+      semester: 4,
+    },
+    { id: 14, name: "Edge AI Systems Design", credits: 2, semester: 4 },
+    { id: 15, name: "Causal Inference", credits: 2, semester: 4 },
+    {
+      id: 16,
+      name: "Time Series Forecasting and Applications",
+      credits: 2,
+      semester: 4,
+    },
+    { id: 17, name: "Operating Systems", credits: 2, semester: 4 },
   ],
   openElectivesAndProjectsCredits: 40,
   hssAndIECredits: 21,
