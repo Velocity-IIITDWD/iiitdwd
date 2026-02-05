@@ -150,7 +150,7 @@ const navigationData: NavigationItem[] = [
       {
         title: "Medium of Instruction",
         href: "/docs/Medium_of_Instruction_Certificate.pdf",
-      }
+      },
     ],
   },
   {
@@ -158,6 +158,7 @@ const navigationData: NavigationItem[] = [
     href: "#",
     items: [
       { title: "Programmes", href: "/academics/programmes" },
+      { title: "Minor Programs", href: "/academics/minor-programs" },
       // { title: 'Calendar', href: '/academics/calendar' },
       { title: "Departments", href: "/academics/departments" },
       { title: "Center of Excellence", href: "/released-soon" },
@@ -250,12 +251,12 @@ const navigationData: NavigationItem[] = [
       },
       {
         title: "Academic Calender",
-        href: "/docs/Academic_Calender_2026.pdf"
+        href: "/docs/Academic_Calender_2026.pdf",
       },
       {
         title: "Academic Calendar for First Year B.tech Students",
-        href: "/docs/Academic_Calender_2026_Firts_Years.pdf"
-      }
+        href: "/docs/Academic_Calender_2026_Firts_Years.pdf",
+      },
       // {
       //   title: 'Achievements',
       //   href: '/student-life/achievements'
@@ -272,9 +273,7 @@ const navigationData: NavigationItem[] = [
   {
     title: "Staff",
     href: "/staff",
-    items: [
-      { title: "Staff", href: "/staff"}
-    ]
+    items: [{ title: "Staff", href: "/staff" }],
   },
   {
     title: "Research",
@@ -283,35 +282,32 @@ const navigationData: NavigationItem[] = [
       { title: "Overview", href: "#" },
       { title: "Research", href: "/academics/research/" },
       { title: "IDRP", href: "#" },
-    ]
+    ],
   },
   {
     title: "Careers & Tenders",
     href: "#",
-    items: [
-      { title: "Tenders", href: "/tenders"},
-    ]
+    items: [{ title: "Tenders", href: "/tenders" }],
   },
   {
     title: "Faculty Careers",
     href: "#",
-    items: [
-      { title: "Faculty", href: "/careers/faculty" },
-    ]
+    items: [{ title: "Faculty", href: "/careers/faculty" }],
   },
   {
     title: "Staff Careers",
     href: "#",
-    items: [
-      { title: "Staff", href: "/careers/staff" },
-    ]
+    items: [{ title: "Staff", href: "/careers/staff" }],
   },
   {
     title: "PHD/123 Careers",
     href: "#",
     items: [
-      { title: "Phd/M.tech/Project Staff/ Research Asst.", href: "/careers/Phd_Mtech_ProjStaff_ResearchAsst" },
-    ]
+      {
+        title: "Phd/M.tech/Project Staff/ Research Asst.",
+        href: "/careers/Phd_Mtech_ProjStaff_ResearchAsst",
+      },
+    ],
   },
   {
     title: "Career Guidance Cell",

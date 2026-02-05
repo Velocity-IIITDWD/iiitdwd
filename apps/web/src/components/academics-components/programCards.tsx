@@ -90,7 +90,7 @@ const ProgramCards: React.FC<ProgramCardsProps> = ({ programs }) => {
       title: "Minor Programs",
       description:
         "Explore minors that add depth or breadth to your main degree.",
-      link: "https://iiitdwd.ac.in/docs/MinorPrograms.pdf",
+      link: "/academics/minor-programs",
       imageSrc: "https://iiitdwd.ac.in/images/course_catalog.JPG",
     },
   ];
