@@ -83,7 +83,7 @@ const ProgramCards: React.FC<ProgramCardsProps> = ({ programs }) => {
       title: "Major Programs",
       description:
         "Browse core degree programs with course details and requirements.",
-      link: "https://iiitdwd.ac.in/docs/MajorPrograms.pdf",
+      link: "/academics/major-programs",
       imageSrc: "https://iiitdwd.ac.in/images/minors.JPG",
     },
     {
