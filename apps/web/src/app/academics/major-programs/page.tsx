@@ -89,22 +89,38 @@ export default function MajorProgramsPage(): JSX.Element {
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -5 }}
+            whileHover={{ y: -5, scale: 1.02 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="bg-white dark:bg-neutral-900/50 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-neutral-800 hover:border-gray-300 dark:hover:border-neutral-700 hover:shadow-lg transition-all group"
+            transition={{ delay: index * 0.1, type: "spring", stiffness: 300 }}
+            className="relative p-6 rounded-2xl overflow-hidden group transition-all duration-300"
           >
-            <div className="w-12 h-12 bg-primary/5 dark:bg-white/5 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/10 dark:group-hover:bg-white/10 transition-colors">
-              <item.icon className="w-6 h-6 text-primary dark:text-indigo-400" />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 font-grotesk">
-              {item.title}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 min-h-[40px] font-roboto">
-              {item.content}
-            </p>
-            <div className="text-xs font-bold text-main uppercase tracking-wider font-grotesk">
-              {item.subtext}
+            {/* Liquid/Gradient Blob Effect */}
+            <div className="absolute -inset-1/2 bg-gradient-to-tr from-primary/20 via-main/20 to-primary/20 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700 animate-spin-slow pointer-events-none"></div>
+
+            {/* Glass Background & Border */}
+            <div className="absolute inset-0 bg-white/60 dark:bg-black/40 backdrop-blur-xl border border-white/50 dark:border-white/10 rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-300"></div>
+
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="w-14 h-14 bg-gradient-to-br from-white/80 to-white/20 dark:from-white/10 dark:to-transparent rounded-xl flex items-center justify-center mb-5 shadow-inner border border-white/40 dark:border-white/10 group-hover:scale-110 transition-transform duration-300">
+                <item.icon className="w-7 h-7 text-primary dark:text-indigo-300 drop-shadow-sm" />
+              </div>
+
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 font-grotesk tracking-tight group-hover:text-primary dark:group-hover:text-indigo-300 transition-colors">
+                {item.title}
+              </h3>
+
+              <p className="text-gray-700 dark:text-gray-300 text-sm mb-4 min-h-[40px] font-roboto leading-relaxed flex-grow">
+                {item.content}
+              </p>
+
+              <div className="flex items-center justify-between mt-auto">
+                <div className="text-xs font-black text-main uppercase tracking-widest font-grotesk">
+                  {item.subtext}
+                </div>
+                <div className="w-8 h-8 rounded-full bg-main/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                  <ArrowRight className="w-4 h-4 text-main" />
+                </div>
+              </div>
             </div>
           </motion.div>
         ))}
