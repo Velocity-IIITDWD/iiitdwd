@@ -29,8 +29,7 @@ export default function InfoSection() {
             grid-cols-[1fr_repeat(1,calc(min(calc(100vw-30px*2),1265px)/1))_1fr] 
             md:grid-cols-[1fr_repeat(2,calc(min(calc(100vw-30px*2),1265px)/2))_1fr] 
             lg:grid-cols-[1fr_repeat(3,calc(min(calc(100vw-30px*2),1265px)/3))_1fr] 
-            [&>*]:min-h-8 
-            [&>*]:[box-shadow:0_0_0_1px_var(--color-gray-300),inset_0_0_0_1px_var(--color-background)]
+            [&>*]:min-h-8
           "
         >
           <div className="!h-[90px]"></div>
@@ -102,12 +101,10 @@ export default function InfoSection() {
           </div>
 
           <div className="[grid-area:2/2] h-full md:[grid-area:2/2/span_1/span_2] lg:[grid-area:2/3/span_1/span_2] min-h-[400px] p-6 relative">
-            <div className="absolute inset-0 flex items-center justify-center [background-image:radial-gradient(var(--color-gray-300)_0.8px,transparent_0)] [background-repeat:repeat] [background-position:-8.5px_-8.5px] [background-size:17px_17px]"></div>
             <EventsSection />
           </div>
 
           <div className="[grid-area:4/2] md:[grid-area:4/2/span_1/span_2] lg:[grid-area:3/2/span_1/span_2] p-6 relative">
-            <div className="absolute inset-0 flex items-center justify-center [background-image:radial-gradient(var(--color-gray-300)_0.8px,transparent_0)] [background-repeat:repeat] [background-position:-8.5px_-8.5px] [background-size:17px_17px]"></div>
             <NotificationSection />
           </div>
 
