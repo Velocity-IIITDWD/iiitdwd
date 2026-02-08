@@ -1,4 +1,7 @@
 import director from "@/assets/director.jpg";
+import { get } from "@/sanity/lib/client";
+import { queryCarousel } from "@/sanity/lib/queries";
+import { QueryCarouselResult } from "@/sanity/types";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,9 +12,15 @@ import PlacementCard from "./placement-card";
 import ModernSocialMediaGrid from "./social-media";
 import VideoPlayer from "./video-player";
 
-export default function InfoSection() {
+export default async function InfoSection() {
   const externalLink =
     "https://www.instagram.com/reel/DRG3BLyDC8J/?igsh=dmJ3YnN3cW5zNWFj";
+
+  let carouselData = await get<QueryCarouselResult>(queryCarousel);
+  carouselData = carouselData?.sort(
+    (a, b) =>
+      new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()
+  );
 
   return (
     <div className="px-6 w-full relative overflow-x-hidden">
@@ -38,17 +47,15 @@ export default function InfoSection() {
             <div key={i}></div>
           ))}
 
-          <div className="relative [grid-area:3/2] lg:[grid-area:2/2] group transition-all duration-300 flex flex-col justify-end p-6 overflow-hidden shadow-sm hover:shadow-md">
+          <div className="relative [grid-area:3/2] lg:[grid-area:2/2] group transition-all duration-300 flex flex-col p-6 overflow-hidden shadow-sm hover:shadow-md rounded-lg">
             <div className="absolute inset-0 opacity-5 bg-grid-pattern"></div>
 
-            <div className="relative w-full h-[320px] mb-4 overflow-hidden rounded-md flex items-center justify-center bg-gray-100">
+            <div className="relative w-full aspect-square mb-4 overflow-hidden rounded-md bg-gray-100">
               <Image
                 src={director}
                 alt="Director of IIIT Dharwad"
-                width={220}
-                height={220}
-                className="object-cover object-center rounded transition-transform duration-500 group-hover:scale-105"
-                style={{ maxHeight: 250, width: "auto", maxWidth: "100%" }}
+                fill
+                className="object-cover object-top rounded transition-transform duration-500 group-hover:scale-105"
                 priority
               />
             </div>
@@ -101,7 +108,7 @@ export default function InfoSection() {
           </div>
 
           <div className="[grid-area:2/2] h-full md:[grid-area:2/2/span_1/span_2] lg:[grid-area:2/3/span_1/span_2] min-h-[400px] p-6 relative">
-            <EventsSection />
+            <EventsSection events={carouselData || []} />
           </div>
 
           <div className="[grid-area:4/2] md:[grid-area:4/2/span_1/span_2] lg:[grid-area:3/2/span_1/span_2] p-6 relative">
