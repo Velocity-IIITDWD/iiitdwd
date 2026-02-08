@@ -19,7 +19,9 @@ interface ProgramListProps {
 }
 
 // Remove export default at bottom if replacing entire file context or just targeting the definition
-export default function ProgramList({ programs }: ProgramListProps) {
+export default function ProgramList({
+  programs,
+}: ProgramListProps): JSX.Element {
   const defaultPrograms: Program[] = [
     {
       title: "Under-Graduate Programs",
