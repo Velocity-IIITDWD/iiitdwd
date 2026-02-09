@@ -20,7 +20,7 @@ const testData: ProfileSectionProps[] = [
   {
     title: "Public Information Officers (PIO)",
     profiles: [
-      {
+      /*{
         title: "Dr. Muruganantham Ponnusamy",
         content: [
           "First Appellate Authority (FAA)",
@@ -28,7 +28,7 @@ const testData: ProfileSectionProps[] = [
           "registrar@iiitdwd.ac.in",
         ],
         imageURL: "/images/Muruganatham_Ponnusamy.jpeg",
-      },
+      },*/
       {
         title: "Mr. Ravi B Vitlapur",
         content: [
