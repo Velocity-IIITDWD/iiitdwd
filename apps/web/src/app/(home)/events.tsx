@@ -1,39 +1,44 @@
+"use client";
+
 import CommonCarousel from "@/components/carousel/common-carousel";
-import { get } from "@/sanity/lib/client";
-import { queryCarousel } from "@/sanity/lib/queries";
-import { QueryCarouselResult } from "@/sanity/types";
 import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function EventsSection() {
-  let carouselData = await get<QueryCarouselResult>(queryCarousel);
-  carouselData = carouselData?.sort(
-    (a, b) =>
-      new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()
-  );
+interface EventItem {
+  url?: string;
+  caption?: string;
+  link?: string;
+  _createdAt?: string;
+}
 
+export default function EventsSection({ events }: { events: EventItem[] }) {
   return (
     <CommonCarousel>
-      {carouselData?.slice(0, 5).map((item, index) => (
+      {events?.slice(0, 5).map((item, index) => (
         <div className="embla__slide" key={index}>
-          {/* Main card container */}
-          <div className="mx-auto max-w-4xl w-full">
-            {/* Image container */}
-            <div className="relative w-full h-96 md:h-[400px] rounded-lg overflow-hidden">
-              <Image
-                src={`https://iiitdwd.ac.in${item?.url!}`}
-                alt={item?.caption || "Event image"}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
-                className="object-contain bg-black"
-                priority={index === 0}
-              />
+          {/* Event card container */}
+          <div className="event-card mx-auto w-full h-full flex flex-col bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+            {/* Event image container with fixed aspect ratio */}
+            <div className="event-image-container relative w-full bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden flex items-center justify-center">
+              <div className="relative w-full aspect-[16/9]">
+                <Image
+                  src={`https://iiitdwd.ac.in${item?.url!}`}
+                  alt={item?.caption || "Event image"}
+                  fill
+                  sizes="(max-width: 800px) 100vw, (max-width: 1400px) 80vw, 900px"
+                  className="object-contain"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  priority={index === 0}
+                />
+              </div>
             </div>
 
-            {/* Caption + Button – directly below the image */}
-            <div className="mt-6 text-center md:text-left">
-              <h3 className="text-title-2 text-black mb-6">{item?.caption}</h3>
+            {/* Event details */}
+            <div className="event-details p-4 flex-shrink-0">
+              <h3 className="text-title-2 text-black font-semibold mb-4 line-clamp-2">
+                {item?.caption}
+              </h3>
 
               <Link
                 href={item?.link!}

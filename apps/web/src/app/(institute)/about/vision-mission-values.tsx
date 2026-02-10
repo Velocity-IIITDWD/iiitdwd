@@ -14,8 +14,7 @@ export default function VisionMissionValues() {
           grid-cols-[1fr_repeat(1,calc(min(calc(100vw-30px*2),1265px)/1))_1fr] 
           md:grid-cols-[1fr_repeat(2,calc(min(calc(100vw-30px*2),1265px)/2))_1fr] 
           lg:grid-cols-[1fr_repeat(8,calc(min(calc(100vw-30px*2),1265px)/8))_1fr] 
-          [&>*]:min-h-8 
-          [&>*]:[box-shadow:0_0_0_1px_var(--color-gray-300),inset_0_0_0_1px_var(--color-background)]
+          [&>*]:min-h-8
           "
         >
           <div className="!h-[90px]"></div>
