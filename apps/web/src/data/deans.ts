@@ -1,6 +1,21 @@
 export default [
   {
     id: "1",
+    name: "Dr. K Gopinath",
+    position: "Professor In-Charge",
+    department: "Students welfare and administration",
+    email: "k.r.gopinath@iiitdwd.ac.in",
+    imageUrl: "https://www.iiitdwd.ac.in//images/Dr._K._Gopinath.jpg",
+  },
+  {
+    id: "2",
+    name: "Prof. Vasudev Parvati",
+    position: "Professor In-Charge",
+    department: "(PRO, CGC & AA)",
+    imageUrl: "https://www.iiitdwd.ac.in//images/Vasudev_Parvati.jpeg",
+  },
+  {
+    id: "3",
     name: "Dr. Rajendra Hegadi",
     title: "Associate Professor",
     position: "Professor In-Charge",
@@ -9,7 +24,7 @@ export default [
     imageUrl: "https://www.iiitdwd.ac.in//images/Dr.RajendraHegadi.jpeg",
   },
   {
-    id: "2",
+    id: "4",
     name: "Dr. Deepak K T",
     title: "Assistant Professor",
     position: "Associate Dean",
@@ -18,7 +33,7 @@ export default [
     imageUrl: "https://www.iiitdwd.ac.in//images/Dr.DeepakKT.jpeg",
   },
   {
-    id: "3",
+    id: "5",
     name: "Dr. Jagadish D N",
     title: "Assistant Professor",
     position: "Associate Dean",
@@ -27,7 +42,7 @@ export default [
     imageUrl: "https://www.iiitdwd.ac.in//images/Dr.JagadishDN.jpeg",
   },
   {
-    id: "4",
+    id: "6",
     name: "Dr. Pavan Kumar C",
     title: "Assistant Professor",
     position: "Associate Dean",
@@ -36,7 +51,7 @@ export default [
     imageUrl: "https://www.iiitdwd.ac.in//images/Dr.PavanKumarC.jpg",
   },
   {
-    id: "5",
+    id: "7",
     name: "Dr. Sunil Saumya",
     title: "Assistant Professor",
     position: "Associate Dean",
@@ -44,4 +59,11 @@ export default [
     email: "sunil.saumya@iiitdwd.ac.in",
     imageUrl: "https://www.iiitdwd.ac.in//images/Dr.SunilSaumya.jpeg",
   },
+  {
+    id: "8",
+    name: "Prof. Satish Annigeri",
+    position: "Associate Dean",
+    department: "Planning and Infrastructure",
+    imageUrl: "https://www.iiitdwd.ac.in//images/satish_annigeri.png",
+  }
 ];

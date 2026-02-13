@@ -21,7 +21,7 @@ export default function AppointmentDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="my-4 flex items-center justify-center w-full gap-2 py-2 rounded-md bg-main text-white text-sm shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 cursor-pointer">
+        <button className="my-4 flex items-center justify-center w-full gap-2 py-2 rounded-md bg-main text-white text-sm shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer">
           <IconCalendarEvent size={18} />
           Book an appointment for Admissions Q&A
         </button>

@@ -7,6 +7,11 @@ const navigationData: NavigationItem[] = [
     items: [],
   },
   {
+    title: "Gallery",
+    href: "/gallery",
+    items: [],
+  },
+  {
     title: "Institute",
     href: "#",
     items: [

@@ -6,7 +6,7 @@ export default function MainCarousel() {
   const OPTIONS: EmblaOptionsType = { loop: true };
 
   return (
-    <div className="h-[calc(100vh-5rem)] w-full overflow-hidden relative mt-16">
+    <div className="h-[calc(100vh-5rem)] w-full overflow-hidden relative">
       <SectionHeading
         className="!absolute left-10 top-10"
         title="explore "
