@@ -1,16 +1,16 @@
 export default [
-  /*
+  
   {
     title: "Registrar",
     profiles: [
       {
         index: 1,
         content: [],
-        title: "Prof. (Dr.) Muruganantham Ponnusamy",
-        imageURL: "/images/Muruganatham_Ponnusamy.jpeg",
+        title: "Prof. Satish Annigeri",
+        imageURL: "/images/satish_annigeri.png",
       },
     ],
-  }, */
+  },
   {
     title: "Assistant Registrar",
     profiles: [

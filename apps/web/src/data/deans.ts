@@ -59,4 +59,11 @@ export default [
     email: "sunil.saumya@iiitdwd.ac.in",
     imageUrl: "https://www.iiitdwd.ac.in//images/Dr.SunilSaumya.jpeg",
   },
+  {
+    id: "8",
+    name: "Prof. Satish Annigeri",
+    position: "Associate Dean",
+    department: "Planning and Infrastructure",
+    imageUrl: "https://www.iiitdwd.ac.in//images/satish_annigeri.png",
+  }
 ];
