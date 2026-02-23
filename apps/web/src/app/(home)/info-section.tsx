@@ -1,44 +1,42 @@
-import director from "@/assets/director.jpg";
 import { get } from "@/sanity/lib/client";
 import { queryCarousel } from "@/sanity/lib/queries";
-import { QueryCarouselResult } from "@/sanity/types";
+import { MainCarouselImage } from "@/sanity/types";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import AppointmentDialog from "./appointment-dialog";
+import DepartmentsSection from "./departments-section";
 import EventsSection from "./events";
 import NotificationSection from "./notification";
 import PlacementCard from "./placement-card";
 import ModernSocialMediaGrid from "./social-media";
 import VideoPlayer from "./video-player";
 
-export default async function InfoSection() {
+export default async function InfoSection(): Promise<JSX.Element> {
   const externalLink =
     "https://www.instagram.com/reel/DRG3BLyDC8J/?igsh=dmJ3YnN3cW5zNWFj";
 
-  let carouselData = await get<QueryCarouselResult>(queryCarousel);
+  let carouselData = await get<MainCarouselImage[]>(queryCarousel);
   carouselData = carouselData?.sort(
-    (a, b) =>
+    (a: MainCarouselImage, b: MainCarouselImage) =>
       new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()
   );
 
   return (
     <div className="w-full py-12 md:py-16">
       <div className="max-w-[1400px] mx-auto px-5">
-        {/* Top Section: Two-column grid - Director + Announcements */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        {/* Top Section: Three-column grid - Director + About + Announcements */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Director's Message */}
           <div className="group transition-all duration-300 flex flex-col overflow-hidden rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] min-h-[500px]">
-            <div className="relative">
-              <div className="relative w-full aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50">
-                <Image
-                  src={director}
-                  alt="Director of IIIT Dharwad"
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  priority
-                />
-              </div>
+            <div className="relative flex-1 min-h-0">
+              <Image
+                src="https://assets.iiitdwd.ac.in/images/SRMahadevaPrasanna.jpg"
+                alt="Director of IIIT Dharwad"
+                fill
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                priority
+              />
             </div>
 
             <div className="p-6">
@@ -91,7 +89,109 @@ export default async function InfoSection() {
             </div>
           </div>
 
-          {/* Announcements/Notifications - next to Director's message */}
+          {/* Middle column: About Us + Campus Tour */}
+          <div className="flex flex-col gap-8">
+            {/* About Us */}
+            <div className="group flex flex-col rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-300 overflow-hidden">
+              {/* Header strip */}
+              <div className="px-6 pt-6 pb-4 border-b border-gray-100">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold text-[#193654] mb-2">
+                      About IIIT Dharwad
+                    </h3>
+                    <div className="h-0.5 w-10 bg-[#CCE70B] rounded-full" />
+                  </div>
+                  <IconArrowUpRight
+                    className="transition-all duration-300 text-gray-400 group-hover:text-[#193654] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    size={22}
+                  />
+                </div>
+              </div>
+
+              {/* Body */}
+              <div className="flex flex-col flex-1 px-6 py-5 gap-4">
+                <p className="text-[14px] text-[#193654]/70 leading-relaxed">
+                  Established under the Indian Institutes of Information
+                  Technology (PPP) Act 2017, IIIT Dharwad is an Institute of
+                  National Importance committed to excellence in technology
+                  education and research.
+                </p>
+
+                {/* Quick facts */}
+                <div className="grid grid-cols-2 gap-3 mt-1">
+                  {[
+                    { label: "Est.", value: "2015" },
+                    { label: "Status", value: "Deemed University" },
+                    { label: "Location", value: "Dharwad, Karnataka" },
+                    { label: "Programs", value: "B.Tech · M.Tech · Ph.D" },
+                  ].map(fact => (
+                    <div
+                      key={fact.label}
+                      className="rounded-md bg-gray-50 border border-gray-100 px-3 py-2"
+                    >
+                      <p className="text-[10px] font-medium text-[#193654]/45 uppercase tracking-wider mb-0.5">
+                        {fact.label}
+                      </p>
+                      <p className="text-[13px] font-semibold text-[#193654] leading-tight">
+                        {fact.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex flex-col gap-1.5 mt-auto pt-2">
+                  {[
+                    { label: "About the Institute", href: "/about" },
+                    { label: "Vision & Mission", href: "/about" },
+                    { label: "Institute Leadership", href: "/director" },
+                  ].map(link => (
+                    <Link
+                      key={link.href + link.label}
+                      href={link.href}
+                      className="flex items-center justify-between px-3 py-2.5 rounded-md bg-[#193654]/[0.04] hover:bg-[#193654]/[0.09] text-[13px] font-medium text-[#193654]/70 hover:text-[#193654] transition-all duration-200 group/link"
+                    >
+                      {link.label}
+                      <IconArrowUpRight
+                        size={14}
+                        className="text-[#193654]/30 group-hover/link:text-[#193654] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all duration-200 shrink-0"
+                      />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Campus Tour */}
+            <div className="rounded-lg overflow-hidden border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)]">
+              <div className="px-5 pt-5 pb-3 bg-white flex items-center justify-between">
+                <div>
+                  <h3 className="text-base font-bold text-[#193654]">
+                    Campus Tour
+                  </h3>
+                  <div className="h-0.5 w-8 bg-[#CCE70B] rounded-full mt-1.5" />
+                </div>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-1 text-xs font-medium text-[#193654]/60 hover:text-[#193654] transition-colors duration-200"
+                >
+                  About the institute
+                  <IconArrowUpRight size={13} />
+                </Link>
+              </div>
+              <div className="relative w-full aspect-video bg-black">
+                <iframe
+                  src="https://www.youtube.com/embed/_QLrIgjopCg?si=GrjaKptEy4LEp2uW&autoplay=0"
+                  title="IIIT Dharwad Campus Tour"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+            </div>
+          </div>
+          {/* end middle column */}
           <div className="flex flex-col p-6 rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow duration-300 min-h-[500px]">
             <div className="flex items-center gap-3 mb-5">
               <div className="flex items-center justify-center w-11 h-11 rounded-lg bg-[#193654] shadow-sm">
@@ -196,6 +296,9 @@ export default async function InfoSection() {
             </a>
           </div>
         </div>
+
+        {/* Departments Section */}
+        <DepartmentsSection />
 
         {/* Placement Card */}
         <PlacementCard />

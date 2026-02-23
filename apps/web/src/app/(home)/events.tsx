@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ReactElement, useRef } from "react";
+import { useRef } from "react";
 
 interface EventItem {
   url?: string;
@@ -20,7 +20,7 @@ export default function EventsSection({
   events,
 }: {
   events: EventItem[];
-}): ReactElement {
+}): JSX.Element {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
