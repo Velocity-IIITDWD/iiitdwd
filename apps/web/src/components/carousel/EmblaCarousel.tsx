@@ -95,7 +95,7 @@ const EmblaCarousel: React.FC<PropType> = (props: PropType) => {
       <div className="embla__viewport h-full" ref={emblaRef}>
         <div className="embla__container h-full">
           {slides.map((img, index) => (
-            <div className="embla__slide border" key={index}>
+            <div className="embla__slide" key={index}>
               <div className="embla__slide__number">
                 <Image src={img} alt="slide" layout="fill" objectFit="cover" />
               </div>

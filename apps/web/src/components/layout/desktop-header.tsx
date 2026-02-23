@@ -127,8 +127,14 @@ export default function DesktopHeader(): JSX.Element {
     sections: NavigationSection[],
     parentMenuTitle: string
   ) => {
-    const gridColsClass = sections.length === 2 ? 'grid-cols-2' : sections.length === 3 ? 'grid-cols-3' : 'grid-cols-4';
-    const minWidthClass = sections.length === 2 ? 'min-w-[180px]' : 'min-w-[200px]';
+    const gridColsClass =
+      sections.length === 2
+        ? "grid-cols-2"
+        : sections.length === 3
+          ? "grid-cols-3"
+          : "grid-cols-4";
+    const minWidthClass =
+      sections.length === 2 ? "min-w-[180px]" : "min-w-[200px]";
     return (
       <div className={`grid ${gridColsClass} gap-6 p-2`}>
         {sections.map((section, sectionIndex) => (
@@ -145,12 +151,16 @@ export default function DesktopHeader(): JSX.Element {
     );
   };
 
-  const getMenuSections = (item: NavigationItem): NavigationSection[] | null => {
+  const getMenuSections = (
+    item: NavigationItem
+  ): NavigationSection[] | null => {
     if (item.title === "Institute") {
       const administrationItem = navigationData.find(
         navItem => navItem.title === "Administration"
       );
-      const publicDisclosuresItem = navigationData.find( navItem => navItem.title === "Public disclosures");
+      const publicDisclosuresItem = navigationData.find(
+        navItem => navItem.title === "Public disclosures"
+      );
 
       return [
         {
@@ -168,9 +178,11 @@ export default function DesktopHeader(): JSX.Element {
       ];
     }
 
-    if(item.title === "Academics"){
-      const admissionsItem = navigationData.find( navItem => navItem.title === "Admissions");
-      return[
+    if (item.title === "Academics") {
+      const admissionsItem = navigationData.find(
+        navItem => navItem.title === "Admissions"
+      );
+      return [
         {
           sectionTitle: "Academics",
           items: item.items || [],
@@ -178,13 +190,15 @@ export default function DesktopHeader(): JSX.Element {
         {
           sectionTitle: "Admissions",
           items: admissionsItem?.items || [],
-        }
-      ]
+        },
+      ];
     }
 
-    if(item.title === "Student life"){
-      const cgcItem = navigationData.find( navItem => navItem.title === "Career Guidance Cell");
-      return[
+    if (item.title === "Student life") {
+      const cgcItem = navigationData.find(
+        navItem => navItem.title === "Career Guidance Cell"
+      );
+      return [
         {
           sectionTitle: "Student life",
           items: item.items || [],
@@ -192,15 +206,21 @@ export default function DesktopHeader(): JSX.Element {
         {
           sectionTitle: "Career Guidance Cell",
           items: cgcItem?.items || [],
-        }
-      ]
+        },
+      ];
     }
 
-    if(item.title === "Careers & Tenders"){
-      const facultyCareersItem = navigationData.find(navItem => navItem.title === "Faculty Careers");
-      const staffCareersItem = navigationData.find(navItem => navItem.title === "Staff Careers");
-      const phd123Item = navigationData.find(navItem => navItem.title === "PHD/123 Careers");
-      return[
+    if (item.title === "Careers & Tenders") {
+      const facultyCareersItem = navigationData.find(
+        navItem => navItem.title === "Faculty Careers"
+      );
+      const staffCareersItem = navigationData.find(
+        navItem => navItem.title === "Staff Careers"
+      );
+      const phd123Item = navigationData.find(
+        navItem => navItem.title === "PHD/123 Careers"
+      );
+      return [
         {
           sectionTitle: "For Faculty",
           items: facultyCareersItem?.items || [],
@@ -217,13 +237,22 @@ export default function DesktopHeader(): JSX.Element {
           sectionTitle: "Tenders",
           items: item.items || [],
         },
-      ]
+      ];
     }
     return null;
   };
 
   const filteredNavigationData = navigationData.filter(item => {
-    return !["Administration", "Admissions", "Career Guidance Cell", "Staff", "Public disclosures", "Faculty Careers", "Staff Careers", "PHD/123 Careers"].includes(item.title);
+    return ![
+      "Administration",
+      "Admissions",
+      "Career Guidance Cell",
+      "Staff",
+      "Public disclosures",
+      "Faculty Careers",
+      "Staff Careers",
+      "PHD/123 Careers",
+    ].includes(item.title);
   });
 
   return (
@@ -234,7 +263,7 @@ export default function DesktopHeader(): JSX.Element {
     >
       {filteredNavigationData.map((item, index) => {
         const sections = getMenuSections(item);
-        
+
         return (
           <MenubarMenu key={index} value={item.title}>
             <MenubarTrigger
@@ -262,7 +291,8 @@ export default function DesktopHeader(): JSX.Element {
                 item.title
               )}
             </MenubarTrigger>
-            {((sections && sections.length > 0) || (item.items && item.items.length > 0)) && (
+            {((sections && sections.length > 0) ||
+              (item.items && item.items.length > 0)) && (
               <MenubarContent
                 asChild
                 onMouseEnter={() => handleMouseEnter(item.title)}
@@ -280,11 +310,9 @@ export default function DesktopHeader(): JSX.Element {
                   onMouseEnter={() => handleMouseEnter(item.title)}
                   onMouseLeave={() => handleMouseLeave(item.title)}
                 >
-                  {sections ? (
-                    renderSectionedMenuItems(sections, item.title)
-                  ) : (
-                    renderMenuItems(item.items!, item.title)
-                  )}
+                  {sections
+                    ? renderSectionedMenuItems(sections, item.title)
+                    : renderMenuItems(item.items!, item.title)}
                 </motion.div>
               </MenubarContent>
             )}
@@ -295,7 +323,7 @@ export default function DesktopHeader(): JSX.Element {
       {/* Search button - shows only when scrolled */}
       {isScrolled && (
         <button
-          className="text-gray-600 hover:text-primary rounded-full bg-tertiary/20 px-2 py-1 flex items-center text-body cursor-pointer transition-colors duration-150 ml-4"
+          className="group flex items-center justify-between gap-3 w-[340px] rounded-xl border border-gray-300 bg-white shadow-sm hover:border-primary/50 hover:shadow-md px-4 py-2 cursor-pointer transition-all duration-200 whitespace-nowrap select-none ml-8"
           onClick={() => {
             query.toggle();
             trackEvent({
@@ -305,13 +333,23 @@ export default function DesktopHeader(): JSX.Element {
             });
           }}
         >
-          <Search size={14} className="mr-3" />
-          {isMacOS ? (
-            <Command size={14} className="mr-1" />
-          ) : (
-            <span className="mr-1">Ctrl</span>
-          )}
-          K
+          <span className="flex items-center gap-2.5 min-w-0">
+            <Search
+              size={15}
+              className="flex-shrink-0 text-primary/60 group-hover:text-primary transition-colors duration-150"
+            />
+            <span className="text-[13.5px] text-gray-500 group-hover:text-gray-700 transition-colors duration-150 truncate">
+              Search anything...
+            </span>
+          </span>
+          <span className="flex items-center gap-1 flex-shrink-0">
+            <kbd className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-gray-100 px-2 py-0.5 text-[11px] font-mono text-gray-500 leading-none shadow-sm group-hover:border-primary/30 group-hover:text-primary/70 transition-colors">
+              {isMacOS ? <Command size={10} /> : "Ctrl"}
+            </kbd>
+            <kbd className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-gray-100 px-2 py-0.5 text-[11px] font-mono text-gray-500 leading-none shadow-sm group-hover:border-primary/30 group-hover:text-primary/70 transition-colors">
+              K
+            </kbd>
+          </span>
         </button>
       )}
     </Menubar>
