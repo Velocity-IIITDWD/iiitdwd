@@ -171,15 +171,25 @@ function AnimatedNavbar(): JSX.Element {
                   <button
                     type="button"
                     onClick={handleSearchToggle}
-                    className="text-gray-600 hover:text-primary rounded-full bg-tertiary/20 px-2 py-1 flex items-center text-body cursor-pointer transition-colors duration-150 whitespace-nowrap"
+                    className="group flex items-center justify-between gap-3 w-[420px] rounded-xl border border-gray-300 bg-white shadow-sm hover:border-primary/50 hover:shadow-md px-4 py-3 cursor-pointer transition-all duration-200 whitespace-nowrap select-none"
                   >
-                    <Search size={14} className="mr-3" />
-                    {isMacOS ? (
-                      <Command size={14} className="mr-1" />
-                    ) : (
-                      <span className="mr-1">Ctrl</span>
-                    )}
-                    K
+                    <span className="flex items-center gap-2.5 min-w-0">
+                      <Search
+                        size={16}
+                        className="flex-shrink-0 text-primary/60 group-hover:text-primary transition-colors duration-150"
+                      />
+                      <span className="text-[14px] text-gray-500 group-hover:text-gray-700 transition-colors duration-150 truncate">
+                        Search anything...
+                      </span>
+                    </span>
+                    <span className="flex items-center gap-1 flex-shrink-0">
+                      <kbd className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-gray-100 px-2 py-1 text-[11px] font-mono text-gray-500 leading-none shadow-sm group-hover:border-primary/30 group-hover:text-primary/70 transition-colors">
+                        {isMacOS ? <Command size={10} /> : "Ctrl"}
+                      </kbd>
+                      <kbd className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-gray-100 px-2 py-1 text-[11px] font-mono text-gray-500 leading-none shadow-sm group-hover:border-primary/30 group-hover:text-primary/70 transition-colors">
+                        K
+                      </kbd>
+                    </span>
                   </button>
                 </motion.div>
               )}

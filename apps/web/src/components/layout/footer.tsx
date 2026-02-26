@@ -66,7 +66,7 @@ const SocialLink = ({
 
 export default function Footer() {
   return (
-    <footer className="text-body flex flex-col bg-cover bg-center py-24 px-5 lg:px-13 relative">
+    <footer className="text-body flex flex-col bg-cover bg-center py-8 px-5 lg:px-13 relative">
       <Image
         src={Background}
         width={0}
@@ -76,19 +76,19 @@ export default function Footer() {
         alt="Footer Background"
         priority={false}
       />
-      <div className="h-full absolute top-0 left-0 w-full bg-black opacity-90 z-[1]" />
+      <div className="h-full absolute top-0 left-0 w-full bg-[#193654] opacity-95 z-[1]" />
 
       <div className="flex flex-col z-[2] text-[#a7a8b2] max-w-7xl mx-auto w-full">
         {/* Top Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-5">
           {/* Logo and Address - Takes 5 of 12 columns on large screens */}
-          <div className="lg:col-span-5 flex flex-col space-y-6">
+          <div className="lg:col-span-5 flex flex-col space-y-3">
             <Image
               src={FooterLogo}
               width={0}
               height={0}
               sizes="100%"
-              className="h-44 lg:h-32 w-fit"
+              className="h-14 lg:h-12 w-fit"
               alt="IIIT Dharwad Logo"
             />
 
@@ -112,8 +112,8 @@ export default function Footer() {
           </div>
 
           {/* Social Media - Takes 3 of 12 columns on large screens */}
-          <div className="lg:col-span-3 flex items-end">
-            <div className="space-y-4">
+          <div className="lg:col-span-3 flex items-center">
+            <div className="space-y-2">
               <div className="font-bold text-title-3 text-white">FOLLOW US</div>
               <div className="flex gap-6 flex-wrap">
                 <SocialLink
@@ -141,7 +141,7 @@ export default function Footer() {
           </div>
 
           {/* Explore Button - Takes 4 of 12 columns on large screens */}
-          <div className="lg:col-span-4 flex items-end">
+          <div className="lg:col-span-4 flex items-center">
             <Link
               href={"/student-life/clubs/tech/"}
               onClick={() =>
@@ -151,7 +151,7 @@ export default function Footer() {
                   label: "Explore Button",
                 })
               }
-              className="bg-black border text-title-2 font-medium group w-full px-6 py-4 rounded flex justify-between items-center border-white text-white hover:bg-black/90 transition-colors duration-200"
+              className="bg-white/10 border border-white/40 text-title-2 font-medium group w-full px-5 py-3 rounded flex justify-between items-center text-white hover:bg-white/20 transition-colors duration-200"
             >
               <span>Explore</span>
               <ArrowRightIcon className="animate-pulse group-hover:translate-x-1/2 transition duration-500" />
@@ -166,13 +166,13 @@ export default function Footer() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border-b border-gray-700 last:border-b-0"
+                className="border-b border-white/20 last:border-b-0"
               >
                 <AccordionTrigger className="text-body font-medium tracking-wider py-4 text-white">
                   {group.title}
                 </AccordionTrigger>
                 <AccordionContent>
-                  <ul className="space-y-3 py-2 pl-2">
+                  <ul className="space-y-1.5 py-1 pl-2">
                     {group.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
                         <FooterLink href={link.href} text={link.text} />
@@ -186,13 +186,13 @@ export default function Footer() {
         </div>
 
         {/* Desktop view - Links Grid */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-10 mt-8">
+        <div className="hidden lg:grid lg:grid-cols-4 gap-6 mt-4">
           {footerLinks.map((group, index) => (
-            <div key={index} className="space-y-4">
-              <h2 className="font-bold text-title-3 text-white tracking-wider pb-2 border-b border-gray-700 inline-block">
+            <div key={index} className="space-y-2">
+              <h2 className="font-bold text-title-3 text-white tracking-wider pb-2 border-b border-white/20 inline-block">
                 {group.title}
               </h2>
-              <ul className="space-y-3">
+              <ul className="space-y-1.5">
                 {group.links.map((link, linkIndex) => (
                   <li
                     key={linkIndex}
@@ -207,7 +207,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-16 pt-6 border-t border-gray-700 text-headline font-medium text-center">
+        <div className="mt-5 pt-4 border-t border-white/20 text-headline font-medium text-center">
           <p>
             © {new Date().getFullYear()} Indian Institute of Information
             Technology, Dharwad. All Rights Reserved.
