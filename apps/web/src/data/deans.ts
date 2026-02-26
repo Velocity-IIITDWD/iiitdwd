@@ -62,8 +62,8 @@ export default [
   {
     id: "8",
     name: "Prof. Satish Annigeri",
-    position: "Associate Dean",
-    department: "Planning and Infrastructure",
+    position: "Professor-In-Charge",
+    department: "Infrastructure, Planning and Development",
     imageUrl: "https://www.iiitdwd.ac.in//images/satish_annigeri.png",
   }
 ];
