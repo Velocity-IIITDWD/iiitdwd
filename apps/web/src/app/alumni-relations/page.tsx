@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 export default function AlumniPage(): JSX.Element {
   return (
@@ -12,7 +12,8 @@ export default function AlumniPage(): JSX.Element {
               Alumni Network
             </h1>
             <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto">
-              Connecting alumni, fostering bonds, and shaping the future together
+              Connecting alumni, fostering bonds, and shaping the future
+              together
             </p>
           </div>
         </div>
@@ -23,7 +24,9 @@ export default function AlumniPage(): JSX.Element {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">10,000+</div>
+              <div className="text-4xl font-bold text-primary mb-2">
+                10,000+
+              </div>
               <div className="text-gray-600">Alumni Worldwide</div>
             </div>
             <div className="text-center">
@@ -50,9 +53,10 @@ export default function AlumniPage(): JSX.Element {
               About Our Alumni Association
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              The Alumni Association creates a dynamic space for alumni, maintains a vital presence 
-              for the institute in the lives of alumni, and provides endless opportunities for both 
-              alumni and the institute to find and build their places in a global community.
+              The Alumni Association creates a dynamic space for alumni,
+              maintains a vital presence for the institute in the lives of
+              alumni, and provides endless opportunities for both alumni and the
+              institute to find and build their places in a global community.
             </p>
           </div>
 
@@ -61,24 +65,27 @@ export default function AlumniPage(): JSX.Element {
               <div className="text-primary text-4xl mb-4">🎯</div>
               <h3 className="text-xl font-semibold mb-3">Our Mission</h3>
               <p className="text-gray-600">
-                To foster strong bonds between alumni, students, and the institute, keeping alumni 
-                informed and engaged through diverse programs and services.
+                To foster strong bonds between alumni, students, and the
+                institute, keeping alumni informed and engaged through diverse
+                programs and services.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="text-primary text-4xl mb-4">👥</div>
               <h3 className="text-xl font-semibold mb-3">Membership</h3>
               <p className="text-gray-600">
-                Anyone who has completed one academic year as a student is eligible for life membership. 
-                Join to reconnect, give back, and serve as a springboard for involvement.
+                Anyone who has completed one academic year as a student is
+                eligible for life membership. Join to reconnect, give back, and
+                serve as a springboard for involvement.
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="text-primary text-4xl mb-4">🌐</div>
               <h3 className="text-xl font-semibold mb-3">Global Network</h3>
               <p className="text-gray-600">
-                With chapters across the world, our alumni network spans continents, industries, 
-                and disciplines, creating opportunities for collaboration and growth.
+                With chapters across the world, our alumni network spans
+                continents, industries, and disciplines, creating opportunities
+                for collaboration and growth.
               </p>
             </div>
           </div>
@@ -94,28 +101,34 @@ export default function AlumniPage(): JSX.Element {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Networking Events',
-                description: 'Annual alumni meets, chapter events, and professional networking opportunities',
+                title: "Networking Events",
+                description:
+                  "Annual alumni meets, chapter events, and professional networking opportunities",
               },
               {
-                title: 'Mentorship Programs',
-                description: 'Guide current students and share your expertise with the next generation',
+                title: "Mentorship Programs",
+                description:
+                  "Guide current students and share your expertise with the next generation",
               },
               {
-                title: 'Career Services',
-                description: 'Access to job postings, career guidance, and professional development resources',
+                title: "Career Services",
+                description:
+                  "Access to job postings, career guidance, and professional development resources",
               },
               {
-                title: 'Campus Access',
-                description: 'Guest house accommodations, library access, and gymkhana facilities at discounted rates',
+                title: "Campus Access",
+                description:
+                  "Guest house accommodations, library access, and gymkhana facilities at discounted rates",
               },
               {
-                title: 'Alumni Directory',
-                description: 'Connect with fellow alumni through our online directory and social platforms',
+                title: "Alumni Directory",
+                description:
+                  "Connect with fellow alumni through our online directory and social platforms",
               },
               {
-                title: 'Exclusive Updates',
-                description: 'Monthly newsletters, event updates, and institute news delivered to your inbox',
+                title: "Exclusive Updates",
+                description:
+                  "Monthly newsletters, event updates, and institute news delivered to your inbox",
               },
             ].map((benefit, index) => (
               <div
@@ -147,24 +160,24 @@ export default function AlumniPage(): JSX.Element {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                name: 'John Doe',
-                batch: 'B.Tech 2005',
-                achievement: 'CEO, Fortune 500 Company',
+                name: "John Doe",
+                batch: "B.Tech 2005",
+                achievement: "CEO, Fortune 500 Company",
               },
               {
-                name: 'Jane Smith',
-                batch: 'M.Tech 2008',
-                achievement: 'Leading AI Researcher',
+                name: "Jane Smith",
+                batch: "M.Tech 2008",
+                achievement: "Leading AI Researcher",
               },
               {
-                name: 'Alex Johnson',
-                batch: 'B.Tech 2010',
-                achievement: 'Successful Entrepreneur',
+                name: "Alex Johnson",
+                batch: "B.Tech 2010",
+                achievement: "Successful Entrepreneur",
               },
               {
-                name: 'Sarah Williams',
-                batch: 'PhD 2012',
-                achievement: 'Academic Excellence Award',
+                name: "Sarah Williams",
+                batch: "PhD 2012",
+                achievement: "Academic Excellence Award",
               },
             ].map((alumni, index) => (
               <div
@@ -194,22 +207,25 @@ export default function AlumniPage(): JSX.Element {
           <div className="space-y-6">
             {[
               {
-                title: 'Annual Alumni Meet 2025',
-                date: 'March 15, 2025',
-                location: 'Main Campus',
-                description: 'Join us for networking, cultural programs, and reconnecting with batchmates',
+                title: "Annual Alumni Meet 2025",
+                date: "March 15, 2025",
+                location: "Main Campus",
+                description:
+                  "Join us for networking, cultural programs, and reconnecting with batchmates",
               },
               {
-                title: 'Batch of 2000 - Silver Jubilee Reunion',
-                date: 'April 20, 2025',
-                location: 'Main Campus',
-                description: 'Celebrating 25 years of excellence and achievements',
+                title: "Batch of 2000 - Silver Jubilee Reunion",
+                date: "April 20, 2025",
+                location: "Main Campus",
+                description:
+                  "Celebrating 25 years of excellence and achievements",
               },
               {
-                title: 'Alumni Mentorship Program Launch',
-                date: 'May 10, 2025',
-                location: 'Virtual',
-                description: 'Connect with current students and guide them in their career journey',
+                title: "Alumni Mentorship Program Launch",
+                date: "May 10, 2025",
+                location: "Virtual",
+                description:
+                  "Connect with current students and guide them in their career journey",
               },
             ].map((event, index) => (
               <div
@@ -243,26 +259,30 @@ export default function AlumniPage(): JSX.Element {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Get Involved</h2>
             <p className="text-xl text-gray-100 max-w-3xl mx-auto">
-              There are many ways to stay connected and contribute to your alma mater
+              There are many ways to stay connected and contribute to your alma
+              mater
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: 'Become a Mentor',
-                description: 'Guide students and young alumni in their career paths',
+                title: "Become a Mentor",
+                description:
+                  "Guide students and young alumni in their career paths",
               },
               {
-                title: 'Join a Chapter',
-                description: 'Connect with alumni in your city or region',
+                title: "Join a Chapter",
+                description: "Connect with alumni in your city or region",
               },
               {
-                title: 'Support Students',
-                description: 'Contribute to scholarships and infrastructure development',
+                title: "Support Students",
+                description:
+                  "Contribute to scholarships and infrastructure development",
               },
               {
-                title: 'Share Your Story',
-                description: 'Inspire others by sharing your journey and achievements',
+                title: "Share Your Story",
+                description:
+                  "Inspire others by sharing your journey and achievements",
               },
             ].map((action, index) => (
               <div
@@ -303,7 +323,8 @@ export default function AlumniPage(): JSX.Element {
                     <strong>Phone:</strong> +91-XXX-XXX-XXXX
                   </p>
                   <p>
-                    <strong>Address:</strong> Alumni Relations Office, Main Campus
+                    <strong>Address:</strong> Alumni Relations Office, Main
+                    Campus
                   </p>
                 </div>
                 <div className="mt-6">

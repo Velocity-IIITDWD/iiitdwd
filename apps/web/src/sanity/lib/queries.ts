@@ -346,7 +346,8 @@ export const queryGallery = '*[_type == "gallery"]';
 export const queryPrograms = '*[_type == "program"]';
 export const queryReport = '*[_type == "annualReport"]';
 export const queryJobs = '*[_type == "job"]';
-export const queryJobCategories = '*[_type == "jobCategory"]|order(coalesce(order, 9999) asc){value, title}';
+export const queryJobCategories =
+  '*[_type == "jobCategory"]|order(coalesce(order, 9999) asc){value, title}';
 export const queryTenders = '*[_type == "tender"]';
 export const queryNirfReports = '*[_type == "nirf"]';
 
@@ -357,4 +358,3 @@ export const GetAllContacts =
   '*[_type == "contact"]{ _id, "category": category->{category}.category }';
 export const GetAllDocumentIds =
   '*[_type != "system.document" && !(_id in path("_.**"))]._id';
-  

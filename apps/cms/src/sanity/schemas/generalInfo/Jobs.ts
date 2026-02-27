@@ -22,7 +22,10 @@ export const Jobs = defineType({
           { title: "Faculty", value: "faculty" },
           { title: "Staff", value: "staff" },
           { title: "PhD/ M.Tech", value: "phd/m.tech" },
-          { title: "Project Staff/ Research Assistant", value: "project staff/research assistant" }
+          {
+            title: "Project Staff/ Research Assistant",
+            value: "project staff/research assistant",
+          },
         ],
       },
       description: "Category of the job",

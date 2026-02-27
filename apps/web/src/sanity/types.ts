@@ -387,7 +387,7 @@ export type techClubs = {
     twitter?: string;
     _key: string;
   }>;
-}
+};
 
 export type nonTechClubs = {
   _id: string;
@@ -433,7 +433,7 @@ export type nonTechClubs = {
     twitter?: string;
     _key: string;
   }>;
-}
+};
 
 export type CulturalClub = {
   _id: string;
@@ -499,8 +499,8 @@ export type CulturalClub = {
   };
   slug?: {
     current: string;
-    _type: 'slug';
-  }
+    _type: "slug";
+  };
 };
 
 export type Issues = {

@@ -175,13 +175,13 @@ export default function AnnouncementsComponents({
       {/* Results count */}
       <p className="text-gray-600 text-title-3 mb-4">
         {filteredRollingAnnouncements.length +
-          filteredRegularAnnouncements.length} {" "}
+          filteredRegularAnnouncements.length}{" "}
         announcement
         {filteredRollingAnnouncements.length +
           filteredRegularAnnouncements.length !==
         1
           ? "s"
-          : ""} {" "}
+          : ""}{" "}
         found
       </p>
 
@@ -272,7 +272,9 @@ export default function AnnouncementsComponents({
           ))
         ) : (
           <div className="text-center py-12 bg-gray-50 rounded-lg">
-            <p className="text-gray-500">No announcements found for the selected filters.</p>
+            <p className="text-gray-500">
+              No announcements found for the selected filters.
+            </p>
           </div>
         )}
       </div>

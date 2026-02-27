@@ -43,5 +43,5 @@ export default [
     department: "Examinations, NAD, and AIMS",
     email: "suvadip@iiitdwd.ac.in",
     imageUrl: "/images/Dr-Suvadip-Hazra.png",
-  }
+  },
 ];

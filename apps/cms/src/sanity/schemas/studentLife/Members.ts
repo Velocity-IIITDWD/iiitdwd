@@ -38,8 +38,8 @@ const techClubNames = [
   "GND_0 VLSI Club IIIT Dharwad",
   "MSA IIIT Dharwad",
   "accelAIrate",
-  "Vidkarya"
-]
+  "Vidkarya",
+];
 
 const nonTechClubNames = [
   "Cricket Club",
@@ -49,7 +49,7 @@ const nonTechClubNames = [
   "Athletics Club",
   "Counselling Cell",
   "Magazine Committee",
-]
+];
 
 const culturalClubNames = [
   "Zeitgeist",
@@ -62,7 +62,7 @@ const culturalClubNames = [
   "LimeLight",
   "Flavorhood",
   "Out of Service",
-]
+];
 
 export const techClubs = defineType({
   name: "techClub",
@@ -128,7 +128,7 @@ export const techClubs = defineType({
               name: "image",
               title: "Image",
               type: "string",
-              description: "Image of the member"
+              description: "Image of the member",
             }),
           ],
         },
@@ -159,7 +159,7 @@ export const techClubs = defineType({
               name: "image",
               title: "Image",
               type: "string",
-              description: "Image of the member"
+              description: "Image of the member",
             }),
           ],
         },
@@ -214,7 +214,7 @@ export const techClubs = defineType({
       title: "Events",
       type: "array",
       description: "Recent events that the club has conducted",
-      of:[
+      of: [
         {
           type: "object",
           fields: [
@@ -222,13 +222,14 @@ export const techClubs = defineType({
               name: "title",
               title: "Title of the event",
               type: "string",
-              description: "Title of the event that the club has conducted"
+              description: "Title of the event that the club has conducted",
             }),
             defineField({
               name: "description",
               title: "Description on the event",
               type: "text",
-              description: "Description of the event that the club has conducted"
+              description:
+                "Description of the event that the club has conducted",
             }),
             defineField({
               name: "images",
@@ -243,17 +244,18 @@ export const techClubs = defineType({
                       name: "image",
                       title: "Image of the event",
                       type: "string",
-                      description: "Image of the event"
+                      description: "Image of the event",
                     }),
-                  ]
-                }
-              ]
+                  ],
+                },
+              ],
             }),
             defineField({
               name: "videos",
               title: "Videos of the event",
               type: "array",
-              description: "Video Snapshots of the event that the club has conducted",
+              description:
+                "Video Snapshots of the event that the club has conducted",
               of: [
                 {
                   type: "object",
@@ -262,21 +264,22 @@ export const techClubs = defineType({
                       name: "video",
                       title: "Video of the event",
                       type: "string",
-                      description: "Video of the event"
+                      description: "Video of the event",
                     }),
-                  ]
-                }
-              ]
+                  ],
+                },
+              ],
             }),
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     }),
     defineField({
-      name:"upcomingEvents",
+      name: "upcomingEvents",
       title: "Details of upcoming evennts",
       type: "array",
-      description: "Details about upcoming events that the club is going to conduct",
+      description:
+        "Details about upcoming events that the club is going to conduct",
       of: [
         {
           type: "object",
@@ -285,23 +288,23 @@ export const techClubs = defineType({
               name: "title",
               title: "Title of the event",
               type: "string",
-              description: "Name of the upcoming event"
+              description: "Name of the upcoming event",
             }),
             defineField({
               name: "description",
               title: "Description",
               type: "text",
-              description: "Small one line description about the event"
+              description: "Small one line description about the event",
             }),
             defineField({
               name: "schedule",
               title: "Schedule",
               type: "string",
-              description: "Tentative Schedule of the upcoming events"
+              description: "Tentative Schedule of the upcoming events",
             }),
-          ]
+          ],
         },
-      ]
+      ],
     }),
     defineField({
       name: "links",
@@ -348,11 +351,11 @@ export const techClubs = defineType({
       ],
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      name: "slug",
+      title: "Slug",
+      type: "slug",
       options: {
-        source: 'name',
+        source: "name",
         maxLength: 96,
       },
     }),
@@ -378,7 +381,8 @@ export const nonTechClubs = defineType({
       name: "description",
       title: "Description",
       type: "text",
-      description: "Brief description of the non-technical club in under 50 words",
+      description:
+        "Brief description of the non-technical club in under 50 words",
     }),
     defineField({
       name: "logo",
@@ -423,7 +427,7 @@ export const nonTechClubs = defineType({
               name: "image",
               title: "Image",
               type: "string",
-              description: "Image of the member"
+              description: "Image of the member",
             }),
           ],
         },
@@ -454,7 +458,7 @@ export const nonTechClubs = defineType({
               name: "image",
               title: "Image",
               type: "string",
-              description: "Image of the member"
+              description: "Image of the member",
             }),
           ],
         },
@@ -468,7 +472,7 @@ export const nonTechClubs = defineType({
       of: [
         {
           type: "object",
-          fields:[
+          fields: [
             defineField({
               name: "title",
               title: "Title of the Achievement",
@@ -485,7 +489,8 @@ export const nonTechClubs = defineType({
               name: "images",
               title: "Images of the Achievement",
               type: "array",
-              description: "Snapshots of the Achievement that the club has Achieved",
+              description:
+                "Snapshots of the Achievement that the club has Achieved",
               of: [
                 {
                   type: "object",
@@ -494,15 +499,15 @@ export const nonTechClubs = defineType({
                       name: "image",
                       title: "Image of the Achievement",
                       type: "string",
-                      description: "Image of the Achievemnt"
+                      description: "Image of the Achievemnt",
                     }),
-                  ]
-                }
-              ]
+                  ],
+                },
+              ],
             }),
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     }),
     // defineField({
     //   name: "meetingDetails",
@@ -551,11 +556,11 @@ export const nonTechClubs = defineType({
       ],
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      name: "slug",
+      title: "Slug",
+      type: "slug",
       options: {
-        source: 'name',
+        source: "name",
         maxLength: 96,
       },
     }),
@@ -626,7 +631,7 @@ export const culturalClubs = defineField({
               name: "image",
               title: "Image",
               type: "string",
-              description: "Image of the member"
+              description: "Image of the member",
             }),
           ],
         },
@@ -657,7 +662,7 @@ export const culturalClubs = defineField({
               name: "image",
               title: "Image",
               type: "string",
-              description: "Image of the member"
+              description: "Image of the member",
             }),
           ],
         },
@@ -700,7 +705,7 @@ export const culturalClubs = defineField({
       title: "Events",
       type: "array",
       description: "Recent events that the club has conducted",
-      of:[
+      of: [
         {
           type: "object",
           fields: [
@@ -708,13 +713,14 @@ export const culturalClubs = defineField({
               name: "title",
               title: "Title of the event",
               type: "string",
-              description: "Title of the event that the club has conducted"
+              description: "Title of the event that the club has conducted",
             }),
             defineField({
               name: "description",
               title: "Description on the event",
               type: "text",
-              description: "Description of the event that the club has conducted"
+              description:
+                "Description of the event that the club has conducted",
             }),
             defineField({
               name: "images",
@@ -729,17 +735,18 @@ export const culturalClubs = defineField({
                       name: "image",
                       title: "Image of the event",
                       type: "string",
-                      description: "Image of the event"
+                      description: "Image of the event",
                     }),
-                  ]
-                }
-              ]
+                  ],
+                },
+              ],
             }),
             defineField({
               name: "videos",
               title: "Videos of the event",
               type: "array",
-              description: "Video Snapshots of the event that the club has conducted",
+              description:
+                "Video Snapshots of the event that the club has conducted",
               of: [
                 {
                   type: "object",
@@ -748,21 +755,22 @@ export const culturalClubs = defineField({
                       name: "video",
                       title: "Video of the event",
                       type: "string",
-                      description: "Video of the event"
+                      description: "Video of the event",
                     }),
-                  ]
-                }
-              ]
+                  ],
+                },
+              ],
             }),
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     }),
     defineField({
-      name:"upcomingEvents",
+      name: "upcomingEvents",
       title: "Details of upcoming evennts",
       type: "array",
-      description: "Details about upcoming events that the club is going to conduct",
+      description:
+        "Details about upcoming events that the club is going to conduct",
       of: [
         {
           type: "object",
@@ -771,23 +779,23 @@ export const culturalClubs = defineField({
               name: "title",
               title: "Title of the event",
               type: "string",
-              description: "Name of the upcoming event"
+              description: "Name of the upcoming event",
             }),
             defineField({
               name: "description",
               title: "Description",
               type: "text",
-              description: "Small one line description about the event"
+              description: "Small one line description about the event",
             }),
             defineField({
               name: "schedule",
               title: "Schedule",
               type: "string",
-              description: "Tentative Schedule of the upcoming events"
+              description: "Tentative Schedule of the upcoming events",
             }),
-          ]
+          ],
         },
-      ]
+      ],
     }),
     defineField({
       name: "links",
@@ -822,17 +830,16 @@ export const culturalClubs = defineField({
       ],
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
+      name: "slug",
+      title: "Slug",
+      type: "slug",
       options: {
-        source: 'name',
+        source: "name",
         maxLength: 96,
       },
     }),
   ],
 });
-
 
 /*
 export const Club = defineType({
