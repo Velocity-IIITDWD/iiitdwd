@@ -23,12 +23,16 @@ export const Socials: React.FC<SocialsProps> = ({ links, clubName }) => {
     { name: "linkedin", icon: <FaLinkedinIn size={32} />, url: links.linkedin },
     { name: "github", icon: <FaGithub size={32} />, url: links.github },
     { name: "website", icon: <BsGlobe size={32} />, url: links.website },
-    { name: "instagram", icon: <FaInstagram size={32} />, url: links.instagram },
+    {
+      name: "instagram",
+      icon: <FaInstagram size={32} />,
+      url: links.instagram,
+    },
     { name: "twitter", icon: <FaTwitter size={32} />, url: links.twitter },
     { name: "gmail", icon: <HiOutlineMail size={32} />, url: links.gmail },
   ];
 
-  const filteredLinks = socialLinks.filter((link) => link.url);
+  const filteredLinks = socialLinks.filter(link => link.url);
 
   if (filteredLinks.length === 0) {
     return null;

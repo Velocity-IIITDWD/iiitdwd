@@ -306,11 +306,25 @@ export default async function ClubPage({
         )}
 
         {/* Faculty Advisor Section */}
-        {(clubData.faculty && clubData.faculty.length > 0) && (clubData.profile_link && clubData.profile_link.length > 0) && (
-          <p className="mt-4 mb-17 text-center text-2xl text-body text-gray-700">
-            Faculty Advisor for the Club:{' '}<span className="hover:text-blue-600"><strong><a href={clubData.profile_link} target="_blank" rel="noopener noreferrer">{clubData.faculty}</a></strong></span>
-          </p>
-        )}
+        {clubData.faculty &&
+          clubData.faculty.length > 0 &&
+          clubData.profile_link &&
+          clubData.profile_link.length > 0 && (
+            <p className="mt-4 mb-17 text-center text-2xl text-body text-gray-700">
+              Faculty Advisor for the Club:{" "}
+              <span className="hover:text-blue-600">
+                <strong>
+                  <a
+                    href={clubData.profile_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {clubData.faculty}
+                  </a>
+                </strong>
+              </span>
+            </p>
+          )}
 
         {/* Past Events Section */}
         {clubData.events && clubData.events.length > 0 && (

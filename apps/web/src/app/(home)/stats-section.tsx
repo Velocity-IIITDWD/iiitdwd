@@ -97,7 +97,9 @@ function StatCard({
 
       {/* Stat number with brackets */}
       <div className="flex items-center gap-1 mb-3">
-        <span className="text-[#8b1c2e] text-2xl font-bold leading-none">[</span>
+        <span className="text-[#8b1c2e] text-2xl font-bold leading-none">
+          [
+        </span>
         <div className="flex items-baseline">
           {/* prefix (e.g. ₹78) */}
           {stat.prefix && (
@@ -122,7 +124,9 @@ function StatCard({
             {stat.suffix}
           </span>
         </div>
-        <span className="text-[#8b1c2e] text-2xl font-bold leading-none">]</span>
+        <span className="text-[#8b1c2e] text-2xl font-bold leading-none">
+          ]
+        </span>
       </div>
 
       {/* Label */}
@@ -164,7 +168,12 @@ export default function StatsSection(): ReactNode {
     >
       <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-200">
         {stats.map((stat, i) => (
-          <StatCard key={stat.label} stat={stat} triggered={triggered} index={i} />
+          <StatCard
+            key={stat.label}
+            stat={stat}
+            triggered={triggered}
+            index={i}
+          />
         ))}
       </div>
     </div>

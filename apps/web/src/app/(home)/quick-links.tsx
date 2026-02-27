@@ -32,10 +32,7 @@ const links = [
 
 export default function QuickLinksSection(): ReactNode {
   return (
-    <div
-      id="quick-links"
-      className="w-full mb-10 px-5 md:px-13"
-    >
+    <div id="quick-links" className="w-full mb-10 px-5 md:px-13">
       <div className="mx-auto max-w-5xl">
         {/* Section label */}
         <p className="text-center text-xs uppercase tracking-widest text-gray-400 font-semibold mb-5 font-grotesk">
@@ -58,10 +55,7 @@ export default function QuickLinksSection(): ReactNode {
                     : "text-[#8b1c2e] group-hover:text-[#8b1c2e]"
                 }`}
               >
-                <Icon
-                  strokeWidth={1.5}
-                  className="w-12 h-12"
-                />
+                <Icon strokeWidth={1.5} className="w-12 h-12" />
               </span>
 
               {/* Label */}

@@ -234,7 +234,7 @@ import { ClubCard } from "@/components/ui/club-card";
 import React from "react";
 import { createClient, type QueryParams } from "@sanity/client";
 // ✅ Import the specific config for tech clubs
-import { config } from "../config"; 
+import { config } from "../config";
 
 // Interface to match your Sanity schema for technical clubs
 interface Club {
@@ -242,7 +242,7 @@ interface Club {
   name: string;
   slug: {
     current: string;
-  }
+  };
   description: string;
   logo?: string;
   image?: string;
@@ -321,7 +321,9 @@ export default async function TechClubsPage(): Promise<React.ReactElement> {
   const organizations = await getTechClubs();
 
   // Sort organizations alphabetically by name
-  const sortedOrganizations = [...organizations].sort((a, b) => a.name.localeCompare(b.name));
+  const sortedOrganizations = [...organizations].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   return (
     <main>
@@ -332,12 +334,19 @@ export default async function TechClubsPage(): Promise<React.ReactElement> {
               Technical Clubs
             </h2>
             <p className="text-title-3 text-gray-600 max-w-4xl mx-auto">
-              Welcome to the world of technical innovation and excellence at IIIT Dharwad! Our technical clubs are the epicenter of hands-on learning, cutting-edge projects, and collaborative problem-solving. Whether you're a seasoned coder, a robotics enthusiast, or a curious beginner, these clubs offer a dynamic environment to explore your interests and develop your skills. Join a community of like-minded peers, participate in hackathons, and build solutions that push the boundaries of technology.
+              Welcome to the world of technical innovation and excellence at
+              IIIT Dharwad! Our technical clubs are the epicenter of hands-on
+              learning, cutting-edge projects, and collaborative
+              problem-solving. Whether you're a seasoned coder, a robotics
+              enthusiast, or a curious beginner, these clubs offer a dynamic
+              environment to explore your interests and develop your skills.
+              Join a community of like-minded peers, participate in hackathons,
+              and build solutions that push the boundaries of technology.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sortedOrganizations.map((org) => (
+            {sortedOrganizations.map(org => (
               <ClubCard
                 key={org._id}
                 name={org.name}
