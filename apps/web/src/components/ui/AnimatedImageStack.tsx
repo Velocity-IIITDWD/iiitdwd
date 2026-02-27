@@ -16,7 +16,8 @@ export function AnimatedImageStack({ images }: AnimatedImageStackProps) {
 
   const imageSize = 225; // This corresponds to Tailwind's w-24, h-24
   const gap = 15;
-  const totalWidth = validImages.length * imageSize + (validImages.length - 1) * gap;
+  const totalWidth =
+    validImages.length * imageSize + (validImages.length - 1) * gap;
 
   const containerVariants = {
     hidden: {},
@@ -24,11 +25,11 @@ export function AnimatedImageStack({ images }: AnimatedImageStackProps) {
   };
 
   const itemVariants = (index: number, total: number) => ({
-    hidden: { 
+    hidden: {
       // All images start stacked and hidden in the center
-      x: 0, 
-      opacity: 0, 
-      scale: 0.8
+      x: 0,
+      opacity: 0,
+      scale: 0.8,
     },
     visible: {
       // ✅ The animated state spreads them out with the correct gap and centering

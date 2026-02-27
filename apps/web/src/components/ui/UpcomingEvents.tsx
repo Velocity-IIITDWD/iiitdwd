@@ -65,7 +65,9 @@ export const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ events }) => {
                         <p className="text-md mb-2">{event.description}</p>
                       )}
                       {event.schedule && (
-                        <p className="text-sm italic">Schedule: {event.schedule}</p>
+                        <p className="text-sm italic">
+                          Schedule: {event.schedule}
+                        </p>
                       )}
                     </div>
                   </motion.div>

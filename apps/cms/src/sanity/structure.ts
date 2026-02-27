@@ -217,9 +217,15 @@ export const structure: StructureResolver = S =>
                   S.list()
                     .title("Clubs")
                     .items([
-                      S.documentTypeListItem("techClub").title("Technical Clubs"),
-                      S.documentTypeListItem("nonTechClub").title("Non-Technical Clubs"),
-                      S.documentTypeListItem("culturalClub").title("Cultural Clubs"),
+                      S.documentTypeListItem("techClub").title(
+                        "Technical Clubs"
+                      ),
+                      S.documentTypeListItem("nonTechClub").title(
+                        "Non-Technical Clubs"
+                      ),
+                      S.documentTypeListItem("culturalClub").title(
+                        "Cultural Clubs"
+                      ),
                     ])
                 ),
               S.listItem()

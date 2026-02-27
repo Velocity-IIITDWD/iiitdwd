@@ -1,5 +1,4 @@
 export default [
-  
   {
     title: "Registrar",
     profiles: [

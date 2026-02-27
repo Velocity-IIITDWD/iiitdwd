@@ -65,5 +65,5 @@ export default [
     position: "Professor-In-Charge",
     department: "Infrastructure, Planning and Development",
     imageUrl: "https://www.iiitdwd.ac.in//images/satish_annigeri.png",
-  }
+  },
 ];

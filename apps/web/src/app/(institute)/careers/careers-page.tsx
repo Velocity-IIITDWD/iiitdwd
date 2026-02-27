@@ -43,7 +43,7 @@ export default function CareersPage({
 }): JSX.Element {
   const [updatedJobsData, setUpdatedJobsData] = useState<Jobs[]>(Fulldata);
 
-  // ✅ UPDATED SORT LOGIC: 
+  // ✅ UPDATED SORT LOGIC:
   // 1) If deadline is given (lastDate), sort by deadline with farthest deadline first.
   // 2) If deadline is NA/missing, sort by publishDate with most recent first.
   useEffect(() => {
@@ -93,7 +93,10 @@ export default function CareersPage({
     return [
       { value: "faculty", label: categoryLabelMap["faculty"] ?? "faculty" },
       { value: "staff", label: categoryLabelMap["staff"] ?? "staff" },
-      { value: "phd/m.tech", label: categoryLabelMap["phd/m.tech"] ?? "phd/m.tech" },
+      {
+        value: "phd/m.tech",
+        label: categoryLabelMap["phd/m.tech"] ?? "phd/m.tech",
+      },
       {
         value: "project staff/research assistant",
         label:
@@ -132,7 +135,12 @@ export default function CareersPage({
     }
 
     return collected;
-  }, [updatedJobsData, initialCategories, categoryLabelMap, allowedCategoryList]);
+  }, [
+    updatedJobsData,
+    initialCategories,
+    categoryLabelMap,
+    allowedCategoryList,
+  ]);
 
   useEffect(() => {
     setFilteredJobs(

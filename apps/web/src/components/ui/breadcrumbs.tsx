@@ -23,11 +23,12 @@ export function Breadcrumbs({ breadcrumbs }: BreadcrumbsProps) {
         <div key={index} className="flex items-center">
           {index > 0 && <ChevronRight className="h-4 w-4 mx-1 text-gray-400" />}
           {index === breadcrumbs.length - 1 ? (
-            <span className="text-primary font-medium">
-              {crumb.title}
-            </span>
+            <span className="text-primary font-medium">{crumb.title}</span>
           ) : (
-            <Link href={crumb.href} className="text-gray-700 hover:text-gray-900">
+            <Link
+              href={crumb.href}
+              className="text-gray-700 hover:text-gray-900"
+            >
               {crumb.title}
             </Link>
           )}

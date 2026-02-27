@@ -138,7 +138,9 @@ export default async function ClubPage({
     );
   }
 
-  const clubNameWithSuffix = clubData.name.includes("IIIT Dharwad") ? clubData.name : `${clubData.name} IIIT Dharwad`;
+  const clubNameWithSuffix = clubData.name.includes("IIIT Dharwad")
+    ? clubData.name
+    : `${clubData.name} IIIT Dharwad`;
 
   const memberPhrases = [
     { text: `${clubNameWithSuffix} has # active members.` },
@@ -216,7 +218,7 @@ export default async function ClubPage({
             </div>
           </FadeInOnScroll>
         </section>
-        
+
         {/* Current Members Section */}
         {clubData.members && clubData.members.length > 0 && (
           <section id={toId("Current Members")} className="mb-12 mt-8 w-full">
@@ -256,7 +258,10 @@ export default async function ClubPage({
 
         {/* Achievements Section */}
         {clubData.achievements && clubData.achievements.length > 0 && (
-          <AchievementGallery achievements={clubData.achievements} clubName={clubData.name} />
+          <AchievementGallery
+            achievements={clubData.achievements}
+            clubName={clubData.name}
+          />
         )}
 
         {/* Socials Section */}
