@@ -4,6 +4,11 @@ export default [
     profiles: [
       {
         content: ["Chairman"],
+        imageURL: "/images/s_r_mahadeva_prasanna.jpg",
+        title: "Prof. S. R. Mahadeva Prasanna",
+      },
+      {
+        content: ["Member"],
         imageURL: "/images/h_p_khincha.jpg",
         title: "Prof. H P Khincha",
       },
@@ -14,40 +19,23 @@ export default [
       },
       {
         content: ["Member"],
-        imageURL: "/images/anuradha_n.jpg",
-        title: "Prof. Anuradha N.",
-      },
-      {
-        content: ["Director, IIIT-Dharwad"],
-        imageURL: "/images/s_r_mahadeva_prasanna.jpg",
-        title: "Prof. S. R. Mahadeva Prasanna",
-      },
-      /*
-      {
-        content: ["Member, Registrar, IIIT Dharwad"],
-        imageURL: "/images/Muruganatham_Ponnusamy.jpeg",
-        title: "Prof. (Dr.) Muruganantham Ponnusamy",
-      },
-      */
-      {
-        content: ["Member Secretary"],
-        imageURL: "/images/mahesh_chandra_k_j.jpeg",
-        title: "Mr. Mahesh Chandra K J",
+        imageURL: "/images/prof_subhash_c_yaragal.jpeg",
+        title: "Prof. Subhash C. Yaragal",
       },
       {
         content: ["Member"],
-        imageURL: "",
-        title: "Prof. Nagesh Iyer",
+        imageURL: "/images/prof_a_murali_krishna.jpg",
+        title: "Prof. A. Murali Krishna",
       },
       {
-        content: ["Architect/Invitee"],
-        imageURL: "",
-        title: "Mr. Madhu De",
+        content: ["Professor-in-charge (IPD)/Member Secretary"],
+        imageURL: "/images/satish_annigeri.png",
+        title: "Prof. Satish Annigeri",
       },
       {
-        content: ["PMC/Invitee"],
+        content: ["Asst. Exec. Engineer/Permanent Invitee"],
         imageURL: "",
-        title: "Mr. Waheez Wahab",
+        title: "Mr. Ayush Sharma ",
       },
     ],
   },
