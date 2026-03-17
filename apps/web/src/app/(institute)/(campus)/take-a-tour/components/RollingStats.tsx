@@ -77,7 +77,7 @@ const RollingStats = () => {
               key={idx}
               className="flex items-center gap-3 px-10 md:px-16 lg:px-20 flex-shrink-0"
             >
-              <span className="text-accent">{stat.icon}</span>
+              <span className="text-primary">{stat.icon}</span>
               <div className="flex flex-col items-start min-w-[140px]">
                 <span className="text-2xl md:text-3xl font-bold text-heading font-serif">
                   {stat.value}
