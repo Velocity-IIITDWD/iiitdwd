@@ -24,6 +24,7 @@ const navigationData: NavigationItem[] = [
         title: "Campus",
         href: "/institute/campus",
         items: [
+          { title: "Take a Tour", href: "/take-a-tour" },
           { title: "How to reach", href: "/how-to-reach" },
           {
             title: "Amenities",
