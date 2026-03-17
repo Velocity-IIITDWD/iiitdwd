@@ -1,34 +1,32 @@
-import { Shield, Sun, Utensils, Wifi } from "lucide-react";
+import { Dumbbell, Shield, Utensils, Volleyball, Wifi } from "lucide-react";
 
 const facilities = [
-  {
-    icon: <Wifi className="w-6 h-6" />,
-    title: "Campus Connectivity",
-    items: [
-      "High-speed NKN internet connectivity across campus",
-      "Complete Wi-Fi coverage in academic and residential zones",
-      "High-performance computing clusters for research",
-      "Modern IT infrastructure and cloud resources",
-    ],
-  },
-  {
-    icon: <Sun className="w-6 h-6" />,
-    title: "Outdoor Facilities",
-    items: [
-      "Cricket and football grounds",
-      "Volleyball and basketball courts",
-      "Open-air amphitheatre",
-      "Landscaped gardens and green spaces",
-    ],
-  },
   {
     icon: <Utensils className="w-6 h-6" />,
     title: "Dining & Services",
     items: [
-      "Multiple mess facilities with varied cuisine",
-      "Private canteens and food courts",
+      "Mess and a private canteen with diverse cuisine",
+      "Clean and hygienic food preparation areas",
+      "Affordable meal plans for students (Private Canteen)",
+      "Special dietary options available",
       "Stationery and convenience stores",
-      "ATM and banking services",
+    ],
+  },
+  {
+    icon: <Dumbbell className="w-6 h-6" />,
+    title: "Gymnasium & Badminton Court",
+    items: [
+      "Well-equipped gymnasium with modern fitness equipment",
+      "Professional-grade badminton court",
+    ],
+  },
+  {
+    icon: <Volleyball className="w-6 h-6" />,
+    title: "Sports Area",
+    items: [
+      "Cricket Nets and football ground",
+      "Volleyball and basketball courts (M Block)",
+      "Carroms and Table Tennis facilities (M Block)",
     ],
   },
   {
@@ -36,9 +34,15 @@ const facilities = [
     title: "Security & Support",
     items: [
       "24/7 security with CCTV surveillance",
-      "On-campus medical clinic",
-      "Fire safety systems throughout",
-      "Student counseling services",
+      "On-campus medical clinic (H Block)",
+    ],
+  },
+  {
+    icon: <Wifi className="w-6 h-6" />,
+    title: "Connectivity & Amenities",
+    items: [
+      "High-speed Wi-Fi across the campus",
+      "Power backup and water supply systems",
     ],
   },
 ];
@@ -58,9 +62,9 @@ const AdditionalFacilities = () => {
 
         <div className="grid md:grid-cols-2 gap-12">
           {facilities.map((facility, idx) => (
-            <div key={idx} className="border-l-2 border-accent pl-6">
+            <div key={idx} className="border-l-2 border-primary pl-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-accent">{facility.icon}</span>
+                <span className="text-primary">{facility.icon}</span>
                 <h3 className="text-xl font-semibold text-heading font-sans">
                   {facility.title}
                 </h3>

@@ -25,10 +25,10 @@ export const blocksData: BlockData[] = [
     ],
     images: [
       "https://assets.iiitdwd.ac.in/images/M_Block.webp",
-      "https://assets.iiitdwd.ac.in/images/M_Block1.NEF",
-      "https://assets.iiitdwd.ac.in/images/M_Block2.NEF",
-      "https://assets.iiitdwd.ac.in/images/M_Block3.NEF",
-      "https://assets.iiitdwd.ac.in/images/M_Block4.NEF",
+      "https://assets.iiitdwd.ac.in/images/M_Block1.webp",
+      "https://assets.iiitdwd.ac.in/images/M_Block2.webp",
+      "https://assets.iiitdwd.ac.in/images/M_Block3.webp",
+      "https://assets.iiitdwd.ac.in/images/M_Block4.webp",
     ],
   },
   {
@@ -49,8 +49,7 @@ export const blocksData: BlockData[] = [
     ],
     images: [
       "https://assets.iiitdwd.ac.in/images/PiBlock.webp",
-      "https://images.unsplash.com/photo-1581092921461-eab10380ed6a?w=800&q=80",
-      "https://images.unsplash.com/photo-1581093458791-9f3c3250a8b0?w=800&q=80",
+      "https://assets.iiitdwd.ac.in/images/Pi_Block.jpg",
     ],
   },
   {
@@ -70,8 +69,10 @@ export const blocksData: BlockData[] = [
     ],
     images: [
       "https://assets.iiitdwd.ac.in/images/E_Block.webp",
-      "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80",
-      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80",
+      "https://assets.iiitdwd.ac.in/images/E_Block1.webp",
+      "https://assets.iiitdwd.ac.in/images/E_Block2.webp",
+      "https://assets.iiitdwd.ac.in/images/E_Block4.jpg",
+      "https://assets.iiitdwd.ac.in/images/E_Block3.webp",
     ],
   },
   {
@@ -92,8 +93,6 @@ export const blocksData: BlockData[] = [
     ],
     images: [
       "https://assets.iiitdwd.ac.in/images/Library.jpg",
-      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80",
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80",
     ],
   },
   {
@@ -114,8 +113,7 @@ export const blocksData: BlockData[] = [
     ],
     images: [
       "https://assets.iiitdwd.ac.in/images/B_Block.webp",
-      "https://images.unsplash.com/photo-1626178793926-22b28830aa30?w=800&q=80",
-      "https://images.unsplash.com/photo-1595846519845-68e298c2edd8?w=800&q=80",
+      "https://assets.iiitdwd.ac.in/images/B_Block1.webp",
     ],
   },
   {
@@ -136,7 +134,7 @@ export const blocksData: BlockData[] = [
     ],
     images: [
       "https://assets.iiitdwd.ac.in/images/G_Block.webp",
-      "https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?w=800&q=80",
+      "https://assets.iiitdwd.ac.in/images/G_Block1.jpg",
     ],
   },
   {
@@ -157,8 +155,7 @@ export const blocksData: BlockData[] = [
     ],
     images: [
       "https://assets.iiitdwd.ac.in/images/H_Block.webp",
-      "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800&q=80",
-      "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&q=80",
+      "https://assets.iiitdwd.ac.in/images/H_Block1.jpg"
     ],
   },
 ];
