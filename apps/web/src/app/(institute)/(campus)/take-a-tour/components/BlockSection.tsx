@@ -100,7 +100,7 @@ const BlockSection = ({ block, index }: BlockSectionProps) => {
           {/* Content */}
           <div className={!isEven ? "lg:col-start-1 lg:row-start-1" : ""}>
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-1 h-10 bg-accent rounded-full" />
+              <div className="w-1 h-10 bg-primary rounded-full" />
               <div>
                 <h2 className="text-3xl lg:text-4xl font-serif text-heading">
                   {block.name}
@@ -122,7 +122,7 @@ const BlockSection = ({ block, index }: BlockSectionProps) => {
               <ul className="space-y-3">
                 {block.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="mt-2 w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                    <span className="mt-2 w-2 h-2 rounded-full bg-primary flex-shrink-0" />
                     <span className="text-body leading-relaxed">{feature}</span>
                   </li>
                 ))}
