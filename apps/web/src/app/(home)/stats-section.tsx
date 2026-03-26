@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "@tabler/icons-react/dist/esm/types";
-import { TrendingUp, DollarSign, Building2, Users } from "lucide-react";
+import { Building2, IndianRupee, TrendingUp, Users } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
@@ -15,7 +15,7 @@ const stats = [
     sub: "Batch of 2024",
   },
   {
-    icon: DollarSign,
+    icon: IndianRupee,
     prefix: "₹78",
     prefixColor: "navy",
     value: null,
