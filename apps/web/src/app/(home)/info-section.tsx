@@ -122,7 +122,11 @@ export default async function InfoSection(): Promise<JSX.Element> {
                 <div className="grid grid-cols-2 gap-3 mt-1">
                   {[
                     { label: "Est.", value: "2015" },
-                    { label: "Status", value: "Deemed University" },
+                    {
+                      label: "Status",
+                      value:
+                        "Higher Educational Institute of National Importance",
+                    },
                     { label: "Location", value: "Dharwad, Karnataka" },
                     { label: "Programs", value: "B.Tech · M.Tech · Ph.D" },
                   ].map(fact => (
