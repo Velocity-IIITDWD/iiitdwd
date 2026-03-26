@@ -29,7 +29,7 @@ const page = () => {
         <div className="2btns flex gap-2  lg:gap-16">
           <Button
             onClick={() => {
-              openLink("/docs/Committe-details-for-website.pdf");
+              openLink("/docs/ICC_Office_Order_2026.pdf");
             }}
             className=" h-auto text-white text-[11px]  md:text-md lg:text-2xl w-max my-5 bg-main hover:drop-shadow-xl    hover:scale-[1.05] transition"
           >
