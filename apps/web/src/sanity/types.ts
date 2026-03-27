@@ -106,6 +106,7 @@ export type MainCarouselImage = {
   url?: string;
   caption?: string;
   link?: string;
+  eventDate?: string;
 };
 
 export type Gallery = {
