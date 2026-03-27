@@ -1,7 +1,6 @@
 // quick-links.tsx
+import { Award, Building2, ClipboardList, GraduationCap } from "lucide-react";
 import Link from "next/link";
-import { GraduationCap, ClipboardList, Building2, Award } from "lucide-react";
-import { ReactNode } from "react";
 
 const links = [
   {
@@ -30,7 +29,7 @@ const links = [
   },
 ];
 
-export default function QuickLinksSection(): ReactNode {
+export default function QuickLinksSection(): JSX.Element {
   return (
     <div id="quick-links" className="w-full mb-10 px-5 md:px-13">
       <div className="mx-auto max-w-5xl">
