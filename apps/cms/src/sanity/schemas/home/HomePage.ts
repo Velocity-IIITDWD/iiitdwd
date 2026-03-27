@@ -1,6 +1,4 @@
-import { ImageIcon } from "lucide-react";
-import { CarIcon } from "lucide-react"; // Replace with an appropriate icon
-import { ClipboardIcon } from "lucide-react"; // Replace with an appropriate icon
+import { CarIcon, ClipboardIcon, ImageIcon } from "lucide-react";
 
 import { defineField, defineType } from "sanity";
 
@@ -26,6 +24,15 @@ export const MainCarouselImage = defineType({
       name: "link",
       title: "Link",
       type: "string",
+    }),
+    defineField({
+      name: "eventDate",
+      title: "Event Date",
+      type: "date",
+      options: {
+        dateFormat: "DD-MM-YYYY",
+      },
+      validation: Rule => Rule.required(),
     }),
   ],
 });

@@ -13,14 +13,49 @@ import ModernSocialMediaGrid from "./social-media";
 import VideoPlayer from "./video-player";
 
 export default async function InfoSection(): Promise<JSX.Element> {
-  const externalLink =
+  const orientationLink =
     "https://www.instagram.com/reel/DRG3BLyDC8J/?igsh=dmJ3YnN3cW5zNWFj";
+  const campusTourLink = "https://www.youtube.com/watch?v=_QLrIgjopCg";
+  const campusTourEmbed =
+    "https://www.youtube.com/embed/_QLrIgjopCg?si=GrjaKptEy4LEp2uW&autoplay=0";
 
-  let carouselData = await get<MainCarouselImage[]>(queryCarousel);
-  carouselData = carouselData?.sort(
-    (a: MainCarouselImage, b: MainCarouselImage) =>
-      new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()
-  );
+  const carouselData = (await get<MainCarouselImage[]>(queryCarousel)) || [];
+
+  const parseEventDate = (dateString?: string): Date | null => {
+    if (!dateString) return null;
+
+    const parsed = new Date(dateString);
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  };
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const datedEvents = carouselData
+    .map(item => ({
+      item,
+      eventDate:
+        parseEventDate(item.eventDate) || parseEventDate(item._createdAt),
+    }))
+    .filter(({ eventDate }) => !!eventDate)
+    .sort((a, b) => b.eventDate!.getTime() - a.eventDate!.getTime());
+
+  const latestEvents = datedEvents
+    .filter(({ eventDate }) => eventDate! < today)
+    .map(({ item, eventDate }) => ({
+      ...item,
+      _createdAt: eventDate!.toISOString(),
+    }))
+    .filter(item => !!item.url && !!item.link && !!item.caption);
+
+  const upcomingEvents = datedEvents
+    .filter(({ eventDate }) => eventDate! >= today)
+    .sort((a, b) => a.eventDate!.getTime() - b.eventDate!.getTime())
+    .map(({ item, eventDate }) => ({
+      ...item,
+      _createdAt: eventDate!.toISOString(),
+    }))
+    .filter(item => !!item.url && !!item.link && !!item.caption);
 
   return (
     <div className="w-full py-12 md:py-16">
@@ -167,29 +202,32 @@ export default async function InfoSection(): Promise<JSX.Element> {
               </div>
             </div>
 
-            {/* Campus Tour */}
+            {/* Orientation Program */}
             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)]">
               <div className="px-5 pt-5 pb-3 bg-white flex items-center justify-between">
                 <div>
                   <h3 className="text-base font-bold text-[#193654]">
-                    Campus Tour
+                    Orientation Program
                   </h3>
                   <div className="h-0.5 w-8 bg-[#CCE70B] rounded-full mt-1.5" />
                 </div>
-                <Link
-                  href="/about"
+                <a
+                  href={orientationLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-xs font-medium text-[#193654]/60 hover:text-[#193654] transition-colors duration-200"
                 >
-                  About the institute
+                  Watch highlights
                   <IconArrowUpRight size={13} />
-                </Link>
+                </a>
               </div>
               <div className="relative w-full aspect-video bg-black">
-                <iframe
-                  src="https://www.youtube.com/embed/_QLrIgjopCg?si=GrjaKptEy4LEp2uW&autoplay=0"
-                  title="IIIT Dharwad Campus Tour"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                <video
+                  src="https://iiitdwd.ac.in/images/orientation.mp4"
+                  controls
+                  playsInline
+                  preload="auto"
+                  poster="/images/thumnail.png"
                   className="absolute inset-0 w-full h-full"
                 />
               </div>
@@ -272,30 +310,72 @@ export default async function InfoSection(): Promise<JSX.Element> {
               <div className="h-0.5 w-12 bg-[#CCE70B] rounded-full mt-1.5"></div>
             </div>
           </div>
-          <EventsSection events={carouselData || []} />
+          {latestEvents.length > 0 ? (
+            <EventsSection events={latestEvents} />
+          ) : (
+            <p className="text-sm text-gray-600">No latest events right now.</p>
+          )}
+        </div>
+
+        {/* Upcoming Events - Future Dates */}
+        <div className="p-6 rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] mb-8">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center justify-center w-11 h-11 rounded-lg bg-[#193654] shadow-sm">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-[#193654]">
+                Upcoming Events
+              </h2>
+              <div className="h-0.5 w-12 bg-[#CCE70B] rounded-full mt-1.5"></div>
+            </div>
+          </div>
+
+          {upcomingEvents.length > 0 ? (
+            <EventsSection events={upcomingEvents} />
+          ) : (
+            <p className="text-sm text-gray-600">
+              No upcoming events right now.
+            </p>
+          )}
         </div>
 
         {/* Video Section */}
         <div className="flex flex-col md:flex-row gap-6 p-6 rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] group transition-all duration-300 mb-8">
-          <VideoPlayer externalLink={externalLink} />
+          <VideoPlayer
+            externalLink={campusTourLink}
+            embedSrc={campusTourEmbed}
+            title="IIIT Dharwad Campus Tour"
+            className="md:flex-[0_0_50%] lg:flex-[0_0_56%]"
+          />
 
           <div className="flex-1 flex flex-col justify-center">
             <a
-              href={externalLink}
+              href={campusTourLink}
               target="_blank"
               rel="noopener noreferrer"
               className="block"
             >
               <h3 className="text-lg font-bold text-[#193654] mb-3 group-hover:text-[#CCE70B] transition-colors duration-300">
-                IIIT Dharwad Induction Program 2025 — A Journey Beyond
-                Classrooms! ✨
+                IIIT Dharwad Campus Tour - Explore the Campus Experience
               </h3>
               <p className="text-base text-gray-600 leading-relaxed">
-                From stepping into nature to discovering human values… From the
-                energy of freshers' events to the rhythm of music, dance,
-                sports… From inspiring expert talks to unforgettable friendships
-                — this induction wasn't just a program, it was an experience
-                that shaped us.
+                Take a walkthrough of IIIT Dharwad's campus spaces, academic
+                environment, and student facilities. Discover where innovation,
+                learning, and campus life come together.
               </p>
             </a>
           </div>
