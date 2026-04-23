@@ -14,8 +14,12 @@ export const bTechAdmissionLinks: LinkItem[] = [
     href: "https://forms.gle/HhFLbufmLBh8FwW56",
   },
   {
-    title: "Fee Structure-2025",
-    href: "/docs/Fee_Structure_2025-26.pdf",
+    title: "Tution Fee Structure 2026-2027",
+    href: "/docs/Tution_Fee_AY_2026_27_08042026_1713.pdf",
+  },
+  {
+    title: "Hostel Fee Structure 2026-2027",
+    href: "/docs/Hostel_Fee_AY_2026_27_080427_1714.pdf",
   },
   {
     title: "Fee Refund Policy",
@@ -66,11 +70,15 @@ export const bTechAdmissionLinks: LinkItem[] = [
 
 export const quickLinks: LinkItem[] = [
   {
-    title: "Fee Structure for the batch 2025-2026",
-    href: "/docs/Fee_Structure_2025-26.pdf",
+    title: "Tution Fee for the batch 2026-2027",
+    href: "/docs/Tution_Fee_AY_2026_27_08042026_1713.pdf",
   },
   {
-    title: "Fee Refund",
+    title: "Hostel Fee for the batch 2026-2027",
+    href: "/docs/Hostel_Fee_AY_2026_27_080427_1714.pdf",
+  },
+  {
+    title: "Fee Refund Policy",
     href: "/docs/Fee-Refund.pdf",
   },
   {
@@ -82,12 +90,12 @@ export const quickLinks: LinkItem[] = [
     href: "/docs/PM_VIDYA_LAXMI_EDUCATION_LOAN_-CANARA_BANK_FOR_IIIT_DHARWAD.pdf",
   },
   {
-    title: "Hostel Facility for 2024 batch students (TBD)",
+    title: "Hostel Facility for 2026 batch students (TBD)",
     href: "#",
   },
   {
     title:
-      "State wise List of Reporting Centers for Physical Verification of PwD Candidates [for NIT+ System Only] JoSAA/CSAB 2024",
+      "State wise List of Reporting Centers for Physical Verification of PwD Candidates [for NIT+ System Only] JoSAA/CSAB 2026",
     href: "/docs/State-wise-List-of-Reporting-Centers.pdf",
   },
   {
@@ -103,7 +111,7 @@ export const quickLinks: LinkItem[] = [
 export const eligibilityCriteria: LinkItem[] = [
   {
     title: "Guidelines for students alloted through JoSAA/CSAB Counselling",
-    href: "/docs/B.Tech._Admission_Guidelines_for_2025-26_Students.pdf",
+    href: "/docs/B.Tech._Admission_Guidelines_for_2026-27_Students.pdf",
   },
   /*{
     title: "Undertaking to be signed by students and their parents",
@@ -111,13 +119,13 @@ export const eligibilityCriteria: LinkItem[] = [
   }*/
   {
     title:
-      "Performance in Class XII for candidates seeking admission in IIIT Dharwad - 2024",
-    href: "/docs/Performance_in%20Class_XII_2024.pdf",
+      "Performance in Class XII for candidates seeking admission in IIIT Dharwad - 2026",
+    href: "/docs/Performance_in%20Class_XII_2026.pdf",
   },
   {
     title:
-      "Category wise Top-20 percentile cut-off marks out-of total 500 marks for 2024",
-    href: "https://cdnbbsr.s3waas.gov.in/s313111c20aee51aeb480ecbd988cd8cc9/uploads/2025/06/2025060941.pdf",
+      "Category wise Top-20 percentile cut-off marks out-of total 500 marks for 2026",
+    href: "https://cdnbbsr.s3waas.gov.in/s313111c20aee51aeb480ecbd988cd8cc9/uploads/2026/06/2026060941.pdf",
   },
 ];
 
@@ -136,5 +144,9 @@ export const programsOffered: LinkItem[] = [
     title:
       "Data Science and Artificial Intelligence (Institute Code 316 and Program Code 4181)",
     href: "/academics/departments/",
+  },
+  {
+    title: "AI and Computing (Institute Code 316 and Program Code TBA)",
+    href: "#",
   },
 ];

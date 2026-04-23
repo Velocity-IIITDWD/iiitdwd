@@ -49,7 +49,7 @@ export default function Page() {
 
   const tabs = [
     {
-      title: "B.Tech Admission 2025",
+      title: "B.Tech Admission 2026",
       icon: (
         <svg
           className="w-5 h-5"
@@ -132,7 +132,7 @@ export default function Page() {
       <div className="space-y-6">
         <div className="w-[87.5vw] max-w-[1680px] mx-auto p-6">
           <h1 className="text-large-title font-bold text-main">
-            B.Tech Admissions 2025
+            B.Tech Admissions 2026
           </h1>
           <p className="text-gray-500 mt-2">
             Explore admission details, eligibility, and programs offered
