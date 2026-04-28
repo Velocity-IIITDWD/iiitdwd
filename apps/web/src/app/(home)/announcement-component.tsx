@@ -4,8 +4,12 @@ import { AnnouncementItem } from "./notification";
 
 export default function AnnouncementComponent({
   announcements,
+  viewAllLink = "/announcements",
+  viewAllText = "View all Announcements",
 }: {
   announcements: AnnouncementItem[];
+  viewAllLink?: string;
+  viewAllText?: string;
 }) {
   const pinnedAnnouncementItems = announcements
     .filter(item => item.isPinned)
@@ -134,10 +138,10 @@ export default function AnnouncementComponent({
       </div>
 
       <Link
-        href="/announcements"
+        href={viewAllLink}
         className="text-[#193654] hover:underline flex text-base items-center font-medium"
       >
-        View all Announcements <span className="ml-1.5">→</span>
+        {viewAllText} <span className="ml-1.5">→</span>
       </Link>
     </div>
   );
