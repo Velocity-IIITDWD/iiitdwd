@@ -11,6 +11,8 @@ import NotificationSection from "./notification";
 import PlacementCard from "./placement-card";
 import ModernSocialMediaGrid from "./social-media";
 import VideoPlayer from "./video-player";
+import CareerUpdatesSection from "./career-updates";
+import AnnouncementsTabs from "./announcements-tabs";
 
 export default async function InfoSection(): Promise<JSX.Element> {
   const orientationLink =
@@ -234,34 +236,12 @@ export default async function InfoSection(): Promise<JSX.Element> {
             </div>
           </div>
           {/* end middle column */}
+          {/* Third column: Announcements & Career Updates */}
           <div className="flex flex-col p-6 rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow duration-300 min-h-[500px]">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="flex items-center justify-center w-11 h-11 rounded-lg bg-[#193654] shadow-sm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h2 className="text-xl font-bold text-[#193654]">
-                  Announcements
-                </h2>
-                <div className="h-0.5 w-12 bg-[#CCE70B] rounded-full mt-1.5"></div>
-              </div>
-            </div>
-            <div className="overflow-y-auto flex-1">
-              <NotificationSection />
-            </div>
+             <AnnouncementsTabs 
+               announcements={<NotificationSection />} 
+               careerUpdates={<CareerUpdatesSection />} 
+             />
           </div>
         </div>
 
