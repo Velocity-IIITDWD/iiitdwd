@@ -168,6 +168,7 @@ const navigationData: NavigationItem[] = [
 
       // { title: 'Calendar', href: '/academics/calendar' },
       { title: "Departments", href: "/academics/departments" },
+      { title: "AI and Computing (New)", href: "/academics/ai-and-computing" },
       { title: "Center of Excellence", href: "/released-soon" },
       {
         title: "Faculty",
