@@ -271,171 +271,6 @@ export type Nirf = {
   engineeringReport?: string;
 };
 
-/*
-export type Club = {
-  _id: string;
-  _type: "club";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?:
-    | "Velocity"
-    | "Iridescence"
-    | "Return 0"
-    | "BlocSoc"
-    | "GDSC IIIT Dharwad"
-    | "E cell"
-    | "IEEE SB & CS"
-    | "Inquizitive"
-    | "IRIS"
-    | "DSAI Society"
-    | "Quantum Computing Club"
-    | "Techniosys"
-    | "Zeitgeist"
-    | "440 Hz"
-    | "Dance Club"
-    | "Prabodhini"
-    | "Mosaic Club"
-    | "In Motion"
-    | "LimeLight";
-  aboutText?: string;
-  members?: Array<{
-    name?: string;
-    position?: string;
-    _key: string;
-  }>;
-  imagePath?: string;
-  isTechnical?: boolean;
-  instagram?: string;
-  linkedin?: string;
-  gmail?: string;
-  gmail2?: string;
-  website?: string;
-  github?: string;
-  twitter?: string;
-  linktree?: string;
-};
-*/
-
-export type techClubs = {
-  _id: string;
-  _type: "techClubs";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?:
-    | "Velocity"
-    | "Return 0"
-    | "BlocSoc"
-    | "GDSC IIIT Dharwad"
-    | "E cell"
-    | "IEEE SB & CS"
-    | "Inquizitive"
-    | "IRIS"
-    | "DSAI Society"
-    | "Quantum Computing Club"
-    | "Techniosys"
-    | "GND_0 VLSI Club IIIT Dharwad";
-  description?: string;
-  logo?: string;
-  image?: string;
-  memberCount?: number;
-  members?: Array<{
-    name?: string;
-    position?: string;
-    image?: string;
-    _key: string;
-  }>;
-  alumni?: Array<{
-    name?: string;
-    position?: string;
-    image?: string;
-    _key: string;
-  }>;
-  faculty?: string;
-  profile_link?: string;
-  vision?: string;
-  mission?: string;
-  // meetingDetails?: Array<{
-  //   schedule?: string;
-  //   location?: string;
-  //   _key: string;
-  // }>;
-  events?: Array<{
-    title?: string;
-    description?: string;
-    images?: Array<{
-      image?: string;
-      _key: string;
-    }>;
-    videos?: Array<{
-      video?: string;
-      _key: string;
-    }>;
-    _key: string;
-  }>;
-  upcomingEvents?: Array<{
-    title?: string;
-    description?: string;
-    schedule?: string;
-  }>;
-  links?: Array<{
-    gmail?: string;
-    linkedin?: string;
-    instagram?: string;
-    website?: string;
-    github?: string;
-    twitter?: string;
-    _key: string;
-  }>;
-};
-
-export type nonTechClubs = {
-  _id: string;
-  _type: "nonTechClubs";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?:
-    | "Cricket Club"
-    | "Badminton Club"
-    | "Volleyball Club"
-    | "Basketball Club"
-    | "Athletics Club"
-    | "Counselling Cell"
-    | "Magazine Committee";
-  description?: string;
-  logo?: string;
-  image?: string;
-  memberCount?: number;
-  members?: Array<{
-    name?: string;
-    position?: string;
-    image?: string;
-    _key: string;
-  }>;
-  achievements?: Array<{
-    title?: string;
-    description?: string;
-    images?: Array<{
-      image?: string;
-      _key: string;
-    }>;
-    _key: string;
-  }>;
-  // meetingDetails?: Array<{
-  //   schedule?: string;
-  //   location?: string;
-  //   _key: string;
-  // }>;
-  links?: Array<{
-    gmail?: string;
-    instagram?: string;
-    twitter?: string;
-    _key: string;
-  }>;
-};
-
 export type CulturalClub = {
   _id: string;
   _type: "culturalClub";
@@ -446,11 +281,13 @@ export type CulturalClub = {
     | "Zeitgeist"
     | "Iridescence"
     | "440 Hz"
+    | "In Motion"
     | "Dynamight"
     | "Prabodhini"
     | "Mosaic Club"
-    | "In Motion"
-    | "LimeLight";
+    | "LimeLight"
+    | "Flavorhood"
+    | "Out of Service";
   description?: string;
   logo?: string;
   image?: string;
@@ -469,10 +306,6 @@ export type CulturalClub = {
   }>;
   vision?: string;
   mission?: string;
-  // meetingDetails?: {
-  //   schedule?: string;
-  //   location?: string;
-  // };
   events?: Array<{
     title?: string;
     description?: string;
@@ -498,10 +331,126 @@ export type CulturalClub = {
     instagram?: string;
     twitter?: string;
   };
-  slug?: {
-    current: string;
-    _type: "slug";
+  slug?: Slug;
+};
+
+export type NonTechClub = {
+  _id: string;
+  _type: "nonTechClub";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?:
+    | "Cricket Club"
+    | "Badminton Club"
+    | "Volleyball Club"
+    | "Basketball Club"
+    | "Athletics Club"
+    | "Counselling Cell"
+    | "Magazine Committee";
+  description?: string;
+  logo?: string;
+  image?: string;
+  memberCount?: number;
+  members?: Array<{
+    name?: string;
+    position?: string;
+    image?: string;
+    _key: string;
+  }>;
+  alumni?: Array<{
+    name?: string;
+    position?: string;
+    image?: string;
+    _key: string;
+  }>;
+  achievements?: Array<{
+    title?: string;
+    description?: string;
+    images?: Array<{
+      image?: string;
+      _key: string;
+    }>;
+    _key: string;
+  }>;
+  links?: {
+    gmail?: string;
+    instagram?: string;
+    twitter?: string;
   };
+  slug?: Slug;
+};
+
+export type TechClub = {
+  _id: string;
+  _type: "techClub";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?:
+    | "Velocity"
+    | "Return 0"
+    | "BlocSoc"
+    | "GDG IIIT Dharwad"
+    | "E cell"
+    | "IEEE SB"
+    | "InQuizitive"
+    | "IRIS"
+    | "DSAI Society"
+    | "Quantum Computing Club"
+    | "Techniosys"
+    | "GND_0 VLSI Club IIIT Dharwad"
+    | "MSA IIIT Dharwad"
+    | "accelAIrate"
+    | "Vidkarya";
+  description?: string;
+  logo?: string;
+  image?: string;
+  memberCount?: number;
+  members?: Array<{
+    name?: string;
+    position?: string;
+    image?: string;
+    _key: string;
+  }>;
+  alumni?: Array<{
+    name?: string;
+    position?: string;
+    image?: string;
+    _key: string;
+  }>;
+  faculty?: string;
+  profile_link?: string;
+  vision?: string;
+  mission?: string;
+  events?: Array<{
+    title?: string;
+    description?: string;
+    images?: Array<{
+      image?: string;
+      _key: string;
+    }>;
+    videos?: Array<{
+      video?: string;
+      _key: string;
+    }>;
+    _key: string;
+  }>;
+  upcomingEvents?: Array<{
+    title?: string;
+    description?: string;
+    schedule?: string;
+    _key: string;
+  }>;
+  links?: {
+    gmail?: string;
+    linkedin?: string;
+    instagram?: string;
+    twitter?: string;
+    website?: string;
+    github?: string;
+  };
+  slug?: Slug;
 };
 
 export type Issues = {
@@ -562,7 +511,11 @@ export type Job = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  category?: string;
+  category?:
+    | "faculty"
+    | "staff"
+    | "phd/m.tech"
+    | "project staff/research assistant";
   details?: string;
   publishDate?: string;
   lastDate?: string;
@@ -573,6 +526,17 @@ export type Job = {
     link?: string;
     _key: string;
   }>;
+};
+
+export type JobCategory = {
+  _id: string;
+  _type: "jobCategory";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  value?: string;
+  title?: string;
+  order?: number;
 };
 
 export type Credit = {
@@ -1104,15 +1068,15 @@ export type AllSanitySchemaTypes =
   | AnnualReport
   | Tender
   | Nirf
-  // | Club
-  | techClubs
-  | nonTechClubs
   | CulturalClub
+  | NonTechClub
+  | TechClub
   | Issues
   | Team
   | FacultyAdvisor
   | Member
   | Job
+  | JobCategory
   | Credit
   | DsaiDetail
   | EceDetail
