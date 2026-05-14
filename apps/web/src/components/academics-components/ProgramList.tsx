@@ -27,7 +27,7 @@ export default function ProgramList({
       title: "Under-Graduate Programs",
       description:
         "Explore top ranked master's, doctoral and professional degrees. Our B.Tech programs are designed to foster innovation and technical excellence.",
-      details: ["B.Tech in CSE", "B.Tech in DSAI", "B.Tech in ECE"],
+      details: ["B.Tech in CSE", "B.Tech in DSAI", "B.Tech in ECE", "B.Tech in AIC (New)"],
       link: "/academics/departments",
       imageSrc: "https://iiitdwd.ac.in/images/undergrad_programs.JPG",
     },
@@ -54,6 +54,14 @@ export default function ProgramList({
       details: ["Remote Learning", "Flexible Schedule", "Certification"],
       link: "https://online.iiitdwd.ac.in/",
       imageSrc: "https://iiitdwd.ac.in/images/online_programs.JPG",
+    },
+    {
+      title: "B.Tech in AI and Computing",
+      description:
+        "A futuristic undergraduate program designed to bridge the gap between artificial intelligence algorithms and high-performance computing infrastructure.",
+      details: ["Full AI Stack", "Hardware-Software Co-design", "System Engineering"],
+      link: "/academics/ai-and-computing",
+      imageSrc: "https://iiitdwd.ac.in/images/undergrad_programs.JPG",
     },
   ];
 
