@@ -92,7 +92,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
                 </div>
 
                 <p className="text-base text-gray-600 mb-5 line-clamp-3 leading-relaxed">
-                  Welcome to IIIT Dharwad — a hub of innovation, learning, and
+                  Welcome to IIIT Dharwad - a hub of innovation, learning, and
                   excellence. We are committed to nurturing future leaders in
                   technology and research.
                 </p>
@@ -165,7 +165,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
                         "Higher Educational Institute of National Importance",
                     },
                     { label: "Location", value: "Dharwad, Karnataka" },
-                    { label: "Programs", value: "B.Tech · M.Tech · Ph.D" },
+                    { label: "Programs", value: "B.Tech - M.Tech - Ph.D" },
                   ].map(fact => (
                     <div
                       key={fact.label}
@@ -204,34 +204,24 @@ export default async function InfoSection(): Promise<JSX.Element> {
               </div>
             </div>
 
-            {/* Orientation Program */}
-            <div className="rounded-lg overflow-hidden border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)]">
-              <div className="px-5 pt-5 pb-3 bg-white flex items-center justify-between">
-                <div>
-                  <h3 className="text-base font-bold text-[#193654]">
-                    Orientation Program
-                  </h3>
-                  <div className="h-0.5 w-8 bg-[#CCE70B] rounded-full mt-1.5" />
-                </div>
-                <a
-                  href={orientationLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-medium text-[#193654]/60 hover:text-[#193654] transition-colors duration-200"
-                >
-                  Watch highlights
-                  <IconArrowUpRight size={13} />
-                </a>
+            {/* Induction Program 2025 (Moved from bottom) */}
+            <div className="group flex flex-col rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-300 overflow-hidden">
+              <div className="px-5 pt-5 pb-3">
+                <h3 className="text-base font-bold text-[#193654] group-hover:text-[#CCE70B] transition-colors duration-300">
+                  Induction Program 2025
+                </h3>
+                <div className="h-0.5 w-8 bg-[#CCE70B] rounded-full mt-1.5" />
               </div>
-              <div className="relative w-full aspect-video bg-black">
-                <video
-                  src="https://iiitdwd.ac.in/images/orientation.mp4"
-                  controls
-                  playsInline
-                  preload="auto"
-                  poster="/images/thumnail.png"
-                  className="absolute inset-0 w-full h-full"
-                />
+              <div className="px-5 pb-4">
+                <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden">
+                  <VideoPlayer externalLink={orientationLink} />
+                </div>
+                <p className="text-[13px] text-gray-600 leading-relaxed mt-4 line-clamp-4">
+                  From stepping into nature to discovering human values. From
+                  the energy of freshers' events to the rhythm of music, dance,
+                  sports, a journey shaped by expert talks and unforgettable
+                  friendships.
+                </p>
               </div>
             </div>
           </div>
@@ -333,7 +323,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
           )}
         </div>
 
-        {/* Video Section */}
+        {/* Campus Tour (Moved from middle column) */}
         <div className="flex flex-col md:flex-row gap-6 p-6 rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] group transition-all duration-300 mb-8">
           <VideoPlayer
             externalLink={campusTourLink}
@@ -343,21 +333,21 @@ export default async function InfoSection(): Promise<JSX.Element> {
           />
 
           <div className="flex-1 flex flex-col justify-center">
-            <a
-              href={campusTourLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
+            <h3 className="text-lg font-bold text-[#193654] mb-3 group-hover:text-[#CCE70B] transition-colors duration-300">
+              Explore Our Campus
+            </h3>
+            <p className="text-base text-gray-600 leading-relaxed mb-6">
+              Take a virtual tour of IIIT Dharwad and explore our
+              state-of-the-art infrastructure, academic facilities, and vibrant
+              campus life.
+            </p>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#193654] hover:text-[#CCE70B] transition-colors duration-300"
             >
-              <h3 className="text-lg font-bold text-[#193654] mb-3 group-hover:text-[#CCE70B] transition-colors duration-300">
-                IIIT Dharwad Campus Tour - Explore the Campus Experience
-              </h3>
-              <p className="text-base text-gray-600 leading-relaxed">
-                Take a walkthrough of IIIT Dharwad's campus spaces, academic
-                environment, and student facilities. Discover where innovation,
-                learning, and campus life come together.
-              </p>
-            </a>
+              Learn more about the institute
+              <IconArrowUpRight size={18} />
+            </Link>
           </div>
         </div>
 
