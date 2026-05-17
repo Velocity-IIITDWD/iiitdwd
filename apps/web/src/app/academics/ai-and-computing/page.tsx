@@ -28,6 +28,7 @@ import {
   Network,
   Users,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function AIAndComputingPage() {
   return (
@@ -38,7 +39,7 @@ export default function AIAndComputingPage() {
           <SectionHeading title="New Program" className="w-fit" free />
           <h1 className="text-4xl md:text-6xl font-black text-[#193654] leading-[1.05]">
             B.Tech in <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
+            <span className="text-[#193654]">
               Artificial Intelligence and Computing (AIC)
             </span>
           </h1>
@@ -87,7 +88,7 @@ export default function AIAndComputingPage() {
           </div>
         </div>
         <div className="flex-1 w-full max-w-md md:max-w-none relative">
-          <div className="aspect-square rounded-3xl bg-gradient-to-tr from-blue-100 to-indigo-50 p-8 flex flex-col justify-center relative overflow-hidden shadow-xl border border-white">
+          <div className="rounded-3xl bg-gradient-to-tr from-blue-100 to-indigo-50 p-6 sm:p-8 flex flex-col justify-center relative overflow-hidden shadow-xl border border-white md:aspect-square">
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
             <div className="relative z-10 space-y-6">
@@ -157,6 +158,20 @@ export default function AIAndComputingPage() {
         </div>
       </div>
 
+      {/* AIC overview image */}
+      <div className="w-full max-w-7xl mx-auto">
+        <div className="rounded-3xl border border-slate-100 bg-white p-4 md:p-6 shadow-sm">
+          <Image
+            src="/aic/aic-pdf-image-p1-1.png"
+            alt="Artificial Intelligence and Computing overview"
+            width={975}
+            height={650}
+            className="h-auto w-full rounded-2xl"
+            sizes="(max-width: 1024px) 100vw, 70vw"
+          />
+        </div>
+      </div>
+
       {/* Key Features */}
       <div className="w-full max-w-7xl mx-auto">
         <SectionHeading title="Key Features" className="mb-8" />
@@ -201,83 +216,19 @@ export default function AIAndComputingPage() {
               Communication Engineering.
             </p>
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-[1.4fr_0.6fr] gap-6">
-              <div className="rounded-3xl border border-slate-100 bg-gradient-to-b from-white to-slate-50 p-6 md:p-8">
-                <h4 className="text-base md:text-lg font-bold text-[#193654] text-center">
-                  AI Capability Pyramid and Educational Coverage
-                </h4>
-                <div className="mt-6 flex flex-col items-center gap-3">
-                  <div className="w-[72%] bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-2xl px-4 py-3 text-center shadow-sm">
-                    <p className="text-sm md:text-base font-semibold">
-                      AI Applications
-                    </p>
-                    <p className="text-[11px] md:text-xs text-white/90">
-                      NLP Systems, Computer Vision, Healthcare AI, FinTech AI
-                    </p>
-                  </div>
-                  <div className="w-[84%] bg-gradient-to-r from-purple-500 to-purple-400 text-white rounded-2xl px-4 py-3 shadow-sm">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      <div className="rounded-xl bg-white/15 px-3 py-2 text-center">
-                        <p className="text-sm font-semibold">AI Models</p>
-                        <p className="text-[11px] md:text-xs text-white/90">
-                          Machine Learning, Generative AI
-                        </p>
-                      </div>
-                      <div className="rounded-xl bg-white/15 px-3 py-2 text-center">
-                        <p className="text-sm font-semibold">AI Models</p>
-                        <p className="text-[11px] md:text-xs text-white/90">
-                          Deep Learning, Reinforcement
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-[94%] bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-2xl px-4 py-3 shadow-sm">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                      <div>
-                        <p className="text-sm md:text-base font-semibold">
-                          AI Infrastructure & Systems
-                        </p>
-                        <p className="text-[11px] md:text-xs text-white/90">
-                          Cloud AI Platforms, HPC Clusters for AI, Distributed
-                          Systems, Edge AI Computing
-                        </p>
-                      </div>
-                      <div className="rounded-xl border border-white/30 bg-white/15 px-3 py-2 text-center">
-                        <p className="text-[11px] md:text-xs font-semibold text-white">
-                          Critical skill gap
-                        </p>
-                        <p className="text-[11px] md:text-xs text-white/90">
-                          in modern AI systems engineering
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-full bg-gradient-to-r from-blue-700 to-blue-600 text-white rounded-2xl px-4 py-3 text-center shadow-sm">
-                    <p className="text-sm md:text-base font-semibold">
-                      Computing Systems
-                    </p>
-                    <p className="text-[11px] md:text-xs text-white/90">
-                      Computer Architecture, Operating Systems, Networking,
-                      Storage Systems
-                    </p>
-                  </div>
-                  <div className="w-full bg-gradient-to-r from-teal-700 to-teal-600 text-white rounded-2xl px-4 py-3 text-center shadow-sm">
-                    <p className="text-sm md:text-base font-semibold">
-                      Electronic Hardware & Devices
-                    </p>
-                    <p className="text-[11px] md:text-xs text-white/90">
-                      Semiconductors, Sensors, Embedded Systems, Communication
-                      hardware
-                    </p>
-                  </div>
-                </div>
-                <p className="mt-6 text-[11px] md:text-xs text-slate-600 text-center">
-                  Modern AI progress increasingly depends on scalable computing
-                  infrastructure, creating a demand for engineers trained in AI
-                  systems and infrastructure.
-                </p>
+              <div className="rounded-3xl border border-slate-100 bg-gradient-to-b from-white to-slate-50 p-4 md:p-6">
+                <Image
+                  src="/aic/aic-pdf-image-p4-1.png"
+                  alt="AI capability pyramid and educational coverage"
+                  width={1280}
+                  height={853}
+                  className="h-auto w-full rounded-2xl"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  priority
+                />
               </div>
               <div className="flex flex-col gap-4">
-                <div className="rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-sm">
+                <div className="rounded-2xl border border-blue-100 bg-blue-50/70 px-4 py-3 shadow-sm">
                   <p className="text-sm font-semibold text-[#193654]">
                     B.Tech Data Science & AI
                   </p>
@@ -285,21 +236,19 @@ export default function AIAndComputingPage() {
                     Models & Applications
                   </p>
                 </div>
-                <div className="rounded-2xl border border-orange-100 bg-orange-50 px-4 py-3 shadow-sm">
-                  <p className="text-sm font-semibold text-orange-700">
+                <div className="rounded-2xl border border-blue-100 bg-blue-50/70 px-4 py-3 shadow-sm">
+                  <p className="text-sm font-semibold text-[#193654]">
                     B.Tech AI & Computing
                   </p>
-                  <p className="text-xs text-orange-700/80">
-                    AI Infrastructure
-                  </p>
+                  <p className="text-xs text-slate-600">AI Infrastructure</p>
                 </div>
-                <div className="rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-sm">
+                <div className="rounded-2xl border border-blue-100 bg-blue-50/70 px-4 py-3 shadow-sm">
                   <p className="text-sm font-semibold text-[#193654]">
                     Computer Science & Engineering (CSE)
                   </p>
                   <p className="text-xs text-slate-600">Computing Systems</p>
                 </div>
-                <div className="rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-sm">
+                <div className="rounded-2xl border border-blue-100 bg-blue-50/70 px-4 py-3 shadow-sm">
                   <p className="text-sm font-semibold text-[#193654]">
                     Electronics & Communication Engineering (ECE)
                   </p>
@@ -340,13 +289,10 @@ export default function AIAndComputingPage() {
                 {aicData.aicVsDsai.dsaiCourses.map((course, idx) => (
                   <li
                     key={idx}
-                    className="flex items-start justify-between bg-gray-50/50 p-3 rounded-lg border border-gray-100"
+                    className="flex items-start bg-gray-50/50 p-3 rounded-lg border border-gray-100"
                   >
                     <span className="text-gray-700 font-medium">
                       {course.name}
-                    </span>
-                    <span className="text-xs font-bold text-gray-500 bg-gray-200 px-2 py-1 rounded">
-                      {course.credits} Cr
                     </span>
                   </li>
                 ))}
@@ -368,13 +314,10 @@ export default function AIAndComputingPage() {
                 {aicData.aicVsDsai.aicCourses.map((course, idx) => (
                   <li
                     key={idx}
-                    className="flex items-start justify-between bg-blue-50/30 p-3 rounded-lg border border-blue-100"
+                    className="flex items-start bg-blue-50/30 p-3 rounded-lg border border-blue-100"
                   >
                     <span className="text-[#193654] font-medium">
                       {course.name}
-                    </span>
-                    <span className="text-xs font-bold text-blue-700 bg-blue-100 px-2 py-1 rounded">
-                      {course.credits} Cr
                     </span>
                   </li>
                 ))}
