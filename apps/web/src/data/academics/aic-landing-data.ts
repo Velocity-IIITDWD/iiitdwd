@@ -266,7 +266,7 @@ export const aicData = {
     {
       question: "What companies hire AIC graduates?",
       answer:
-        "Technology companies, cloud providers, semiconductor companies, and startups working in AI, such as Google, Microsoft, Amazon, NVIDIA, and Intel.",
+        "Technology companies, cloud providers, semiconductor companies, and startups working in AI, such as Google, Microsoft, Amazon, NVIDIA, and Intel, and startups working in AI."
     },
     {
       question: "Is this future-proof?",
@@ -298,7 +298,7 @@ export const aicData = {
     },
   },
   contact: {
-    role: "Department Programme Coordinator",
+    role: "Programme coordinator",
     name: "Dr. Nataraj K S",
     email: "nataraj@iiitdwd.ac.in",
   },
