@@ -25,9 +25,9 @@ export default [
         title: "Shri Rahul Sharanappa Sankanur, IAS",
       },
       {
-        content: ["Managing Director, Keonics, Bengaluru"],
-        imageURL: "/images/pavan_kumar_malapati.jpg",
-        title: "Shri Pavan Kumar Malapati, IAS",
+        content: ["Additional Charge: Managing Director, KEONICS —- Department of Electronics, IT and BT"],
+        imageURL: "/images/raghunandan_murthy.jpg.jpeg",
+        title: "Sri. Raghunandan Murthy , IAS",
       },
       {
         content: ["Director, IIIT Dharwad"],
