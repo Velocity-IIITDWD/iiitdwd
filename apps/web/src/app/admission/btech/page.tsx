@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -7,6 +8,7 @@ import {
   programsOffered,
   quickLinks,
 } from "./admissionLinkData";
+import AdmissionNotice from "./AdmissionNotice-component";
 import CutoffRanks from "./CutoffRanks-component";
 import InstituteContent from "./InstituteContent-component";
 import SeatMatrix from "./seatMatrix-component";
@@ -105,7 +107,6 @@ export default function Page() {
       ),
       links: quickLinks,
     },
-
     {
       title: "Programs Offered",
       icon: (
@@ -113,7 +114,7 @@ export default function Page() {
           className="w-5 h-5"
           fill="none"
           stroke="currentColor"
-          viewBox="0 24 24"
+          viewBox="0 0 24 24"
         >
           <path
             strokeLinecap="round"
@@ -132,12 +133,14 @@ export default function Page() {
       <div className="space-y-6">
         <div className="w-[87.5vw] max-w-[1680px] mx-auto p-6">
           <h1 className="text-large-title font-bold text-main">
-            B.Tech Admissions 2026
+            B.Tech Admissions 2026-2027
           </h1>
           <p className="text-gray-500 mt-2">
             Explore admission details, eligibility, and programs offered
           </p>
         </div>
+
+        <AdmissionNotice />
 
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(300px,300px)] w-[87.5vw] max-w-[1680px] mx-auto gap-6">
           <div className="max-md:order-2 flex flex-col max-md:flex-col-reverse gap-6">
@@ -199,7 +202,6 @@ export default function Page() {
           </div>
 
           <div className="space-y-8 max-md:order-1 md:sticky md:top-[6rem] md:h-fit">
-            {/* Important dates section */}
             <div className="md:min-h-[300px]">
               <h3 className="text-body font-semibold text-main mb-4 flex items-center">
                 Important Dates
@@ -237,19 +239,18 @@ export default function Page() {
                 Navigation
               </h3>
 
-              {tabs?.map((tab, index) => (
+              {tabs.map((tab, index) => (
                 <div
                   key={index}
                   className={`flex items-center text-main text-title-3 gap-3 px-4 py-2 border-l-2 cursor-pointer transition-all ${
-                    activeTab === index &&
-                    "bg-secondary/50 text-primary font-medium border-l-main"
+                    activeTab === index
+                      ? "bg-secondary/50 text-primary font-medium border-l-main"
+                      : ""
                   }`}
                   onClick={() => scrollToSection(index)}
                 >
                   <div
-                    className={`${
-                      activeTab === index ? "text-primary" : "text-main"
-                    }`}
+                    className={`${activeTab === index ? "text-primary" : "text-main"}`}
                   >
                     {tab.icon}
                   </div>

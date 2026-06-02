@@ -101,6 +101,10 @@ export default function PhDProgramPage() {
                   <Badge variant="outline">Computer Networks</Badge>
                   <Badge variant="outline">Quantum Computing</Badge>
                   <Badge variant="outline">Data Science</Badge>
+                  <Badge variant="outline">Design</Badge>
+                  <Badge variant="outline">HCI</Badge>
+                  <Badge variant="outline">Visual Design</Badge>
+                  <Badge variant="outline">Quantum</Badge>
                 </div>
               </div>
             </CardContent>
