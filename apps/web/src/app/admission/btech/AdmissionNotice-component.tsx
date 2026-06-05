@@ -1,3 +1,5 @@
+import React from "react";
+
 const supernumerarySeatMatrix = [
   { branch: "CSE", sii: 5, sports: 2, olympiad: 2 },
   { branch: "DSAI", sii: 5, sports: 2, olympiad: 2 },
@@ -5,7 +7,7 @@ const supernumerarySeatMatrix = [
   { branch: "AI and Computing", sii: 5, sports: 2, olympiad: 2 },
 ];
 
-export default function AdmissionNotice() {
+export default function AdmissionNotice(): any {
   return (
     <div className="w-[87.5vw] max-w-[1680px] mx-auto px-6">
       <div className="rounded-2xl border border-main/10 bg-gradient-to-br from-white via-white to-secondary/40 p-6 shadow-sm">
@@ -136,6 +138,19 @@ export default function AdmissionNotice() {
                   For more details read the detailed SII guidelines for
                   admissions.
                 </span>
+              </li>
+              <li className="rounded-xl border border-main/10 bg-main/5 px-4 py-3 shadow-sm">
+                <span className="font-bold text-main">
+                  SEA, OEA and SII:
+                </span>{" "}
+                <a
+                  href="https://docs.google.com/document/d/1VMB7NvKJVvlVTA4_EvtELzk9ikDXHH3_7lGwrtoOl3w/edit?usp=sharing"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-main underline decoration-2 underline-offset-4 hover:text-primary break-all"
+                >
+                  {"https://docs.google.com/document/d/1VMB7NvKJVvlVTA4_EvtELzk9ikDXHH3_7lGwrtoOl3w/edit?usp=sharing"}
+                </a>
               </li>
               <li className="rounded-xl border border-main/10 bg-secondary/20 px-4 py-3 shadow-sm">
                 <span className="font-bold text-main">

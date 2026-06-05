@@ -10,6 +10,8 @@ import { useEffect, useRef, useState } from "react";
 interface VideoPlayerProps {
   externalLink: string;
   embedSrc?: string;
+  videoSrc?: string;
+  controls?: boolean;
   title?: string;
   className?: string;
 }
@@ -17,6 +19,8 @@ interface VideoPlayerProps {
 export default function VideoPlayer({
   externalLink,
   embedSrc,
+  videoSrc,
+  controls = true,
   title,
   className,
 }: VideoPlayerProps): JSX.Element {
@@ -64,14 +68,19 @@ export default function VideoPlayer({
         ) : (
           <video
             ref={videoRef}
-            src="https://iiitdwd.ac.in/images/orientation.mp4"
+            src={videoSrc || "https://iiitdwd.ac.in/images/orientation.mp4"}
             autoPlay={shouldAutoplay}
             muted={isMuted}
             loop
             playsInline
+            controls={controls}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
             preload="auto"
             poster="/images/thumnail.png"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full object-cover"
             style={{ imageRendering: "crisp-edges" } as React.CSSProperties}
           />
         )}
