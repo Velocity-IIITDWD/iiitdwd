@@ -1,5 +1,3 @@
-import React from "react";
-
 const supernumerarySeatMatrix = [
   { branch: "CSE", sii: 5, sports: 2, olympiad: 2 },
   { branch: "DSAI", sii: 5, sports: 2, olympiad: 2 },
@@ -12,7 +10,10 @@ export default function AdmissionNotice(): any {
     <div className="w-[87.5vw] max-w-[1680px] mx-auto px-6">
       <div className="rounded-2xl border border-main/10 bg-gradient-to-br from-white via-white to-secondary/40 p-6 shadow-sm">
         <div className="flex flex-col gap-5">
-          <div className="space-y-2">
+          <div className="space-y-3">
+            <h1 className="text-large-title font-bold text-main leading-tight">
+              B.Tech Admissions 2026-2027
+            </h1>
             <p className="inline-flex rounded-full bg-main/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-main">
               Admission to Undergraduate Programs AY (2026-2027)
             </p>
@@ -140,16 +141,16 @@ export default function AdmissionNotice(): any {
                 </span>
               </li>
               <li className="rounded-xl border border-main/10 bg-main/5 px-4 py-3 shadow-sm">
-                <span className="font-bold text-main">
-                  SEA, OEA and SII:
-                </span>{" "}
+                <span className="font-bold text-main">SEA, OEA and SII:</span>{" "}
                 <a
                   href="https://docs.google.com/document/d/1VMB7NvKJVvlVTA4_EvtELzk9ikDXHH3_7lGwrtoOl3w/edit?usp=sharing"
                   target="_blank"
                   rel="noreferrer"
                   className="font-semibold text-main underline decoration-2 underline-offset-4 hover:text-primary break-all"
                 >
-                  {"https://docs.google.com/document/d/1VMB7NvKJVvlVTA4_EvtELzk9ikDXHH3_7lGwrtoOl3w/edit?usp=sharing"}
+                  {
+                    "https://docs.google.com/document/d/1VMB7NvKJVvlVTA4_EvtELzk9ikDXHH3_7lGwrtoOl3w/edit?usp=sharing"
+                  }
                 </a>
               </li>
               <li className="rounded-xl border border-main/10 bg-secondary/20 px-4 py-3 shadow-sm">
