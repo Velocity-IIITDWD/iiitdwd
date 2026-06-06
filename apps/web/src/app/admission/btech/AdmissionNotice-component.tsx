@@ -9,7 +9,7 @@ const supernumerarySeatMatrix = [
 
 export default function AdmissionNotice(): any {
   return (
-    <div className="w-[87.5vw] max-w-[1680px] mx-auto px-6">
+    <div className="w-full">
       <div className="rounded-2xl border border-main/10 bg-gradient-to-br from-white via-white to-secondary/40 p-6 shadow-sm">
         <div className="flex flex-col gap-5">
           <div className="space-y-2">

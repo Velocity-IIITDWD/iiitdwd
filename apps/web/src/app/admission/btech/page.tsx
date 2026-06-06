@@ -20,12 +20,14 @@ export default function Page(): JSX.Element {
           </p>
         </div>
 
-        <AdmissionNotice />
+        <div className="w-[87.5vw] max-w-[1680px] mx-auto px-6">
+          <SeatMatrix />
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(300px,300px)] w-[87.5vw] max-w-[1680px] mx-auto gap-6">
           <div className="max-md:order-2 flex flex-col max-md:flex-col-reverse gap-6">
             <div className="flex flex-col gap-6">
-              <SeatMatrix />
+              <AdmissionNotice />
               <CutoffRanks />
               
               <div className="bg-gradient-to-b from-white/30 to-white hover:shadow p-6 rounded">
