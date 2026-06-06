@@ -4,7 +4,6 @@ import { MainCarouselImage } from "@/sanity/types";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
-import AppointmentDialog from "./appointment-dialog";
 import DepartmentsSection from "./departments-section";
 import EventsSection from "./events";
 import NotificationSection from "./notification";
@@ -17,9 +16,8 @@ import AnnouncementsTabs from "./announcements-tabs";
 export default async function InfoSection(): Promise<JSX.Element> {
   const orientationLink =
     "https://www.instagram.com/reel/DRG3BLyDC8J/?igsh=dmJ3YnN3cW5zNWFj";
-  const campusTourLink = "https://www.youtube.com/watch?v=_QLrIgjopCg";
-  const campusTourEmbed =
-    "https://www.youtube.com/embed/_QLrIgjopCg?si=GrjaKptEy4LEp2uW&autoplay=0";
+  const campusTourLink = "https://youtu.be/WCCyKN9dNeQ?si=CfP7HeE6hWh8U7rH";
+  const campusTourEmbed = "https://www.youtube.com/embed/WCCyKN9dNeQ";
 
   const carouselData = (await get<MainCarouselImage[]>(queryCarousel)) || [];
 
@@ -97,8 +95,6 @@ export default async function InfoSection(): Promise<JSX.Element> {
                   technology and research.
                 </p>
               </Link>
-
-              <AppointmentDialog />
 
               <div className="flex items-center gap-4 mt-5 pt-5 border-t border-gray-100">
                 <a
