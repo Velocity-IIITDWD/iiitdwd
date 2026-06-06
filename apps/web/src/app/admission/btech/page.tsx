@@ -7,7 +7,7 @@ import CutoffRanks from "./CutoffRanks-component";
 import InstituteContent from "./InstituteContent-component";
 import SeatMatrix from "./seatMatrix-component";
 
-export default function Page() {
+export default function Page(): JSX.Element {
   return (
     <div className="py-10">
       <div className="space-y-6 w-[87.5vw] max-w-[1680px] mx-auto">
