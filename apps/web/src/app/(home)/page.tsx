@@ -6,6 +6,7 @@ import GalleryCarousel from "./gallery-carousel";
 import InfoSection from "./info-section";
 import QuickLinksSection from "./quick-links";
 import StatsSection from "./stats-section";
+import OpenHouseSection from "./open-house-section";
 
 interface GalleryImageApiItem {
   url: string;
@@ -56,6 +57,7 @@ export default async function HomePage(): Promise<ReactElement> {
         <QuickLinksSection />
         <StatsSection />
       </div>
+      <OpenHouseSection />
       <InfoSection />
       <AlumniSection reviews={reviews} />
       <ToTop />
