@@ -52,7 +52,7 @@ export default function ProgramList({
       description:
         "Access IIIT Dharwad's rigorous curriculum from anywhere. Flexible online certifications and courses designed for working professionals and lifelong learners.",
       details: ["Remote Learning", "Flexible Schedule", "Certification"],
-      link: "https://online.iiitdwd.ac.in/",
+      link: "https://onlinedsai.iiitdwd.ac.in/",
       imageSrc: "https://iiitdwd.ac.in/images/online_programs.JPG",
     },
     {
