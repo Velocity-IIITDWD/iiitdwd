@@ -76,7 +76,7 @@ const ProgramCards: React.FC<ProgramCardsProps> = ({ programs }) => {
       title: "Online Programs",
       description:
         "Find the rigorous training the university is known for online.",
-      link: "https://online.iiitdwd.ac.in/",
+      link: "https://onlinedsai.iiitdwd.ac.in/",
       imageSrc: "https://iiitdwd.ac.in/images/online_programs.JPG",
     },
     {

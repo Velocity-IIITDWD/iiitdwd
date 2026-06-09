@@ -211,7 +211,7 @@ const navigationData: NavigationItem[] = [
         href: "https://conclave.iiitdwd.ac.in",
       },
       { title: "NIRF", href: "/academics/nirf" },
-      // { title: 'Online', href: 'https://online.iiitdwd.ac.in/' }
+      // { title: 'Online', href: 'https://onlinedsai.iiitdwd.ac.in/' }
     ],
   },
   {
@@ -347,7 +347,7 @@ const navigationData: NavigationItem[] = [
   },
   {
     title: "Online",
-    href: "https://online.iiitdwd.ac.in",
+    href: "https://onlinedsai.iiitdwd.ac.in",
   },
 ];
 
