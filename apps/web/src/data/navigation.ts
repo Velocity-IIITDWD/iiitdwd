@@ -65,8 +65,16 @@ const navigationData: NavigationItem[] = [
         href: "#",
         items: [
           {
-            title: "B.Tech",
-            href: "/docs/Fee_Structure_2025-26.pdf",
+            title: "B.Tech Fees (JoSAA/CSAB/Sports/Olympiad)",
+            href: "https://drive.google.com/file/d/1vemIWkvls_5Ynx31uEo2fyacJyHDgZXa/view?usp=sharing",
+          },
+          {
+            title: "B.Tech Fees (Study in India/DASA)",
+            href: "https://drive.google.com/file/d/1ExyeIsTPS2GCtol5W53ZbEk29YP9xfHb/view?usp=sharing",
+          },
+          {
+            title: "Hostel Fees",
+            href: "https://drive.google.com/file/d/1TZNjK_GEjStjE2HAEQ58fUguoJR6E94z/view?usp=sharing",
           },
           {
             title: "M.Tech",
@@ -258,8 +266,8 @@ const navigationData: NavigationItem[] = [
         href: "/docs/IIIT_Dharwad_statutes.pdf",
       },
       {
-        title: "Academic Calender",
-        href: "/docs/Academic_Calender_2026.pdf",
+        title: "Academic Calendar",
+        href: "/docs/Final_Academic_Calendar_2026-27_Higher_Semester.pdf",
       },
       {
         title: "Academic Calendar for First Year B.tech Students",

@@ -142,7 +142,7 @@ const JourneySection = () => {
                 </p>
 
                 <Link
-                  href={"https://iiitdwd.ac.in/docs/Fee_Structure_2025-26.pdf"}
+                  href={"/admission/btech"}
                   className="w-fit flex"
                 >
                   <Button
