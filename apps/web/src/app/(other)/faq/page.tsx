@@ -150,7 +150,7 @@ Admission to the Indian Institute of Information Technology Dharwad is through C
               The fee structure and details can be found
               <a
                 className="text-blue-800 hover:underline"
-                href="/docs/Fee_Structure_2025-26.pdf"
+                href="/admission/btech"
               >
                 {" "}
                 here.
