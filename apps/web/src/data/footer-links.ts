@@ -7,7 +7,7 @@ export const footerLinks = [
       { text: "Research", href: "/academics/research" },
       {
         text: "Academic Calendar",
-        href: "/docs/Academic_Calender_2026.pdf",
+        href: "/docs/Final_Academic_Calendar_2026-27_Higher_Semester.pdf",
       },
       {
         text: "Academic Calendar for 1st year B.Tech Students",
@@ -50,7 +50,7 @@ export const footerLinks = [
       },
       {
         text: "Fee Structure",
-        href: "https://iiitdwd.ac.in/docs/Fee_Structure_2025-26.pdf",
+        href: "/admission/btech",
       },
       {
         text: "Annual Reports",
