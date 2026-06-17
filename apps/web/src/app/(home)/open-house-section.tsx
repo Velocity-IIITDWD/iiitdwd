@@ -11,6 +11,9 @@ import {
 import Image from "next/image";
 
 export default function OpenHouseSection() {
+  const isDisabled = true;
+  if (isDisabled) return null;
+
   return (
     <section className="w-full py-16 bg-[#fafafa] border-y border-gray-200">
       <div className="max-w-[1400px] mx-auto px-5">
