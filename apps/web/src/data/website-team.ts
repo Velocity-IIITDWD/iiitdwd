@@ -52,6 +52,26 @@ export const currentTeam: TeamMember[] = [
     },
   },
   {
+    id: "priyanshu",
+    name: "Priyanshu Mittal",
+    role: "Member",
+    bio: "Software Develper",
+    skills: [
+      "JS",
+      "Next.js",
+      "React.js",
+      "PostgreSQL",
+      "Git",
+      "MySQL",
+      "Flask",
+    ],
+    image: "/images/priyanshu_image.jpg",
+    social: {
+      linkedin: "https://www.linkedin.com/in/priyanshu-mittal-0a2b06326/",
+      email: "24bds058@iiitdwd.ac.in",
+    },
+  },
+  {
     id: "taran",
     name: "Taran Jain",
     role: "Member",
