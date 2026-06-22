@@ -296,13 +296,13 @@ function InstituteName(): JSX.Element {
   return (
     <>
       <span className="text-[16px] md:text-[18px] font-normal mb-[2px]">
-        ಭಾರತೀಯ ಮಾಹಿತಿ ತಂತ್ರಜ್ಞಾನ ಸಂಸ್ಥೆ, ಧಾರವಾಡ
+        ಭಾರತೀಯ ಮಾಹಿತಿ ತಂತ್ರಜ್ಞಾನ ಸಂಸ್ಥೆ ಧಾರವಾಡ
       </span>
       <span className="text-[16px] md:text-[18px] font-normal">
-        भारतीय सूचना प्रौद्योगिकी संस्थान, धारवाड़
+        भारतीय सूचना प्रौद्योगिकी संस्थान धारवाड़
       </span>
       <span className="text-[17px] md:text-[20px] font-semibold">
-        Indian Institute of Information Technology, Dharwad
+        Indian Institute of Information Technology Dharwad
       </span>
       <div className="text-[14px] md:text-[16px] font-light">
         [Institute of National Importance by An Act of Parliament]
