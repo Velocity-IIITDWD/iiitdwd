@@ -166,6 +166,10 @@ const navigationData: NavigationItem[] = [
         title: "Medium of Instruction",
         href: "/docs/Medium_of_Instruction_Certificate.pdf",
       },
+      {
+        title: "Annual Report 2024-25 ",
+        href: "/docs/Annual_Reeport_2024-25_English__1___1_.pdf",
+      },
     ],
   },
   {
