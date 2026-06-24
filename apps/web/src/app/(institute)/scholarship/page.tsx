@@ -107,7 +107,7 @@ export default function ScholarshipsPage() {
             <ul className="list-none">
               <li>
                 <Link
-                  href="https://assets.iiitdwd.ac.in/docs/ST_category_signed.pdf"
+                  href="https://assets.iiitdwd.ac.in/docs/NSP_ST_category_2026-27.pdf"
                   className="text-main underline"
                   target="_blank"
                 >
