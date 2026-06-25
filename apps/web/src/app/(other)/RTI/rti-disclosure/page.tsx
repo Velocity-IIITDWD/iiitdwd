@@ -55,10 +55,32 @@ const organizationAndFunctionData: TableRow[] = [
           ],
         },
       },
-      { point: "(iv) Function and duties", remark: "Teaching and learning" },
+      {
+        point: "(iv) Function and duties",
+        remark: {
+          text: `The functions and duties are governed by the “THE INDIAN INSTITUTES OF INFORMATION TECHNOLOGY\n(PUBLIC-PRIVATE PARTNERSHIP) ACT, 2017..\nThe links to the Act and Statutes are given below:`,
+          links: [
+            {
+              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
+              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
+            },
+            {
+              text: "and Statutes of IIIT Dharwad",
+              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
+            },
+          ],
+        },
+      },
       {
         point: "(v) Organization Chart ",
-        remark: "",
+        remark: {
+          links: [
+            {
+              text: "Organization Chart",
+              url: "https://assets.iiitdwd.ac.in/images/IIITDwd_Org_Chart.png",
+            },
+          ],
+        },
       },
       {
         point:
@@ -529,7 +551,17 @@ const budgetAndProgrammeData: TableRow[] = [
     sNo: "2.1",
     item: "Budget allocated to each agency including all plans, proposed expenditure and reports on disbursements made etc. [Section 4(1)(b)(xi)]",
     details: [
-      { point: "(i) Total Budget for the public authority", remark: "" },
+      {
+        point: "(i) Total Budget for the public authority",
+        remark: {
+          links: [
+            {
+              text: "Click here",
+              url: "https://assets.iiitdwd.ac.in/docs/Budget_2026-27.pdf",
+            },
+          ],
+        },
+      },
       {
         point: "(ii) Budget for each agency and plan & programmes",
         remark: "",
@@ -806,7 +838,14 @@ const eGovernanceData: TableRow[] = [
       },
       {
         point: "(vi) Annual Report",
-        remark: "Submitted to Ministry of Education",
+        remark: {
+          links: [
+            {
+              text: "Click here",
+              url: "https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf",
+            },
+          ],
+        },
       },
       { point: "(vii) Frequently Asked Question (FAQs)", remark: "" },
       {
