@@ -15,6 +15,7 @@ interface TableLinkItem {
 }
 
 export interface TableLink {
+  text?: string;
   links: TableLinkItem[];
 }
 
@@ -138,6 +139,11 @@ export function TableDisplay({ data }: TableDisplayProps) {
                       />
                     ) : "links" in detail.remark ? (
                       <div>
+                        {detail.remark.text && (
+                          <div className="mb-2">
+                            {renderTextWithBreaks(detail.remark.text)}
+                          </div>
+                        )}
                         {detail.remark.links.map((link, linkIndex) => (
                           <div key={linkIndex}>
                             <a
