@@ -20,7 +20,7 @@ export default async function CareerUpdatesSection() {
     return 0;
   });
 
-  const latestJobs = sortedJobs.slice(0, 5).map(job => ({
+  const latestJobs = sortedJobs.slice(0, 10).map(job => ({
     id: job._id || Math.random().toString(),
     title: job.title || "Career Update",
     date: job.publishDate || job.lastDate || null,

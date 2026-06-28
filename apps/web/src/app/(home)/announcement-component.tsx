@@ -121,7 +121,7 @@ export default function AnnouncementComponent({
 
       {/* Show regular announcements as a scrollable list */}
       <div className="space-y-3 mb-4">
-        {regularAnnouncementItems.slice(0, 3).map((item, idx) => (
+        {regularAnnouncementItems.slice(0, 8).map((item, idx) => (
           <a href={item.link} key={idx} className="block">
             <div className="py-3 px-4 rounded-lg bg-blue-50/40 hover:bg-blue-100/50 transition-colors duration-300 border border-blue-100/50">
               {item.date && (
