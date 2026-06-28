@@ -18,6 +18,8 @@ export default async function InfoSection(): Promise<JSX.Element> {
     "https://www.instagram.com/reel/DRG3BLyDC8J/?igsh=dmJ3YnN3cW5zNWFj";
   const campusTourLink = "https://youtu.be/WCCyKN9dNeQ?si=CfP7HeE6hWh8U7rH";
   const campusTourEmbed = "https://www.youtube.com/embed/WCCyKN9dNeQ";
+  const convocationMessageLink = "https://youtu.be/A8n2L3trKrE?si=OPEcGV1LY2epQkMU";
+  const convocationMessageEmbed = "https://www.youtube.com/embed/A8n2L3trKrE";
 
   const carouselData = (await get<MainCarouselImage[]>(queryCarousel)) || [];
 
@@ -62,19 +64,21 @@ export default async function InfoSection(): Promise<JSX.Element> {
       <div className="max-w-[1400px] mx-auto px-5">
         {/* Top Section: Three-column grid - Director + About + Announcements */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Director's Message */}
-          <div className="group transition-all duration-300 flex flex-col overflow-hidden rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] min-h-[500px]">
-            <div className="relative flex-1 min-h-0">
-              <Image
-                src="https://assets.iiitdwd.ac.in/images/SRMahadevaPrasanna.jpg"
-                alt="Director of IIIT Dharwad"
-                fill
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                priority
-              />
-            </div>
+          {/* Left column: Director's Message + Convocation Video */}
+          <div className="flex flex-col gap-8">
+            {/* Director's Message */}
+            <div className="group transition-all duration-300 flex flex-col overflow-hidden rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+              <div className="relative w-full aspect-square md:aspect-[4/3] overflow-hidden">
+                <Image
+                  src="https://assets.iiitdwd.ac.in/images/SRMahadevaPrasanna.jpg"
+                  alt="Director of IIIT Dharwad"
+                  fill
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  priority
+                />
+              </div>
 
-            <div className="p-6">
+              <div className="p-6">
               <Link href="/director">
                 <div className="flex items-start justify-between mb-4">
                   <div>
@@ -118,6 +122,25 @@ export default async function InfoSection(): Promise<JSX.Element> {
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.061-1.866-3.061-1.867 0-2.154 1.459-2.154 2.968v5.697h-3v-10h2.881v1.367h.041c.401-.76 1.381-1.561 2.842-1.561 3.04 0 3.602 2.002 3.602 4.605v5.589z" />
                   </svg>
                 </a>
+              </div>
+              </div>
+            </div>
+            
+            {/* Convocation Video */}
+            <div className="group flex flex-col rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-300 overflow-hidden">
+              <div className="px-5 pt-5 pb-3">
+                <h3 className="text-base font-bold text-[#193654] group-hover:text-[#CCE70B] transition-colors duration-300">
+                  Convocation Address
+                </h3>
+                <div className="h-0.5 w-8 bg-[#CCE70B] rounded-full mt-1.5" />
+              </div>
+              <div className="px-5 pb-4">
+                <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden">
+                  <VideoPlayer externalLink={convocationMessageLink} embedSrc={convocationMessageEmbed} />
+                </div>
+                <p className="text-[13px] text-gray-600 leading-relaxed mt-4 line-clamp-4">
+                  Listen to the inspiring words of our Director, Prof. S. R. Mahadeva Prasanna, during the recent convocation ceremony, celebrating the achievements and future of our graduates.
+                </p>
               </div>
             </div>
           </div>
@@ -318,6 +341,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
             </p>
           )}
         </div>
+
 
         {/* Campus Tour (Moved from middle column) */}
         <div className="flex flex-col md:flex-row gap-6 p-6 rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] group transition-all duration-300 mb-8">
