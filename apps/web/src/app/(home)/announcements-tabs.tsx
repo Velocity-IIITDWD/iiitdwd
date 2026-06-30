@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { IconBell, IconBriefcase } from "@tabler/icons-react";
 
 export default function AnnouncementsTabs({
   announcements,
@@ -14,58 +15,42 @@ export default function AnnouncementsTabs({
   );
 
   return (
-    <div className="flex flex-col h-full w-full min-h-0">
-      <div className="flex items-center gap-6 mb-5 border-b border-gray-100 pb-2">
+    <div className="flex flex-col h-full w-full bg-white relative p-6 md:p-8">
+      {/* Sleek Tab Header */}
+      <div className="flex items-center gap-8 mb-6 border-b border-gray-100">
         <button
           onClick={() => setActiveTab("announcements")}
-          className={`flex flex-col items-start transition-all duration-300 ${
-            activeTab === "announcements" ? "opacity-100" : "opacity-50 hover:opacity-80"
+          className={`relative pb-4 transition-all duration-300 flex items-center gap-2 group ${
+            activeTab === "announcements" ? "text-[#193654]" : "text-gray-400 hover:text-gray-600"
           }`}
         >
-          <div className="flex items-center gap-2">
-            <h2
-              className={`text-xl font-bold transition-colors ${
-                activeTab === "announcements" ? "text-[#193654]" : "text-gray-500"
-              }`}
-            >
-              Announcements
-            </h2>
-          </div>
-          <div
-            className={`h-0.5 bg-[#CCE70B] rounded-full mt-1.5 transition-all duration-300 ${
-              activeTab === "announcements" ? "w-12" : "w-0"
-            }`}
-          ></div>
+          <IconBell size={20} className={`transition-colors ${activeTab === "announcements" ? "text-[#CCE70B]" : "text-gray-400 group-hover:text-gray-500"}`} />
+          <span className="text-[17px] font-bold tracking-wide">Announcements</span>
+          {activeTab === "announcements" && (
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-[#CCE70B] rounded-t-lg shadow-[0_-2px_10px_rgba(204,231,11,0.5)]" />
+          )}
         </button>
 
         <button
           onClick={() => setActiveTab("careers")}
-          className={`flex flex-col items-start transition-all duration-300 ${
-            activeTab === "careers" ? "opacity-100" : "opacity-50 hover:opacity-80"
+          className={`relative pb-4 transition-all duration-300 flex items-center gap-2 group ${
+            activeTab === "careers" ? "text-[#193654]" : "text-gray-400 hover:text-gray-600"
           }`}
         >
-          <div className="flex items-center gap-2">
-            <h2
-              className={`text-xl font-bold transition-colors ${
-                activeTab === "careers" ? "text-[#193654]" : "text-gray-500"
-              }`}
-            >
-              Careers
-            </h2>
-          </div>
-          <div
-            className={`h-0.5 bg-[#CCE70B] rounded-full mt-1.5 transition-all duration-300 ${
-              activeTab === "careers" ? "w-12" : "w-0"
-            }`}
-          ></div>
+          <IconBriefcase size={20} className={`transition-colors ${activeTab === "careers" ? "text-[#CCE70B]" : "text-gray-400 group-hover:text-gray-500"}`} />
+          <span className="text-[17px] font-bold tracking-wide">Careers</span>
+          {activeTab === "careers" && (
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-[#CCE70B] rounded-t-lg shadow-[0_-2px_10px_rgba(204,231,11,0.5)]" />
+          )}
         </button>
       </div>
       
-      <div className="overflow-y-auto flex-1 custom-scrollbar pr-1 min-h-0">
-        <div className={activeTab === "announcements" ? "block" : "hidden"}>
+      {/* Custom Scrollable Area */}
+      <div className="overflow-y-auto flex-1 custom-scrollbar pr-2 min-h-0 relative">
+        <div className={`transition-opacity duration-300 ${activeTab === "announcements" ? "opacity-100 block" : "opacity-0 hidden"}`}>
           {announcements}
         </div>
-        <div className={activeTab === "careers" ? "block" : "hidden"}>
+        <div className={`transition-opacity duration-300 ${activeTab === "careers" ? "opacity-100 block" : "opacity-0 hidden"}`}>
           {careerUpdates}
         </div>
       </div>
