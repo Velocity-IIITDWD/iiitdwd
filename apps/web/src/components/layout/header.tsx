@@ -134,7 +134,7 @@ function AnimatedNavbar(): JSX.Element {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={SPRING_CONFIG}
-                  className="flex flex-col max-xl:hidden text-primary text-left flex-shrink-0"
+                  className="flex flex-col text-primary text-left flex-shrink-0"
                 >
                   <InstituteName />
                 </motion.div>
@@ -295,16 +295,16 @@ function TopBar(): JSX.Element {
 function InstituteName(): JSX.Element {
   return (
     <>
-      <span className="text-[16px] md:text-[18px] font-normal mb-[2px]">
+      <span className="text-[10px] sm:text-[12px] md:text-[16px] xl:text-[18px] font-normal mb-[1px] md:mb-[2px] leading-tight">
         ಭಾರತೀಯ ಮಾಹಿತಿ ತಂತ್ರಜ್ಞಾನ ಸಂಸ್ಥೆ ಧಾರವಾಡ
       </span>
-      <span className="text-[16px] md:text-[18px] font-normal">
+      <span className="text-[10px] sm:text-[12px] md:text-[16px] xl:text-[18px] font-normal leading-tight">
         भारतीय सूचना प्रौद्योगिकी संस्थान धारवाड़
       </span>
-      <span className="text-[17px] md:text-[20px] font-semibold">
+      <span className="text-[11px] sm:text-[13px] md:text-[17px] xl:text-[20px] font-semibold leading-tight">
         Indian Institute of Information Technology Dharwad
       </span>
-      <div className="text-[14px] md:text-[16px] font-light">
+      <div className="block text-[9px] sm:text-[11px] md:text-[14px] xl:text-[16px] font-light mt-0.5">
         [Institute of National Importance by An Act of Parliament]
       </div>
     </>
