@@ -170,6 +170,10 @@ const navigationData: NavigationItem[] = [
         title: "Annual Report 2024-25 ",
         href: "/docs/Annual_Reeport_2024-25_English__1___1_.pdf",
       },
+      {
+        title: "OM for List of holidays",
+        href: "/docs/OM_list_of_holiday_2026.pdf",
+      },
     ],
   },
   {
