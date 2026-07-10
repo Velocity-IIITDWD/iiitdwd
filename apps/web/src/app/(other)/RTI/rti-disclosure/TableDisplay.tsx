@@ -37,6 +37,28 @@ interface TableDisplayProps {
 export function TableDisplay({ data }: TableDisplayProps) {
   const renderTextWithBreaks = (text: string) => {
     return text.split("\n").map((line, index) => {
+      // Check for http/https URLs first
+      const urlMatch = line.match(/https?:\/\/[^\s]+/);
+      if (urlMatch) {
+        const url = urlMatch[0];
+        const parts = line.split(url);
+        return (
+          <React.Fragment key={index}>
+            {parts[0]}
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              {url}
+            </a>
+            {parts[1]}
+            {index < text.split("\n").length - 1 && <br />}
+          </React.Fragment>
+        );
+      }
+
       // Check if the line contains the domain name
       if (line.includes("@iiitdwd.ac.in")) {
         // Use a regular expression to find the full email address
@@ -146,14 +168,20 @@ export function TableDisplay({ data }: TableDisplayProps) {
                         )}
                         {detail.remark.links.map((link, linkIndex) => (
                           <div key={linkIndex}>
-                            <a
-                              href={link.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-600 hover:underline"
-                            >
-                              {renderTextWithBreaks(link.text)}
-                            </a>
+                            {link.url && link.url !== "#" ? (
+                              <a
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 hover:underline"
+                              >
+                                {renderTextWithBreaks(link.text)}
+                              </a>
+                            ) : (
+                              <span className="text-gray-900 font-semibold block mt-3 mb-1">
+                                {renderTextWithBreaks(link.text)}
+                              </span>
+                            )}
                           </div>
                         ))}
                       </div>
