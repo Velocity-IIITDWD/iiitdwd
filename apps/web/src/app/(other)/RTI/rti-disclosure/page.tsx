@@ -51,7 +51,7 @@ const organizationAndFunctionData: TableRow[] = [
         point: "(iii) Vision, Mission and Key objectives",
         remark: {
           links: [
-            { text: "https://iiitdwd.ac.in", url: "https://iiitdwd.ac.in" },
+            { text: "https://iiitdwd.ac.in/about", url: "https://iiitdwd.ac.in/about" },
           ],
         },
       },
@@ -85,8 +85,16 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point:
           "(vi) Any other details-the genesis, inception, formation of the department and the HoDs from time to time as well as the committees/ Commissions constituted from time to time have been dealt",
-        remark:
-          "1. Computer Science & Engineering-HOD-Dr. Prabhu Prasad\n\n2. Electronics & Communication Engineering- HOD- Dr. Sibashankar Padhy\n\n3. Data Science & Artificial Intelligence- HOD-Dr. Siddharth R\n\n4. Department Arts, Science and Design- HOD- Dr. Aswath Babu",
+        remark: {
+          links: [
+            { text: "Board of Governors", url: "https://iiitdwd.ac.in/governing-bodies/board" },
+            { text: "Finance Committee", url: "https://iiitdwd.ac.in/governing-bodies/financial" },
+            { text: "Building and Works", url: "https://iiitdwd.ac.in/governing-bodies/building" },
+            { text: "Senate", url: "https://iiitdwd.ac.in/governing-bodies/senate" },
+            { text: "Other Committees" },
+            { text: "Internal Complaints", url: "https://assets.iiitdwd.ac.in/docs/ICC_committee.pdf" },
+          ],
+        },
       },
     ],
   },
@@ -308,7 +316,7 @@ const organizationAndFunctionData: TableRow[] = [
       },
       {
         point: "(iv) Transfer policy and transfer orders",
-        remark: "",
+        remark: "Transfer within the Institute departments are done on a need basis.",
       },
     ],
   },
@@ -411,7 +419,7 @@ const organizationAndFunctionData: TableRow[] = [
       },
       {
         point: "(vi) Whether their meetings are open to the public?",
-        remark: "",
+        remark: "NO",
       },
       {
         point:
@@ -421,7 +429,7 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point:
           "(viii) Place where the minutes if open to the public are available?",
-        remark: "",
+        remark: "To Be Updated",
       },
     ],
   },
@@ -522,17 +530,21 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point:
           "(ii) Efforts to encourage public authority to participate in these programmes",
-        remark: "",
+        remark: "The Institute also observes Vigilance Awareness Week every year. Integrity Pledge is administered to all the Employees as a part of the Vigilance Awareness Week conducted every year.\nExperts are invited regularly to deliver talks on good governance.",
       },
       { point: "(iii) Training of CPIO/APIO", remark: "" },
       {
         point:
           "(iv) Update & publish guidelines on RTI by the Public Authorities concerned",
-        remark: {
+        remark: { text: "The Suo Moto Disclosure is available on the Institute’s Website. More information and updates on RTI are available at the following links:",
           links: [
             {
-              text: "RTI",
-              url: "https://assets.iiitdwd.ac.in/docs/rti.pdf",
+              text: "https://cic.gov.in/",
+              url: "https://cic.gov.in/",
+            },
+            {
+              text: "https://dopt.gov.in/guidelines-on-rti",
+              url: "https://dopt.gov.in/guidelines-on-rti",
             },
           ],
         },
@@ -542,7 +554,7 @@ const organizationAndFunctionData: TableRow[] = [
   {
     sNo: "1.13",
     item: "Transfer policy and transfer orders [F No. 1/6/2011- IR dt. 15.4.2013]",
-    details: [{ point: "Not Applicable", remark: "Not Applicable" }],
+    details: [{ point: "Not Applicable", remark: "Transfer within the departments/sections/centres of the Institute are done on rotational basis on need-based requirements." }],
   },
 ];
 
@@ -564,7 +576,7 @@ const budgetAndProgrammeData: TableRow[] = [
       },
       {
         point: "(ii) Budget for each agency and plan & programmes",
-        remark: "",
+        remark: "NA",
       },
       { point: "(iii) Proposed expenditures", remark: "" },
       {
@@ -592,6 +604,7 @@ const budgetAndProgrammeData: TableRow[] = [
         point:
           "(iii) Information related to procurements\n\na) Notice/tender enquires, and corrigenda if any thereon,\n\nb) Details of the bids awarded comprising the names of the suppliers of goods/services being procured,\n\nc) The works contracts concluded – in any such combination of the above-and\n\nd) The rate /rates and the total amount at which such procurement or works contract is to be executed.",
         remark: {
+          text: "The details relating to Procurement of Goods and Services through tenders issued by the Purchase & Stores Section of the Institute. Status of Tenders are available in the link",
           links: [
             {
               text: "https://www.iiitdwd.ac.in/tenders/",
@@ -608,7 +621,7 @@ const budgetAndProgrammeData: TableRow[] = [
     details: [
       {
         point: "(i) Name of the programme of activity",
-        remark: "",
+        remark: "No such provision of grant/allocation exists",
       },
       { point: "(ii) Objective of the programme", remark: "" },
       { point: "(iii) Procedure to avail benefits", remark: "" },
@@ -642,7 +655,7 @@ const budgetAndProgrammeData: TableRow[] = [
       {
         point:
           "(i) Discretionary and non-discretionary grants/ allocations to State Govt./ NGOs/other institutions",
-        remark: "",
+        remark: "No such provision of grant/allocation exists",
       },
       {
         point:
@@ -687,9 +700,14 @@ const publicityAndPublicInterfaceData: TableRow[] = [
     details: [
       {
         point:
-          "Arrangement for consultations with or representation by the members of the public\n(i) Relevant Acts, Rules, Forms and other documents which are normally accessed by citizens",
+          "(i) Relevant Acts, Rules, Forms and other documents which are normally accessed by citizens",
         remark: {
-          links: [{ text: "www.iiitdwd.ac.in", url: "https://iiitdwd.ac.in" }],
+          links: [
+            { text: "https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf", url: "https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf" },
+            { text: "Rules & Regulations:" },
+            { text: "B. Tech, M.Tech, & Ph.D programmes-"},
+            { text: "https://iiitdwd.ac.in/academics/programmes/", url: "https://iiitdwd.ac.in/academics/programmes/" } 
+          ],
         },
       },
       {
@@ -701,7 +719,7 @@ const publicityAndPublicInterfaceData: TableRow[] = [
       {
         point:
           "Public- private partnerships (PPP)\n\n(i) Details of Special Purpose Vehicle (SPV), if any\n\n(ii) Detailed project reports (DPRs)\n\n(iii) Concession agreements\n\n(iv) Operation and maintenance manuals\n\n(v) Other documents generated as part of the implementation of the PPP\n\n(vi) Information relating to fees, tolls, or the other kinds of revenues that may be collected under authorisation from the government\n\n(vii) Information relating to outputs and outcomes\n\n(viii) The process of the selection of the private sector party (concessionaire etc.)\n\n(ix) All payment made under the PPP project",
-        remark: "",
+        remark: "Not Applicable",
       },
     ],
   },
@@ -712,7 +730,7 @@ const publicityAndPublicInterfaceData: TableRow[] = [
       {
         point:
           "Publish all relevant facts while formulating important policies or announcing decisions which affect public to make the process more interactive;\n\n(i) Policy decisions/ legislations taken in the previous one year\n\n(ii) Outline the Public consultation process\n\n(iii) Outline the arrangement for consultation before formulation of policy",
-        remark: "",
+        remark: "All course details, guidelines etc. are available on public domain. Please visit https://iiitdwd.ac.in/ for details.",
       },
     ],
   },
@@ -723,7 +741,7 @@ const publicityAndPublicInterfaceData: TableRow[] = [
       {
         point:
           "Use of the most effective means of communication\n\n(i) Internet (website)",
-        remark: "",
+        remark: "The information dissemination primarily happens through the Institute’s website. Please click to visit https://iiitdwd.ac.in/ the Institute’s website.",
       },
     ],
   },
@@ -734,7 +752,7 @@ const publicityAndPublicInterfaceData: TableRow[] = [
       {
         point:
           "Information manual/handbook available in\n\n(i) Electronic format\n\n(ii) Electronic format",
-        remark: "",
+        remark: "https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf",
       },
     ],
   },
@@ -756,14 +774,14 @@ const eGovernanceData: TableRow[] = [
     sNo: "4.1",
     item: "Language in which Information Manual/Handbook Available [F.No. 1/6/2011-IR dt. 15.4.2013]",
     details: [
-      { point: "(i) English", remark: "" },
-      { point: "(ii) Vernacular/ Local Language", remark: "" },
+      { point: "(i) English", remark: "Annual Report of the Institute are available on the Institute website and can be accessed from the following link\nhttps://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf" },
+      { point: "(ii) Vernacular/ Local Language", remark: "https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf" },
     ],
   },
   {
     sNo: "4.2",
     item: "When was the information Manual/Handbook last updated? [F.No. 1/6/2011-IR dt. 15.4.2013]",
-    details: [{ point: "Last date of Annual updation", remark: "" }],
+    details: [{ point: "Last date of Annual updation", remark: "Yet To be done" }],
   },
   {
     sNo: "4.3",
@@ -778,13 +796,13 @@ const eGovernanceData: TableRow[] = [
       {
         point: "(ii) Name/ title of the document/record/ other information",
         remark: {
-          links: [{ text: "www.iiitdwd.ac.in", url: "https://iiitdwd.ac.in" }],
+          links: [{ text: "https://iiitdwd.ac.in/contact/", url: "https://iiitdwd.ac.in/contact/" }],
         },
       },
       {
         point: "(iii) Location where available",
         remark: {
-          links: [{ text: "www.iiitdwd.ac.in", url: "https://iiitdwd.ac.in" }],
+          links: [{ text: "https://iiitdwd.ac.in/contact/", url: "https://iiitdwd.ac.in/contact/" }],
         },
       },
     ],
@@ -825,16 +843,22 @@ const eGovernanceData: TableRow[] = [
       },
       {
         point: "(iii) List of completed schemes/ projects/ Programmes",
-        remark: "",
+        remark: {
+          links: [{ text: "https://iiitdwd.ac.in/academics/research/", url: "https://iiitdwd.ac.in/academics/research/" }],
+        },
       },
       {
         point: "(iv) List of schemes/ projects/ programme underway",
-        remark: "",
+        remark: {
+          links: [{ text: "https://iiitdwd.ac.in/academics/research/", url: "https://iiitdwd.ac.in/academics/research/" }],
+        },
       },
       {
         point:
           "(v) Details of all contracts entered into including name of the contractor, amount of contract and period of completion of contract",
-        remark: "",
+        remark: {
+          links: [{ text: "https://iiitdwd.ac.in/tenders/", url: "https://iiitdwd.ac.in/tenders/" }],
+        },
       },
       {
         point: "(vi) Annual Report",
