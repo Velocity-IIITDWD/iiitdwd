@@ -271,7 +271,7 @@ export default function PlacementCard() {
       className="rounded-2xl overflow-hidden border border-gray-200 shadow-[0_8px_32px_rgba(0,0,0,0.08)] bg-[#f8fafc]"
     >
       {/* ── Header ── */}
-      <div className="bg-[#193654] px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
+      <div className="bg-[#193654] px-5 md:px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
         <div>
           <h3 className="text-[20px] font-bold text-white leading-tight flex items-center gap-2">
             <IconChartLine size={20} className="text-white/70" />
@@ -291,8 +291,8 @@ export default function PlacementCard() {
       </div>
 
       {/* ── Year Tabs ── */}
-      <div className="px-6 pt-5">
-        <div className="inline-flex rounded-xl bg-white border border-gray-200 p-1 gap-1 shadow-sm">
+      <div className="px-5 md:px-6 pt-5">
+        <div className="inline-flex flex-wrap rounded-xl bg-white border border-gray-200 p-1 gap-1 shadow-sm">
           {YEARS.map(yr => (
             <button
               key={yr}
@@ -320,11 +320,11 @@ export default function PlacementCard() {
         </div>
       </div>
 
-      <div className="p-6 grid grid-cols-1 xl:grid-cols-3 gap-6">
+      <div className="p-5 md:p-6 grid grid-cols-1 xl:grid-cols-3 gap-5 md:gap-6">
         {/* ── LEFT COLUMN ── */}
         <div className="xl:col-span-2 flex flex-col gap-5">
           {/* Stat Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
             <StatCard
               icon={<IconBuildingSkyscraper size={20} />}
               label="Companies"
