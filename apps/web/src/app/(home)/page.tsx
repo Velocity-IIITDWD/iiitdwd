@@ -4,9 +4,9 @@ import { ReactElement } from "react";
 import AlumniSection from "./alumni";
 import GalleryCarousel from "./gallery-carousel";
 import InfoSection from "./info-section";
+import OpenHouseSection from "./open-house-section";
 import QuickLinksSection from "./quick-links";
 import StatsSection from "./stats-section";
-import OpenHouseSection from "./open-house-section";
 
 interface GalleryImageApiItem {
   url: string;

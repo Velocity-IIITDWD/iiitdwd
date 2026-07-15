@@ -117,12 +117,12 @@ export default function DepartmentsSection(): JSX.Element {
   return (
     <div
       ref={ref}
-      className="p-6 rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] mb-8"
+      className="p-5 md:p-6 rounded-xl md:rounded-lg bg-white border border-gray-200 shadow-[0_6px_20px_rgba(0,0,0,0.05)] mb-8"
     >
       {/* Section header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-5 md:mb-6">
         <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center w-11 h-11 rounded-lg bg-[#193654] shadow-sm">
+          <div className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 rounded-lg bg-[#193654] shadow-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5 text-white"
@@ -139,7 +139,7 @@ export default function DepartmentsSection(): JSX.Element {
             </svg>
           </div>
           <div>
-            <h2 className="text-xl font-bold text-[#193654]">
+            <h2 className="text-lg md:text-xl font-bold text-[#193654]">
               Departments in IIIT Dharwad
             </h2>
             <div className="h-0.5 w-12 bg-[#CCE70B] rounded-full mt-1.5" />
@@ -157,7 +157,7 @@ export default function DepartmentsSection(): JSX.Element {
 
       {/* Department cards */}
       {inView && (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
           {DEPARTMENTS.map((dept, i) => (
             <DeptCard key={dept.id} dept={dept} index={i} />
           ))}
