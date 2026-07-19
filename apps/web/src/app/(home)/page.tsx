@@ -8,6 +8,8 @@ import OpenHouseSection from "./open-house-section";
 import QuickLinksSection from "./quick-links";
 import StatsSection from "./stats-section";
 
+import AchievementBanner from "./achievement-banner";
+
 interface GalleryImageApiItem {
   url: string;
 }
@@ -41,6 +43,7 @@ export default async function HomePage(): Promise<ReactElement> {
   return (
     <main className="min-h-screen w-full">
       <GalleryCarousel images={images} />
+      <AchievementBanner />
       <div className="flex flex-col items-center">
         <div className="px-5 md:px-13 py-8 font-grotesk">
           <div className="mx-auto max-w-7xl w-full">
