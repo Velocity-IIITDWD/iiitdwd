@@ -9,6 +9,7 @@ import QuickLinksSection from "./quick-links";
 import StatsSection from "./stats-section";
 
 import AchievementBanner from "./achievement-banner";
+import ScrollingNoticeBanner from "@/components/layout/scrolling-notice-banner";
 
 interface GalleryImageApiItem {
   url: string;
@@ -42,6 +43,7 @@ export default async function HomePage(): Promise<ReactElement> {
 
   return (
     <main className="min-h-screen w-full">
+      <ScrollingNoticeBanner />
       <GalleryCarousel images={images} />
       <AchievementBanner />
       <div className="flex flex-col items-center">

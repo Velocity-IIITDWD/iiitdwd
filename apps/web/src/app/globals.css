@@ -332,7 +332,7 @@
   }
 
   main {
-    @apply min-h-screen;
+    @apply min-h-[100dvh];
   }
 
   ::-moz-selection {
