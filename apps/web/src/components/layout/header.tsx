@@ -134,7 +134,7 @@ function AnimatedNavbar(): JSX.Element {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={SPRING_CONFIG}
-                  className="flex flex-col text-primary text-left flex-shrink-0"
+                  className="flex flex-col text-primary text-left flex-1 min-w-0 pr-2 md:pr-0"
                 >
                   <InstituteName />
                 </motion.div>
@@ -295,16 +295,16 @@ function TopBar(): JSX.Element {
 function InstituteName(): JSX.Element {
   return (
     <>
-      <span className="text-[10px] sm:text-[12px] md:text-[16px] xl:text-[18px] font-normal mb-[1px] md:mb-[2px] leading-tight">
+      <span className="block w-full text-[9px] sm:text-[11px] md:text-[16px] xl:text-[18px] font-normal mb-[1px] md:mb-[2px] leading-tight text-balance">
         ಭಾರತೀಯ ಮಾಹಿತಿ ತಂತ್ರಜ್ಞಾನ ಸಂಸ್ಥೆ ಧಾರವಾಡ
       </span>
-      <span className="text-[10px] sm:text-[12px] md:text-[16px] xl:text-[18px] font-normal leading-tight">
+      <span className="block w-full text-[9px] sm:text-[11px] md:text-[16px] xl:text-[18px] font-normal leading-tight text-balance">
         भारतीय सूचना प्रौद्योगिकी संस्थान धारवाड़
       </span>
-      <span className="text-[11px] sm:text-[13px] md:text-[17px] xl:text-[20px] font-semibold leading-tight">
+      <span className="block w-full text-[10px] sm:text-[12px] md:text-[17px] xl:text-[20px] font-semibold leading-tight mt-0.5 text-balance">
         Indian Institute of Information Technology Dharwad
       </span>
-      <div className="block text-[9px] sm:text-[11px] md:text-[14px] xl:text-[16px] font-light mt-0.5">
+      <div className="block w-full text-[8px] sm:text-[10px] md:text-[14px] xl:text-[16px] font-light mt-1 text-gray-600 text-balance">
         [Institute of National Importance by An Act of Parliament]
       </div>
     </>

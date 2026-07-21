@@ -32,7 +32,7 @@ export default function MobileHeader({
   }, []);
 
   return (
-    <div className="py-4 flex flex-col justify-between pt-4 md:pt-10 px-4 h-[calc(100vh-6.5rem)] overflow-y-auto">
+    <div className="py-4 flex flex-col justify-between pt-4 md:pt-10 px-4 h-[calc(100dvh-6.5rem)] overflow-y-auto">
       <nav className="flex flex-col space-y-1">
         {navigationData.map((item: NavigationItem, index) => {
           if (hasChildren(item)) {

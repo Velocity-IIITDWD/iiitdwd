@@ -25,18 +25,31 @@ export default function VideoPlayer({
   className,
 }: VideoPlayerProps): JSX.Element {
   const [mounted, setMounted] = useState(false);
-  const hasPlayed = mounted ? localStorage.getItem("homeVideoPlayed") : null;
-  const [isMuted, setIsMuted] = useState(true);
-  const [shouldAutoplay, setShouldAutoplay] = useState(!hasPlayed);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [hasPlayed, setHasPlayed] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
+    try {
+      setHasPlayed(localStorage.getItem("homeVideoPlayed"));
+    } catch (e) {
+      console.warn("localStorage not available (possibly incognito mode)", e);
+    }
   }, []);
 
+  const [isMuted, setIsMuted] = useState(true);
+  const [shouldAutoplay, setShouldAutoplay] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   useEffect(() => {
-    if (mounted && !hasPlayed) {
-      localStorage.setItem("homeVideoPlayed", "true");
+    if (mounted) {
+      setShouldAutoplay(!hasPlayed);
+      if (!hasPlayed) {
+        try {
+          localStorage.setItem("homeVideoPlayed", "true");
+        } catch (e) {
+          // Ignore if localStorage is blocked
+        }
+      }
     }
   }, [mounted, hasPlayed]);
 
@@ -50,13 +63,15 @@ export default function VideoPlayer({
   };
 
   return (
-    <a
-      href={externalLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`flex-1 md:flex-[0_0_60%] lg:flex-[0_0_70%] relative overflow-hidden rounded-lg ${className || ""}`}
+    <div
+      onClick={() => {
+        if (!embedSrc) {
+          window.open(externalLink, "_blank", "noopener,noreferrer");
+        }
+      }}
+      className={`flex-1 md:flex-[0_0_60%] lg:flex-[0_0_70%] relative overflow-hidden rounded-lg group bg-black flex items-center justify-center ${!embedSrc ? "cursor-pointer" : ""} ${className || ""}`}
     >
-      <div className="relative w-full pt-[56.25%]">
+      <div className="relative w-full h-full aspect-video flex items-center justify-center bg-black">
         {embedSrc ? (
           <iframe
             src={embedSrc}
@@ -80,7 +95,7 @@ export default function VideoPlayer({
             }}
             preload="auto"
             poster="/images/thumnail.png"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-contain"
             style={{ imageRendering: "crisp-edges" } as React.CSSProperties}
           />
         )}
@@ -100,10 +115,22 @@ export default function VideoPlayer({
         </button>
       )}
 
-      <IconArrowUpRight
-        className="absolute top-4 right-4 z-10 text-gray-500 group-hover:text-black transition-all"
-        size={20}
-      />
-    </a>
+      {embedSrc ? (
+        <a
+          href={externalLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute top-4 right-4 z-10 text-gray-500 hover:text-white transition-all bg-white/80 hover:bg-black/40 p-1.5 rounded-md backdrop-blur-sm shadow-sm"
+          title="Open in new tab"
+        >
+          <IconArrowUpRight size={18} />
+        </a>
+      ) : (
+        <IconArrowUpRight
+          className="absolute top-4 right-4 z-10 text-gray-500 group-hover:text-white transition-all bg-black/20 p-1 rounded-md"
+          size={24}
+        />
+      )}
+    </div>
   );
 }

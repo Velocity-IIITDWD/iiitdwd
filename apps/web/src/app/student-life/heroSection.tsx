@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <div className="relative min-h-[calc(100vh-4rem)] w-full">
+    <div className="relative min-h-[calc(100dvh-4rem)] w-full">
       <div className="absolute inset-0 w-full h-full">
         <div className="h-full flex flex-col lg:block">
           <div className="relative lg:absolute left-0 top-0 w-full lg:w-[60%] h-auto lg:h-full z-10 flex items-center p-8 lg:p-0">
