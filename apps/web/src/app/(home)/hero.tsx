@@ -105,10 +105,10 @@ export default function LandingSection({ images }: HeroProps): JSX.Element {
           <QuickLink href="/admission" label="Admissions" />
           <QuickLink href="/amenities" label="Campus" />
           <QuickLink href="/scholarship/" label="Scholarships" />
-          {/*<QuickLink
-            href="/docs/B.Tech._Admission_Guidelines_for_2025-26_Students.pdf"
+          <QuickLink
+            href="https://assets.iiitdwd.ac.in/docs/Physical_reporting_2026.pdf"
             label="Physical Reporting"
-          />*/}
+          />
         </div>
       </div>
     </div>
