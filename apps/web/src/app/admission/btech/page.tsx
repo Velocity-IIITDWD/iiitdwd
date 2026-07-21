@@ -16,6 +16,7 @@ import {
 import CutoffRanks from "./CutoffRanks-component";
 import InstituteContent from "./InstituteContent-component";
 import SeatMatrix from "./seatMatrix-component";
+import ScrollingNoticeBanner from "@/components/layout/scrolling-notice-banner";
 
 export default function Page(): JSX.Element {
   const [showSeatMatrix, setShowSeatMatrix] = useState(false);
@@ -29,7 +30,9 @@ export default function Page(): JSX.Element {
   };
 
   return (
-    <div className="py-10 bg-gray-50/50 min-h-screen">
+    <>
+      <ScrollingNoticeBanner />
+      <div className="py-10 bg-gray-50/50 min-h-screen">
       <div className="space-y-10 w-[87.5vw] max-w-[1680px] mx-auto">
         
         {/* Header Banner */}
@@ -522,6 +525,7 @@ export default function Page(): JSX.Element {
           <InstituteContent />
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
