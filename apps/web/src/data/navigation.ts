@@ -220,6 +220,18 @@ const navigationData: NavigationItem[] = [
             title: "6th Convocation",
             href: "https://www.youtube.com/live/Sh5VyQxKQvk?si=Bvz_hVfB9lAw48xN",
           },
+          {
+            title: "7th Convocation",
+            href: "https://www.youtube.com/live/nxBzSbZrcag?si=DXAyzl7MOXCR5y7F",
+          },
+          {
+            title: "8th Convocation",
+            href: "https://www.youtube.com/live/IzKNy-fv28Y?si=6J74wuCPjPJXoXgl",
+          },
+          {
+            title: "Director's Address",
+            href: "https://youtu.be/A8n2L3trKrE?si=OPEcGV1LY2epQkMU",
+          },
         ],
       },
       {
