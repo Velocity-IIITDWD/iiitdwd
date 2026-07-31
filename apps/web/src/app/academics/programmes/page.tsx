@@ -200,7 +200,7 @@ export default function ProgrammesPage(): JSX.Element {
           </Link>
 
           <Link
-            href="/docs/Academic_Calender_2026_Firts_Years.pdf"
+            href="https://assets.iiitdwd.ac.in/docs/1st_Semester_Academical_Calendar_AY_2026-27.pdf"
             className="relative focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 hover:shadow-md cursor-pointer overflow-clip flex rounded-lg border w-full border-gray-400 bg-white hover:border-gray-500"
           >
             <div className="h-24 w-40 relative max-md:hidden">
@@ -215,8 +215,8 @@ export default function ProgrammesPage(): JSX.Element {
             <div className="w-full flex items-center p-4">
               <div className="flex flex-col justify-center flex-1 gap-1">
                 <span className="text-title-1 text-main font-semibold">
-                  Academic Calendar 2025-26 for First Year B.Tech Students
-                  (August - May)
+                  Academic Calendar 2026-27 for First Year B.Tech Students
+                  (August - December)
                 </span>
                 <span className="text-body font-normal">
                   Stay on schedule and upto date throughout the year.
