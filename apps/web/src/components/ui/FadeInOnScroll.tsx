@@ -50,7 +50,7 @@ export function FadeInOnScroll({ children, delay = 0 }: FadeInOnScrollProps) {
       animate={controls}
       transition={{ duration: 0.8, ease: "easeOut", delay }}
     >
-      {children}
+      {children as any}
     </motion.div>
   );
 }

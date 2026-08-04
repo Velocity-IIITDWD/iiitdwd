@@ -117,7 +117,7 @@ export default function MobileHeader({
                                 toggleMenu();
                                 trackEvent({
                                   action: "click",
-                                  category: "mobile_navigation",
+                                  category: "mobile_navigation" as any,
                                   label: `link_${subItem.title}`,
                                 });
                               }}
@@ -148,7 +148,7 @@ export default function MobileHeader({
                     toggleMenu();
                     trackEvent({
                       action: "click",
-                      category: "mobile_navigation",
+                      category: "mobile_navigation" as any,
                       label: `link_${item.title}`,
                     });
                   }}
@@ -178,7 +178,7 @@ export default function MobileHeader({
             onClick={() =>
               trackEvent({
                 action: "click",
-                category: "mobile_navigation",
+                category: "mobile_navigation" as any,
                 label: "link_aims",
               })
             }
@@ -190,7 +190,7 @@ export default function MobileHeader({
             onClick={() =>
               trackEvent({
                 action: "click",
-                category: "mobile_navigation",
+                category: "mobile_navigation" as any,
                 label: "link_rti",
               })
             }
@@ -202,7 +202,7 @@ export default function MobileHeader({
             onClick={() =>
               trackEvent({
                 action: "click",
-                category: "mobile_navigation",
+                category: "mobile_navigation" as any,
                 label: "link_nirf",
               })
             }
@@ -216,7 +216,7 @@ export default function MobileHeader({
             onClick={() =>
               trackEvent({
                 action: "click",
-                category: "mobile_navigation",
+                category: "mobile_navigation" as any,
                 label: "link_fee_portal",
               })
             }

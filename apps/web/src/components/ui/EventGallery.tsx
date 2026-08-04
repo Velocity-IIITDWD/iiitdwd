@@ -134,6 +134,7 @@ const EventCarouselModal = ({
           </div>
         </div>
       </div>
+      {/* @ts-expect-error styled-jsx type missing in React 19 */}
       <style jsx global>{`
         .custom-scrollbar::-webkit-scrollbar {
           width: 8px;

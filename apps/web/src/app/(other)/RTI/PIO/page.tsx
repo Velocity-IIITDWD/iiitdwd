@@ -32,7 +32,7 @@ const testData: ProfileSectionProps[] = [
       {
         title: "Mr. Ravi B Vitlapur",
         content: [
-          "Chief Public Information Officer (CPIO)",
+          "Central Public Information Officer (CPIO)",
           "Senior Assistant Registrar",
           "assistantregistrar@iiitdwd.ac.in",
         ],

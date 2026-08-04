@@ -200,22 +200,11 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Nature of functions/ services offered",
-        remark: "Imparting technical education to the students",
+        remark: "To provide for instruction and research in such branches of engineering and technology, sciences and arts, as the Institute may think fit, and for the advancement of learning and dissemination of knowledge in such branches.",
       },
       {
         point: "(ii) Norms/ standards for functions/ service delivery",
-        remark: {
-          links: [
-            {
-              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
-              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
-            },
-            {
-              text: "and Statutes of IIIT Dharwad",
-              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
-            },
-          ],
-        },
+        remark: "Norms and standards for various academic activities of the Institute decided by the Senate and as per [IIIT Statutes](https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf). Norms for research and development and administrative activities as per [IIIT Statutes](https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf) and decisions taken by the Board of Governors (BoG).\nThe Annual Report prepared under the direction of BoG and its annual meetings along with audited accounts, etc., of the Institute. The Annual Report of the Institute along with Audited Accounts are placed on the table of both the Houses of the Parliament.",
       },
       {
         point: "(iii) Process by which these services can be accessed",
@@ -234,33 +223,11 @@ const organizationAndFunctionData: TableRow[] = [
       },
       {
         point: "(iv) Time-limit for achieving the targets",
-        remark: {
-          links: [
-            {
-              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
-              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
-            },
-            {
-              text: "and Statutes of IIIT Dharwad",
-              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
-            },
-          ],
-        },
+        remark: "As per annual [Academic Calendar](https://assets.iiitdwd.ac.in/docs/Final_Academic_Calendar_2026-27_Higher_Semester.pdf)",
       },
       {
         point: "(v) Process of redress of grievances",
-        remark: {
-          links: [
-            {
-              text: "Internal Complaints Committee",
-              url: "https://assets.iiitdwd.ac.in/docs/ICC_committee.pdf",
-            },
-            {
-              text: "Anti Ragging ",
-              url: "https://assets.iiitdwd.ac.in/docs/Anti_Ragging_Information.pdf",
-            },
-          ],
-        },
+        remark: "1. Centralised Public Grievance Redress and Monitoring System\nFor details login to [CPGRAMS portal](https://pgportal.gov.in/):\nAuthorities of IIIT DHARWAD responsible for CPGRAMS:\n1) Registrar\n\n2. Internal Complaints Committee on Sexual Harassment:\nA Committee has been constituted to go into and recommend necessary steps with regard to complaints on sexual harassment and to address issues related to Prevention, Prohibition and Redressal Act 2013.\n\nInternal Complaints Committee for IIIT Dharwad is constituted by the Competent Authority with the following Members:\n[Internal Complaints Committee](https://assets.iiitdwd.ac.in/docs/ICC_committee.pdf)",
       },
     ],
   },
@@ -326,22 +293,11 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Categories of documents",
-        remark: {
-          links: [
-            {
-              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
-              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
-            },
-            {
-              text: "and Statutes of IIIT Dharwad",
-              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
-            },
-          ],
-        },
+        remark: "The following are the documents held under its control.\n[IIIT Statutes](https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf)\nCertificate of GST RegistrationDSIR / Customs Duty Exemption Certificate\nPAN: AAAAI9526L\nGST: 29AAAAI9526L1Z6\nImporter-Exporter Certificate\nRecord of Degrees Awarded\nMoU\nPersonal files\nService Books\nPurchase files\nWorks files",
       },
       {
         point: "(ii) Custodian of documents/categories",
-        remark: "Registrar",
+        remark: "As per Section 19 of the IIIT Dharwad, Registrar is the custodian of records, the common seal, the funds of the Institute and such other property of the Institute as the Board shall commit to his charge.",
       },
     ],
   },
@@ -351,29 +307,16 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Name of Boards, Council, Committee etc.",
-        remark: "BoG, Senate and Finance Committee",
+        remark: "BoG, Senate and Finance Committee\nBoG - 10th June 2015\nSenate - ",
+        rowSpan: 2,
       },
       {
         point: "(ii) Composition",
-        remark: {
-          links: [
-            {
-              text: "https://www.iiitdwd.ac.in/governing-bodies/board/",
-              url: "https://www.iiitdwd.ac.in/governing-bodies/board/",
-            },
-            {
-              text: "https://www.iiitdwd.ac.in/governing-bodies/senate/",
-              url: "https://www.iiitdwd.ac.in/governing-bodies/senate/",
-            },
-            {
-              text: "https://www.iiitdwd.ac.in/governing-bodies/financial/",
-              url: "https://www.iiitdwd.ac.in/governing-bodies/financial/",
-            },
-          ],
-        },
+        remark: "",
+        hideRemark: true,
       },
       {
-        point: "(iii) Dates from which constituted",
+        point: "(iii) Term/ Tenure",
         remark: {
           links: [
             {
@@ -388,7 +331,7 @@ const organizationAndFunctionData: TableRow[] = [
         },
       },
       {
-        point: "(iv) Term/ Tenure",
+        point: "(iv) Powers and functions",
         remark: {
           links: [
             {
@@ -403,32 +346,17 @@ const organizationAndFunctionData: TableRow[] = [
         },
       },
       {
-        point: "(v) Powers and functions",
-        remark: {
-          links: [
-            {
-              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
-              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
-            },
-            {
-              text: "and Statutes of IIIT Dharwad",
-              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
-            },
-          ],
-        },
-      },
-      {
-        point: "(vi) Whether their meetings are open to the public?",
+        point: "(v) Whether their meetings are open to the public?",
         remark: "NO",
       },
       {
         point:
-          "(vii) Whether the minutes of the meetings are open to the public?",
-        remark: "",
+          "(vi) Whether the minutes of the meetings are open to the public?",
+        remark: "Will be done shortly",
       },
       {
         point:
-          "(viii) Place where the minutes if open to the public are available?",
+          "(vii) Place where the minutes if open to the public are available?",
         remark: "To Be Updated",
       },
     ],
@@ -439,13 +367,13 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Name and designation",
-        remark:
-          "1. Dr. S R Mahadeva Prasanna, Director\n\n2. Mr. Ravi B Vitlapur, Assistant Registrar",
+        remark: "[Contact Us](https://iiitdwd.ac.in/contact)",
+        rowSpan: 2,
       },
       {
         point: "(ii) Telephone , fax and email ID",
-        remark:
-          "Telephone: 0836-2250879\n\nEmail ID:\n\n1. director@iiitdwd.ac.in\n\n2. registrar@iiitdwd.ac.in",
+        remark: "",
+        hideRemark: true,
       },
     ],
   },
@@ -455,33 +383,11 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) List of employees with Gross monthly remuneration",
-        remark: {
-          links: [
-            {
-              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
-              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
-            },
-            {
-              text: "and Statutes of IIIT Dharwad",
-              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
-            },
-          ],
-        },
+        remark: "IIIT Dharwad follows monthly pay and allowances as per 7th CPC.",
       },
       {
         point: "(ii) System of compensation as provided in its regulations",
-        remark: {
-          links: [
-            {
-              text: "As per IIIT(PPP) Act, 23 of 9 August 2017",
-              url: "https://assets.iiitdwd.ac.in//docs/iiit_ppp_2017.pdf",
-            },
-            {
-              text: "and Statutes of IIIT Dharwad",
-              url: "https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf",
-            },
-          ],
-        },
+        remark: "As per the 7th CPC norms",
       },
     ],
   },
@@ -492,13 +398,13 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point:
           "(i) Name and designation of the public information officer (PIO), Assistant Public Information (s) & Appellate Authority",
-        remark: "Mr. Ravi Vitlapur (Assistant Registrar) PIO",
+        remark: "1. Dr. S R Mahadeva Prasanna,\n    Director\n2. Mr. Ravi B Vitlapur,\nAssistant Registrar",
       },
       {
         point:
           "(ii) Address, telephone numbers and email ID of each designated official",
         remark:
-          "IIIT Dharwad Campus, Ittigatti Road, Near Sattur Colony, Dharwad -580009,\n\nTelephone No: 0836-2250879\n\nregistrar@iiitdwd.ac.in\n\nassistantregistrar@iiitdwd.ac.in",
+          "1. Dr. S R Mahadeva Prasanna,\n    Director\n    director@iiitdwd.ac.in\n2. Mr. Ravi B Vitlapur,\nAssistant Registrar\n    assistantregistrar@iiitdwd.ac.in",
       },
     ],
   },
@@ -525,14 +431,19 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Educational programmes",
-        remark: "",
+        remark: "The institute from time to time arranges in-house training for its employees.\nThe Institute also observes Vigilance Awareness Week every year. Integrity Pledge is administered to all the Employees as a part of the Vigilance Awareness Week conducted every year.\nExperts are invited regularly to deliver talks on good governance.",
+        rowSpan: 3,
       },
       {
-        point:
-          "(ii) Efforts to encourage public authority to participate in these programmes",
-        remark: "The Institute also observes Vigilance Awareness Week every year. Integrity Pledge is administered to all the Employees as a part of the Vigilance Awareness Week conducted every year.\nExperts are invited regularly to deliver talks on good governance.",
+        point: "(ii) Efforts to encourage public authority to participate in these programmes",
+        remark: "",
+        hideRemark: true,
       },
-      { point: "(iii) Training of CPIO/APIO", remark: "" },
+      {
+        point: "(iii) Training of CPIO/ APIO",
+        remark: "",
+        hideRemark: true,
+      },
       {
         point:
           "(iv) Update & publish guidelines on RTI by the Public Authorities concerned",
@@ -565,28 +476,24 @@ const budgetAndProgrammeData: TableRow[] = [
     details: [
       {
         point: "(i) Total Budget for the public authority",
-        remark: {
-          links: [
-            {
-              text: "Click here",
-              url: "https://assets.iiitdwd.ac.in/docs/Budget_2026-27.pdf",
-            },
-          ],
-        },
+        remark: "Please [click here](https://assets.iiitdwd.ac.in/docs/Budget_2026-27.pdf) for details",
       },
       {
         point: "(ii) Budget for each agency and plan & programmes",
-        remark: "NA",
+        remark: "NIL",
+        rowSpan: 4,
       },
-      { point: "(iii) Proposed expenditures", remark: "" },
+      { point: "(iii) Proposed expenditures", remark: "", hideRemark: true },
       {
         point: "(iv) Revised budget for each agency, if any",
         remark: "",
+        hideRemark: true,
       },
       {
         point:
           "(v) Report on disbursements made and place where the related reports are available",
         remark: "",
+        hideRemark: true,
       },
     ],
   },
@@ -594,24 +501,16 @@ const budgetAndProgrammeData: TableRow[] = [
     sNo: "2.2",
     item: "Foreign and domestic tours (F.No. 1/8/2012-IR dt. 11.9.2012)",
     details: [
-      { point: "(i) Budget", remark: "" },
+      { point: "(i) Budget", remark: "NIL" },
       {
         point:
           "(ii) Foreign and domestic Tours by ministries and officials of the rank of Joint Secretary to the Government and above, as well as the heads of the Department.\n\na) Places visited\n\nb) The period of visit\n\nc) The number of members in the official delegation\n\nd) Expenditure on the visit",
-        remark: "",
+        remark: "Will be updated soon",
       },
       {
         point:
           "(iii) Information related to procurements\n\na) Notice/tender enquires, and corrigenda if any thereon,\n\nb) Details of the bids awarded comprising the names of the suppliers of goods/services being procured,\n\nc) The works contracts concluded – in any such combination of the above-and\n\nd) The rate /rates and the total amount at which such procurement or works contract is to be executed.",
-        remark: {
-          text: "The details relating to Procurement of Goods and Services through tenders issued by the Purchase & Stores Section of the Institute. Status of Tenders are available in the link",
-          links: [
-            {
-              text: "https://www.iiitdwd.ac.in/tenders/",
-              url: "https://www.iiitdwd.ac.in/tenders/",
-            },
-          ],
-        },
+        remark: "The details relating to Procurement of Goods and Services through tenders issued by the Purchase & Stores Section of the Institute. Status of Tenders are available in the link\n[https://www.iiitdwd.ac.in/tenders/](https://www.iiitdwd.ac.in/tenders/)",
       },
     ],
   },
@@ -621,30 +520,36 @@ const budgetAndProgrammeData: TableRow[] = [
     details: [
       {
         point: "(i) Name of the programme of activity",
-        remark: "No such provision of grant/allocation exists",
+        remark: "No such provision of grant/allocation exists.",
+        rowSpan: 8,
       },
-      { point: "(ii) Objective of the programme", remark: "" },
-      { point: "(iii) Procedure to avail benefits", remark: "" },
+      { point: "(ii) Objective of the programme", remark: "", hideRemark: true },
+      { point: "(iii) Procedure to avail benefits", remark: "", hideRemark: true },
       {
         point: "(iv) Duration of the programme/ scheme",
         remark: "",
+        hideRemark: true,
       },
       {
         point: "(v) Physical and financial targets of the programme",
         remark: "",
+        hideRemark: true,
       },
       {
         point: "(vi) Nature/ scale of subsidy /amount allotted",
         remark: "",
+        hideRemark: true,
       },
       {
         point: "(vii) Eligibility criteria for grant of subsidy",
         remark: "",
+        hideRemark: true,
       },
       {
         point:
           "(viii) Details of beneficiaries of subsidy programme (number, profile etc)",
         remark: "",
+        hideRemark: true,
       },
     ],
   },
@@ -660,7 +565,7 @@ const budgetAndProgrammeData: TableRow[] = [
       {
         point:
           "(ii) Annual accounts of all legal entities who are provided grants by public  authorities",
-        remark: "",
+        remark: "No such provision of grant/allocation exists",
       },
     ],
   },
@@ -671,12 +576,14 @@ const budgetAndProgrammeData: TableRow[] = [
       {
         point:
           "(i) Concessions, permits or authorizations granted by public authority",
-        remark: "",
+        remark: "IIIT Dharwad does not grant concessions, permits, or authorizations of the nature contemplated. Therefore, the eligibility criteria, procedure for grant, list of recipients, and dates of such grants are not applicable to the Institute.",
+        rowSpan: 2,
       },
       {
         point:
           "(ii) For each concession, permit or authorization granted\n\na) Eligibility criteria\n\nProcedure for getting the concession/grant and/or permits of authorizations",
         remark: "",
+        hideRemark: true,
       },
     ],
   },
@@ -687,7 +594,7 @@ const budgetAndProgrammeData: TableRow[] = [
       {
         point:
           "(i) CAG and PAC paras and the action taken reports (ATRs) after these have been laid on the table of both houses of the parliament.",
-        remark: "",
+        remark: "Will be updated soon",
       },
     ],
   },
@@ -701,24 +608,48 @@ const publicityAndPublicInterfaceData: TableRow[] = [
       {
         point:
           "(i) Relevant Acts, Rules, Forms and other documents which are normally accessed by citizens",
-        remark: {
-          links: [
-            { text: "https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf", url: "https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf" },
-            { text: "Rules & Regulations:" },
-            { text: "B. Tech, M.Tech, & Ph.D programmes-"},
-            { text: "https://iiitdwd.ac.in/academics/programmes/", url: "https://iiitdwd.ac.in/academics/programmes/" } 
-          ],
-        },
+        remark: "Please click the following links for details.\n\n[https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf](https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf)\n\n[https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf](https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf)\n\nRules & Regulations:\nB. Tech, M.Tech, & Ph.D programmes –\n[https://iiitdwd.ac.in/academics/programmes/](https://iiitdwd.ac.in/academics/programmes/)\n\n– Please see\n[https://assets.iiitdwd.ac.in/docs/Final_Academic_Calendar_2026-27_Higher_Semester.pdf](https://assets.iiitdwd.ac.in/docs/Final_Academic_Calendar_2026-27_Higher_Semester.pdf)\n\nFor Curricula and Syllabi\n– Procurement Procedure: As per [General Financial Rules, 2017](https://iitgoa.ac.in/wp-content/uploads/General-Financial-Rules-2017.pdf)\n\n[Manual for Procurement of Goods](https://doe.gov.in/sites/default/files/Manual%20for%20Procurement%20of%20Goods%20%28Updated%20June%2C%202022%29.pdf)\n[Manual for Procurement of Consultancy & Services](https://doe.gov.in/sites/default/files/Manual%20for%20Procurement%20of%20Consultancy%20%26%20Other%20Services_0.pdf)\n[Manual for Procurement of Works](https://doe.gov.in/sites/default/files/Manual%20for%20Procurement%20of%20Works_0.pdf)\n\n– Academic Programme :\n[https://iiitdwd.ac.in/academics/programmes/](https://iiitdwd.ac.in/academics/programmes/)",
       },
       {
         point:
-          "(ii) Arrangements for consultation with or representation by\n\na) Members of the public in policy formulation/ policy implementation\n\nb) Day & time allotted for visitors\n\nc) Contact details of Information & Facilitation Counter (IFC) to provide publications frequently sought by RTI applicants",
+          "(ii) Arrangements for consultation with or representation by –\n(a) Members of the public in policy formulation/ policy implementation,\n(b) Day & time allotted for visitors,\n(c) Contact details of Information & Facilitation Counter (IFC) to provide publications frequently sought by RTI applicants",
         remark:
-          "Public Information officer: Mr.Ravi B Vitlapur, Assistant Registrar\nPhone no; 0836-2250879\nEmail: registrar@iiitdwd.ac.in",
+          "Periodic interaction with industry and academia to review courses, disciplines and explore industry training and research opportunities. Stakeholders are encouraged to give their feedback and suggestions through emails.",
       },
       {
-        point:
-          "Public- private partnerships (PPP)\n\n(i) Details of Special Purpose Vehicle (SPV), if any\n\n(ii) Detailed project reports (DPRs)\n\n(iii) Concession agreements\n\n(iv) Operation and maintenance manuals\n\n(v) Other documents generated as part of the implementation of the PPP\n\n(vi) Information relating to fees, tolls, or the other kinds of revenues that may be collected under authorisation from the government\n\n(vii) Information relating to outputs and outcomes\n\n(viii) The process of the selection of the private sector party (concessionaire etc.)\n\n(ix) All payment made under the PPP project",
+        point: "Public- private partnerships (PPP)- Details of Special Purpose Vehicle (SPV), if any",
+        remark: "Not Applicable",
+      },
+      {
+        point: "Public- private partnerships (PPP)- Detailed project reports (DPRs)",
+        remark: "Not Applicable",
+      },
+      {
+        point: "Public- private partnerships (PPP)- Concession agreements.",
+        remark: "Not Applicable",
+      },
+      {
+        point: "Public- private partnerships (PPP)- Operation and maintenance manuals",
+        remark: "Not Applicable",
+      },
+      {
+        point: "Public- private partnerships (PPP) – Other documents generated as per the implementation of the PPP",
+        remark: "Not Applicable",
+      },
+      {
+        point: "Public- private partnerships (PPP) – Information relating to fees, tolls, or the other kinds of revenues that may be collected under authorisation from the government",
+        remark: "Not Applicable",
+      },
+      {
+        point: "Public- private partnerships (PPP) -Information relating to outputs and outcomes",
+        remark: "Not Applicable",
+      },
+      {
+        point: "Public- private partnerships (PPP) – The process of the selection of the private sector party (concessionaire etc.)",
+        remark: "Not Applicable",
+      },
+      {
+        point: "Public- private partnerships (PPP) – All payment made under the PPP project",
         remark: "Not Applicable",
       },
     ],
@@ -729,8 +660,18 @@ const publicityAndPublicInterfaceData: TableRow[] = [
     details: [
       {
         point:
-          "Publish all relevant facts while formulating important policies or announcing decisions which affect public to make the process more interactive;\n\n(i) Policy decisions/ legislations taken in the previous one year\n\n(ii) Outline the Public consultation process\n\n(iii) Outline the arrangement for consultation before formulation of policy",
-        remark: "All course details, guidelines etc. are available on public domain. Please visit https://iiitdwd.ac.in/ for details.",
+          "Publish all relevant facts while formulating important policies or announcing decisions which affect public to make the process more interactive – Policy decisions/ legislations taken in the previous one year",
+        remark: "All course details, guidelines etc. are available on public domain. Please visit [https://iiitdwd.ac.in/](https://iiitdwd.ac.in/) for details.",
+      },
+      {
+        point:
+          "Publish all relevant facts while formulating important policies or announcing decisions which affect public to make the process more interactive – Outline the Public consultation process",
+        remark: "Not Applicable",
+      },
+      {
+        point:
+          "Publish all relevant facts while formulating important policies or announcing decisions which affect public to make the process more interactive-Outline the arrangement for consultation before formulation of policy",
+        remark: "Not Applicable",
       },
     ],
   },
@@ -740,8 +681,8 @@ const publicityAndPublicInterfaceData: TableRow[] = [
     details: [
       {
         point:
-          "Use of the most effective means of communication\n\n(i) Internet (website)",
-        remark: "The information dissemination primarily happens through the Institute’s website. Please click to visit https://iiitdwd.ac.in/ the Institute’s website.",
+          "Use of the most effective means of communication – Internet (website)",
+        remark: "The information dissemination primarily happens through the Institute’s website. Please click [https://iiitdwd.ac.in](https://iiitdwd.ac.in) to visit the Institute’s website.",
       },
     ],
   },
@@ -751,8 +692,15 @@ const publicityAndPublicInterfaceData: TableRow[] = [
     details: [
       {
         point:
-          "Information manual/handbook available in\n\n(i) Electronic format\n\n(ii) Electronic format",
-        remark: "https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf",
+          "Information manual / handbook available in electronic format",
+        remark: "The Annual Report and The Annual Accounts reports can be accessed from the website [https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf](https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf)",
+        rowSpan: 2,
+      },
+      {
+        point:
+          "Information manual / handbook available in Printed format",
+        remark: "",
+        hideRemark: true,
       },
     ],
   },
@@ -762,8 +710,13 @@ const publicityAndPublicInterfaceData: TableRow[] = [
     details: [
       {
         point:
-          "List of materials available\n\n(i) Free of cost\n\n(ii) At a reasonable cost of the medium",
-        remark: "",
+          "List of materials available Free of cost",
+        remark: "Please click the following links for details.\nRules & Regulations\nB.Tech: [https://iiitdwd.ac.in/academics/programmes/](https://iiitdwd.ac.in/academics/programmes/)\n\nM.Tech:\n[https://iiitdwd.ac.in/admission/m-tech/](https://iiitdwd.ac.in/admission/m-tech/)\n\nPh.D. Programs\n[https://iiitdwd.ac.in/admission/phd/](https://iiitdwd.ac.in/admission/phd/)",
+      },
+      {
+        point:
+          "List of materials available at a reasonable cost of the medium",
+        remark: "Will be updated shortly",
       },
     ],
   },
@@ -774,36 +727,22 @@ const eGovernanceData: TableRow[] = [
     sNo: "4.1",
     item: "Language in which Information Manual/Handbook Available [F.No. 1/6/2011-IR dt. 15.4.2013]",
     details: [
-      { point: "(i) English", remark: "Annual Report of the Institute are available on the Institute website and can be accessed from the following link\nhttps://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf" },
-      { point: "(ii) Vernacular/ Local Language", remark: "https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf" },
+      { point: "(i) English", remark: "Annual Report of the Institute are available on the Institute website and can be accessed from the following link\n[https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf](https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf)" },
+      { point: "(ii) Vernacular/ Local Language", remark: "Will be updated shortly" },
     ],
   },
   {
     sNo: "4.2",
     item: "When was the information Manual/Handbook last updated? [F.No. 1/6/2011-IR dt. 15.4.2013]",
-    details: [{ point: "Last date of Annual updation", remark: "Yet To be done" }],
+    details: [{ point: "Last Date of Annual updating", remark: "2026" }],
   },
   {
     sNo: "4.3",
     item: "Information available in electronic form [Section 4(1)(b)(xiv)]",
     details: [
       {
-        point: "(i) Details of information available in electronic form",
-        remark: {
-          links: [{ text: "www.iiitdwd.ac.in", url: "https://iiitdwd.ac.in" }],
-        },
-      },
-      {
-        point: "(ii) Name/ title of the document/record/ other information",
-        remark: {
-          links: [{ text: "https://iiitdwd.ac.in/contact/", url: "https://iiitdwd.ac.in/contact/" }],
-        },
-      },
-      {
-        point: "(iii) Location where available",
-        remark: {
-          links: [{ text: "https://iiitdwd.ac.in/contact/", url: "https://iiitdwd.ac.in/contact/" }],
-        },
+        point: "Details of information available in electronic form",
+        remark: "Please click the following links for details.\nInfrastructure & Development\nCampus Map: [Campus Map](https://assets.iiitdwd.ac.in/images/IIITDWDMAP.png)\nClassroom and Teaching Laboratories:\n[https://iiitdwd.ac.in/take-a-tour/](https://iiitdwd.ac.in/take-a-tour/)\nHostels:\n[https://iiitdwd.ac.in/amenities/](https://iiitdwd.ac.in/amenities/)\n\nResearch and Development facilities:\n[https://iiitdwd.ac.in/academics/research/](https://iiitdwd.ac.in/academics/research/)\n\nOther Details– are available\nInstitute website\n[https://iiitdwd.ac.in/](https://iiitdwd.ac.in/)",
       },
     ],
   },
@@ -812,22 +751,22 @@ const eGovernanceData: TableRow[] = [
     item: "Particulars of facilities available to citizen for obtaining information [Section 4(1)(b)(xv)]",
     details: [
       {
-        point: "(i) Name & location of the faculty",
-        remark: {
-          links: [{ text: "www.iiitdwd.ac.in", url: "https://iiitdwd.ac.in" }],
-        },
+        point: "(i) Name & location of the facilities",
+        remark: "Infrastructure & Development\nCampus Map: [Campus Map](https://assets.iiitdwd.ac.in/images/IIITDWDMAP.png)\nClassroom and Teaching Laboratories:\n[https://iiitdwd.ac.in/take-a-tour/](https://iiitdwd.ac.in/take-a-tour/)\nHostels:\n[https://iiitdwd.ac.in/amenities/](https://iiitdwd.ac.in/amenities/)\n\nResearch and Development facilities:\n[https://iiitdwd.ac.in/academics/research/](https://iiitdwd.ac.in/academics/research/)\n\nOther Details– are available\nInstitute website\n[https://iiitdwd.ac.in/](https://iiitdwd.ac.in/)",
+        rowSpan: 2,
       },
       {
         point: "(ii) Details of information made available",
         remark: "",
+        hideRemark: true,
       },
       {
         point: "(iii) Working hours of the facility",
-        remark: "9.30 AM- 1.00 PM",
+        remark: "The facility is available during the working hours of the Institute i.e. from 9 am to 5.30 pm",
       },
       {
         point: "(iv)  Contact person & contact details (Phone, fax email)",
-        remark: "Mr. Ravi Vitlapur, \nAssistant Registrar",
+        remark: "Office of Registrar,\n8362250879",
       },
     ],
   },
@@ -835,71 +774,60 @@ const eGovernanceData: TableRow[] = [
     sNo: "4.5",
     item: "Such other information as may be prescribed under section 4(i) (b)(xvii)",
     details: [
-      { point: "(i) Grievance redressal mechanism", remark: "" },
+      { point: "(i) Grievance redressal mechanism", remark: "Grievances can be addressed to the Director, IIIT Dharwad or through [CPGRAMS portal](https://pgportal.gov.in/).\nInternal Complaints Committee for IIIT Dharwad is constituted by the Competent Authority with the given link below:\n[https://assets.iiitdwd.ac.in/docs/ICC_committee.pdf](https://assets.iiitdwd.ac.in/docs/ICC_committee.pdf)" },
       {
         point:
           "(ii) Details of applications received under RTI and information provided",
-        remark: "",
+        remark: "The details of RTI Applications received and information provided for the year 2025-26 is as follows:",
       },
       {
         point: "(iii) List of completed schemes/ projects/ Programmes",
-        remark: {
-          links: [{ text: "https://iiitdwd.ac.in/academics/research/", url: "https://iiitdwd.ac.in/academics/research/" }],
-        },
+        remark: "[https://iiitdwd.ac.in/academics/research/](https://iiitdwd.ac.in/academics/research/)",
       },
       {
         point: "(iv) List of schemes/ projects/ programme underway",
-        remark: {
-          links: [{ text: "https://iiitdwd.ac.in/academics/research/", url: "https://iiitdwd.ac.in/academics/research/" }],
-        },
+        remark: "[https://iiitdwd.ac.in/academics/research/](https://iiitdwd.ac.in/academics/research/)",
       },
       {
         point:
           "(v) Details of all contracts entered into including name of the contractor, amount of contract and period of completion of contract",
-        remark: {
-          links: [{ text: "https://iiitdwd.ac.in/tenders/", url: "https://iiitdwd.ac.in/tenders/" }],
-        },
+        remark: "All the details pertaining to procurements such as tender notices, status of the procurement, etc., are available in the following link: [https://iiitdwd.ac.in/tenders/](https://iiitdwd.ac.in/tenders/)",
       },
       {
         point: "(vi) Annual Report",
-        remark: {
-          links: [
-            {
-              text: "Click here",
-              url: "https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf",
-            },
-          ],
-        },
+        remark: "Annual Reports of the Institute can be accessed from the following link:\n[https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf](https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf)",
       },
-      { point: "(vii) Frequently Asked Question (FAQs)", remark: "" },
+      { point: "(vii) Frequently Asked Question (FAQs)", remark: "[https://iiitdwd.ac.in/faq/](https://iiitdwd.ac.in/faq/)" },
       {
         point:
           "(viii) Any other information such as\n\na) Citizen’s Charter\n\nb) Result Framework Document (RFD)\n\nc) Six monthly reports on the\n\nd) Performance against the benchmarks set in the Citizen’s Charter",
-        remark: "",
-      },
-    ],
-  },
-  {
-    sNo: "4.5",
-    item: "Receipt & Disposal of RTI applications & appeals [F.No. 1/6/2011-IR dt. 15.04.2013]",
-    details: [
-      {
-        point: "(i) Details of applications received and disposed",
-        remark: "",
-      },
-      {
-        point: "(ii) Details of appeals received and orders issued",
-        remark: "Quarterly returns are submitted",
+        remark: "[https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf](https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf)",
       },
     ],
   },
   {
     sNo: "4.6",
+    item: "Receipt & Disposal of RTI applications & appeals [F.No. 1/6/2011-IR dt. 15.04.2013]",
+    details: [
+      {
+        point: "(i) Details of applications received and disposed",
+        remark: "The details of RTI Applications, Appeals received and information provided for the year 2024-25 is as follows:\n\nSHORTLY will be updated",
+        rowSpan: 2,
+      },
+      {
+        point: "(ii) Details of appeals received and orders issued",
+        remark: "",
+        hideRemark: true,
+      },
+    ],
+  },
+  {
+    sNo: "4.7",
     item: "Replies to questions asked in the parliament [Section 4(1)(d)(2)]",
     details: [
       {
         point: "(i) Details of questions asked and replies given",
-        remark: "",
+        remark: "Will be updating shortly",
       },
     ],
   },
@@ -914,27 +842,29 @@ const informationAsMayBePrescribedData: TableRow[] = [
         point:
           "(i) Name & details of\n\n(a) Current CPIOs & FAAs\n\n(b) Earlier CPIO & FAAs from 1.1.2015",
         remark:
-          "(a) CPIO - Mr.Ravi Vitlapur, Assistant Registrar.\n\n(b) FAA - Dr. Muruganantham Ponnusamy, Registrar",
+          "(a) CPIO - Mr. Ravi B Vitlapur, Assistant Registrar & Central Public Information Officer (CPIO)\n\n(b) FAA - Dr. Satish Annigeri, Registrar",
       },
       {
         point:
           "(ii) Details of third party audit of voluntary disclosure\n\n(a) Dates of audit carried out\n\n(b) Report of the audit carried out",
-        remark: "",
+        remark: "a. Date of audit carried out for the year 2024-25 is 2025",
       },
       {
         point:
           "(iii) Appointment of Nodal Officers not below the rank of Joint Secretary/Additional HoD\n\n(a) Date of appointment\n\n(b) Name & Designation of the officers",
-        remark: "",
+        remark: "[https://iiitdwd.ac.in/RTI/PIO/](https://iiitdwd.ac.in/RTI/PIO/)",
       },
       {
         point:
           "(iv) Consultancy committee of key stake holders for advice on suo-motu disclosure\n\n(a) Dates from which constituted\n\n(b) Name & Designation of the officers",
-        remark: "",
+        remark: "Will be updated shortly",
+        rowSpan: 2,
       },
       {
         point:
           "(v) Committee of PIOs/FAAs with rich experience in RTI to identify frequently sought information under RTI\n\n(a) Dates from which constituted\n\n(b) Name & Designation of the Officers",
         remark: "",
+        hideRemark: true,
       },
     ],
   },
@@ -946,21 +876,24 @@ const informationDisclosedOnOwnInitiativeData: TableRow[] = [
     item: "Item / information disclosed so that public have minimum resort to use of RTI Act to obtain information",
     details: [
       {
-        point: "",
-        remark: {
-          links: [{ text: "www.iiitdwd.ac.in", url: "https://iiitdwd.ac.in" }],
-        },
+        point: "Item / information disclosed so that public have minimum resort to use of RTI Act to obtain information",
+        remark: "Infrastructure & Development\nCampus Map: [Campus Map](https://assets.iiitdwd.ac.in/images/IIITDWDMAP.png)\nClassroom and Teaching Laboratories:\n[https://iiitdwd.ac.in/take-a-tour/](https://iiitdwd.ac.in/take-a-tour/)\nHostels:\n[https://iiitdwd.ac.in/amenities/](https://iiitdwd.ac.in/amenities/)\n\nResearch and Development facilities:\n[https://iiitdwd.ac.in/academics/research/](https://iiitdwd.ac.in/academics/research/)\n\nOther Details– are available\nInstitute website\n[https://iiitdwd.ac.in](https://iiitdwd.ac.in)",
       },
     ],
   },
   {
     sNo: "6.2",
-    item: "Guidelines for Indian Government Websites (GIGW) is followed (released in February, 2009 and included in the Central Secretariat Manual of Office Procedures (CSMOP) by Department of Administrative Reforms and Public Grievances, Ministry of Personnel, Public Grievance and Pensions, Govt. Of India)",
+    item: "Guidelines for Indian Government Websites (GIGW) is followed (released in February 2009 and included in the Central Secretariat Manual of Office Procedures (CSMOP) by Department of Administrative Reforms and Public Grievances, Ministry of Personnel, Public Grievances and Pension",
     details: [
       {
-        point:
-          "(i) Whether STQC certification obtained and its validity.\n(ii) Does the website show the certificate on the Website?",
+        point: "(i) Whether STQC certification obtained and its validity.",
+        remark: "Not applied.",
+        rowSpan: 2,
+      },
+      {
+        point: "(ii) Does the website show the certificate on the Website?",
         remark: "",
+        hideRemark: true,
       },
     ],
   },
