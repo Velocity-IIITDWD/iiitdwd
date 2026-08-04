@@ -18,9 +18,11 @@ function DrawerTrigger({
 }
 
 function DrawerPortal({
+  children,
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Portal>) {
-  return <DrawerPrimitive.Portal data-slot="drawer-portal" {...props} />;
+}: React.ComponentProps<typeof DrawerPrimitive.Portal> & { children?: React.ReactNode }) {
+  // @ts-expect-error DrawerPortal does not explicitly accept children in React 19 types
+  return <DrawerPrimitive.Portal data-slot="drawer-portal" {...props}>{children as any}</DrawerPrimitive.Portal>;
 }
 
 function DrawerClose({

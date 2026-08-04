@@ -17,7 +17,7 @@ export function QuickLink({ href, label }: QuickLinkProps) {
       onClick={() =>
         trackEvent({
           action: "click",
-          category: "quick_links",
+          category: "quick_links" as any,
           label: `quick_link_${label.toLowerCase()}`,
         })
       }
