@@ -22,6 +22,8 @@ export interface TableLink {
 export interface TableRowDetail {
   point: string;
   remark: string | TableImage | TableLink; // Updated to include TableLink
+  rowSpan?: number;
+  hideRemark?: boolean;
 }
 
 export interface TableRow {
@@ -37,54 +39,57 @@ interface TableDisplayProps {
 export function TableDisplay({ data }: TableDisplayProps) {
   const renderTextWithBreaks = (text: string) => {
     return text.split("\n").map((line, index) => {
-      // Check for http/https URLs first
-      const urlMatch = line.match(/https?:\/\/[^\s]+/);
-      if (urlMatch) {
-        const url = urlMatch[0];
-        const parts = line.split(url);
-        return (
-          <React.Fragment key={index}>
-            {parts[0]}
+      const regex = /\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)|(https?:\/\/[^\s\)]+)|([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})/g;
+      
+      const elements: React.ReactNode[] = [];
+      let lastIndex = 0;
+      let match;
+
+      while ((match = regex.exec(line)) !== null) {
+        if (match.index > lastIndex) {
+          elements.push(line.substring(lastIndex, match.index));
+        }
+        
+        const mdText = match[1];
+        const mdUrl = match[2];
+        const bareUrl = match[3];
+        const email = match[4];
+
+        if (email) {
+          elements.push(
             <a
+              key={`email-${index}-${match.index}`}
+              href={`mailto:${email}`}
+              className="text-blue-600 hover:underline"
+            >
+              {email}
+            </a>
+          );
+        } else {
+          const url = mdUrl || bareUrl;
+          const linkText = mdText || bareUrl;
+          elements.push(
+            <a
+              key={`link-${index}-${match.index}`}
               href={url}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
             >
-              {url}
+              {linkText}
             </a>
-            {parts[1]}
-            {index < text.split("\n").length - 1 && <br />}
-          </React.Fragment>
-        );
-      }
-
-      // Check if the line contains the domain name
-      if (line.includes("@iiitdwd.ac.in")) {
-        // Use a regular expression to find the full email address
-        const emailMatch = line.match(/\b[A-Za-z0-9._%+-]+@iiitdwd\.ac\.in\b/);
-
-        if (emailMatch) {
-          const email = emailMatch[0];
-          const parts = line.split(email);
-          return (
-            <React.Fragment key={index}>
-              {parts[0]}
-              <a
-                href={`mailto:${email}`}
-                className="text-blue-600 hover:underline"
-              >
-                {email}
-              </a>
-              {parts[1]}
-              {index < text.split("\n").length - 1 && <br />}
-            </React.Fragment>
           );
         }
+        lastIndex = regex.lastIndex;
       }
+
+      if (lastIndex < line.length) {
+        elements.push(line.substring(lastIndex));
+      }
+
       return (
         <React.Fragment key={index}>
-          {line}
+          {elements}
           {index < text.split("\n").length - 1 && <br />}
         </React.Fragment>
       );
@@ -111,13 +116,13 @@ export function TableDisplay({ data }: TableDisplayProps) {
             </th>
             <th
               scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/2"
+              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/2 border-l border-gray-200"
             >
               Details of disclosure
             </th>
             <th
               scope="col"
-              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3"
+              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/3 border-l border-gray-200"
             >
               Remarks/ Reference Points
             </th>
@@ -145,48 +150,58 @@ export function TableDisplay({ data }: TableDisplayProps) {
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 align-top">
                     {detailIndex === 0 ? renderTextWithBreaks(row.sNo) : ""}
                   </td>
-                  <td className="px-6 py-4 whitespace-normal text-sm text-gray-700 align-top">
+                  <td className="px-6 py-4 whitespace-normal text-sm text-gray-700 align-top border-l border-gray-200">
                     {renderTextWithBreaks(detail.point)}
                   </td>
-                  <td className="px-6 py-4 whitespace-normal text-sm text-gray-700 align-top">
-                    {typeof detail.remark === "string" ? (
-                      renderTextWithBreaks(detail.remark)
-                    ) : "imageURL" in detail.remark ? (
-                      <Image
-                        src={detail.remark.imageURL}
-                        alt={detail.remark.altText}
-                        width={200}
-                        height={150}
-                        className="max-w-full h-auto rounded-md shadow-sm"
-                      />
-                    ) : "links" in detail.remark ? (
-                      <div>
-                        {detail.remark.text && (
-                          <div className="mb-2">
-                            {renderTextWithBreaks(detail.remark.text)}
-                          </div>
-                        )}
-                        {detail.remark.links.map((link, linkIndex) => (
-                          <div key={linkIndex}>
-                            {link.url && link.url !== "#" ? (
-                              <a
-                                href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 hover:underline"
-                              >
-                                {renderTextWithBreaks(link.text)}
-                              </a>
-                            ) : (
-                              <span className="text-gray-900 font-semibold block mt-3 mb-1">
-                                {renderTextWithBreaks(link.text)}
-                              </span>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    ) : null}
-                  </td>
+                  {!detail.hideRemark && (
+                    <td 
+                      className={`px-6 py-4 whitespace-normal text-sm text-gray-700 border-l border-gray-200 ${detail.rowSpan ? 'align-middle text-left' : 'align-top'}`}
+                      rowSpan={detail.rowSpan}
+                    >
+                      {typeof detail.remark === "string" ? (
+                        renderTextWithBreaks(detail.remark)
+                      ) : "imageURL" in detail.remark ? (
+                        <Image
+                          src={detail.remark.imageURL}
+                          alt={detail.remark.altText}
+                          width={200}
+                          height={150}
+                          className="max-w-full h-auto rounded-md shadow-sm"
+                        />
+                      ) : "links" in detail.remark ? (
+                        <div>
+                          {detail.remark.text && (
+                            <div className="mb-2">
+                              {renderTextWithBreaks(detail.remark.text)}
+                            </div>
+                          )}
+                          {detail.remark.links.map((link, linkIndex) => (
+                            <div key={linkIndex}>
+                              {link.url && link.url !== "#" ? (
+                                <a
+                                  href={link.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-600 hover:underline"
+                                >
+                                  {link.text.split("\n").map((line, i, arr) => (
+                                    <React.Fragment key={i}>
+                                      {line}
+                                      {i < arr.length - 1 && <br />}
+                                    </React.Fragment>
+                                  ))}
+                                </a>
+                              ) : (
+                                <span className="text-gray-900 font-semibold block mt-3 mb-1">
+                                  {renderTextWithBreaks(link.text)}
+                                </span>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      ) : null}
+                    </td>
+                  )}
                 </tr>
               ))}
             </React.Fragment>
