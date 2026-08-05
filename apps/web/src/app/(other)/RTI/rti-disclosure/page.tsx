@@ -307,7 +307,7 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Name of Boards, Council, Committee etc.",
-        remark: "BoG, Senate and Finance Committee\nBoG - 10th June 2015\nSenate - ",
+        remark: "BoG, Senate and Finance Committee\nBoG - 10th June 2015\nSenate - April 29, 2016",
         rowSpan: 2,
       },
       {
@@ -716,7 +716,7 @@ const publicityAndPublicInterfaceData: TableRow[] = [
       {
         point:
           "List of materials available at a reasonable cost of the medium",
-        remark: "Will be updated shortly",
+        remark: "Not Applicable",
       },
     ],
   },
@@ -727,14 +727,22 @@ const eGovernanceData: TableRow[] = [
     sNo: "4.1",
     item: "Language in which Information Manual/Handbook Available [F.No. 1/6/2011-IR dt. 15.4.2013]",
     details: [
-      { point: "(i) English", remark: "Annual Report of the Institute are available on the Institute website and can be accessed from the following link\n[https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf](https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf)" },
-      { point: "(ii) Vernacular/ Local Language", remark: "Will be updated shortly" },
+      { 
+        point: "(i) English", 
+        remark: "Audit & Annual Reports available both in English & Hindi which are given Below:\n[AUDIT & ANNUAL REPORT 2022-23](https://assets.iiitdwd.ac.in/docs/Annual_Report_2022-23.pdf)\n[AUDIT & ANNUAL REPORT 2023-24](https://assets.iiitdwd.ac.in/docs/Annual_Report_2023-24.pdf)\n[AUDIT & ANNUAL REPORT 2024-25](https://assets.iiitdwd.ac.in/docs/Annual_Report_2024-25.pdf)",
+        rowSpan: 2,
+      },
+      { 
+        point: "(ii) Vernacular/ Local Language", 
+        remark: "",
+        hideRemark: true,
+      },
     ],
   },
   {
     sNo: "4.2",
     item: "When was the information Manual/Handbook last updated? [F.No. 1/6/2011-IR dt. 15.4.2013]",
-    details: [{ point: "Last Date of Annual updating", remark: "2026" }],
+    details: [{ point: "Last Date of Annual updating", remark: "2025-26 will be updating shortly" }],
   },
   {
     sNo: "4.3",
@@ -795,7 +803,7 @@ const eGovernanceData: TableRow[] = [
       },
       {
         point: "(vi) Annual Report",
-        remark: "Annual Reports of the Institute can be accessed from the following link:\n[https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf](https://assets.iiitdwd.ac.in/docs/Annual_Reeport_2024-25_English__1___1_.pdf)",
+        remark: "Audit & Annual Reports available both in English & Hindi which are given Below:\n[AUDIT & ANNUAL REPORT 2022-23](https://assets.iiitdwd.ac.in/docs/Annual_Report_2022-23.pdf)\n[AUDIT & ANNUAL REPORT 2023-24](https://assets.iiitdwd.ac.in/docs/Annual_Report_2023-24.pdf)\n[AUDIT & ANNUAL REPORT 2024-25](https://assets.iiitdwd.ac.in/docs/Annual_Report_2024-25.pdf)",
       },
       { point: "(vii) Frequently Asked Question (FAQs)", remark: "[https://iiitdwd.ac.in/faq/](https://iiitdwd.ac.in/faq/)" },
       {
