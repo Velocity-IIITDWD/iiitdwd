@@ -307,8 +307,7 @@ const bTechCSEProgramData: BTechCSEProgram = {
     {
       semester: 8,
       courses: [
-        { name: "Open Elective-XI/Development Projects/ R&D Projects", credit: 4 },
-        { name: "Open Elective-XII", credit: 4 },
+        { name: "Electives/Major Project", credit: 8 },
       ],
       totalCredits: 8,
     },
