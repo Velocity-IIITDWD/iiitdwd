@@ -18,9 +18,8 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
-import { animate, motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Line } from "react-chartjs-2";
 
 ChartJS.register(
@@ -36,14 +35,14 @@ ChartJS.register(
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
-const YEARS = ["2023", "2024", "2025"] as const;
+const YEARS = ["2023", "2024", "2025", "2026"] as const;
 type Year = (typeof YEARS)[number];
 
 const DATA: Record<
   Year,
   {
     companies: number;
-    offers: number;
+    offers: number | string;
     placement: number;
     highestCTC: number;
     avgCTC: number;
@@ -74,148 +73,74 @@ const DATA: Record<
     avgCTC: 12,
     medianCTC: 9.34,
   },
+  "2026": {
+    companies: 106,
+    offers: "-",
+    placement: 69,
+    highestCTC: 65,
+    avgCTC: 12.365,
+    medianCTC: 10,
+  },
 };
-
-// ─── Hooks ───────────────────────────────────────────────────────────────────
-
-function useAnimatedCounter(target: number, decimals = 0, shouldStart = false) {
-  const [display, setDisplay] = useState("0");
-  useEffect(() => {
-    if (!shouldStart) return;
-    const ctrl = animate(0, target, {
-      duration: 1.6,
-      ease: "easeOut",
-      onUpdate: v => setDisplay(v.toFixed(decimals)),
-    });
-    return ctrl.stop;
-  }, [target, decimals, shouldStart]);
-  return display;
-}
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
 
 function StatCard({
-  icon,
   label,
   value,
-  suffix,
-  decimals,
-  started,
-  accent,
+  suffix = "",
 }: {
-  icon: React.ReactNode;
   label: string;
-  value: number;
+  value: number | string;
   suffix?: string;
-  decimals?: number;
-  started: boolean;
-  accent: string;
-}) {
-  const count = useAnimatedCounter(value, decimals ?? 0, started);
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="relative overflow-hidden rounded-2xl bg-white border border-gray-100 shadow-sm p-5 flex flex-col gap-3"
-    >
-      <div
-        className="w-11 h-11 rounded-xl flex items-center justify-center"
-        style={{ background: accent + "20" }}
-      >
-        <span style={{ color: accent }}>{icon}</span>
-      </div>
-      <p className="text-[11px] font-medium text-gray-400">{label}</p>
-      <p className="text-[26px] font-bold text-[#193654] leading-none tracking-tight">
-        {started ? count : "0"}
-        {suffix}
-      </p>
-      <div
-        className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full opacity-10"
-        style={{ background: accent }}
-      />
-    </motion.div>
-  );
-}
-
-function PlacementBar({
-  pct,
-  started,
-  ongoing,
-}: {
-  pct: number;
-  started: boolean;
-  ongoing: boolean;
 }) {
   return (
-    <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5">
-      <div className="flex items-center justify-between mb-3">
-        <p className="text-[11px] font-medium text-gray-400">Placement Rate</p>
-        <span className="text-[22px] font-bold text-[#193654] tracking-tight">
-          {pct}%
-        </span>
-      </div>
-      <div className="w-full h-3 rounded-full bg-gray-100 overflow-hidden">
-        <motion.div
-          className="h-full rounded-full"
-          style={{
-            background: "linear-gradient(90deg, #193654 0%, #2a6496 100%)",
-          }}
-          initial={{ width: "0%" }}
-          animate={{ width: started ? `${pct}%` : "0%" }}
-          transition={{ duration: 1.4, ease: "easeOut", delay: 0.3 }}
-        />
-      </div>
-      <p className="text-xs text-gray-400 mt-2 font-medium">
-        {ongoing ? "Ongoing season" : "Final"}
+    <div className="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+      <p className="text-sm font-medium text-gray-500 mb-1">{label}</p>
+      <p className="text-2xl font-bold text-gray-900">
+        {value}
+        {value !== "-" && suffix}
       </p>
     </div>
   );
 }
 
-function CTCChart({ year }: { year: Year }) {
-  void year;
+function CTCChart() {
   return (
     <Line
-      key={year}
       data={{
-        labels: ["2022", "2023", "2024", "2025"],
+        labels: ["2022", "2023", "2024", "2025", "2026"],
         datasets: [
           {
             label: "Highest CTC",
-            data: [28, 35, 46, 78.12],
-            borderColor: "#193654",
-            backgroundColor: "rgba(25,54,84,0.10)",
-            tension: 0.4,
+            data: [28, 35, 46, 78.12, 65],
+            borderColor: "#1e3a8a",
+            backgroundColor: "rgba(30, 58, 138, 0.05)",
+            tension: 0.1,
             fill: true,
-            pointBackgroundColor: "#193654",
-            pointRadius: 5,
-            pointHoverRadius: 7,
-            borderWidth: 2.5,
+            pointRadius: 4,
+            borderWidth: 2,
           },
           {
             label: "Average CTC",
-            data: [7.5, 10.31, 9.57, 12],
-            borderColor: "#4A90D9",
-            backgroundColor: "rgba(74,144,217,0.10)",
-            tension: 0.4,
-            fill: true,
-            pointBackgroundColor: "#4A90D9",
-            pointRadius: 5,
-            pointHoverRadius: 7,
-            borderWidth: 2.5,
+            data: [7.5, 10.31, 9.57, 12, 12.365],
+            borderColor: "#2563eb",
+            backgroundColor: "transparent",
+            tension: 0.1,
+            fill: false,
+            pointRadius: 4,
+            borderWidth: 2,
           },
           {
             label: "Median CTC",
-            data: [6.5, 7.85, 8, 9.34],
-            borderColor: "#94a3b8",
-            backgroundColor: "rgba(148,163,184,0.08)",
-            tension: 0.4,
+            data: [6.5, 7.85, 8, 9.34, 10],
+            borderColor: "#64748b",
+            backgroundColor: "transparent",
+            tension: 0.1,
             fill: false,
-            pointBackgroundColor: "#94a3b8",
             pointRadius: 4,
-            pointHoverRadius: 6,
             borderWidth: 2,
+            borderDash: [5, 5],
           },
         ],
       }}
@@ -226,15 +151,12 @@ function CTCChart({ year }: { year: Year }) {
         plugins: {
           legend: {
             position: "top",
-            align: "end",
             labels: {
-              boxWidth: 10,
               usePointStyle: true,
-              font: { size: 11 },
-              padding: 12,
+              boxWidth: 8,
+              font: { size: 12 },
             },
           },
-          title: { display: false },
           tooltip: {
             callbacks: {
               label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y} LPA`,
@@ -243,13 +165,12 @@ function CTCChart({ year }: { year: Year }) {
         },
         scales: {
           y: {
-            beginAtZero: false,
-            grid: { color: "rgba(0,0,0,0.05)" },
-            ticks: { font: { size: 11 }, callback: v => `${v} LPA` },
+            beginAtZero: true,
+            grid: { color: "#f1f5f9" },
+            ticks: { callback: v => `${v} LPA` },
           },
           x: {
             grid: { display: false },
-            ticks: { font: { size: 11 } },
           },
         },
       }}
@@ -260,195 +181,79 @@ function CTCChart({ year }: { year: Year }) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function PlacementCard() {
-  const [activeYear, setActiveYear] = useState<Year>("2025");
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [activeYear, setActiveYear] = useState<Year>("2026");
   const d = DATA[activeYear];
 
   return (
-    <div
-      ref={ref}
-      className="rounded-2xl overflow-hidden border border-gray-200 shadow-[0_8px_32px_rgba(0,0,0,0.08)] bg-[#f8fafc]"
-    >
-      {/* ── Header ── */}
-      <div className="bg-[#193654] px-5 md:px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
+    <div className="w-full max-w-6xl mx-auto my-12 bg-white rounded-xl border border-gray-200 overflow-hidden">
+      {/* Header */}
+      <div className="px-6 py-5 border-b border-gray-200 bg-gray-50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h3 className="text-[20px] font-bold text-white leading-tight flex items-center gap-2">
-            <IconChartLine size={20} className="text-white/70" />
-            Placement Highlights
-          </h3>
-          <p className="text-[13px] text-white/50 mt-1">
-            Data-driven placement story of IIIT Dharwad
+          <h2 className="text-xl font-bold text-gray-900">
+            Placement Statistics
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">
+            Track record of our students' placements over the years.
           </p>
         </div>
         <Link
           href="/placements"
-          className="flex items-center gap-1 text-white/70 hover:text-white text-[13px] font-medium hover:underline underline-offset-2 transition-all self-start sm:self-auto"
+          className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
         >
-          View all placements
+          View detailed report
           <IconArrowUpRight size={16} />
         </Link>
       </div>
 
-      {/* ── Year Tabs ── */}
-      <div className="px-5 md:px-6 pt-5">
-        <div className="inline-flex flex-wrap rounded-xl bg-white border border-gray-200 p-1 gap-1 shadow-sm">
+      {/* Body */}
+      <div className="p-6">
+        {/* Year Tabs */}
+        <div className="flex flex-wrap gap-2 mb-6">
           {YEARS.map(yr => (
             <button
               key={yr}
               onClick={() => setActiveYear(yr)}
-              className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer ${
+              className={`px-4 py-2 rounded-md text-sm font-semibold transition-colors border ${
                 activeYear === yr
-                  ? "bg-[#193654] text-white shadow"
-                  : "text-gray-500 hover:text-[#193654]"
+                  ? "bg-blue-50 border-blue-200 text-blue-700"
+                  : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50"
               }`}
             >
               {yr}
-              {yr === "2025" && (
-                <span
-                  className={`ml-1.5 text-[10px] font-bold px-1.5 py-0.5 rounded-full border ${
-                    activeYear === "2025"
-                      ? "bg-white/90 text-[#193654] border-white/60"
-                      : "bg-[#193654] text-white border-[#193654]"
-                  }`}
-                >
-                  Latest
+              {yr === "2026" && (
+                <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800">
+                  New
                 </span>
               )}
             </button>
           ))}
         </div>
-      </div>
 
-      <div className="p-5 md:p-6 grid grid-cols-1 xl:grid-cols-3 gap-5 md:gap-6">
-        {/* ── LEFT COLUMN ── */}
-        <div className="xl:col-span-2 flex flex-col gap-5">
-          {/* Stat Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-            <StatCard
-              icon={<IconBuildingSkyscraper size={20} />}
-              label="Companies"
-              value={d.companies}
-              suffix={activeYear === "2025" ? "+" : ""}
-              started={inView}
-              accent="#193654"
-            />
-            <StatCard
-              icon={<IconBriefcase size={20} />}
-              label="Offers"
-              value={d.offers}
-              suffix={activeYear === "2025" ? "+" : ""}
-              started={inView}
-              accent="#0EA5E9"
-            />
-            <StatCard
-              icon={<IconTrendingUp size={20} />}
-              label="Highest CTC"
-              value={d.highestCTC}
-              suffix=" LPA"
-              decimals={d.highestCTC % 1 !== 0 ? 2 : 0}
-              started={inView}
-              accent="#10B981"
-            />
-            <StatCard
-              icon={<IconTrendingUp size={20} />}
-              label="Avg CTC"
-              value={d.avgCTC}
-              suffix=" LPA"
-              decimals={2}
-              started={inView}
-              accent="#F59E0B"
-            />
-          </div>
-
-          {/* Placement Rate Bar */}
-          <PlacementBar
-            pct={d.placement}
-            started={inView}
-            ongoing={activeYear === "2025"}
-          />
-
-          {/* CTC Growth Chart */}
-          <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5">
-            <div className="flex items-center gap-2 mb-4">
-              <IconChartLine size={14} className="text-[#193654]/60" />
-              <p className="text-[13px] font-semibold text-[#193654]">
-                CTC Growth Trend
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left: Stats */}
+          <div className="lg:col-span-1 flex flex-col gap-4">
+            <div className="grid grid-cols-2 gap-4">
+              <StatCard label="Companies" value={d.companies} />
+              <StatCard label="Offers" value={d.offers} />
+              <StatCard label="Highest CTC" value={d.highestCTC} suffix=" LPA" />
+              <StatCard label="Average CTC" value={d.avgCTC} suffix=" LPA" />
+              <StatCard label="Median CTC" value={d.medianCTC} suffix=" LPA" />
+              <StatCard label="Placement Rate" value={d.placement} suffix="%" />
+            </div>
+            {activeYear === "2026" && (
+              <p className="text-xs text-gray-500 mt-2 bg-gray-50 p-2 rounded-md border border-gray-100">
+                * Note: Data for 2026 is based on the latest available statistics.
               </p>
-              <span className="text-[11px] text-gray-400 font-medium">
-                in LPA
-              </span>
-            </div>
+            )}
+          </div>
+
+          {/* Right: Chart */}
+          <div className="lg:col-span-2 border border-gray-200 rounded-lg p-5">
+            <h3 className="text-sm font-semibold text-gray-700 mb-4">CTC Growth Trend</h3>
             <div className="h-64">
-              <CTCChart year={activeYear} />
+              <CTCChart />
             </div>
           </div>
-        </div>
-
-        {/* ── RIGHT COLUMN ── */}
-        <div className="flex flex-col gap-5">
-          {/* CTC Breakdown */}
-          <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5">
-            <p className="text-[13px] font-semibold text-[#193654] mb-4">
-              CTC Breakdown
-              <span className="ml-1.5 text-[11px] font-normal text-gray-400">
-                {activeYear}
-              </span>
-            </p>
-            {[
-              {
-                label: "Highest",
-                value: d.highestCTC,
-                color: "#193654",
-                pct: 100,
-              },
-              {
-                label: "Average",
-                value: d.avgCTC,
-                color: "#4A90D9",
-                pct: Math.round((d.avgCTC / d.highestCTC) * 100),
-              },
-              {
-                label: "Median",
-                value: d.medianCTC,
-                color: "#94a3b8",
-                pct: Math.round((d.medianCTC / d.highestCTC) * 100),
-              },
-            ].map(item => (
-              <div key={item.label} className="mb-5 last:mb-0">
-                <div className="flex justify-between text-[12px] mb-1.5">
-                  <span className="text-gray-400 font-medium">
-                    {item.label}
-                  </span>
-                  <span className="font-semibold text-[#193654]">
-                    {item.value} LPA
-                  </span>
-                </div>
-                <div className="h-4 bg-gray-100 rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full rounded-full"
-                    style={{ background: item.color }}
-                    initial={{ width: 0 }}
-                    animate={{ width: inView ? `${item.pct}%` : 0 }}
-                    transition={{
-                      duration: 1.2,
-                      ease: "easeOut",
-                      delay: 0.4,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <Link
-            href="/placements"
-            className="flex items-center justify-center gap-2 py-3 px-5 rounded-2xl bg-white text-[#193654] text-sm font-bold hover:bg-gray-50 transition-colors shadow-sm border border-gray-200"
-          >
-            Explore Full Placement Report
-            <IconArrowUpRight size={16} />
-          </Link>
         </div>
       </div>
     </div>

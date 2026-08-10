@@ -23,12 +23,12 @@ ChartJS.register(
 );
 
 // Define types
-type Year = "2023" | "2024" | "2025";
+type Year = "2023" | "2024" | "2025" | "2026";
 type TabType = Year | "compare";
 
 interface YearData {
   companies: number;
-  offers: number;
+  offers: number | string;
   highestCTC: number;
   averageCTC: number;
   medianCTC: number;
@@ -39,10 +39,11 @@ interface PlacementDataType {
   "2023": YearData;
   "2024": YearData;
   "2025": YearData;
+  "2026": YearData;
 }
 
 export default function PlacementStatistics() {
-  const [activeTab, setActiveTab] = useState<TabType>("2025");
+  const [activeTab, setActiveTab] = useState<TabType>("2026");
 
   const placementData: PlacementDataType = {
     "2023": {
@@ -63,11 +64,19 @@ export default function PlacementStatistics() {
     },
     "2025": {
       companies: 94,
-      offers: 214, // Estimated based on trend
+      offers: 214,
       highestCTC: 78.12,
       averageCTC: 12,
       medianCTC: 9.34,
       placementPercentage: 82,
+    },
+    "2026": {
+      companies: 106,
+      offers: "-",
+      highestCTC: 65,
+      averageCTC: 12.365,
+      medianCTC: 10,
+      placementPercentage: 69,
     },
   };
 
@@ -78,13 +87,23 @@ export default function PlacementStatistics() {
     plugins: {
       legend: {
         position: "top" as const,
+        labels: {
+          boxWidth: 12,
+          usePointStyle: true,
+          font: { size: 12 },
+        },
       },
       title: {
-        display: true,
-        text:
-          activeTab !== "compare"
-            ? `${activeTab} Statistics`
-            : "Year Comparison",
+        display: false,
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: { color: "#f1f5f9" },
+      },
+      x: {
+        grid: { display: false },
       },
     },
   };
@@ -94,17 +113,15 @@ export default function PlacementStatistics() {
       labels: ["Companies", "Offers", "Highest CTC (LPA)"],
       datasets: [
         {
-          label: year,
+          label: `${year} Statistics`,
           data: [
             placementData[year].companies,
-            placementData[year].offers,
+            placementData[year].offers === "-" ? 0 : placementData[year].offers,
             placementData[year].highestCTC,
           ],
-          backgroundColor: [
-            "rgba(59, 130, 246, 0.8)", // blue
-            "rgba(16, 185, 129, 0.8)", // green
-            "rgba(245, 158, 11, 0.8)", // amber
-          ],
+          backgroundColor: "#1e3a8a", // Clean dark blue
+          borderRadius: 4,
+          barThickness: 40,
         },
       ],
     };
@@ -122,7 +139,8 @@ export default function PlacementStatistics() {
           placementData["2023"].highestCTC,
           placementData["2023"].placementPercentage,
         ],
-        backgroundColor: "rgba(136, 132, 216, 0.8)",
+        backgroundColor: "#94a3b8", // Slate 400
+        borderRadius: 4,
       },
       {
         label: "2024",
@@ -132,7 +150,8 @@ export default function PlacementStatistics() {
           placementData["2024"].highestCTC,
           placementData["2024"].placementPercentage,
         ],
-        backgroundColor: "rgba(130, 202, 157, 0.8)",
+        backgroundColor: "#64748b", // Slate 500
+        borderRadius: 4,
       },
       {
         label: "2025",
@@ -142,7 +161,19 @@ export default function PlacementStatistics() {
           placementData["2025"].highestCTC,
           placementData["2025"].placementPercentage,
         ],
-        backgroundColor: "rgba(255, 198, 88, 0.8)",
+        backgroundColor: "#3b82f6", // Blue 500
+        borderRadius: 4,
+      },
+      {
+        label: "2026",
+        data: [
+          placementData["2026"].companies,
+          placementData["2026"].offers === "-" ? 0 : placementData["2026"].offers,
+          placementData["2026"].highestCTC,
+          placementData["2026"].placementPercentage,
+        ],
+        backgroundColor: "#1e3a8a", // Blue 900
+        borderRadius: 4,
       },
     ],
   };
@@ -158,7 +189,8 @@ export default function PlacementStatistics() {
           placementData["2023"].medianCTC,
           placementData["2023"].highestCTC,
         ],
-        backgroundColor: "rgba(136, 132, 216, 0.8)",
+        backgroundColor: "#94a3b8",
+        borderRadius: 4,
       },
       {
         label: "2024",
@@ -167,7 +199,8 @@ export default function PlacementStatistics() {
           placementData["2024"].medianCTC,
           placementData["2024"].highestCTC,
         ],
-        backgroundColor: "rgba(130, 202, 157, 0.8)",
+        backgroundColor: "#64748b",
+        borderRadius: 4,
       },
       {
         label: "2025",
@@ -176,33 +209,38 @@ export default function PlacementStatistics() {
           placementData["2025"].medianCTC,
           placementData["2025"].highestCTC,
         ],
-        backgroundColor: "rgba(255, 198, 88, 0.8)",
+        backgroundColor: "#3b82f6",
+        borderRadius: 4,
+      },
+      {
+        label: "2026",
+        data: [
+          placementData["2026"].averageCTC,
+          placementData["2026"].medianCTC,
+          placementData["2026"].highestCTC,
+        ],
+        backgroundColor: "#1e3a8a",
+        borderRadius: 4,
       },
     ],
   };
 
-  // Get the right chart data based on active tab
-  const getYearChartData = () => {
-    if (activeTab === "compare") {
-      return comparisonChartData;
-    }
-    return createYearChartData(activeTab as Year);
-  };
-
   return (
-    <div
-      id="placement-statistics"
-      className="w-full bg-gray-50 rounded-xl shadow-md p-6"
-    >
+    <div id="placement-statistics" className="w-full mt-12 mb-20">
+      <div className="flex flex-col mb-8">
+        <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Placement Statistics</h2>
+        <p className="text-gray-500 mt-2">Comprehensive data on campus recruitment and student placements.</p>
+      </div>
+
       {/* Tabs */}
-      <div className="flex border-b mb-6 overflow-x-auto">
+      <div className="flex flex-wrap gap-2 mb-8">
         {(Object.keys(placementData) as Year[]).map(year => (
           <button
             key={year}
-            className={`px-6 py-3 font-medium text-body focus:outline-none ${
+            className={`px-5 py-2.5 text-sm font-semibold rounded-md border transition-colors ${
               activeTab === year
-                ? "border-b-2 border-blue-600 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
+                ? "bg-blue-50 border-blue-200 text-blue-700"
+                : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-900"
             }`}
             onClick={() => setActiveTab(year)}
           >
@@ -210,161 +248,135 @@ export default function PlacementStatistics() {
           </button>
         ))}
         <button
-          className={`px-6 py-3 font-medium text-body focus:outline-none ${
+          className={`px-5 py-2.5 text-sm font-semibold rounded-md border transition-colors ${
             activeTab === "compare"
-              ? "border-b-2 border-blue-600 text-blue-600"
-              : "text-gray-500 hover:text-gray-700"
+              ? "bg-blue-50 border-blue-200 text-blue-700"
+              : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50 hover:text-gray-900"
           }`}
           onClick={() => setActiveTab("compare")}
         >
-          Year Comparison
+          Compare All Years
         </button>
       </div>
 
       {/* Tab Content */}
       {activeTab !== "compare" ? (
         <div className="space-y-8">
-          {/* Key Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg shadow p-6 flex items-center space-x-4">
-              <div className="bg-main/10 border p-3 rounded-full">
-                <Building className="h-6 w-6 text-main" />
+          {/* Key Metrics Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <p className="text-sm font-medium text-gray-500">Companies Visited</p>
+                <Building className="h-5 w-5 text-gray-400" />
               </div>
-              <div>
-                <p className="text-body text-gray-500">Companies Visited</p>
-                <p className="text-title-1 font-bold">
-                  {placementData[activeTab as Year].companies}
-                </p>
-              </div>
+              <p className="text-3xl font-bold text-gray-900">
+                {placementData[activeTab as Year].companies}
+              </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6 flex items-center space-x-4">
-              <div className="bg-main/10 border p-3 rounded-full">
-                <Briefcase className="h-6 w-6 text-main" />
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <p className="text-sm font-medium text-gray-500">Total Offers</p>
+                <Briefcase className="h-5 w-5 text-gray-400" />
               </div>
-              <div>
-                <p className="text-body text-gray-500">Total Offers</p>
-                <p className="text-title-1 font-bold">
-                  {placementData[activeTab as Year].offers}
-                </p>
-              </div>
+              <p className="text-3xl font-bold text-gray-900">
+                {placementData[activeTab as Year].offers}
+              </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6 flex items-center space-x-4">
-              <div className="bg-main/10 border p-3 rounded-full">
-                <IconCurrencyRupee className="h-6 w-6 text-main" />
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <p className="text-sm font-medium text-gray-500">Highest CTC</p>
+                <IconCurrencyRupee className="h-5 w-5 text-gray-400" />
               </div>
-              <div>
-                <p className="text-body text-gray-500">Highest CTC</p>
-                <p className="text-title-1 font-bold">
-                  {placementData[activeTab as Year].highestCTC} LPA
-                </p>
-              </div>
+              <p className="text-3xl font-bold text-gray-900">
+                {placementData[activeTab as Year].highestCTC} <span className="text-lg font-medium text-gray-500">LPA</span>
+              </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6 flex items-center space-x-4">
-              <div className="bg-main/10 border p-3 rounded-full">
-                <Users className="h-6 w-6 text-main" />
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <p className="text-sm font-medium text-gray-500">Placement %</p>
+                <Users className="h-5 w-5 text-gray-400" />
               </div>
-              <div>
-                <p className="text-body text-gray-500">Placement %</p>
-                <p className="text-title-1 font-bold">
-                  {placementData[activeTab as Year].placementPercentage}%
-                </p>
-                {activeTab === "2025" && (
-                  <p className="text-callout text-gray-500">ongoing</p>
-                )}
-              </div>
+              <p className="text-3xl font-bold text-gray-900">
+                {placementData[activeTab as Year].placementPercentage}%
+              </p>
             </div>
           </div>
 
-          {/* Detailed Stats */}
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-title-3 font-medium mb-4">
-              Compensation Details
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-50 rounded-lg p-4 text-center">
-                <p className="text-body text-gray-500">Average CTC</p>
-                <p className="text-title-2 font-bold">
-                  {placementData[activeTab as Year].averageCTC} LPA
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Compensation Details */}
+            <div className="lg:col-span-1 bg-white rounded-xl border border-gray-200 p-6 shadow-sm flex flex-col justify-between">
+              <div>
+                <h3 className="text-base font-semibold text-gray-900 mb-6">Compensation Details</h3>
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-sm font-medium text-gray-500 mb-1">Average CTC</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {placementData[activeTab as Year].averageCTC} <span className="text-base font-medium text-gray-500">LPA</span>
+                    </p>
+                  </div>
+                  <div className="h-px bg-gray-100 w-full" />
+                  <div>
+                    <p className="text-sm font-medium text-gray-500 mb-1">Median CTC</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {placementData[activeTab as Year].medianCTC} <span className="text-base font-medium text-gray-500">LPA</span>
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-gray-50 rounded-lg p-4 text-center">
-                <p className="text-body text-gray-500">Median CTC</p>
-                <p className="text-title-2 font-bold">
-                  {placementData[activeTab as Year].medianCTC} LPA
-                </p>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-4 text-center">
-                <p className="text-body text-gray-500">Highest CTC</p>
-                <p className="text-title-2 font-bold">
-                  {placementData[activeTab as Year].highestCTC} LPA
-                </p>
-              </div>
+              
+              {activeTab === "2026" && (
+                <div className="mt-8 bg-blue-50 border border-blue-100 rounded-lg p-4">
+                  <p className="text-xs font-medium text-blue-800">
+                    * Statistics for 2026 are based on the latest available data.
+                  </p>
+                </div>
+              )}
             </div>
-          </div>
 
-          {/* Chart */}
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-title-3 font-medium mb-4">
-              {activeTab} Statistics
-            </h3>
-            <div className="h-64">
-              <Bar
-                options={chartOptions}
-                data={createYearChartData(activeTab as Year)}
-              />
+            {/* Chart */}
+            <div className="lg:col-span-2 bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <h3 className="text-base font-semibold text-gray-900 mb-6">
+                Overview ({activeTab})
+              </h3>
+              <div className="h-[300px] w-full">
+                <Bar
+                  options={chartOptions}
+                  data={createYearChartData(activeTab as Year)}
+                />
+              </div>
             </div>
           </div>
         </div>
       ) : (
-        <div className="space-y-8">
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-title-3 font-medium mb-4">
-              Year-by-Year Comparison
+        <div className="space-y-6">
+          <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+            <h3 className="text-base font-semibold text-gray-900 mb-6">
+              Placement Metrics Comparison
             </h3>
-            <div className="h-80">
+            <div className="h-[400px] w-full">
               <Bar
                 options={{
                   ...chartOptions,
-                  plugins: {
-                    ...chartOptions.plugins,
-                    title: {
-                      display: true,
-                      text: "Placement Metrics Comparison",
-                    },
-                  },
                 }}
                 data={comparisonChartData}
               />
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-title-3 font-medium mb-4">CTC Comparison</h3>
-            <div className="h-64">
+          <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+            <h3 className="text-base font-semibold text-gray-900 mb-6">CTC Comparison (LPA)</h3>
+            <div className="h-[300px] w-full">
               <Bar
                 options={{
                   ...chartOptions,
-                  plugins: {
-                    ...chartOptions.plugins,
-                    title: {
-                      display: true,
-                      text: "Compensation Package Comparison (LPA)",
-                    },
-                  },
                 }}
                 data={ctcChartData}
               />
             </div>
           </div>
-        </div>
-      )}
-
-      {activeTab === "2025" && (
-        <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-4 text-body text-amber-800">
-          Note: Statistics for 2025 are ongoing, and final figures may change.
         </div>
       )}
     </div>
