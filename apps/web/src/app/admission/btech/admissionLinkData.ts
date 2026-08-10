@@ -13,8 +13,8 @@ export const josaaLinks: LinkItem[] = [
     href: "https://drive.google.com/file/d/1TZNjK_GEjStjE2HAEQ58fUguoJR6E94z/view?usp=sharing",
   },
   {
-    title: "Physical reporting from 20th Aug 2025 to 23rd Aug 2025",
-    href: "/docs/B.Tech._Admission_Guidelines_for_2025-26_Students.pdf",
+    title: "Physical Reporting Guidelines AY 2026-2027",
+    href: "https://docs.google.com/document/d/16hbdM9KODkZmujKA5DYDLBtQfRJbINi38D-Qxp6ivTU/edit?usp=sharing",
   },
   {
     title:
