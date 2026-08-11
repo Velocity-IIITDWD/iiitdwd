@@ -25,10 +25,10 @@ export default [
   },
   {
     id: "4",
-    name: "Dr. Deepak K T",
+    name: "Dr. K. T. Deepak",
     title: "Assistant Professor",
     position: "Associate Dean",
-    department: "Research and Development [R&D]",
+    department: "Innovation, Entrepreneurship & IDRP",
     email: "deepak@iiitdwd.ac.in",
     imageUrl: "https://www.iiitdwd.ac.in//images/Dr.DeepakKT.jpeg",
   },
@@ -66,4 +66,21 @@ export default [
     department: "Infrastructure, Planning and Development",
     imageUrl: "https://www.iiitdwd.ac.in//images/satish_annigeri.png",
   },
+  {
+    id: "9",
+    name: "Dr. Girish G N",
+    title: "Assistant Professor",
+    position: "Associate Dean",
+    department: "Research and Development [R&D]",
+    imageUrl: "/images/Dr.GirishGN.jpeg",
+  },
+  {
+    id: "10",
+    name: "Dr. Manjunath K V",
+    title: "Assistant Professor",
+    position: "Associate Dean",
+    department: "Career Guidance Cell [CGC]",
+    email: "manjunathkv@iiitdwd.ac.in",
+    imageUrl: "/images/Dr.ManjunathKV.jpg",
+  }
 ];
