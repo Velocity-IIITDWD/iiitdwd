@@ -8,13 +8,6 @@ export default [
     imageUrl: "https://www.iiitdwd.ac.in//images/Dr._K._Gopinath.jpg",
   },
   {
-    id: "2",
-    name: "Prof. Vasudev Parvati",
-    position: "Professor In-Charge",
-    department: "(PRO, CGC & AA)",
-    imageUrl: "https://www.iiitdwd.ac.in//images/Vasudev_Parvati.jpeg",
-  },
-  {
     id: "3",
     name: "Dr. Rajendra Hegadi",
     title: "Associate Professor",
