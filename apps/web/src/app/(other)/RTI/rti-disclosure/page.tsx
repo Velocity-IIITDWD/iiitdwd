@@ -293,11 +293,11 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Categories of documents",
-        remark: "The following are the documents held under its control.\n[IIIT Statutes](https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf)\nCertificate of GST RegistrationDSIR / Customs Duty Exemption Certificate\nPAN: AAAAI9526L\nGST: 29AAAAI9526L1Z6\nImporter-Exporter Certificate\nRecord of Degrees Awarded\nMoU\nPersonal files\nService Books\nPurchase files\nWorks files",
+        remark: "The following are the documents held under its control.\n[IIIT Statutes](https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf)\n[https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf](https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf) (IIITDharwad ACt)\nCertificate of GST RegistrationDSIR / Customs Duty Exemption Certificate\nPAN: AAAAI9526L\nGST: 29AAAAI9526L1Z6\nImporter-Exporter Certificate\nRecord of Degrees Awarded\nMoU\nPersonal files\nService Books\nPurchase files\nWorks files",
       },
       {
         point: "(ii) Custodian of documents/categories",
-        remark: "As per Section 19 of the IIIT Dharwad, Registrar is the custodian of records, the common seal, the funds of the Institute and such other property of the Institute as the Board shall commit to his charge.",
+        remark: "IIIT Dharwad, Registrar is the custodian of records, the common seal, the funds of the Institute and such other property of the Institute as the Board shall commit to his charge.",
       },
     ],
   },
@@ -307,7 +307,7 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Name of Boards, Council, Committee etc.",
-        remark: "BoG, Senate and Finance Committee\nBoG - 10th June 2015\nSenate - April 29, 2016",
+        remark: "BoG, Senate and Finance Committee\nBoG - [https://iiitdwd.ac.in/governing-bodies/board/](https://iiitdwd.ac.in/governing-bodies/board/)\nSenate - April 29, 2016",
         rowSpan: 2,
       },
       {
@@ -398,13 +398,13 @@ const organizationAndFunctionData: TableRow[] = [
       {
         point:
           "(i) Name and designation of the public information officer (PIO), Assistant Public Information (s) & Appellate Authority",
-        remark: "1. Dr. S R Mahadeva Prasanna,\n    Director\n2. Mr. Ravi B Vitlapur,\nAssistant Registrar",
+        remark: "Mr. Ravi B Vitlapur\nCentral Public Information Officer (CPIO)\nSenior Assistant Registrar\nassistantregistrar@iiitdwd.ac.in",
       },
       {
         point:
           "(ii) Address, telephone numbers and email ID of each designated official",
         remark:
-          "1. Dr. S R Mahadeva Prasanna,\n    Director\n    director@iiitdwd.ac.in\n2. Mr. Ravi B Vitlapur,\nAssistant Registrar\n    assistantregistrar@iiitdwd.ac.in",
+          "Mr. Ravi B Vitlapur\nCentral Public Information Officer (CPIO)\nSenior Assistant Registrar\n[assistantregistrar@iiitdwd.ac.in](mailto:assistantregistrar@iiitdwd.ac.in)\n8362250879\n9449732959",
       },
     ],
   },
@@ -465,7 +465,7 @@ const organizationAndFunctionData: TableRow[] = [
   {
     sNo: "1.13",
     item: "Transfer policy and transfer orders [F No. 1/6/2011- IR dt. 15.4.2013]",
-    details: [{ point: "Not Applicable", remark: "Transfer within the departments/sections/centres of the Institute are done on rotational basis on need-based requirements." }],
+    details: [{ point: "Transfer within the departments/sections/centres of the Institute are done on rotational basis on need-based requirements.", remark: "Not Applicable" }],
   },
 ];
 
@@ -477,11 +477,12 @@ const budgetAndProgrammeData: TableRow[] = [
       {
         point: "(i) Total Budget for the public authority",
         remark: "Please [click here](https://assets.iiitdwd.ac.in/docs/Budget_2026-27.pdf) for details",
+        rowSpan: 5,
       },
       {
         point: "(ii) Budget for each agency and plan & programmes",
-        remark: "NIL",
-        rowSpan: 4,
+        remark: "",
+        hideRemark: true,
       },
       { point: "(iii) Proposed expenditures", remark: "", hideRemark: true },
       {
@@ -742,7 +743,7 @@ const eGovernanceData: TableRow[] = [
   {
     sNo: "4.2",
     item: "When was the information Manual/Handbook last updated? [F.No. 1/6/2011-IR dt. 15.4.2013]",
-    details: [{ point: "Last Date of Annual updating", remark: "2025-26 will be updating shortly" }],
+    details: [{ point: "Last Date of Annual updating", remark: "2025-26" }],
   },
   {
     sNo: "4.3",
