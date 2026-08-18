@@ -293,7 +293,7 @@ const organizationAndFunctionData: TableRow[] = [
     details: [
       {
         point: "(i) Categories of documents",
-        remark: "The following are the documents held under its control.\n[IIIT Statutes](https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf)\n[https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf](https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf) (IIITDharwad ACt)\nCertificate of GST RegistrationDSIR / Customs Duty Exemption Certificate\nPAN: AAAAI9526L\nGST: 29AAAAI9526L1Z6\nImporter-Exporter Certificate\nRecord of Degrees Awarded\nMoU\nPersonal files\nService Books\nPurchase files\nWorks files",
+        remark: "The following are the documents held under its control.\n[IIIT Statutes](https://assets.iiitdwd.ac.in/docs/IIIT_Dharwad_statutes.pdf)\n[https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf](https://assets.iiitdwd.ac.in/docs/iiit_ppp_2017.pdf) (IIITDharwad Act)\nCertificate of GST RegistrationDSIR / Customs Duty Exemption Certificate\nPAN: AAAAI9526L\nGST: 29AAAAI9526L1Z6\nImporter-Exporter Certificate\nRecord of Degrees Awarded\nMoU\nPersonal files\nService Books\nPurchase files\nWorks files",
       },
       {
         point: "(ii) Custodian of documents/categories",
@@ -820,7 +820,7 @@ const eGovernanceData: TableRow[] = [
     details: [
       {
         point: "(i) Details of applications received and disposed",
-        remark: "The details of RTI Applications, Appeals received and information provided for the year 2024-25 is as follows:\n\nSHORTLY will be updated",
+        remark: "The details of RTI Applications, Appeals received and information provided for the year 2024-25 is as follows:\n\n[Audit Report for the year 2024-25](https://assets.iiitdwd.ac.in/docs/Indian_Institute_of_Information_Technology_IIIT_Dharwad__8_.pdf)",
         rowSpan: 2,
       },
       {
