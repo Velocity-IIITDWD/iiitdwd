@@ -820,7 +820,7 @@ const eGovernanceData: TableRow[] = [
     details: [
       {
         point: "(i) Details of applications received and disposed",
-        remark: "The details of RTI Applications, Appeals received and information provided for the year 2024-25 is as follows:\n\n[Audit Report for the year 2024-25](https://assets.iiitdwd.ac.in/docs/Indian_Institute_of_Information_Technology_IIIT_Dharwad__8_.pdf)",
+        remark: "The details of RTI Applications, Appeals received and information provided for the year 2024-25 is as follows:\n\nSHORTLY will be updated",
         rowSpan: 2,
       },
       {
@@ -856,7 +856,7 @@ const informationAsMayBePrescribedData: TableRow[] = [
       {
         point:
           "(ii) Details of third party audit of voluntary disclosure\n\n(a) Dates of audit carried out\n\n(b) Report of the audit carried out",
-        remark: "a. Date of audit carried out for the year 2024-25 is 2025",
+        remark: "a. Date of audit carried out for the year 2024-25 is 2025\n\nb. [Audit Report for the year 2024-25](https://assets.iiitdwd.ac.in/docs/Indian_Institute_of_Information_Technology_IIIT_Dharwad__8_.pdf)",
       },
       {
         point:
