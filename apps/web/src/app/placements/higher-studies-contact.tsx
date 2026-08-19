@@ -51,56 +51,6 @@ const HigherStudiesContact = () => {
         </p>
 
         <div className="flex flex-col items-center gap-6">
-          <Card className="shadow-md hover:shadow-lg transition-shadow md:w-[600px] lg:w-[700px]">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-main ">
-                CGC, Member Secretary (Placement Lead)
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center gap-4">
-                <Avatar className="h-16 w-16 border-2 border-main ">
-                  <AvatarFallback className="bg-main/10 text-main ">
-                    UD
-                  </AvatarFallback>
-                </Avatar>
-                <div className="text-title-3">
-                  <h3 className="font-semibold text-main text-title-2">
-                    Mr. Ujwal Doddamani
-                  </h3>
-                  <div className="flex items-center mt-2 text-main">
-                    <Mail className="h-4 w-4 mr-2" />
-                    <Link
-                      href="mailto:cgcoffice@iiitdwd.ac.in"
-                      className="text-body"
-                    >
-                      cgcoffice@iiitdwd.ac.in
-                    </Link>
-                  </div>
-                  <div className="flex items-center mt-1 text-main">
-                    <Mail className="h-4 w-4 mr-2" />
-                    <Link
-                      href="mailto:ujwal@iiitdwd.ac.in"
-                      className="text-body"
-                    >
-                      ujwal@iiitdwd.ac.in
-                    </Link>
-                  </div>
-                  <div className="flex items-center mt-1 text-main">
-                    <Phone className="h-4 w-4 mr-2" />
-                    <Link href="tel:+919886376600" className="text-body">
-                      +91 9886376600
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-            <CardFooter className="pt-0 text-lg text-gray-600">
-              Feel free to reach out to Mr. Ujwal Doddamani for further
-              assistance.
-            </CardFooter>
-          </Card>
-
           <div className="grid md:grid-cols-2 gap-6 md:w-[600px] lg:w-[700px]">
             <Card className="shadow-md hover:shadow-lg transition-shadow">
               <CardHeader className="pb-2">
@@ -144,26 +94,27 @@ const HigherStudiesContact = () => {
                 <div className="flex items-center gap-4">
                   <Avatar className="h-16 w-16 border-2 border-main ">
                     <AvatarFallback className="bg-main/10 text-main ">
-                      VP
+                      AH
                     </AvatarFallback>
                   </Avatar>
                   <div className="text-title-3">
                     <h3 className="font-semibold text-main text-title-2">
-                      Prof. Vasudev Parvati
+                      Prof. Anbalagan Heroji
                     </h3>
+                    <p className="text-gray-600">Professor</p>
                     <div className="flex items-center mt-2 text-main">
                       <Mail className="h-4 w-4 mr-2" />
                       <Link
-                        href="mailto:cgc@iiitdwd.ac.in"
+                        href="mailto:cgc.pic@iiitdwd.ac.in"
                         className="text-body"
                       >
-                        cgc@iiitdwd.ac.in
+                        cgc.pic@iiitdwd.ac.in
                       </Link>
                     </div>
                     <div className="flex items-center mt-1 text-main">
                       <Phone className="h-4 w-4 mr-2" />
-                      <Link href="tel:+919886376600" className="text-body">
-                        +91 9845253751
+                      <Link href="tel:+919052061222" className="text-body">
+                        +91 90520 61222
                       </Link>
                     </div>
                   </div>
