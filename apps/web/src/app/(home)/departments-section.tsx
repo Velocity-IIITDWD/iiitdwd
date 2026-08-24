@@ -17,9 +17,19 @@ const DEPARTMENTS = [
     highlights: ["Algorithms & DS", "AI / ML", "Systems & Networks"],
   },
   {
+    id: "dsai",
+    abbr: "DSAI",
+    num: "02",
+    name: "Data Science & Artificial Intelligence",
+    description:
+      "An interdisciplinary program combining computer science, mathematics, and domain knowledge for data analytics and AI applications.",
+    href: "/academics/departments",
+    highlights: ["Data Analytics", "Deep Learning", "Statistical Modeling"],
+  },
+  {
     id: "ece",
     abbr: "ECE",
-    num: "02",
+    num: "03",
     name: "Electronics & Communication Engineering",
     description:
       "Circuit design, signal processing, communications, and embedded systems with strong emphasis on hands-on laboratory experience.",
@@ -27,14 +37,14 @@ const DEPARTMENTS = [
     highlights: ["Signal Processing", "Embedded Systems", "VLSI Design"],
   },
   {
-    id: "dsai",
-    abbr: "DSAI",
-    num: "03",
-    name: "Data Science & Artificial Intelligence",
+    id: "aic",
+    abbr: "AIC",
+    num: "04",
+    name: "Artificial Intelligence & Computing",
     description:
-      "An interdisciplinary program combining computer science, mathematics, and domain knowledge for data analytics and AI applications.",
-    href: "/academics/departments",
-    highlights: ["Data Analytics", "Deep Learning", "Statistical Modeling"],
+      "A forward-looking program focused on artificial intelligence, advanced computing technologies, and their practical implementations.",
+    href: "/academics/ai-and-computing",
+    highlights: ["Artificial Intelligence", "Advanced Computing", "Intelligent Systems"],
   },
 ];
 
@@ -157,7 +167,7 @@ export default function DepartmentsSection(): JSX.Element {
 
       {/* Department cards */}
       {inView && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {DEPARTMENTS.map((dept, i) => (
             <DeptCard key={dept.id} dept={dept} index={i} />
           ))}
