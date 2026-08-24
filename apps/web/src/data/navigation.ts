@@ -291,7 +291,7 @@ const navigationData: NavigationItem[] = [
       },
       {
         title: "Academic Calendar for First Year B.tech Students",
-        href: "https://assets.iiitdwd.ac.in/docs/1st_Semester_Academical_Calendar_AY_2026-27.pdf",
+        href: "https://assets.iiitdwd.ac.in/docs/1st_Semester_and_2nd_semester_Academical_Calendar_2026-27.pdf",
       },
       // {
       //   title: 'Achievements',
