@@ -174,6 +174,10 @@ const navigationData: NavigationItem[] = [
         title: "OM for List of holidays",
         href: "/docs/OM_list_of_holiday_2026.pdf",
       },
+      {
+        title: "Reservation Policy",
+        href: "/reservation-policy",
+      },
     ],
   },
   {
