@@ -14,6 +14,8 @@ import {
   IconChevronLeft,
   IconChevronRight,
   IconCircleCheck,
+  IconTrophy,
+  IconExternalLink,
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 
@@ -78,7 +80,134 @@ export default function OrientationBanner() {
         {/* Carousel Viewport */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex items-center">
-            {/* Slide 1: Visit of Ms. Garima Sharma, IRS */}
+            {/* Slide 1: LEAP Hackathon 2nd Place Achievement */}
+            <div className="flex-[0_0_100%] min-w-0">
+              <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+                {/* Left: Poster / Infographic */}
+                <div className="w-full lg:w-1/2 shrink-0">
+                  <a
+                    href="https://assets.iiitdwd.ac.in/images/TieHackathon-IIITdwd.png"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative rounded-2xl overflow-hidden shadow-lg border border-gray-200/90 bg-white group h-[520px] lg:h-[560px] cursor-pointer"
+                    title="Click to view full infographic in new tab"
+                  >
+                    <div className="w-full h-full overflow-hidden relative">
+                      <Image
+                        src="https://assets.iiitdwd.ac.in/images/TieHackathon-IIITdwd.png"
+                        alt="IIIT Dharwad Secures 2nd Place in LEAP Hackathon Hubballi Edition - Wins 3 Lakh Cash Prize"
+                        width={1600}
+                        height={4708}
+                        className="w-full h-auto transition-transform duration-[6000ms] ease-in-out group-hover:-translate-y-[65%]"
+                        priority
+                      />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#193654]/95 via-[#193654]/50 to-transparent p-4 flex items-center justify-between text-white pointer-events-none">
+                        <span className="text-xs font-semibold bg-white/20 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                          Hover to scroll story
+                        </span>
+                        <span className="text-xs font-bold flex items-center gap-1">
+                          View Full Story ↗
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                {/* Right: Content */}
+                <div className="flex-1 w-full text-center lg:text-left">
+                  {/* Category Pill */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#193654]/5 border border-[#193654]/10 text-[#193654] text-xs font-semibold uppercase tracking-wider mb-3">
+                    <span className="w-2 h-2 rounded-full bg-[#CCE70B]" />
+                    <span>Student Achievement · LEAP Hackathon 2026</span>
+                  </div>
+
+                  {/* Title */}
+                  <h2 className="text-3xl lg:text-4xl font-extrabold text-[#193654] leading-tight mb-2 tracking-tight">
+                    IIIT Dharwad Secures 2nd Place in LEAP Hackathon
+                  </h2>
+                  <div className="h-1 w-16 bg-[#CCE70B] rounded-full mb-4 mx-auto lg:mx-0" />
+
+                  {/* Description */}
+                  <p className="text-gray-700 mb-6 text-base lg:text-lg leading-relaxed font-grotesk">
+                    IIIT Dharwad Secures 2nd Place in LEAP Hackathon Hubballi Edition wins 3 Lakh Cash Prize — Hearty Congratulations to the team for their outstanding innovation and problem-solving in Smart Logistics &amp; Urban Commerce.
+                  </p>
+
+                  {/* Event Details Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+                    <div className="flex items-center gap-3 p-3 bg-white/90 rounded-xl border border-gray-200/80 shadow-xs">
+                      <div className="w-10 h-10 rounded-lg bg-[#193654]/5 flex items-center justify-center text-[#193654] shrink-0">
+                        <IconCalendarEvent size={20} />
+                      </div>
+                      <div className="text-left">
+                        <p className="text-[11px] uppercase tracking-wider font-semibold text-gray-400">Date</p>
+                        <p className="text-sm font-bold text-gray-800">7-8 Oct 2026</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-white/90 rounded-xl border border-gray-200/80 shadow-xs">
+                      <div className="w-10 h-10 rounded-lg bg-[#193654]/5 flex items-center justify-center text-[#193654] shrink-0">
+                        <IconTrophy size={20} />
+                      </div>
+                      <div className="text-left">
+                        <p className="text-[11px] uppercase tracking-wider font-semibold text-gray-400">Award</p>
+                        <p className="text-sm font-bold text-gray-800">₹3 Lakh Prize</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 bg-white/90 rounded-xl border border-gray-200/80 shadow-xs">
+                      <div className="w-10 h-10 rounded-lg bg-[#193654]/5 flex items-center justify-center text-[#193654] shrink-0">
+                        <IconMapPin size={20} />
+                      </div>
+                      <div className="text-left">
+                        <p className="text-[11px] uppercase tracking-wider font-semibold text-gray-400">Venue</p>
+                        <p className="text-sm font-bold text-gray-800">IIIT Dharwad</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Key Highlights Card */}
+                  <div className="rounded-xl bg-white/80 border border-gray-200/80 p-4 shadow-xs text-left mb-5">
+                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2.5">
+                      Event Highlights
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-gray-700">
+                      <div className="flex items-center gap-2">
+                        <IconCircleCheck size={16} className="text-[#193654] shrink-0" />
+                        <span>Won ₹3,00,000 Cash Prize</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <IconCircleCheck size={16} className="text-[#193654] shrink-0" />
+                        <span>2nd Place among 25 competing teams</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <IconCircleCheck size={16} className="text-[#193654] shrink-0" />
+                        <span>Theme: Smart Logistics & Urban Commerce</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <IconCircleCheck size={16} className="text-[#193654] shrink-0" />
+                        <span>Organised by TiE Bangalore & K-tech</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Action Link */}
+                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                    <Link
+                      href="https://assets.iiitdwd.ac.in/images/TieHackathon-IIITdwd.png"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <button className="flex items-center justify-center gap-2 px-6 py-2.5 bg-[#193654] hover:bg-[#12273d] text-white font-medium text-sm rounded-xl transition-all shadow hover:shadow-md cursor-pointer">
+                        <IconExternalLink size={16} />
+                        <span>View Full Infographic</span>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Slide 2: Visit of Ms. Garima Sharma, IRS */}
             <div className="flex-[0_0_100%] min-w-0">
               <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
                 {/* Left: Poster */}
@@ -90,7 +219,6 @@ export default function OrientationBanner() {
                       width={1222}
                       height={1287}
                       className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.01]"
-                      priority
                     />
                   </div>
                 </div>
@@ -165,7 +293,7 @@ export default function OrientationBanner() {
               </div>
             </div>
 
-            {/* Slide 2: Orientation Program 2026 */}
+            {/* Slide 3: Orientation Program 2026 */}
             <div className="flex-[0_0_100%] min-w-0">
               <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
                 {/* Image/Poster */}
@@ -177,7 +305,6 @@ export default function OrientationBanner() {
                       width={1200}
                       height={675}
                       className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.01]"
-                      priority
                     />
                   </div>
                 </div>
@@ -275,7 +402,7 @@ export default function OrientationBanner() {
           </button>
 
           <div className="flex items-center gap-2">
-            {[0, 1].map((index) => (
+            {[0, 1, 2].map((index) => (
               <button
                 key={index}
                 onClick={() => scrollTo(index)}
