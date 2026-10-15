@@ -31,34 +31,34 @@ const links = [
 
 export default function QuickLinksSection(): JSX.Element {
   return (
-    <div id="quick-links" className="w-full mb-10 px-5 md:px-13">
+    <div id="quick-links" className="w-full mb-10 px-4 sm:px-6 md:px-13">
       <div className="mx-auto max-w-5xl">
         {/* Section label */}
-        <p className="text-center text-xs uppercase tracking-widest text-gray-400 font-semibold mb-5 font-grotesk">
+        <p className="text-center text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4 sm:mb-5 font-grotesk">
           Quick Links
         </p>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {links.map(({ href, label, icon: Icon, accent }) => (
             <Link
               key={href}
               href={href}
-              className="group relative flex flex-col items-center justify-center gap-4 rounded-2xl bg-[#f0f1f3] px-4 py-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-white"
+              className="group relative flex flex-col items-center justify-center gap-2.5 sm:gap-4 rounded-xl sm:rounded-2xl bg-[#f0f1f3] px-3 py-5 sm:px-4 sm:py-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-white"
             >
               {/* Icon container */}
               <span
-                className={`flex items-center justify-center w-16 h-16 rounded-xl transition-colors duration-300 ${
+                className={`flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl transition-colors duration-300 ${
                   accent === "navy"
                     ? "text-[#1a2744] group-hover:text-[#1a2744]"
                     : "text-[#8b1c2e] group-hover:text-[#8b1c2e]"
                 }`}
               >
-                <Icon strokeWidth={1.5} className="w-12 h-12" />
+                <Icon strokeWidth={1.5} className="w-8 h-8 sm:w-12 sm:h-12" />
               </span>
 
               {/* Label */}
-              <span className="font-grotesk font-bold text-[15px] uppercase tracking-wide text-gray-800 group-hover:text-gray-900 transition-colors duration-200">
+              <span className="font-grotesk font-bold text-xs sm:text-sm md:text-[15px] uppercase tracking-wide text-gray-800 group-hover:text-gray-900 transition-colors duration-200 text-center">
                 {label}
               </span>
 

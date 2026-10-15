@@ -43,9 +43,9 @@ const bTechCSEProgramData: BTechCSEProgram = {
   name: "Computer Science and Engineering",
   description:
     "The Department of Computer Science and Engineering offers comprehensive programs that blend theoretical foundations with practical applications. Students learn programming, algorithms, data structures, computer architecture, and specialized areas like artificial intelligence and machine learning.",
-  hod: "Dr. Prabhu Prasad B M",
-  hod_image: "https://www.iiitdwd.ac.in//images/Dr.PrabhuPrasadBM.png",
-  email: "prabhuprasad@iiitdwd.ac.in",
+  hod: "Dr. Pramod Yelmewad",
+  hod_image: "https://assets.iiitdwd.ac.in/images/Dr.PramodYelmewad.jpg",
+  email: "pramodyelmewad@iiitdwd.ac.in",
   courseCategories: [
     {
       name: "Discipline core",
