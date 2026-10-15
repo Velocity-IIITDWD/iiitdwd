@@ -1,6 +1,6 @@
 import { get } from "@/sanity/lib/client";
-import { queryCarousel } from "@/sanity/lib/queries";
-import { MainCarouselImage } from "@/sanity/types";
+import { queryCarousel, queryUpcomingEvents } from "@/sanity/lib/queries";
+import { MainCarouselImage, UpcomingEvent } from "@/sanity/types";
 import {
   IconArrowUpRight,
   IconMapPin,
@@ -30,7 +30,10 @@ export default async function InfoSection(): Promise<JSX.Element> {
     "https://youtu.be/A8n2L3trKrE?si=OPEcGV1LY2epQkMU";
   const convocationMessageEmbed = "https://www.youtube.com/embed/A8n2L3trKrE";
 
-  const carouselData = (await get<MainCarouselImage[]>(queryCarousel)) || [];
+  const [upcomingCmsData, carouselData] = await Promise.all([
+    get<UpcomingEvent[]>(queryUpcomingEvents).catch(() => []),
+    get<MainCarouselImage[]>(queryCarousel).catch(() => []),
+  ]);
 
   const parseEventDate = (dateString?: string): Date | null => {
     if (!dateString) return null;
@@ -42,31 +45,60 @@ export default async function InfoSection(): Promise<JSX.Element> {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const datedEvents = carouselData
-    .map(item => ({
+  // Combine items from both UpcomingEvent and mainCarouselImage sources
+  const allEvents = [
+    ...(upcomingCmsData || []).map(item => ({
+      item: {
+        ...item,
+        caption: item.caption || item.title || "",
+      },
+      eventDate:
+        parseEventDate(item.eventDate) || parseEventDate(item._createdAt),
+    })),
+    ...(carouselData || []).map(item => ({
       item,
       eventDate:
         parseEventDate(item.eventDate) || parseEventDate(item._createdAt),
-    }))
-    .filter(({ eventDate }) => !!eventDate)
-    .sort((a, b) => b.eventDate!.getTime() - a.eventDate!.getTime());
+    })),
+  ].filter(({ item }) => !!item.caption && !!item.url);
 
-  const latestEvents = datedEvents
-    .filter(({ eventDate }) => eventDate! < today)
+  // 1. Upcoming Events: events happening today or in the future (sorted soonest first)
+  const upcomingEventsRaw = allEvents
+    .filter(({ eventDate }) => !eventDate || eventDate >= today)
+    .sort((a, b) => {
+      const timeA = a.eventDate?.getTime() ?? Infinity;
+      const timeB = b.eventDate?.getTime() ?? Infinity;
+      return timeA - timeB;
+    })
     .map(({ item, eventDate }) => ({
       ...item,
-      _createdAt: eventDate!.toISOString(),
-    }))
-    .filter(item => !!item.url && !!item.link && !!item.caption);
+      eventDate: item.eventDate || eventDate?.toISOString(),
+      _createdAt: eventDate?.toISOString(),
+    }));
 
-  const upcomingEvents = datedEvents
-    .filter(({ eventDate }) => eventDate! >= today)
-    .sort((a, b) => a.eventDate!.getTime() - b.eventDate!.getTime())
+  // 2. Latest News & Events: past events (sorted newest first)
+  const latestEventsRaw = allEvents
+    .filter(({ eventDate }) => !!eventDate && eventDate < today)
+    .sort((a, b) => b.eventDate!.getTime() - a.eventDate!.getTime())
     .map(({ item, eventDate }) => ({
       ...item,
+      eventDate: item.eventDate || eventDate!.toISOString(),
       _createdAt: eventDate!.toISOString(),
-    }))
-    .filter(item => !!item.url && !!item.link && !!item.caption);
+    }));
+
+  const dedupe = (events: Array<MainCarouselImage | UpcomingEvent>) => {
+    const seenIds = new Set<string>();
+    return events.filter(ev => {
+      if (ev._id) {
+        if (seenIds.has(ev._id)) return false;
+        seenIds.add(ev._id);
+      }
+      return true;
+    });
+  };
+
+  const upcomingEvents = dedupe(upcomingEventsRaw);
+  const latestEvents = dedupe(latestEventsRaw);
 
   return (
     <div className="w-full py-16 md:py-24 relative bg-white overflow-hidden">

@@ -27,7 +27,12 @@ import { finance } from "./governanceAndAdministration/Finance";
 import { formerBoardOfGovernor } from "./governanceAndAdministration/FormerBoardOfGovernor";
 import { Gallery } from "./governanceAndAdministration/Gallery";
 import { senate } from "./governanceAndAdministration/Senate";
-import { MainCarouselImage, ProgramCards, ProgramsType } from "./home/HomePage";
+import {
+  MainCarouselImage,
+  ProgramCards,
+  ProgramsType,
+  UpcomingEvent,
+} from "./home/HomePage";
 import { announcementType } from "./newsAndUpdates/Announcement";
 import { building_and_works } from "./newsAndUpdates/building_and_works";
 import { Tender } from "./newsAndUpdates/Tenders";
@@ -93,6 +98,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     EventInfo,
     Gallery,
     MainCarouselImage,
+    UpcomingEvent,
     ProgramCards,
     ProgramsType,
     building_and_works,

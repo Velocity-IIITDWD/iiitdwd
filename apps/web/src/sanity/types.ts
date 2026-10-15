@@ -104,7 +104,32 @@ export type MainCarouselImage = {
   _updatedAt: string;
   _rev: string;
   url?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+    };
+  };
   caption?: string;
+  link?: string;
+  eventDate?: string;
+};
+
+export type UpcomingEvent = {
+  _id: string;
+  _type: "upcomingEvent";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  caption?: string;
+  url?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+    };
+  };
   link?: string;
   eventDate?: string;
 };

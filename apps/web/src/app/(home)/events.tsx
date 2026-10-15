@@ -2,6 +2,7 @@
 
 import {
   ArrowRightIcon,
+  CalendarIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "lucide-react";
@@ -9,11 +10,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
-interface EventItem {
+export interface EventItem {
   url?: string;
   caption?: string;
   link?: string;
+  eventDate?: string;
   _createdAt?: string;
+}
+
+function getEventImageUrl(url?: string): string {
+  if (!url) return "/images/default.jpg";
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url;
+  }
+  if (url.startsWith("/")) {
+    return `https://assets.iiitdwd.ac.in${url}`;
+  }
+  return `https://assets.iiitdwd.ac.in/${url}`;
+}
+
+function formatDisplayDate(dateStr?: string): string | null {
+  if (!dateStr) return null;
+  const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 }
 
 export default function EventsSection({
@@ -61,7 +85,7 @@ export default function EventsSection({
         className="flex gap-6 overflow-x-auto scrollbar-hide scroll-smooth pb-2"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        {events?.slice(0, 5).map((item, index) => (
+        {events?.slice(0, 10).map((item, index) => (
           <div
             key={index}
             className="group flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
@@ -72,7 +96,7 @@ export default function EventsSection({
               <div className="relative w-full bg-gradient-to-b from-gray-50 to-gray-100 overflow-hidden">
                 <div className="relative w-full aspect-[16/9]">
                   <Image
-                    src={`https://iiitdwd.ac.in${item?.url!}`}
+                    src={getEventImageUrl(item?.url)}
                     alt={item?.caption || "Event image"}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
@@ -81,6 +105,12 @@ export default function EventsSection({
                     priority={index === 0}
                   />
                 </div>
+                {item?.eventDate && (
+                  <div className="absolute top-2.5 left-2.5 bg-[#193654]/90 backdrop-blur-md text-white text-[11px] font-semibold px-2.5 py-1 rounded-md shadow-sm border border-white/20 flex items-center gap-1.5">
+                    <CalendarIcon size={12} className="text-[#CCE70B]" />
+                    <span>{formatDisplayDate(item.eventDate)}</span>
+                  </div>
+                )}
               </div>
 
               {/* Event details */}
@@ -89,13 +119,21 @@ export default function EventsSection({
                   {item?.caption}
                 </h3>
 
-                <Link
-                  href={item?.link!}
-                  className="inline-flex gap-2 uppercase w-fit text-xs font-semibold text-white hover:bg-[#193654]/90 transition-all duration-300 bg-[#193654] rounded-md px-4 py-2.5 items-center shadow-sm hover:shadow-md mt-auto"
-                >
-                  Read More
-                  <ArrowRightIcon size={14} />
-                </Link>
+                {item?.link ? (
+                  <Link
+                    href={item.link}
+                    target={item.link.startsWith("http") ? "_blank" : undefined}
+                    rel={item.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="inline-flex gap-2 uppercase w-fit text-xs font-semibold text-white hover:bg-[#193654]/90 transition-all duration-300 bg-[#193654] rounded-md px-4 py-2.5 items-center shadow-sm hover:shadow-md mt-auto"
+                  >
+                    Read More
+                    <ArrowRightIcon size={14} />
+                  </Link>
+                ) : (
+                  <span className="text-xs text-gray-400 mt-auto font-medium">
+                    Event Details
+                  </span>
+                )}
               </div>
             </div>
           </div>
