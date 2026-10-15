@@ -1,3 +1,4 @@
+import { CalendarIcon, ImageIcon } from "lucide-react";
 import type { ListItemBuilder, StructureResolver } from "sanity/structure";
 
 const showSchemas: Array<string> = [];
@@ -56,10 +57,17 @@ export const structure: StructureResolver = S =>
             .title("Home")
             .items([
               S.listItem()
-                .title("Main Carousel Image")
+                .title("Upcoming Events")
+                .icon(CalendarIcon)
+                .child(
+                  S.documentTypeList("upcomingEvent").title("Upcoming Events")
+                ),
+              S.listItem()
+                .title("Latest News & Events")
+                .icon(ImageIcon)
                 .child(
                   S.documentTypeList("mainCarouselImage").title(
-                    "Main Carousel Image"
+                    "Latest News & Events"
                   )
                 ),
               S.listItem()
@@ -127,6 +135,12 @@ export const structure: StructureResolver = S =>
           S.list()
             .title("News & Updates Documents")
             .items([
+              S.listItem()
+                .title("Upcoming Events")
+                .icon(CalendarIcon)
+                .child(
+                  S.documentTypeList("upcomingEvent").title("Upcoming Events")
+                ),
               S.listItem()
                 .title("Announcements")
                 .child(
