@@ -43,9 +43,9 @@ const bTechDSAIProgramData: BTechDSAIProgram = {
   name: "Data Science and Artificial Intelligence",
   description:
     "The Department of Data Science and Artificial Intelligence offers a unique interdisciplinary program that combines computer science, mathematics, and domain-specific knowledge. Students gain expertise in data analytics, machine learning, and AI applications.",
-  hod: "Dr. Siddharth R",
-  hod_image: "https://www.iiitdwd.ac.in//images/Dr.SiddharthR.jpg",
-  email: "siddharth_r@iiitdwd.ac.in",
+  hod: "Dr. Utkarsh Khaire",
+  hod_image: "https://assets.iiitdwd.ac.in/images/Dr.UtkarshKhaire.jpg",
+  email: "utkarshkhaire@iiitdwd.ac.in",
   courseCategories: [
     {
       name: "Discipline core",

@@ -19,8 +19,8 @@ export default [
     profiles: [
       {
         content: ["Ex-officio Member"],
-        imageURL: "/images/Dr.PrabhuPrasadBM.png",
-        title: "Dr. Prabhu Prasad B M",
+        imageURL: "/images/Dr.PramodYelmewad.jpg",
+        title: "Dr. Pramod Yelmewad",
       },
       {
         content: ["Ex-officio Member"],
@@ -29,8 +29,8 @@ export default [
       },
       {
         content: ["Ex-officio Member"],
-        imageURL: "/images/Dr.SiddharthR.jpg",
-        title: "Dr.Siddharth R",
+        imageURL: "/images/Dr.UtkarshKhaire.jpg",
+        title: "Dr. Utkarsh Khaire",
       },
       {
         content: ["Ex-officio Member"],
@@ -49,8 +49,8 @@ export default [
       },
       {
         content: ["Member"],
-        imageURL: "/images/pramod_yelmewad.jpg",
-        title: "Dr. Pramod Yelmewad",
+        imageURL: "/images/Dr.PrabhuPrasadBM.png",
+        title: "Dr. Prabhu Prasad B M",
       },
       {
         content: ["Member"],

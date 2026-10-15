@@ -29,7 +29,7 @@ const FooterLink = ({ href, text }: { href: string; text: string }) => (
     onClick={() =>
       trackEvent({
         action: "click",
-        category: "Footer Navigation",
+        category: "navigation",
         label: text,
       })
     }
@@ -55,7 +55,7 @@ const SocialLink = ({
     onClick={() =>
       trackEvent({
         action: "click",
-        category: "Social Media",
+        category: "social",
         label,
       })
     }
@@ -66,7 +66,7 @@ const SocialLink = ({
 
 export default function Footer() {
   return (
-    <footer className="text-body flex flex-col bg-cover bg-center py-8 px-5 lg:px-13 relative">
+    <footer className="text-body flex flex-col bg-cover bg-center py-8 px-4 sm:px-6 lg:px-13 relative">
       <Image
         src={Background}
         width={0}
@@ -147,7 +147,7 @@ export default function Footer() {
               onClick={() =>
                 trackEvent({
                   action: "click",
-                  category: "Navigation",
+                  category: "navigation",
                   label: "Explore Button",
                 })
               }

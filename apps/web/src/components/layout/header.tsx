@@ -12,17 +12,17 @@ import {
 } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import DesktopHeader from "./desktop-header";
 import MobileHeader from "./mobile-header";
 
 const SPRING_CONFIG = { type: "spring" as const, stiffness: 300, damping: 35 };
-const EXPANDED_LOGO_HEIGHT = "clamp(4rem, 6vw, 6rem)";
-const COLLAPSED_LOGO_HEIGHT = "clamp(2.5rem, 3.5vw, 3.5rem)";
+const EXPANDED_LOGO_HEIGHT = "clamp(3rem, 5vw, 6rem)";
+const COLLAPSED_LOGO_HEIGHT = "clamp(2.25rem, 3.5vw, 3.5rem)";
 const PADDING_Y = "0.5rem";
 const SCROLLED_HEADER_MAX_HEIGHT = "clamp(3.5rem, 4.5vw, 4.5rem)";
-const EXPANDED_HEADER_MAX_HEIGHT = "clamp(11rem, 13vw, 13rem)";
+const EXPANDED_HEADER_MAX_HEIGHT = "clamp(8rem, 13vw, 13rem)";
 
 function AnimatedNavbar(): JSX.Element {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,10 +30,36 @@ function AnimatedNavbar(): JSX.Element {
   const { query } = useKBar();
   const { scrollY } = useScroll();
   const previousOverflow = useRef<string | undefined>(undefined);
+  const headerRef = useRef<HTMLElement>(null);
+  const [headerBottom, setHeaderBottom] = useState(0);
+
+  const updateHeaderPosition = useCallback(() => {
+    if (headerRef.current) {
+      const rect = headerRef.current.getBoundingClientRect();
+      setHeaderBottom(rect.bottom);
+    }
+  }, []);
 
   useMotionValueEvent(scrollY, "change", latest => {
     setIsScrolled(latest > 10);
+    updateHeaderPosition();
   });
+
+  useEffect(() => {
+    updateHeaderPosition();
+    window.addEventListener("resize", updateHeaderPosition);
+    window.addEventListener("scroll", updateHeaderPosition, { passive: true });
+    return () => {
+      window.removeEventListener("resize", updateHeaderPosition);
+      window.removeEventListener("scroll", updateHeaderPosition);
+    };
+  }, [updateHeaderPosition, isScrolled]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      updateHeaderPosition();
+    }
+  }, [isMenuOpen, updateHeaderPosition]);
 
   useEffect(() => {
     if (!isMenuOpen || typeof window === "undefined") return;
@@ -80,6 +106,7 @@ function AnimatedNavbar(): JSX.Element {
       <TopBar />
 
       <motion.header
+        ref={headerRef}
         initial={false}
         animate={{
           maxHeight: isScrolled
@@ -96,9 +123,9 @@ function AnimatedNavbar(): JSX.Element {
             paddingBottom: PADDING_Y,
           }}
           transition={SPRING_CONFIG}
-          className="relative flex w-full items-center justify-between gap-2 px-4 md:px-8"
+          className="relative flex w-full items-center justify-between gap-2 px-3 sm:px-4 md:px-8"
         >
-          <div className="flex items-center gap-4 flex-1 min-w-0">
+          <div className="flex items-center gap-2.5 sm:gap-4 flex-1 min-w-0">
             <motion.div
               initial={false}
               animate={{
@@ -250,13 +277,13 @@ function AnimatedNavbar(): JSX.Element {
         {isMenuOpen && (
           <motion.div
             key="mobile-menu"
-            className="fixed left-0 right-0 bottom-0 z-40 overflow-y-auto bg-background px-4 pb-6"
-            initial={{ y: "-100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-white/98 backdrop-blur-md px-3 sm:px-4 pb-8 border-t border-gray-100 shadow-xl"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
             style={{
-              top: isScrolled ? "4rem" : "2.5rem",
+              top: `${headerBottom || (isScrolled ? 56 : 96)}px`,
             }}
           >
             <MobileHeader toggleMenu={() => setIsMenuOpen(false)} />
@@ -269,22 +296,56 @@ function AnimatedNavbar(): JSX.Element {
 
 function TopBar(): JSX.Element {
   return (
-    <div className="z-50 flex w-full justify-between bg-primary px-4 py-2 text-callout text-slate-400 max-md:justify-end md:px-8">
-      <div className="max-md:hidden">
+    <div className="z-50 w-full bg-primary px-3 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs md:text-callout text-slate-300 md:px-8 border-b border-primary/20">
+      <div className="hidden md:flex">
         <a
           href="mailto:info@iiitdwd.ac.in"
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 hover:text-white transition-colors"
           aria-label="Email info@iiitdwd.ac.in"
         >
-          <Mail size={16} />
+          <Mail size={15} />
           <span>info@iiitdwd.ac.in</span>
         </a>
       </div>
-      <div className="flex flex-wrap gap-3">
-        <Link href="https://aims.iiitdwd.ac.in/aims/">AIMS</Link>
-        <Link href="/RTI">RTI</Link>
-        <Link href="/academics/nirf">NIRF</Link>
-        <Link href="https://onlinesbi.sbi.bank.in/sbicollect/icollecthome.htm?corpID=6862046">
+      <div className="flex items-center justify-center sm:justify-end gap-x-2.5 sm:gap-x-3.5 gap-y-1 w-full sm:w-auto overflow-x-auto no-scrollbar py-0.5 whitespace-nowrap text-center">
+        <Link
+          href="https://iiitdwd.samarth.edu.in/index.php/site/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition-colors whitespace-nowrap"
+        >
+          Samarth Portal
+        </Link>
+        <span className="text-slate-600 hidden xs:inline">•</span>
+        <Link
+          href="https://aims.iiitdwd.ac.in/aims/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition-colors whitespace-nowrap"
+        >
+          AIMS
+        </Link>
+        <span className="text-slate-600 hidden xs:inline">•</span>
+        <Link
+          href="/RTI"
+          className="hover:text-white transition-colors whitespace-nowrap"
+        >
+          RTI
+        </Link>
+        <span className="text-slate-600 hidden xs:inline">•</span>
+        <Link
+          href="/academics/nirf"
+          className="hover:text-white transition-colors whitespace-nowrap"
+        >
+          NIRF
+        </Link>
+        <span className="text-slate-600 hidden xs:inline">•</span>
+        <Link
+          href="https://onlinesbi.sbi.bank.in/sbicollect/icollecthome.htm?corpID=6862046"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white transition-colors whitespace-nowrap"
+        >
           Students Fee Portal
         </Link>
       </div>
@@ -295,16 +356,16 @@ function TopBar(): JSX.Element {
 function InstituteName(): JSX.Element {
   return (
     <>
-      <span className="block w-full text-[9px] sm:text-[11px] md:text-[16px] xl:text-[18px] font-normal mb-[1px] md:mb-[2px] leading-tight text-balance">
+      <span className="block w-full text-[9px] sm:text-[11px] md:text-[16px] xl:text-[18px] font-normal leading-tight text-slate-700">
         ಭಾರತೀಯ ಮಾಹಿತಿ ತಂತ್ರಜ್ಞಾನ ಸಂಸ್ಥೆ ಧಾರವಾಡ
       </span>
-      <span className="block w-full text-[9px] sm:text-[11px] md:text-[16px] xl:text-[18px] font-normal leading-tight text-balance">
+      <span className="block w-full text-[9px] sm:text-[11px] md:text-[16px] xl:text-[18px] font-normal leading-tight text-slate-700">
         भारतीय सूचना प्रौद्योगिकी संस्थान धारवाड़
       </span>
-      <span className="block w-full text-[10px] sm:text-[12px] md:text-[17px] xl:text-[20px] font-semibold leading-tight mt-0.5 text-balance">
+      <span className="block w-full text-[11px] sm:text-[13px] md:text-[17px] xl:text-[20px] font-bold leading-tight mt-0.5 text-primary text-balance">
         Indian Institute of Information Technology Dharwad
       </span>
-      <div className="block w-full text-[8px] sm:text-[10px] md:text-[14px] xl:text-[16px] font-light mt-1 text-gray-600 text-balance">
+      <div className="hidden xs:block w-full text-[8px] sm:text-[10px] md:text-[13px] xl:text-[15px] font-light mt-0.5 text-gray-500">
         [Institute of National Importance by An Act of Parliament]
       </div>
     </>

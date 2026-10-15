@@ -32,7 +32,7 @@ export default function MobileHeader({
   }, []);
 
   return (
-    <div className="py-4 flex flex-col justify-between pt-4 md:pt-10 px-4 h-[calc(100dvh-6.5rem)] overflow-y-auto">
+    <div className="py-2 flex flex-col justify-between gap-6 px-1 sm:px-2 w-full">
       <nav className="flex flex-col space-y-1">
         {navigationData.map((item: NavigationItem, index) => {
           if (hasChildren(item)) {
@@ -52,7 +52,7 @@ export default function MobileHeader({
                     onClick={() =>
                       trackEvent({
                         action: "click",
-                        category: "mobile_navigation",
+                        category: "navigation",
                         label: `expand_menu_${item.title}`,
                       })
                     }
@@ -74,7 +74,7 @@ export default function MobileHeader({
                                 onClick={() =>
                                   trackEvent({
                                     action: "click",
-                                    category: "mobile_navigation",
+                                    category: "navigation",
                                     label: `expand_submenu_${subItem.title}`,
                                   })
                                 }
@@ -94,7 +94,7 @@ export default function MobileHeader({
                                           toggleMenu();
                                           trackEvent({
                                             action: "click",
-                                            category: "mobile_navigation",
+                                            category: "navigation",
                                             label: `link_${thirdItem.title}`,
                                           });
                                         }}
@@ -162,66 +162,104 @@ export default function MobileHeader({
       </nav>
 
       <button
-        className="text-gray-600 hover:text-primary rounded bg-tertiary/20 px-4.5 py-2.5 flex items-center text-body cursor-pointer"
+        className="w-full text-gray-700 hover:text-primary rounded-xl bg-gray-100 hover:bg-gray-200/80 px-4 py-3 flex items-center justify-between text-sm font-medium cursor-pointer transition-colors shadow-xs"
         onClick={() => {
+          toggleMenu();
           query.toggle();
         }}
       >
-        <Search size={14} className="mr-3" />
-        What are you looking for?
+        <div className="flex items-center">
+          <Search size={16} className="mr-3 text-gray-500" />
+          <span>What are you looking for?</span>
+        </div>
+        <span className="text-[11px] font-mono bg-white px-2 py-0.5 rounded border border-gray-200 text-gray-400">
+          Search
+        </span>
       </button>
 
-      <div className="mt-6 pt-4 border-t border-main/30">
-        <div className="flex flex-col space-y-3 text-body">
+      <div className="pt-4 border-t border-gray-200">
+        <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-3">
+          Quick Portals
+        </p>
+        <div className="grid grid-cols-2 gap-2 text-xs font-semibold">
           <Link
-            href={"https://aims.iiitdwd.ac.in/aims/"}
-            onClick={() =>
+            href="https://iiitdwd.samarth.edu.in/index.php/site/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              toggleMenu();
+              trackEvent({
+                action: "click",
+                category: "mobile_navigation" as any,
+                label: "link_samarth_portal",
+              });
+            }}
+            className="p-2.5 rounded-lg bg-gray-50 hover:bg-[#CCE70B]/20 text-primary border border-gray-100 flex items-center justify-between"
+          >
+            <span>Samarth Portal</span>
+            <span className="text-[10px] text-gray-400">↗</span>
+          </Link>
+          <Link
+            href="https://aims.iiitdwd.ac.in/aims/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              toggleMenu();
               trackEvent({
                 action: "click",
                 category: "mobile_navigation" as any,
                 label: "link_aims",
-              })
-            }
+              });
+            }}
+            className="p-2.5 rounded-lg bg-gray-50 hover:bg-[#CCE70B]/20 text-primary border border-gray-100 flex items-center justify-between"
           >
-            AIMS
+            <span>AIMS</span>
+            <span className="text-[10px] text-gray-400">↗</span>
           </Link>
           <Link
-            href={"/RTI"}
-            onClick={() =>
+            href="/RTI"
+            onClick={() => {
+              toggleMenu();
               trackEvent({
                 action: "click",
                 category: "mobile_navigation" as any,
                 label: "link_rti",
-              })
-            }
+              });
+            }}
+            className="p-2.5 rounded-lg bg-gray-50 hover:bg-[#CCE70B]/20 text-primary border border-gray-100 flex items-center justify-between"
           >
-            RTI
+            <span>RTI</span>
           </Link>
           <Link
-            href={"/academics/nirf"}
-            onClick={() =>
+            href="/academics/nirf"
+            onClick={() => {
+              toggleMenu();
               trackEvent({
                 action: "click",
                 category: "mobile_navigation" as any,
                 label: "link_nirf",
-              })
-            }
+              });
+            }}
+            className="p-2.5 rounded-lg bg-gray-50 hover:bg-[#CCE70B]/20 text-primary border border-gray-100 flex items-center justify-between"
           >
-            NIRF
+            <span>NIRF</span>
           </Link>
           <Link
-            href={
-              "https://www.onlinesbi.sbi/sbicollect/icollecthome.htm?corpID=6862046"
-            }
-            onClick={() =>
+            href="https://onlinesbi.sbi.bank.in/sbicollect/icollecthome.htm?corpID=6862046"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              toggleMenu();
               trackEvent({
                 action: "click",
                 category: "mobile_navigation" as any,
                 label: "link_fee_portal",
-              })
-            }
+              });
+            }}
+            className="col-span-2 p-2.5 rounded-lg bg-gray-50 hover:bg-[#CCE70B]/20 text-primary border border-gray-100 flex items-center justify-between"
           >
-            Students Fee Portal
+            <span>Students Fee Portal</span>
+            <span className="text-[10px] text-gray-400">↗</span>
           </Link>
         </div>
       </div>

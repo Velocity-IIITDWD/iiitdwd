@@ -49,16 +49,16 @@ export default async function HomePage(): Promise<ReactElement> {
       <OrientationBanner />
       <AchievementBanner />
       <div className="flex flex-col items-center">
-        <div className="px-5 md:px-13 py-8 font-grotesk">
+        <div className="px-4 sm:px-6 md:px-13 py-6 sm:py-8 font-grotesk">
           <div className="mx-auto max-w-7xl w-full">
-            <div className="text-main-title uppercase text-center font-bold">
+            <div className="text-xl sm:text-2xl md:text-3xl lg:text-main-title uppercase text-center font-bold tracking-tight text-[#193654] leading-snug">
               <div>Creating thinkers and leaders in technology</div>
               <div>to positively impact society</div>
             </div>
           </div>
         </div>
-        <p className="text-center text-m tracking-widest text-gray-600 font-semibold mb-5 font-grotesk">
-          Indian Institute of Information Technology Dharwad - Shaping
+        <p className="text-center text-xs sm:text-sm tracking-wider text-gray-600 font-semibold mb-6 font-grotesk px-4 max-w-2xl">
+          Indian Institute of Information Technology Dharwad — Shaping
           tomorrow's Innovators Since 2015
         </p>
         <QuickLinksSection />

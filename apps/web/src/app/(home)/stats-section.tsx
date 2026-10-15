@@ -80,42 +80,42 @@ function StatCard({
 
   return (
     <div
-      className="group relative flex flex-col items-center justify-center px-6 py-10 border-r border-gray-200 last:border-r-0 max-md:border-r-0 max-md:border-b max-md:last:border-b-0 bg-white hover:bg-[#fafafa] transition-colors duration-300"
+      className="group relative flex flex-col items-center justify-center px-3 py-6 sm:px-6 sm:py-8 md:py-10 border-r border-gray-200 last:border-r-0 max-md:odd:border-r max-md:even:border-r-0 bg-white hover:bg-[#fafafa] transition-colors duration-300"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Top crimson dash */}
-      <span className="block w-8 h-[3px] bg-[#8b1c2e] rounded-full mb-4" />
+      <span className="block w-6 sm:w-8 h-[3px] bg-[#8b1c2e] rounded-full mb-3 sm:mb-4" />
 
       {/* Icon circle with green dot */}
-      <div className="relative mb-5">
-        <div className="w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center">
-          <Icon className="w-6 h-6 text-gray-400" strokeWidth={1.5} />
+      <div className="relative mb-3 sm:mb-5">
+        <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-gray-100 flex items-center justify-center">
+          <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" strokeWidth={1.5} />
         </div>
         {/* Green live dot */}
-        <span className="absolute top-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white" />
+        <span className="absolute top-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-400 rounded-full border-2 border-white" />
       </div>
 
       {/* Stat number with brackets */}
-      <div className="flex items-center gap-1 mb-3">
-        <span className="text-[#8b1c2e] text-2xl font-bold leading-none">
+      <div className="flex items-center gap-1 mb-2 sm:mb-3">
+        <span className="text-[#8b1c2e] text-lg sm:text-2xl font-bold leading-none">
           [
         </span>
         <div className="flex items-baseline">
           {/* prefix (e.g. ₹78) */}
           {stat.prefix && (
-            <span className="text-[#1a2744] font-black text-4xl md:text-5xl leading-none tracking-tight">
+            <span className="text-[#1a2744] font-black text-2xl sm:text-3xl md:text-5xl leading-none tracking-tight">
               {stat.prefix}
             </span>
           )}
           {/* animated count */}
           {stat.value !== null && (
-            <span className="text-[#1a2744] font-black text-4xl md:text-5xl leading-none tracking-tight">
+            <span className="text-[#1a2744] font-black text-2xl sm:text-3xl md:text-5xl leading-none tracking-tight">
               {triggered ? count.toLocaleString() : 0}
             </span>
           )}
           {/* suffix */}
           <span
-            className={`font-black text-4xl md:text-5xl leading-none tracking-tight ${
+            className={`font-black text-2xl sm:text-3xl md:text-5xl leading-none tracking-tight ${
               stat.suffixColor === "crimson"
                 ? "text-[#8b1c2e]"
                 : "text-[#1a2744]"
@@ -124,18 +124,18 @@ function StatCard({
             {stat.suffix}
           </span>
         </div>
-        <span className="text-[#8b1c2e] text-2xl font-bold leading-none">
+        <span className="text-[#8b1c2e] text-lg sm:text-2xl font-bold leading-none">
           ]
         </span>
       </div>
 
       {/* Label */}
-      <p className="font-grotesk font-bold text-gray-800 text-base mb-1">
+      <p className="font-grotesk font-bold text-gray-800 text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1 text-center">
         {stat.label}
       </p>
 
       {/* Sub label */}
-      <p className="text-[11px] text-gray-400 tracking-widest font-mono">
+      <p className="text-[10px] sm:text-[11px] text-gray-400 tracking-wider font-mono text-center">
         // {stat.sub}
       </p>
     </div>
@@ -154,27 +154,29 @@ export default function StatsSection(): ReactNode {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.15 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className="w-full border border-gray-200 rounded-xl overflow-hidden mx-auto max-w-5xl mb-10 px-5 md:px-13"
-      style={{ maxWidth: "80rem", margin: "0 auto 2.5rem" }}
-    >
-      <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-        {stats.map((stat, i) => (
-          <StatCard
-            key={stat.label}
-            stat={stat}
-            triggered={triggered}
-            index={i}
-          />
-        ))}
+    <div className="w-full px-4 sm:px-6 md:px-13 mb-10">
+      <div
+        ref={ref}
+        className="w-full border border-gray-200 rounded-xl overflow-hidden mx-auto max-w-5xl shadow-xs"
+        style={{ maxWidth: "80rem" }}
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+          {stats.map((stat, i) => (
+            <StatCard
+              key={stat.label}
+              stat={stat}
+              triggered={triggered}
+              index={i}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

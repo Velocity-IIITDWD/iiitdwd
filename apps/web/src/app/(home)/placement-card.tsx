@@ -95,9 +95,9 @@ function StatCard({
   suffix?: string;
 }) {
   return (
-    <div className="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
-      <p className="text-sm font-medium text-gray-500 mb-1">{label}</p>
-      <p className="text-2xl font-bold text-gray-900">
+    <div className="flex flex-col p-3 sm:p-4 bg-white border border-gray-200 rounded-lg shadow-xs">
+      <p className="text-xs sm:text-sm font-medium text-gray-500 mb-0.5 sm:mb-1 truncate">{label}</p>
+      <p className="text-lg sm:text-2xl font-bold text-gray-900 truncate">
         {value}
         {value !== "-" && suffix}
       </p>
@@ -185,20 +185,20 @@ export default function PlacementCard() {
   const d = DATA[activeYear];
 
   return (
-    <div className="w-full max-w-6xl mx-auto my-12 bg-white rounded-xl border border-gray-200 overflow-hidden">
+    <div className="w-full max-w-6xl mx-auto my-8 sm:my-12 bg-white rounded-xl border border-gray-200 overflow-hidden shadow-xs">
       {/* Header */}
-      <div className="px-6 py-5 border-b border-gray-200 bg-gray-50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="px-4 sm:px-6 py-4 sm:py-5 border-b border-gray-200 bg-gray-50 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900">
             Placement Statistics
           </h2>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-xs sm:text-sm text-gray-500 mt-0.5 sm:mt-1">
             Track record of our students' placements over the years.
           </p>
         </div>
         <Link
           href="/placements"
-          className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
         >
           View detailed report
           <IconArrowUpRight size={16} />
@@ -206,22 +206,22 @@ export default function PlacementCard() {
       </div>
 
       {/* Body */}
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Year Tabs */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex gap-1.5 sm:gap-2 mb-4 sm:mb-6 overflow-x-auto no-scrollbar pb-1">
           {YEARS.map(yr => (
             <button
               key={yr}
               onClick={() => setActiveYear(yr)}
-              className={`px-4 py-2 rounded-md text-sm font-semibold transition-colors border ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm font-semibold transition-colors border whitespace-nowrap cursor-pointer ${
                 activeYear === yr
-                  ? "bg-blue-50 border-blue-200 text-blue-700"
+                  ? "bg-blue-50 border-blue-200 text-blue-700 shadow-xs"
                   : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50"
               }`}
             >
               {yr}
               {yr === "2026" && (
-                <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800">
+                <span className="ml-1.5 sm:ml-2 inline-flex items-center px-1.5 sm:px-2 py-0.2 sm:py-0.5 rounded text-[9px] sm:text-[10px] font-bold bg-blue-100 text-blue-800">
                   New
                 </span>
               )}

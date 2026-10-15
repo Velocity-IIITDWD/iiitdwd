@@ -1,12 +1,12 @@
 export default [
   {
     id: "1",
-    name: "Dr. Prabhu Prasad B M",
+    name: "Dr. Pramod Yelmewad",
     title: "Assistant Professor",
     position: "Head of the Department [HoD]",
     department: "CSE",
-    email: "prabhuprasad@iiitdwd.ac.in",
-    imageUrl: "https://www.iiitdwd.ac.in//images/Dr.PrabhuPrasadBM.png",
+    email: "pramodyelmewad@iiitdwd.ac.in",
+    imageUrl: "https://assets.iiitdwd.ac.in/images/Dr.PramodYelmewad.jpg",
   },
   {
     id: "2",
@@ -19,12 +19,12 @@ export default [
   },
   {
     id: "3",
-    name: "Dr.Siddharth R",
+    name: "Dr. Utkarsh Khaire",
     title: "Assistant Professor",
     position: "Head of the Department [HoD]",
     department: "DSAI",
-    email: "siddharth_r@iiitdwd.ac.in",
-    imageUrl: "https://www.iiitdwd.ac.in//images/Dr.SiddharthR.jpg",
+    email: "utkarshkhaire@iiitdwd.ac.in",
+    imageUrl: "https://assets.iiitdwd.ac.in/images/Dr.UtkarshKhaire.jpg",
   },
   {
     id: "4",
