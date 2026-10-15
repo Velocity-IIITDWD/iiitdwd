@@ -73,27 +73,27 @@ export default function AlumniSection({
 
   return (
     <div className="relative">
-      <div className="z-[2] relative py-10 w-full flex flex-col items-center">
-        <div className="mt-4 w-full text-primary text-center px-2 max-sm:px-4 font-semibold text-large-title">
-          <h1 className="">Explore inspiring journeys and achievements</h1>
+      <div className="z-[2] relative py-8 sm:py-10 md:py-12 w-full flex flex-col items-center">
+        <div className="mt-2 sm:mt-4 w-full text-primary text-center px-4 font-semibold text-lg sm:text-2xl md:text-large-title leading-snug">
+          <h1>Explore inspiring journeys and achievements</h1>
           <h2>from our thriving alumni community.</h2>
         </div>
 
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-4 sm:mt-6">
           <Button
             onClick={handleShuffle}
             variant="outline"
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 text-xs sm:text-sm"
             disabled={isShuffling}
           >
             <RefreshCw
-              className={`h-4 w-4 ${isShuffling ? "animate-spin" : ""}`}
+              className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${isShuffling ? "animate-spin" : ""}`}
             />
             Shuffle Alumni
           </Button>
         </div>
 
-        <div className="max-h-[80vh] max-w-[1960px] w-[87.5vw] mx-auto py-20 relative overflow-hidden flex gap-4">
+        <div className="max-h-[80vh] max-w-[1960px] w-[92vw] sm:w-[87.5vw] mx-auto py-6 sm:py-12 md:py-20 relative overflow-hidden flex gap-4">
           <div className="w-full flex gap-4">
             {distributedReviews.map((column, columnIndex) => (
               <div key={columnIndex} className="flex-1 flex flex-col gap-4">

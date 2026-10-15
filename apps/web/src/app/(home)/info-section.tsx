@@ -85,102 +85,102 @@ export default async function InfoSection(): Promise<JSX.Element> {
         <div className="absolute bottom-[25%] left-[5%] w-32 h-32 bg-gradient-to-tr from-[#193654]/5 to-transparent rounded-2xl rotate-12 blur-sm" />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-5 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         {/* Top Section: Classic Clean University Grid */}
-        <div className="flex flex-col gap-6 md:gap-8 mb-16">
+        <div className="flex flex-col gap-6 md:gap-8 mb-12 sm:mb-16">
           {/* Hero About Banner */}
-          <div className="bg-gradient-to-br from-white via-white to-gray-50 p-6 md:p-12 rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col lg:flex-row gap-8 md:gap-12 items-center relative overflow-hidden group">
+          <div className="bg-gradient-to-br from-white via-white to-gray-50 p-5 sm:p-8 md:p-12 rounded-[1.25rem] sm:rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-12 items-center relative overflow-hidden group">
             {/* Abstract Watermarks */}
             <div className="absolute -right-32 -top-32 w-[500px] h-[500px] bg-gradient-to-br from-[#193654]/[0.03] to-transparent rounded-full blur-3xl group-hover:scale-110 transition-transform duration-1000 pointer-events-none" />
             <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-gradient-to-tr from-[#CCE70B]/10 to-transparent rounded-full blur-2xl group-hover:scale-110 transition-transform duration-1000 pointer-events-none" />
 
             <div className="flex-1 z-10 relative">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#CCE70B]/20 to-[#CCE70B]/5 text-[#193654] font-bold text-[11px] mb-8 border border-[#CCE70B]/30 uppercase tracking-widest shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-gradient-to-r from-[#CCE70B]/20 to-[#CCE70B]/5 text-[#193654] font-bold text-[10px] sm:text-[11px] mb-4 sm:mb-8 border border-[#CCE70B]/30 uppercase tracking-widest shadow-xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#CCE70B] shadow-[0_0_8px_rgba(204,231,11,0.8)] animate-pulse"></span>
                 Institute of National Importance
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-[46px] leading-tight font-black text-[#193654] mb-4 md:mb-6 tracking-tight drop-shadow-sm">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[46px] leading-tight font-black text-[#193654] mb-3 sm:mb-4 md:mb-6 tracking-tight drop-shadow-xs">
                 About IIIT Dharwad
               </h2>
-              <p className="text-gray-600 leading-relaxed text-[15px] md:text-[17px] mb-6 md:mb-8 max-w-3xl font-medium">
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-[15px] md:text-[17px] mb-5 sm:mb-6 md:mb-8 max-w-3xl font-medium">
                 Established under the Indian Institutes of Information
                 Technology (PPP) Act 2017, IIIT Dharwad is committed to
                 excellence in technology education and research, nurturing the
                 next generation of innovators.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                 <Link
                   href="/about"
-                  className="w-full sm:w-auto text-center px-7 py-3.5 rounded-xl bg-[#193654] hover:bg-[#193654]/90 text-sm font-bold text-white transition-all shadow-[0_8px_20px_rgba(25,54,84,0.15)] hover:shadow-[0_10px_25px_rgba(25,54,84,0.25)] hover:-translate-y-1"
+                  className="w-full sm:w-auto text-center px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#193654] hover:bg-[#193654]/90 text-xs sm:text-sm font-bold text-white transition-all shadow-[0_8px_20px_rgba(25,54,84,0.15)] hover:shadow-[0_10px_25px_rgba(25,54,84,0.25)] hover:-translate-y-0.5"
                 >
                   Explore Institute
                 </Link>
                 <Link
                   href="/director"
-                  className="w-full sm:w-auto text-center px-7 py-3.5 rounded-xl bg-white hover:bg-gray-50 text-sm font-bold text-[#193654] transition-all border border-gray-200 shadow-sm hover:shadow-md hover:-translate-y-1"
+                  className="w-full sm:w-auto text-center px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-white hover:bg-gray-50 text-xs sm:text-sm font-bold text-[#193654] transition-all border border-gray-200 shadow-xs hover:shadow-md hover:-translate-y-0.5"
                 >
                   Vision & Mission
                 </Link>
               </div>
             </div>
 
-            <div className="w-full lg:w-[450px] shrink-0 grid grid-cols-2 gap-4 z-10 relative">
-              <div className="bg-white/80 backdrop-blur p-6 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-center flex flex-col justify-center items-center group/card hover:border-[#CCE70B]/50 transition-colors relative overflow-hidden">
+            <div className="w-full lg:w-[450px] shrink-0 grid grid-cols-2 gap-3 sm:gap-4 z-10 relative">
+              <div className="bg-white/80 backdrop-blur p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-center flex flex-col justify-center items-center group/card hover:border-[#CCE70B]/50 transition-colors relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#CCE70B]/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity" />
-                <p className="text-[44px] font-black text-[#193654] mb-1 group-hover/card:scale-110 transition-transform duration-500 drop-shadow-sm">
+                <p className="text-3xl sm:text-[44px] font-black text-[#193654] mb-1 group-hover/card:scale-110 transition-transform duration-500 drop-shadow-xs">
                   2015
                 </p>
-                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest relative z-10">
+                <p className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest relative z-10">
                   Established
                 </p>
               </div>
 
-              <div className="bg-[#193654] p-6 rounded-2xl shadow-[0_8px_25px_rgba(25,54,84,0.2)] text-left flex flex-col justify-between relative overflow-hidden group/loc">
+              <div className="bg-[#193654] p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-[0_8px_25px_rgba(25,54,84,0.2)] text-left flex flex-col justify-between relative overflow-hidden group/loc">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay group-hover/loc:scale-150 transition-transform duration-1000" />
                 <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-white/5 blur-2xl group-hover/loc:scale-150 transition-transform duration-1000" />
 
-                <div className="relative z-10 flex items-center justify-between mb-3">
-                  <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 group-hover/loc:bg-[#CCE70B]/20 transition-colors">
-                    <IconMapPin size={20} className="text-[#CCE70B]" />
+                <div className="relative z-10 flex items-center justify-between mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 group-hover/loc:bg-[#CCE70B]/20 transition-colors">
+                    <IconMapPin size={18} className="text-[#CCE70B]" />
                   </div>
-                  <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest">
+                  <p className="text-[9px] sm:text-[10px] font-bold text-white/50 uppercase tracking-widest">
                     Location
                   </p>
                 </div>
 
                 <div className="relative z-10 mt-auto">
-                  <p className="text-[22px] font-black text-white leading-tight drop-shadow-md">
+                  <p className="text-lg sm:text-[22px] font-black text-white leading-tight drop-shadow-md">
                     Dharwad
                   </p>
-                  <p className="text-[13px] font-medium text-[#CCE70B]">
+                  <p className="text-xs sm:text-[13px] font-medium text-[#CCE70B]">
                     Karnataka, India
                   </p>
                 </div>
               </div>
 
-              <div className="col-span-2 bg-white p-6 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col justify-between gap-5 group/prog hover:border-[#CCE70B]/50 transition-colors">
+              <div className="col-span-2 bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col justify-between gap-3 sm:gap-5 group/prog hover:border-[#CCE70B]/50 transition-colors">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#193654] group-hover/prog:bg-[#CCE70B] transition-colors shadow-sm" />
-                  <p className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">
+                  <div className="w-2 h-2 rounded-full bg-[#193654] group-hover/prog:bg-[#CCE70B] transition-colors shadow-xs" />
+                  <p className="text-[11px] sm:text-[12px] font-bold text-gray-400 uppercase tracking-widest">
                     Academic Programs
                   </p>
                 </div>
-                <div className="flex justify-between items-center gap-3">
+                <div className="flex justify-between items-center gap-2 sm:gap-3">
                   <Link
                     href="/admission/btech"
-                    className="flex-1 bg-gray-50 border border-gray-100 hover:border-[#193654] hover:bg-[#193654] hover:text-white text-[#193654] transition-all duration-300 rounded-xl py-3 text-center text-[13px] font-bold shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                    className="flex-1 bg-gray-50 border border-gray-100 hover:border-[#193654] hover:bg-[#193654] hover:text-white text-[#193654] transition-all duration-300 rounded-lg sm:rounded-xl py-2.5 sm:py-3 text-center text-xs sm:text-[13px] font-bold shadow-xs hover:shadow-md hover:-translate-y-0.5"
                   >
                     B.Tech
                   </Link>
                   <Link
                     href="/admission/mtech"
-                    className="flex-1 bg-gray-50 border border-gray-100 hover:border-[#193654] hover:bg-[#193654] hover:text-white text-[#193654] transition-all duration-300 rounded-xl py-3 text-center text-[13px] font-bold shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                    className="flex-1 bg-gray-50 border border-gray-100 hover:border-[#193654] hover:bg-[#193654] hover:text-white text-[#193654] transition-all duration-300 rounded-lg sm:rounded-xl py-2.5 sm:py-3 text-center text-xs sm:text-[13px] font-bold shadow-xs hover:shadow-md hover:-translate-y-0.5"
                   >
                     M.Tech
                   </Link>
                   <Link
                     href="/admission/phd"
-                    className="flex-1 bg-gray-50 border border-gray-100 hover:border-[#193654] hover:bg-[#193654] hover:text-white text-[#193654] transition-all duration-300 rounded-xl py-3 text-center text-[13px] font-bold shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                    className="flex-1 bg-gray-50 border border-gray-100 hover:border-[#193654] hover:bg-[#193654] hover:text-white text-[#193654] transition-all duration-300 rounded-lg sm:rounded-xl py-2.5 sm:py-3 text-center text-xs sm:text-[13px] font-bold shadow-xs hover:shadow-md hover:-translate-y-0.5"
                   >
                     Ph.D
                   </Link>
