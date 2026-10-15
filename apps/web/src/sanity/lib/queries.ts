@@ -338,8 +338,23 @@ export const GetCulturalClubs = `*[_type == "culturalClub"]{
   }
 }`;
 
-export const queryCarousel =
-  '*[_type == "mainCarouselImage"] | order(coalesce(eventDate, _createdAt) desc)';
+export const queryUpcomingEvents = `*[_type == "upcomingEvent"] | order(coalesce(eventDate, _createdAt) asc) {
+  _id,
+  _createdAt,
+  "caption": coalesce(caption, title),
+  link,
+  eventDate,
+  "url": coalesce(image.asset->url, url)
+}`;
+
+export const queryCarousel = `*[_type in ["mainCarouselImage", "homeEvent"]] | order(coalesce(eventDate, _createdAt) desc) {
+  _id,
+  _createdAt,
+  caption,
+  link,
+  eventDate,
+  "url": coalesce(image.asset->url, url)
+}`;
 export const queryEvents = '*[_type == "event"]';
 export const queryEventIds = '*[_type == "event"] {"eventId": id}';
 export const queryEventById = '*[_type == "event" && id == $id][0]';
