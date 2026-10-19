@@ -44,7 +44,11 @@ const DEPARTMENTS = [
     description:
       "A forward-looking program focused on artificial intelligence, advanced computing technologies, and their practical implementations.",
     href: "/academics/ai-and-computing",
-    highlights: ["Artificial Intelligence", "Advanced Computing", "Intelligent Systems"],
+    highlights: [
+      "Artificial Intelligence",
+      "Advanced Computing",
+      "Intelligent Systems",
+    ],
   },
 ];
 
@@ -152,7 +156,7 @@ export default function DepartmentsSection(): JSX.Element {
             <h2 className="text-lg md:text-xl font-bold text-[#193654]">
               Departments in IIIT Dharwad
             </h2>
-            <div className="h-0.5 w-12 bg-[#CCE70B] rounded-full mt-1.5" />
+            <div className="h-0.5 w-12 bg-[#193654] rounded-full mt-1.5" />
           </div>
         </div>
 

@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-export default function OpenHouseSection() {
+export default function OpenHouseSection(): JSX.Element | null {
   const isDisabled = true;
   if (isDisabled) return null;
 
@@ -45,14 +45,18 @@ export default function OpenHouseSection() {
               <div className="space-y-3">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-[#193654] leading-tight">
                   JEE (Main) 2026 Qualified Students
-                  <span className="block text-primary mt-1">Your Future Begins at IIIT Dharwad!</span>
+                  <span className="block text-primary mt-1">
+                    Your Future Begins at IIIT Dharwad!
+                  </span>
                 </h2>
-                <div className="h-1 w-20 bg-[#CCE70B] rounded-full" />
+                <div className="h-1 w-20 bg-[#193654] rounded-full" />
               </div>
 
               <p className="text-lg text-gray-700 leading-relaxed font-grotesk">
                 Congratulations on qualifying <strong>JEE (Main) 2026</strong>!
-                If you aspire to pursue high-quality engineering education in cutting-edge computing, AI, and electronics, we invite you to explore our undergraduate programmes.
+                If you aspire to pursue high-quality engineering education in
+                cutting-edge computing, AI, and electronics, we invite you to
+                explore our undergraduate programmes.
               </p>
 
               {/* B.Tech Programs Grid */}
@@ -94,8 +98,12 @@ export default function OpenHouseSection() {
                       <Calendar className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-[11px] text-gray-400 uppercase font-semibold">Date</p>
-                      <p className="text-sm font-bold text-gray-800">10 June 2026</p>
+                      <p className="text-[11px] text-gray-400 uppercase font-semibold">
+                        Date
+                      </p>
+                      <p className="text-sm font-bold text-gray-800">
+                        10 June 2026
+                      </p>
                     </div>
                   </div>
 
@@ -104,8 +112,12 @@ export default function OpenHouseSection() {
                       <Clock className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-[11px] text-gray-400 uppercase font-semibold">Time</p>
-                      <p className="text-sm font-bold text-gray-800">11:00 AM IST</p>
+                      <p className="text-[11px] text-gray-400 uppercase font-semibold">
+                        Time
+                      </p>
+                      <p className="text-sm font-bold text-gray-800">
+                        11:00 AM IST
+                      </p>
                     </div>
                   </div>
 
@@ -114,7 +126,9 @@ export default function OpenHouseSection() {
                       <Laptop className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-[11px] text-gray-400 uppercase font-semibold">Mode</p>
+                      <p className="text-[11px] text-gray-400 uppercase font-semibold">
+                        Mode
+                      </p>
                       <p className="text-sm font-bold text-gray-800">Online</p>
                     </div>
                   </div>
@@ -149,14 +163,15 @@ export default function OpenHouseSection() {
                 href="https://forms.gle/7iUjit5QoiFiuSyZA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#193654] to-[#12273d] hover:from-[#CCE70B] hover:to-[#CCE70B] text-white hover:text-main font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#193654] to-[#12273d] hover:from-[#12273d] hover:to-[#0c1a29] text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group"
               >
                 <span>Register for Open House</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <p className="text-xs text-gray-500 text-center sm:text-left max-w-xs">
-                Registration is free but mandatory for JoSAA/CSAB counselling aspirants.
+                Registration is free but mandatory for JoSAA/CSAB counselling
+                aspirants.
               </p>
             </div>
           </div>

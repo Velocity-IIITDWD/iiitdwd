@@ -19,6 +19,7 @@ import NotificationSection from "./notification";
 import PlacementCard from "./placement-card";
 import ModernSocialMediaGrid from "./social-media";
 import VideoPlayer from "./video-player";
+import MediaCard from "./media-card";
 import TendersUpdatesSection from "./tenders-updates"; // Force recompile
 
 export default async function InfoSection(): Promise<JSX.Element> {
@@ -73,7 +74,8 @@ export default async function InfoSection(): Promise<JSX.Element> {
     .map(({ item, eventDate }) => ({
       ...item,
       eventDate: item.eventDate || eventDate?.toISOString(),
-      _createdAt: eventDate?.toISOString(),
+      _createdAt:
+        eventDate?.toISOString() || item._createdAt || new Date().toISOString(),
     }));
 
   // 2. Latest News & Events: past events (sorted newest first)
@@ -83,10 +85,11 @@ export default async function InfoSection(): Promise<JSX.Element> {
     .map(({ item, eventDate }) => ({
       ...item,
       eventDate: item.eventDate || eventDate!.toISOString(),
-      _createdAt: eventDate!.toISOString(),
+      _createdAt:
+        eventDate?.toISOString() || item._createdAt || new Date().toISOString(),
     }));
 
-  const dedupe = (events: Array<MainCarouselImage | UpcomingEvent>) => {
+  const dedupe = <T extends { _id?: string }>(events: T[]): T[] => {
     const seenIds = new Set<string>();
     return events.filter(ev => {
       if (ev._id) {
@@ -109,11 +112,11 @@ export default async function InfoSection(): Promise<JSX.Element> {
 
         {/* Soft glowing orbs */}
         <div className="absolute top-[-10%] left-[-5%] w-[40%] aspect-square rounded-full bg-[#193654]/[0.02] blur-[100px]" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[40%] aspect-square rounded-full bg-[#CCE70B]/[0.04] blur-[100px]" />
+        <div className="absolute bottom-[-10%] right-[-5%] w-[40%] aspect-square rounded-full bg-[#193654]/[0.02] blur-[100px]" />
 
         {/* Geometric accents */}
         <div className="absolute top-[35%] right-[8%] w-48 h-48 rounded-full border border-[#193654]/5 border-dashed" />
-        <div className="absolute top-[38%] right-[11%] w-24 h-24 rounded-full border border-[#CCE70B]/20" />
+        <div className="absolute top-[38%] right-[11%] w-24 h-24 rounded-full border border-[#193654]/10" />
         <div className="absolute bottom-[25%] left-[5%] w-32 h-32 bg-gradient-to-tr from-[#193654]/5 to-transparent rounded-2xl rotate-12 blur-sm" />
       </div>
 
@@ -124,11 +127,11 @@ export default async function InfoSection(): Promise<JSX.Element> {
           <div className="bg-gradient-to-br from-white via-white to-gray-50 p-5 sm:p-8 md:p-12 rounded-[1.25rem] sm:rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-12 items-center relative overflow-hidden group">
             {/* Abstract Watermarks */}
             <div className="absolute -right-32 -top-32 w-[500px] h-[500px] bg-gradient-to-br from-[#193654]/[0.03] to-transparent rounded-full blur-3xl group-hover:scale-110 transition-transform duration-1000 pointer-events-none" />
-            <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-gradient-to-tr from-[#CCE70B]/10 to-transparent rounded-full blur-2xl group-hover:scale-110 transition-transform duration-1000 pointer-events-none" />
+            <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-gradient-to-tr from-[#193654]/[0.03] to-transparent rounded-full blur-2xl group-hover:scale-110 transition-transform duration-1000 pointer-events-none" />
 
             <div className="flex-1 z-10 relative">
-              <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-gradient-to-r from-[#CCE70B]/20 to-[#CCE70B]/5 text-[#193654] font-bold text-[10px] sm:text-[11px] mb-4 sm:mb-8 border border-[#CCE70B]/30 uppercase tracking-widest shadow-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#CCE70B] shadow-[0_0_8px_rgba(204,231,11,0.8)] animate-pulse"></span>
+              <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#193654]/5 text-[#193654] font-bold text-[10px] sm:text-[11px] mb-4 sm:mb-8 border border-[#193654]/15 uppercase tracking-widest shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#193654] animate-pulse"></span>
                 Institute of National Importance
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[46px] leading-tight font-black text-[#193654] mb-3 sm:mb-4 md:mb-6 tracking-tight drop-shadow-xs">
@@ -157,8 +160,8 @@ export default async function InfoSection(): Promise<JSX.Element> {
             </div>
 
             <div className="w-full lg:w-[450px] shrink-0 grid grid-cols-2 gap-3 sm:gap-4 z-10 relative">
-              <div className="bg-white/80 backdrop-blur p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-center flex flex-col justify-center items-center group/card hover:border-[#CCE70B]/50 transition-colors relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#CCE70B]/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity" />
+              <div className="bg-white/80 backdrop-blur p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-center flex flex-col justify-center items-center group/card hover:border-[#193654]/30 transition-colors relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#193654]/[0.03] to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity" />
                 <p className="text-3xl sm:text-[44px] font-black text-[#193654] mb-1 group-hover/card:scale-110 transition-transform duration-500 drop-shadow-xs">
                   2015
                 </p>
@@ -172,8 +175,8 @@ export default async function InfoSection(): Promise<JSX.Element> {
                 <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-white/5 blur-2xl group-hover/loc:scale-150 transition-transform duration-1000" />
 
                 <div className="relative z-10 flex items-center justify-between mb-2 sm:mb-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 group-hover/loc:bg-[#CCE70B]/20 transition-colors">
-                    <IconMapPin size={18} className="text-[#CCE70B]" />
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 group-hover/loc:bg-white/20 transition-colors">
+                    <IconMapPin size={18} className="text-white" />
                   </div>
                   <p className="text-[9px] sm:text-[10px] font-bold text-white/50 uppercase tracking-widest">
                     Location
@@ -184,15 +187,15 @@ export default async function InfoSection(): Promise<JSX.Element> {
                   <p className="text-lg sm:text-[22px] font-black text-white leading-tight drop-shadow-md">
                     Dharwad
                   </p>
-                  <p className="text-xs sm:text-[13px] font-medium text-[#CCE70B]">
+                  <p className="text-xs sm:text-[13px] font-medium text-white/80">
                     Karnataka, India
                   </p>
                 </div>
               </div>
 
-              <div className="col-span-2 bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col justify-between gap-3 sm:gap-5 group/prog hover:border-[#CCE70B]/50 transition-colors">
+              <div className="col-span-2 bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col justify-between gap-3 sm:gap-5 group/prog hover:border-[#193654]/30 transition-colors">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#193654] group-hover/prog:bg-[#CCE70B] transition-colors shadow-xs" />
+                  <div className="w-2 h-2 rounded-full bg-[#193654] transition-colors shadow-xs" />
                   <p className="text-[11px] sm:text-[12px] font-bold text-gray-400 uppercase tracking-widest">
                     Academic Programs
                   </p>
@@ -246,7 +249,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
                 />
 
                 <div className="inline-flex items-center gap-3 mb-4 xl:mb-3 relative z-10">
-                  <div className="w-2 h-6 bg-[#CCE70B] rounded-full shadow-[0_0_10px_rgba(204,231,11,0.5)]" />
+                  <div className="w-1.5 h-6 bg-[#193654] rounded-full" />
                   <h3 className="text-[22px] xl:text-[20px] font-black text-[#193654] tracking-tight">
                     Director's Message
                   </h3>
@@ -281,7 +284,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
                   </div>
                   <Link
                     href="/director"
-                    className="text-[14px] font-bold text-[#193654] hover:text-[#CCE70B] transition-colors flex items-center gap-1.5 group/link"
+                    className="text-[14px] font-bold text-[#193654] hover:text-[#193654]/75 transition-colors flex items-center gap-1.5 group/link"
                   >
                     Read Full Message{" "}
                     <IconArrowUpRight
@@ -293,45 +296,12 @@ export default async function InfoSection(): Promise<JSX.Element> {
               </div>
             </div>
 
-            {/* Column 2: Videos */}
-            <div className="flex flex-col gap-6 h-[600px] md:h-[550px] xl:h-[620px]">
-              {/* Convocation */}
-              <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] overflow-hidden flex-1 flex flex-col group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1">
-                <div className="p-5 border-b border-gray-50 flex items-center gap-4 shrink-0 bg-gradient-to-r from-gray-50/50 to-white">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center text-[#193654] group-hover:bg-[#193654] group-hover:text-white transition-colors duration-300">
-                    <IconSchool size={20} stroke={2} />
-                  </div>
-                  <h3 className="font-bold text-[#193654] text-[16px] tracking-wide">
-                    Convocation Address
-                  </h3>
-                </div>
-                <div className="relative flex-1 bg-black w-full min-h-[180px]">
-                  <VideoPlayer
-                    externalLink={convocationMessageLink}
-                    embedSrc={convocationMessageEmbed}
-                    className="!absolute !inset-0 !w-full !h-full !rounded-none border-none !block"
-                  />
-                </div>
-              </div>
-
-              {/* Induction */}
-              <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] overflow-hidden flex-1 flex flex-col group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1">
-                <div className="p-5 border-b border-gray-50 flex items-center gap-4 shrink-0 bg-gradient-to-r from-gray-50/50 to-white">
-                  <div className="w-10 h-10 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center text-[#193654] group-hover:bg-[#193654] group-hover:text-white transition-colors duration-300">
-                    <IconUsers size={20} stroke={2} />
-                  </div>
-                  <h3 className="font-bold text-[#193654] text-[16px] tracking-wide">
-                    Induction 2025
-                  </h3>
-                </div>
-                <div className="relative flex-1 bg-black w-full min-h-[180px]">
-                  <VideoPlayer
-                    externalLink={orientationLink}
-                    className="!absolute !inset-0 !w-full !h-full !rounded-none border-none !block"
-                  />
-                </div>
-              </div>
-            </div>
+            {/* Column 2: Media Card (Convocation / Induction Switcher) */}
+            <MediaCard
+              convocationLink={convocationMessageLink}
+              convocationEmbed={convocationMessageEmbed}
+              orientationLink={orientationLink}
+            />
 
             {/* Column 3: Announcements */}
             <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] overflow-hidden h-[500px] md:h-[550px] xl:h-[620px] flex flex-col group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1">
@@ -347,12 +317,14 @@ export default async function InfoSection(): Promise<JSX.Element> {
                 {/* Sleek Header styled identical to AnnouncementsTabs */}
                 <div className="flex items-center mb-6 border-b border-gray-100 pb-1 shrink-0">
                   <div className="relative pb-4 flex items-center gap-2 text-[#193654]">
-                    <IconFileText size={18} className="text-[#CCE70B]" />
-                    <span className="text-[16px] xl:text-[14.5px] font-bold tracking-wide whitespace-nowrap">Tenders</span>
-                    <div className="absolute bottom-0 left-0 w-full h-1 bg-[#CCE70B] rounded-t-lg shadow-[0_-2px_10px_rgba(204,231,11,0.5)]" />
+                    <IconFileText size={18} className="text-[#193654]" />
+                    <span className="text-[16px] xl:text-[14.5px] font-bold tracking-wide whitespace-nowrap">
+                      Tenders
+                    </span>
+                    <div className="absolute bottom-0 left-0 w-full h-[3px] bg-[#193654] rounded-t-full" />
                   </div>
                 </div>
-                
+
                 {/* Custom Scrollable Area */}
                 <div className="overflow-y-auto flex-1 custom-scrollbar pr-2 min-h-0 relative">
                   <TendersUpdatesSection />
@@ -369,7 +341,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
               <h2 className="text-2xl font-bold text-[#193654] mb-2">
                 Connect With Us
               </h2>
-              <div className="h-0.5 w-12 bg-[#CCE70B] rounded-full mb-2"></div>
+              <div className="h-0.5 w-12 bg-[#193654] rounded-full mb-2"></div>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Stay updated with the latest news, events, and innovations from
                 IIIT Dharwad.
@@ -404,7 +376,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
               <h2 className="text-lg md:text-xl font-bold text-[#193654]">
                 Latest News & Events
               </h2>
-              <div className="h-0.5 w-12 bg-[#CCE70B] rounded-full mt-1.5"></div>
+              <div className="h-0.5 w-12 bg-[#193654] rounded-full mt-1.5"></div>
             </div>
           </div>
           {latestEvents.length > 0 ? (
@@ -437,7 +409,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
               <h2 className="text-lg md:text-xl font-bold text-[#193654]">
                 Upcoming Events
               </h2>
-              <div className="h-0.5 w-12 bg-[#CCE70B] rounded-full mt-1.5"></div>
+              <div className="h-0.5 w-12 bg-[#193654] rounded-full mt-1.5"></div>
             </div>
           </div>
 
@@ -462,7 +434,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
           </div>
 
           <div className="flex-1 flex flex-col justify-center">
-            <h3 className="text-lg font-bold text-[#193654] mb-3 group-hover:text-[#CCE70B] transition-colors duration-300">
+            <h3 className="text-lg font-bold text-[#193654] mb-3 group-hover:text-[#193654]/80 transition-colors duration-300">
               Explore Our Campus
             </h3>
             <p className="text-base text-gray-600 leading-relaxed mb-6">
@@ -472,7 +444,7 @@ export default async function InfoSection(): Promise<JSX.Element> {
             </p>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#193654] hover:text-[#CCE70B] transition-colors duration-300"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#193654] hover:text-[#193654]/80 transition-colors duration-300"
             >
               Learn more about the institute
               <IconArrowUpRight size={18} />
