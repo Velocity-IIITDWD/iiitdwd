@@ -13,21 +13,22 @@ const cards = [
   {
     id: "icarus",
     icon: <IconRocket size={32} className="text-main" />,
-    tag: "Robotics · IROC 2026",
+    tag: "Robotics · IRoC-U 2026",
     title: "Team ICARUS",
-    subtitle: "ISRO Robotics Challenge Finalists",
+    subtitle: "4th Place & ₹2 Lakh Prize | ISRO Robotics Challenge",
     description:
-      "Our students advanced to the finals of IROC 2026, securing a spot among the top 20 teams nationwide — a defining moment for IIIT Dharwad's robotics culture.",
+      "Team ICARUS secured 4th place nationally and a ₹2 Lakh prize at IRoC-U 2026 organized by URSC ISRO, developing a GPS-denied autonomous UAV and base station system.",
     highlights: [
-      "Top 20 teams selected across India",
-      "Cleared multiple competitive rounds",
-      "Represents IIIT Dharwad nationally",
+      "4th Place nationally with ₹2 Lakh cash award",
+      "Top 20 finalists from ~590 registered teams",
+      "Autonomous GPS-denied UAV with base station",
     ],
-    image: "https://assets.iiitdwd.ac.in/images/TEAM_ICARUS.jpg.jpeg",
+    image: "https://assets.iiitdwd.ac.in/images/icarus_info.jpeg",
     imageAlt: "Team ICARUS",
-    teamLine: null,
-    link: "https://www.instagram.com/p/Da2DPFaTDSG/",
-    linkLabel: "View on Instagram",
+    teamLine:
+      "Mentored by Prof. Mallikarjun Kande | Team: Jayesh Patil (Lead), Aswin Joseph Sunny, Priyanshu Mittal, Ankit Dash, Raskin Verma, Muhammad Rehan, Saksham",
+    link: "https://assets.iiitdwd.ac.in/docs/Story_ICARUS_Award_In_Main_Title.pdf",
+    linkLabel: "Read Full Story (PDF)",
   },
   {
     id: "vlsi",

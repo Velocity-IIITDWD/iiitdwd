@@ -8,7 +8,6 @@ import OpenHouseSection from "./open-house-section";
 import QuickLinksSection from "./quick-links";
 import StatsSection from "./stats-section";
 
-import AchievementBanner from "./achievement-banner";
 import OrientationBanner from "./orientation-banner";
 import ScrollingNoticeBanner from "@/components/layout/scrolling-notice-banner";
 
@@ -47,7 +46,6 @@ export default async function HomePage(): Promise<ReactElement> {
       <ScrollingNoticeBanner />
       <GalleryCarousel images={images} />
       <OrientationBanner />
-      <AchievementBanner />
       <div className="flex flex-col items-center">
         <div className="px-4 sm:px-6 md:px-13 py-6 sm:py-8 font-grotesk">
           <div className="mx-auto max-w-7xl w-full">
