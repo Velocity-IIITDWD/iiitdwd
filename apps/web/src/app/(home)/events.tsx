@@ -107,7 +107,7 @@ export default function EventsSection({
                 </div>
                 {item?.eventDate && (
                   <div className="absolute top-2.5 left-2.5 bg-[#193654]/90 backdrop-blur-md text-white text-[11px] font-semibold px-2.5 py-1 rounded-md shadow-sm border border-white/20 flex items-center gap-1.5">
-                    <CalendarIcon size={12} className="text-[#CCE70B]" />
+                    <CalendarIcon size={12} className="text-white" />
                     <span>{formatDisplayDate(item.eventDate)}</span>
                   </div>
                 )}
@@ -123,7 +123,11 @@ export default function EventsSection({
                   <Link
                     href={item.link}
                     target={item.link.startsWith("http") ? "_blank" : undefined}
-                    rel={item.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                    rel={
+                      item.link.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="inline-flex gap-2 uppercase w-fit text-xs font-semibold text-white hover:bg-[#193654]/90 transition-all duration-300 bg-[#193654] rounded-md px-4 py-2.5 items-center shadow-sm hover:shadow-md mt-auto"
                   >
                     Read More
