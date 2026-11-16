@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --turbopack  --port 3000",
     "build": "next build --turbopack",
-    "postbuild": "next-sitemap && node postbuild.js && rm -f public/sitemap*.xml public/robots.txt || true",
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs && node postbuild.js",
     "start": "next start",
     "lint": "next lint",
     "check-types": "tsc --noEmit"

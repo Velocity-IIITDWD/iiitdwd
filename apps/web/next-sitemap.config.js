@@ -1,5 +1,4 @@
-/** @type {import('next-sitemap').IConfig} */
-module.exports = {
+const config = {
   siteUrl: 'https://iiitdwd.ac.in',
   generateRobotsTxt: true,
   robotsTxtOptions: {
@@ -20,3 +19,6 @@ module.exports = {
     };
   }
 };
+
+export default config;
+

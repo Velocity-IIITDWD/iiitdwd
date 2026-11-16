@@ -7,9 +7,11 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import {
   IconBrandYoutubeFilled,
+  IconBuildingBank,
   IconCalendarEvent,
   IconClock,
   IconFileText,
+  IconLanguage,
   IconMapPin,
   IconChevronLeft,
   IconChevronRight,
@@ -94,7 +96,142 @@ export default function OrientationBanner() {
         {/* Carousel Viewport */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex items-center">
-            {/* Slide 1: Team ICARUS (ISRO Robotics Challenge - 4th Place & ₹2 Lakh Prize) */}
+            {/* Slide 1: Visit of Hon'ble Rajya Sabha MP Prof. M. Nagaraja */}
+            <div className="flex-[0_0_100%] min-w-0">
+              <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12 xl:gap-14">
+                {/* Left: Poster */}
+                <div className="w-full lg:w-[38%] xl:w-[36%] shrink-0 flex items-center justify-center">
+                  <a
+                    href="https://assets.iiitdwd.ac.in/images/WhatsApp_Image_2026-11-16_at_8.45.29_PM.jpeg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative rounded-2xl overflow-hidden shadow-md sm:shadow-lg border border-gray-200/90 bg-white group w-full max-w-[440px] lg:max-w-none cursor-pointer"
+                    title="Click to view full graphic in new tab"
+                  >
+                    <div className="w-full overflow-hidden relative">
+                      <Image
+                        src="https://assets.iiitdwd.ac.in/images/WhatsApp_Image_2026-11-16_at_8.45.29_PM.jpeg"
+                        alt="Hon'ble Rajya Sabha MP Prof. M. Nagaraja Visits IIIT Dharwad"
+                        width={1024}
+                        height={682}
+                        className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                        priority
+                      />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#193654]/95 via-[#193654]/60 to-transparent p-3 sm:p-3.5 flex items-center justify-between text-white pointer-events-none">
+                        <span className="text-[10px] sm:text-xs font-extrabold bg-white/20 backdrop-blur-md px-2.5 sm:px-3 py-0.5 rounded-full">
+                          Distinguished Visit
+                        </span>
+                        <span className="text-[11px] sm:text-xs font-black flex items-center gap-1">
+                          View Full Graphic ↗
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                {/* Right: Content */}
+                <div className="flex-1 w-full text-left lg:pl-2 xl:pl-4">
+                  {/* Category Pill */}
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-gray-200 shadow-xs text-[#193654] text-[11px] sm:text-xs font-black uppercase tracking-wider mb-2.5 sm:mb-3">
+                    <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#193654]" />
+                    <span>Campus Update · Distinguished Visit</span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl md:text-[1.85rem] lg:text-[2rem] xl:text-[2.25rem] font-black text-[#193654] leading-[1.25] mb-2.5 tracking-tight">
+                    Hon&apos;ble Rajya Sabha MP Prof. M. Nagaraja Visits IIIT Dharwad
+                  </h3>
+                  <div className="h-0.5 sm:h-1 w-12 sm:w-16 bg-[#193654] rounded-full mb-3.5 sm:mb-4" />
+
+                  {/* Description */}
+                  <p className="text-gray-800 mb-5 text-sm sm:text-[15px] lg:text-base leading-relaxed font-normal">
+                    IIIT Dharwad was delighted to welcome Hon&apos;ble Prof. M. Nagaraja, Member of Parliament (Rajya Sabha), Karnataka, to its campus. During his visit, he interacted with Director Prof. S. R. Mahadeva Prasanna, faculty members, and the technical team, witnessing demonstrations of cutting-edge BHASHINI-enabled speech and language translation technologies.
+                  </p>
+
+                  {/* Event Details Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4 sm:mb-5">
+                    <div className="flex items-center gap-3 p-3 sm:p-3.5 bg-white rounded-xl border border-gray-200 shadow-xs">
+                      <div className="w-10 h-10 rounded-xl bg-[#193654]/10 flex items-center justify-center text-[#193654] shrink-0">
+                        <IconBuildingBank size={20} />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[11px] uppercase tracking-wider font-extrabold text-[#193654]/75">Dignitary</p>
+                        <p className="text-sm font-black text-[#193654] leading-snug truncate">Prof. M. Nagaraja, MP</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 sm:p-3.5 bg-white rounded-xl border border-gray-200 shadow-xs">
+                      <div className="w-10 h-10 rounded-xl bg-[#193654]/10 flex items-center justify-center text-[#193654] shrink-0">
+                        <IconLanguage size={20} />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[11px] uppercase tracking-wider font-extrabold text-[#193654]/75">Key Highlight</p>
+                        <p className="text-sm font-black text-[#193654] leading-snug">BHASHINI Multilingual Tech</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 p-3 sm:p-3.5 bg-white rounded-xl border border-gray-200 shadow-xs">
+                      <div className="w-10 h-10 rounded-xl bg-[#193654]/10 flex items-center justify-center text-[#193654] shrink-0">
+                        <IconMapPin size={20} />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-[11px] uppercase tracking-wider font-extrabold text-[#193654]/75">Venue</p>
+                        <p className="text-sm font-black text-[#193654] leading-snug">IIIT Dharwad Campus</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Key Highlights Card */}
+                  <div className="rounded-xl bg-white border border-gray-200 shadow-xs p-4 sm:p-4.5 text-left mb-5">
+                    <p className="text-xs font-black text-[#193654] uppercase tracking-wider mb-2.5">
+                      Key Highlights of the Visit
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-xs sm:text-[13px] text-gray-900 font-medium">
+                      <div className="flex items-start gap-2.5">
+                        <IconCircleCheck size={16} className="text-[#193654] shrink-0 mt-0.5" />
+                        <span className="leading-snug">Interactive session with Director, faculty members &amp; technical team</span>
+                      </div>
+                      <div className="flex items-start gap-2.5">
+                        <IconCircleCheck size={16} className="text-[#193654] shrink-0 mt-0.5" />
+                        <span className="leading-snug">Demonstration of BHASHINI speech &amp; language translation system</span>
+                      </div>
+                      <div className="flex items-start gap-2.5">
+                        <IconCircleCheck size={16} className="text-[#193654] shrink-0 mt-0.5" />
+                        <span className="leading-snug">Translation across Malayalam, Kannada, English &amp; other Indian languages</span>
+                      </div>
+                      <div className="flex items-start gap-2.5">
+                        <IconCircleCheck size={16} className="text-[#193654] shrink-0 mt-0.5" />
+                        <span className="leading-snug">Appreciation for language technologies developed for tribal languages</span>
+                      </div>
+                      <div className="flex items-start gap-2.5">
+                        <IconCircleCheck size={16} className="text-[#193654] shrink-0 mt-0.5" />
+                        <span className="leading-snug">Confidence in IIIT Dharwad emerging as a leading tech centre of excellence</span>
+                      </div>
+                      <div className="flex items-start gap-2.5">
+                        <IconCircleCheck size={16} className="text-[#193654] shrink-0 mt-0.5" />
+                        <span className="leading-snug">Interaction attended by Dr. K. T. Deepak (Associate Prof.) &amp; faculty</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Action Link */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <Link
+                      href="https://assets.iiitdwd.ac.in/images/WhatsApp_Image_2026-11-16_at_8.45.29_PM.jpeg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <button className="flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-[#193654] hover:bg-[#12273d] text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer">
+                        <IconExternalLink size={16} />
+                        <span>View Full Infographic</span>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Slide 2: Team ICARUS (ISRO Robotics Challenge - 4th Place & ₹2 Lakh Prize) */}
             <div className="flex-[0_0_100%] min-w-0">
               <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12 xl:gap-14">
                 {/* Left: Graphic / Infographic */}
@@ -739,7 +876,7 @@ export default function OrientationBanner() {
           </button>
 
           <div className="flex items-center gap-1.5 sm:gap-2">
-            {[0, 1, 2, 3, 4].map((index) => (
+            {[0, 1, 2, 3, 4, 5].map((index) => (
               <button
                 key={index}
                 onClick={() => scrollTo(index)}
